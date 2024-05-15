@@ -1,7 +1,11 @@
+import { Link } from "react-router-dom"
+
 const header = () => {
     return (
       <div className="header">
-        <h2>header.jsx</h2>
+         <Link to="/">Home</Link>
+         <Link to="/info">Info</Link>
+         <h2 className="text-3xl font-bold underline">작업하기</h2>
       </div>
     );
 }
