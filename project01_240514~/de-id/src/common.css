@@ -1,0 +1,37 @@
+@charset "utf-8";/*이 css문서는 utf-8방식으로 인코딩 되어 있습니다. */
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');/*영문웹폰트*/
+@font-face {
+    font-family: 'NotoSans';
+    font-weight: 400;
+    font-display: swap;
+    src: local('NotoSans-Regular'), url(./fonts/NotoSans-Regular.woff2) format('woff2'), url(./fonts/NotoSans-Regular.woff) format('woff');
+}
+@font-face {
+    font-family: 'NotoSans';
+    font-weight: 700;
+    font-display: swap;
+    src: local('NotoSans-Bold'), url(./fonts/NotoSans-Bold.woff2) format('woff2'), url(./fonts/NotoSans-Bold.woff) format('woff');
+}
+
+/*한글웹폰트*/
+*::selection {
+    background-color: #2d2d2d;
+    color: #fff;
+}
+*::-moz-selection { /*호환성을 위한 코드*/
+    background-color: #2d2d2d;
+    color: #fff;
+}
+body {
+    font-family: 'NotoSans', 'Work Sans' ,sans-serif;
+    font-size: 18px;
+    color: #2d2d2d;
+    font-weight: 400;
+    line-height: 1.4;
+    word-break: keep-all;
+    word-wrap: break-word;
+}
+#wrap { /*id="wrap"에 적용되는 스타일 */
+    min-width: 100%;
+    overflow: hidden; 
+}

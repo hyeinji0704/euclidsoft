@@ -3,16 +3,20 @@ import './App.css';
 import Header from './header';
 import Home from './home';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Info from './pages/info'
+import Worklist from './pages/worklist'
+import Workboard from './pages/workboard';
+import Login from './login';
 
 function App() {
   return (
     <div className="App">
+      <Header />
       <BrowserRouter>
-        <Header />
+      <Home />
       <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/info' element={<Info />} />
+        <Route path='/worklist' element={<Worklist />} />
+        <Route path='/workboard' element={<Workboard />} />
+        <Route path='/login' element={<Login />} />
       </Routes>
       </BrowserRouter>
     </div>
