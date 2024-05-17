@@ -16,8 +16,11 @@ module.exports = {
       spacing: px0_200,
     },
     colors:  {
+      'bg-purple-400' : '#D8DBEC', 
+      'bg-purple-300' : '#5C67B0', 
       'bg-purple-200' : '#D4D9FE', 
       'bg-purple-100' : '#E4E7FA',
+      'border-100': 'rgba(92, 103, 176, 0.6)',
       'bg-btn-100' : '#19286E',
     },
     fontFamily: {
