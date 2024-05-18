@@ -1,5 +1,3 @@
-import './App.css';
-
 function Login() {
     return (
       <div className="Login h-lvh bg-gradient-to-r from-bg-purple-200 to-bg-purple-100 relative before:">
@@ -26,7 +24,7 @@ function Login() {
                   <input type='password' id='pw' name='pw' placeholder='PASSWORD' title='비밀번호'></input>
                 </div>
                 <div className='btn_login_wrap'>
-                  <input type='submit' value='LOGIN' className='btn_login '></input>
+                  <input type='submit' value='LOGIN' className='btn_login'></input>
                 </div>
               </fieldset>
             </form>

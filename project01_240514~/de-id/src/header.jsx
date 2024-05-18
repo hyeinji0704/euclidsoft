@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom"
-
 const Header = () => {
     return (
       <div className="header h-95 flex justify-between px-[30px] items-center">
