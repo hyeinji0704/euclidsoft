@@ -70,8 +70,10 @@ const Worklist = () => {
               </tbody>
             </table>
           </div>
-          <div class="pagenation text-center">
-            <ul>
+          <div class="pagenation text-[15px] flex justify-center items-center">
+            <button type='button' className='button_first btn w-[22px] h-[15px] bg-center bg-no-repeat mr-[25px]'></button>
+            <button type='button' className='button_prev btn w-[15px] h-[15px] bg-center bg-no-repeat'></button>
+            <ul className='px-[30px]'>
               <li className='page on'>
                 <button type='button' className='page_link'>1</button>
               </li>
@@ -88,10 +90,8 @@ const Worklist = () => {
                 <button type='button' className='page_link'>5</button>
               </li>
             </ul>
-            <button type='button' className='button_first'></button>
-            <button type='button' className='button_prev'></button>
-            <button type='button' className='button_next'></button>
-            <button type='button' className='button_last'></button>
+            <button type='button' className='button_next btn w-[15px] h-[15px] bg-center bg-no-repeat'></button>
+            <button type='button' className='button_last btn w-[22px] h-[15px] bg-center bg-no-repeat ml-[25px]'></button>
             </div>
         </div>
       </div>
