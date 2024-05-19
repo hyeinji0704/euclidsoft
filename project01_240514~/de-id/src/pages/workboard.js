@@ -6,7 +6,7 @@ const Workboard = () => {
   }
   return (
     <div className="workboard-page page flex content-center flex-wrap">
-      <div className="workboard_wrap px-[30px] flex w-full">
+      <div className="wrap px-[30px] flex w-full">
         <div className="board w-4/5 mr-[17px] border rounded-[5px] border-border-100 bg-[#F5F5F5]"></div>
         <div className="label_container w-1/5 border rounded-[5px] border-border-100 ">
           <div className="label_title flex justify-between pt-[24px] pb-[20px] pl-[32px] pr-[21px] bg-bg-purple-400 relative">
