@@ -33,8 +33,8 @@ const Worklist = () => {
               </fieldset>
             </form>
           </div>
-          <div className="list_section h-[540px] overflow-auto">
-            <table className="w-full table-fixed">
+          <div className="list_section  w-full overflow-auto">
+            <table className="w-full table-fixed ">
               <colgroup>
                   <col width="15%"></col>
                   <col width="40%"></col>
@@ -56,7 +56,7 @@ const Worklist = () => {
                     {changeView && (
                     <div className='hiddenwrapper'>
                       <div className="hiddenBox">
-                        <button onClick={isviewClick}>close</button>
+                        <button onClick={isviewClick}>CLOSE</button>
                         <img alt="이미지" src={list_img01} />
                       </div>
                     </div>
@@ -67,19 +67,49 @@ const Worklist = () => {
                   <td className="" title="작업완료"><em>작업완료</em></td>
                 </tr>
                 <tr className=' hover:bg-[#EFF1F7]'>
-                  <td><button><img src={list_img01} className='list_img' alt='이미지' /></button></td>
+                  <td>
+                    <button><img src={list_img01} className='list_img' alt='이미지' onClick={isviewClick}/></button>
+                    {changeView && (
+                    <div className='hiddenwrapper'>
+                      <div className="hiddenBox">
+                        <button onClick={isviewClick}>CLOSE</button>
+                        <img alt="이미지" src={list_img01} />
+                      </div>
+                    </div>
+                    )}
+                  </td>
                   <td>2024.05.02</td>
                   <td>4건</td>
                   <td className="" title="작업완료"><em>작업완료</em></td>
                 </tr>
                 <tr className=' hover:bg-[#EFF1F7]'>
-                  <td><button><img src={list_img01} className='list_img' alt='이미지' /></button></td>
+                  <td>
+                    <button><img src={list_img01} className='list_img' alt='이미지' onClick={isviewClick}/></button>
+                    {changeView && (
+                    <div className='hiddenwrapper'>
+                      <div className="hiddenBox">
+                        <button onClick={isviewClick}>CLOSE</button>
+                        <img alt="이미지" src={list_img01} />
+                      </div>
+                    </div>
+                    )}
+                  </td>
                   <td>2024.05.02</td>
                   <td>2건</td>
                   <td className="" title="작업불가"><em>작업불가</em></td>
                 </tr>
                 <tr className=' hover:bg-[#EFF1F7]'>
-                  <td><button><img src={list_img01} className='list_img' alt='이미지' /></button></td>
+                  <td>
+                    <button><img src={list_img01} className='list_img' alt='이미지' onClick={isviewClick}/></button>
+                    {changeView && (
+                    <div className='hiddenwrapper'>
+                      <div className="hiddenBox">
+                        <button onClick={isviewClick}>CLOSE</button>
+                        <img alt="이미지" src={list_img01} />
+                      </div>
+                    </div>
+                    )}
+                  </td>
                   <td>2024.05.02</td>
                   <td>0건</td>
                   <td className="" title="작업중"><em>작업중</em></td>
@@ -87,7 +117,7 @@ const Worklist = () => {
               </tbody>
             </table>
           </div>
-          <div class="pagenation text-[15px] flex justify-center items-center">
+          <div class="pagenation text-[15px] flex justify-center items-center mt-[5px]">
             <button type='button' className='button_first btn w-[22px] h-[15px] bg-center bg-no-repeat mr-[25px]'></button>
             <button type='button' className='button_prev btn w-[15px] h-[15px] bg-center bg-no-repeat'></button>
             <ul className='px-[30px]'>

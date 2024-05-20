@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 const home = () => {
     return (
-      <div className="home bg-gradient-to-r from-bg-purple-200 to-bg-purple-100 relative before:">
+      <div className="home bg-gradient-to-r from-bg-purple-200 to-bg-purple-100 relative overflow-hidden">
         <div className='bg-contents absolute top-0 left-0 w-full overflow-hidden'>
           <div className='bg-left absolute overflow-hidden'></div>
           <div className='bg-right absolute overflow-hidden'></div>
