@@ -11,7 +11,7 @@ const home = () => {
           <ul>
             <li className="workboard text-[24px] font-bold w-[370px] text-center rounded-[10px] mb-[41px] drop-shadow-4xl"><Link to="/workboard"><span>작업하기</span></Link></li>
             <li className="worklist text-[24px] font-bold w-[370px] text-center rounded-[10px] mb-[41px] drop-shadow-4xl" ><Link to="/worklist"><span>작업내역</span></Link></li>
-            <li className="logout text-[24px] font-bold w-[370px] text-center rounded-[10px] drop-shadow-4xl"><Link to="/login"><span>로그아웃</span></Link></li>
+            <li className="logout text-[24px] font-bold w-[370px] text-center rounded-[10px] drop-shadow-4xl"><Link to="/"><span>로그아웃</span></Link></li>
           </ul>
         </div>
       </div>

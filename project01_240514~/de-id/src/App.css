@@ -1,13 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import "./default.css";
-@import "./common.css";
+@import "./css/default.css";
+@import "./css/common.css";
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');/*영문웹폰트*/
+@font-face {
+    font-family: 'NotoSans';
+    font-weight: 400;
+    font-display: swap;
+    src: local('NotoSans-Regular'), url(./fonts/NotoSans-Regular.woff2) format('woff2'), url(./fonts/NotoSans-Regular.woff) format('woff');
+}
+@font-face {
+    font-family: 'NotoSans';
+    font-weight: 700;
+    font-display: swap;
+    src: local('NotoSans-Bold'), url(./fonts/NotoSans-Bold.woff2) format('woff2'), url(./fonts/NotoSans-Bold.woff) format('woff');
+}
 
-
-/**LOGIN**/
+/**LOGIN 로그인**/
 .bg-contents {
-  height: 100%;
+  height: 100vh;
 }
 .bg-contents .bg-left {
   top: 0;
@@ -308,7 +320,14 @@
 .wrap {
   height: calc( 100vh - 141px );
 }
-.workboard-page .workboard_wrap  .eyes .eye-icon::after {
+.workboard-page .eyes .eye-icon {
+  position: relative;
+  width: 22px;
+  height: 100%;
+  font-size: 0;
+  line-height: 0;
+}
+.workboard-page .eyes .eye-icon::after {
   position: absolute;
   left: 50%;
   top: -6px;
@@ -319,16 +338,16 @@
   background-position: center center;
   background-repeat: no-repeat;
 }
-.workboard-page .workboard_wrap  .eyes .show::after {
+.workboard-page .eyes .show::after {
   background-image: url("data:image/svg+xml,%3Csvg width='22' height='22' viewBox='0 0 22 22' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.0003 8.25C11.7297 8.25 12.4291 8.53973 12.9449 9.05546C13.4606 9.57118 13.7503 10.2707 13.7503 11C13.7503 11.7293 13.4606 12.4288 12.9449 12.9445C12.4291 13.4603 11.7297 13.75 11.0003 13.75C10.271 13.75 9.57151 13.4603 9.05578 12.9445C8.54006 12.4288 8.25033 11.7293 8.25033 11C8.25033 10.2707 8.54006 9.57118 9.05578 9.05546C9.57151 8.53973 10.271 8.25 11.0003 8.25ZM11.0003 4.125C15.5837 4.125 19.4978 6.97583 21.0837 11C19.4978 15.0242 15.5837 17.875 11.0003 17.875C6.41699 17.875 2.50283 15.0242 0.916992 11C2.50283 6.97583 6.41699 4.125 11.0003 4.125ZM2.91533 11C3.65622 12.5128 4.80669 13.7874 6.23593 14.6788C7.66517 15.5703 9.31586 16.0429 11.0003 16.0429C12.6848 16.0429 14.3355 15.5703 15.7647 14.6788C17.194 13.7874 18.3444 12.5128 19.0853 11C18.3444 9.48722 17.194 8.21265 15.7647 7.32118C14.3355 6.42972 12.6848 5.95712 11.0003 5.95712C9.31586 5.95712 7.66517 6.42972 6.23593 7.32118C4.80669 8.21265 3.65622 9.48722 2.91533 11Z' fill='%232D2D2D'/%3E%3C/svg%3E%0A");
 }
-.workboard-page .workboard_wrap  .eyes .hide::after {
+.workboard-page .eyes .hide::after {
   background-image: url("data:image/svg+xml,%3Csvg width='24' height='22' viewBox='0 0 24 22' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.5846 9.70508C10.2096 10.049 9.99893 10.5153 9.99902 11.0016C9.99912 11.4878 10.2099 11.9541 10.5851 12.2979C10.9602 12.6416 11.469 12.8347 11.9994 12.8346C12.5299 12.8345 13.0386 12.6413 13.4136 12.2974' stroke='%232D2D2D' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M16.681 15.2836C15.2786 16.0889 13.6548 16.5109 12 16.5C8.4 16.5 5.4 14.6667 3 11C4.272 9.05667 5.712 7.6285 7.32 6.7155M10.18 5.665C10.779 5.55349 11.3888 5.49821 12 5.5C15.6 5.5 18.6 7.33333 21 11C20.3333 12.0175 19.6207 12.8944 18.862 13.6308M3 2.75L21 19.25' stroke='%232D2D2D' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
 }
-.workboard-page .workboard_wrap .reason {
+.workboard-page .reason {
   text-align: center;
 }
-.workboard-page .workboard_wrap .reason input[type="text"] {
+.workboard-page .reason input[type="text"] {
   width: calc(100% - 28px); 
   font-size: 18px;
   border: 1px solid #E3E5E8;
@@ -337,10 +356,10 @@
   outline: 0;
   padding: 15px 0 16px 16px;
 }
-.workboard-page .workboard_wrap .reason input[type="text"]::placeholder {
+.workboard-page .reason input[type="text"]::placeholder {
   color: #666;
 }
-.workboard-page .workboard_wrap .label_btn_wrap .end_btn input[type="submit"] {
+.workboard-page .label_btn_wrap .end_btn input[type="submit"] {
   border: 0;
 }
 .label_list {
@@ -436,23 +455,18 @@ th, td {
   line-height: 110px;
   text-align: center;
 }
-tbody span {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-}
-.list_img {
-  width: 140px;
-  object-fit: contain;
-  border-radius: 5px;
-}
 tbody td em {
   font-size: 15px;
   line-height: 40px;
   display: inline-block;
   border-radius: 30px;
   width: 90px;
+}
+tbody button {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
 }
 tbody td[title="작업완료"] em {
   background-color: #EDEDED;
@@ -465,6 +479,49 @@ tbody td[title="작업불가"] em {
 tbody td[title="작업중"] em {
   background-color: #FFF1B4;
   border: 1px solid #FFC000;
+}
+.hiddenwrapper {
+  position: fixed;
+  text-align: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(204, 204, 204, 0.85);
+  z-index: 9900;
+}
+.hiddenBox {
+  position: relative;
+  vertical-align: middle;
+  width: 1920px;
+  height: 1080px;
+}
+.hiddenBox > img {
+  display: block;
+  max-width: 100%;
+  width: 60%;
+  height: 60%;
+  line-height: 0;
+}
+.hiddenBox > button {
+  position: absolute;
+  bottom: 170px;
+  right: 50%;
+  transform: translateY(-50%);
+  color: lightgray;
+  width: 143px;
+  height: 50px;
+  padding-top: 10px;
+  padding-right: 6px;
+  border: none;
+  background-color: #19286E;
+  cursor: zoom-out;
+  font-size: 20px;
+}
+.list_img {
+  width: 140px;
+  object-fit: contain;
+  border-radius: 5px;
 }
 .pagenation .page {
   width: 34px;

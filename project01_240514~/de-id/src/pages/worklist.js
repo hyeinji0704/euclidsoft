@@ -1,5 +1,12 @@
+import React, { useState } from 'react';
 import list_img01 from '../images/list_img01.png';
+
 const Worklist = () => {
+  const [changeView, setChangeView] = useState(false);
+
+  const isviewClick = e => {
+    setChangeView(!changeView);
+  };
     return (
       <div className="worklist-page cnt flex content-center flex-wrap px-[30px]">
         <div className="wrap w-full border rounded-[5px] border-border-100 px-[43px]">
@@ -43,26 +50,36 @@ const Worklist = () => {
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td><span><img src={list_img01} className='list_img' alt='이미지' /></span></td>
+                <tr className=' hover:bg-[#EFF1F7]'>
+                  <td>
+                    <button><img src={list_img01} className='list_img' alt='이미지' onClick={isviewClick}/></button>
+                    {changeView && (
+                    <div className='hiddenwrapper'>
+                      <div className="hiddenBox">
+                        <button onClick={isviewClick}>close</button>
+                        <img alt="이미지" src={list_img01} />
+                      </div>
+                    </div>
+                    )}
+                  </td>
                   <td>2024.05.02</td>
                   <td>17건</td>
                   <td className="" title="작업완료"><em>작업완료</em></td>
                 </tr>
-                <tr>
-                  <td><span><img src={list_img01} className='list_img' alt='이미지' /></span></td>
+                <tr className=' hover:bg-[#EFF1F7]'>
+                  <td><button><img src={list_img01} className='list_img' alt='이미지' /></button></td>
                   <td>2024.05.02</td>
                   <td>4건</td>
                   <td className="" title="작업완료"><em>작업완료</em></td>
                 </tr>
-                <tr>
-                  <td><span><img src={list_img01} className='list_img' alt='이미지' /></span></td>
+                <tr className=' hover:bg-[#EFF1F7]'>
+                  <td><button><img src={list_img01} className='list_img' alt='이미지' /></button></td>
                   <td>2024.05.02</td>
                   <td>2건</td>
                   <td className="" title="작업불가"><em>작업불가</em></td>
                 </tr>
-                <tr>
-                  <td><span><img src={list_img01} className='list_img' alt='이미지' /></span></td>
+                <tr className=' hover:bg-[#EFF1F7]'>
+                  <td><button><img src={list_img01} className='list_img' alt='이미지' /></button></td>
                   <td>2024.05.02</td>
                   <td>0건</td>
                   <td className="" title="작업중"><em>작업중</em></td>
@@ -74,20 +91,20 @@ const Worklist = () => {
             <button type='button' className='button_first btn w-[22px] h-[15px] bg-center bg-no-repeat mr-[25px]'></button>
             <button type='button' className='button_prev btn w-[15px] h-[15px] bg-center bg-no-repeat'></button>
             <ul className='px-[30px]'>
-              <li className='page on'>
-                <button type='button' className='page_link'>1</button>
+              <li className='page on mr-[8px]'>
+                <button type='button' className='page_link '>1</button>
               </li>
-              <li className='page'>
-                <button type='button' className='page_link'>2</button>
+              <li className='page mr-[8px]'>
+                <button type='button' className='page_link '>2</button>
               </li>
-              <li className='page'>
+              <li className='page mr-[8px]'>
                 <button type='button' className='page_link'>3</button>
               </li>
-              <li className='page'>
+              <li className='page mr-[8px]'>
                 <button type='button' className='page_link'>4</button>
               </li>
               <li className='page'>
-                <button type='button' className='page_link'>5</button>
+                <button type='button' className='page_link '>5</button>
               </li>
             </ul>
             <button type='button' className='button_next btn w-[15px] h-[15px] bg-center bg-no-repeat'></button>
@@ -97,5 +114,6 @@ const Worklist = () => {
       </div>
     );
 }
-  
+
+
 export default Worklist;

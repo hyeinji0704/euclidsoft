@@ -1,6 +1,6 @@
 function Login() {
     return (
-      <div className="Login h-lvh bg-gradient-to-r from-bg-purple-200 to-bg-purple-100 relative before:">
+      <div className="Login h-[100vh] bg-gradient-to-r from-bg-purple-200 to-bg-purple-100 relative">
         <div className='bg-contents absolute top-0 left-0 w-full h-lvh overflow-hidden'>
           <div className='bg-left absolute overflow-hidden'></div>
           <div className='bg-right absolute overflow-hidden'></div>

@@ -11,7 +11,7 @@ const Workboard = () => {
         <div className="label_container w-1/5 border rounded-[5px] border-border-100 ">
           <div className="label_title flex justify-between pt-[24px] pb-[20px] pl-[32px] pr-[21px] bg-bg-purple-400 relative">
             <h2 className="font-bold text-[18px]">Labels</h2>
-            <div className="eyes pr-[40px]">
+            <div className=" eyes pr-[40px]">
               {
                 (open === false)? <button className="eye-icon hide" onClick={toggle}>눈</button>:
                 <button className="eye-icon show" onClick={toggle}>눈</button>
