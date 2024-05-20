@@ -486,36 +486,38 @@ tbody td[title="작업중"] em {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background-color: rgba(204, 204, 204, 0.85);
   z-index: 9900;
 }
 .hiddenBox {
-  position: relative;
+  position: relative; 
   vertical-align: middle;
-  width: 1920px;
-  height: 1080px;
+  width: 1060px;
+  height: 595.34px;
+  margin: 0 auto;
 }
 .hiddenBox > img {
+  position: absolute;
+  top: 173PX;
+  right: 0;
   display: block;
   max-width: 100%;
-  width: 60%;
-  height: 60%;
+  width: 100%;
+  height: 100%;
   line-height: 0;
 }
 .hiddenBox > button {
   position: absolute;
-  bottom: 170px;
+  bottom: -273px;
   right: 50%;
   transform: translateY(-50%);
-  color: lightgray;
+  color: #fff;
   width: 143px;
   height: 50px;
-  padding-top: 10px;
-  padding-right: 6px;
-  border: none;
+  line-height: 50px;
+  border-radius: 5px;
   background-color: #19286E;
-  cursor: zoom-out;
   font-size: 20px;
 }
 .list_img {
