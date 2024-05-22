@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom"
+import Header_Active from "../header";
 
 const home = () => {
     return (
+      <>
+    <Header_Active/>
       <div className="home bg-gradient-to-r from-bg-purple-200 to-bg-purple-100 relative overflow-hidden">
         <div className='bg-contents absolute top-0 left-0 w-full overflow-hidden'>
           <div className='bg-left absolute overflow-hidden'></div>
@@ -15,6 +18,7 @@ const home = () => {
           </ul>
         </div>
       </div>
+      </>
     );
 }
   

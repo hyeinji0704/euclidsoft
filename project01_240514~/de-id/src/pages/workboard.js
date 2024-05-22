@@ -1,10 +1,13 @@
 import { useState } from 'react';
+import Header_Active from '../header';
 const Workboard = () => {
   const [ open, setOpen ] = useState(false)
   const toggle = () =>{
     setOpen(!open)
   }
   return (
+    <>
+      <Header_Active/>
     <div className="workboard-page cnt flex content-center flex-wrap">
       <div className="wrap px-[30px] flex w-full">
         <div className="board w-4/5 mr-[17px] border rounded-[5px] border-border-100 bg-[#F5F5F5]"></div>
@@ -62,6 +65,7 @@ const Workboard = () => {
         </div>
       </div>
     </div>
+    </>
   );
 }
   

@@ -14,7 +14,6 @@ function App() {
     //<Login />
     <BrowserRouter>
       <div className="App">
-        <Header_Active />
         <Routes>
           <Route exact path="/" element={ <Home /> } />
           <Route path="/workboard" element={ <Workboard /> } />
