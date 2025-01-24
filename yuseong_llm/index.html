@@ -5,8 +5,119 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.svg">
     <link rel="stylesheet" href="css/main.css">
-    <title>Document</title>
+    <title>유성구청VOC</title>
 </head>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const tabButtons = document.querySelectorAll(".euc-tab-btn");
+      const tabContents = document.querySelectorAll(".euc-tab-content");
+    
+      tabButtons.forEach((button) => {
+        button.addEventListener("click", function () {
+          const targetTab = this.getAttribute("data-tab");
+    
+          // 모든 버튼에서 active 클래스 제거
+          tabButtons.forEach((btn) => btn.classList.remove("active"));
+          this.classList.add("active");
+    
+          // 모든 탭 내용 숨기기
+          tabContents.forEach((content) => content.classList.remove("active"));
+          document.getElementById(targetTab).classList.add("active");
+        });
+      });
+    });
+</script>
 <body>
+    <div class="euc-main">
+        <div class="euc-sidebar">
+            <div class="euc-logo">
+                <div class="euc-logo-img"><img src="images/logo.svg" alt="유성구청로고"></div>
+                <span class="euc-name">유성구청 예산·회계</span>
+            </div>
+        </div>
+        <div class="euc-wrap">
+            <div class="euc-header">
+                <div class="euc-user-dropdown">
+                    <a href="#" class="euc-dropdown-toggle">
+                        <div class="euc-user-avatar">
+                            <span class="euc-user-initial">S</span>
+                        </div>
+                    </a>
+                    <div class="euc-dropdown-menu">
+                        <div class="euc-dropdown-inner">
+                            <ul class="euc-link-list">
+                                <li>
+                                    <a href="#">
+                                        <em class="euc-ico setting">
+                                            <span>설정</span>
+                                        </em>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <em class="euc-ico person">
+                                            <span>내 정보</span>
+                                        </em>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <em class="euc-ico home">
+                                            <span>유성구청 홈</span>
+                                        </em>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <em class="euc-ico logout">
+                                            <span>로그아웃</span>
+                                        </em>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="euc-content">
+                <div class="euc-inner">
+                    <div class="euc-search">
+                        <div class="euc-search-tit">
+                            <h1>안녕하세요, <span class="euc-username">유정</span>님<br>
+                                <strong>질문하거나 작업을 요청하세요.</strong></h1>
+                        </div>
+                        <form class="euc-search-form">
+                            <button type="submit" class="search-button">
+                                <em class="euc-ico mic"></em> 
+                              </button>
+                            <input type="text" class="search-input" placeholder="궁금한 내용을 작성해 주세요." />
+                            <button type="submit" class="search-button">
+                              <em class="euc-ico search"></em> 
+                            </button>
+                        </form>
+                        <div class="euc-subtext">
+                            <p>유성구청 예산·회계에 대해 궁금한 점이 있으신가요? 검색어를 입력해 보세요!</p>
+                        </div>
+                    </div>
+                    <div class="euc-search-results">
+                        <div class="euc-tabs">
+                            <div class="euc-tab-buttons">
+                              <button class="euc-tab-btn active" data-tab="tab1">최신순</button>
+                              <button class="euc-tab-btn" data-tab="tab2">과거순</button>
+                            </div>
+                            <div class="euc-tab-contents">
+                              <div class="euc-tab-content active" id="tab1">
+                                <div class="euc-tab-card"></div>
+                              </div>
+                              <div class="euc-tab-content" id="tab2">
+                                <div class="euc-tab-card"></div>
+                              </div>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
