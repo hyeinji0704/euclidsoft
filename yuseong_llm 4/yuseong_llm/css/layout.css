@@ -32,14 +32,6 @@
     align-items: center;
 }
 
-/* Content */
-
-.euc-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 /* user-avatar */     
 .euc-user-avatar {
     display: flex;
@@ -175,8 +167,7 @@
         padding: 1.5rem 1.5rem 1.5rem 1rem;
         border: none;
         background: transparent;
-        
-        min-width: 60rem;
+        width: 100%;
         flex: 1;
         outline: none;
         box-sizing: border-box;
@@ -212,6 +203,8 @@
         background-color: var(--euc-hover-bg-200);
     }
 
+    /* 정지 버튼 */
+
     /* 버튼 아이콘 */
     .mic {
         width: 3rem;
@@ -227,7 +220,6 @@
 
 /* 탭 컨텐츠  */
 .euc-search-results {
-    max-width: 111.7rem; 
     border-radius: 4px;
 }
 .euc-tab-menu {
