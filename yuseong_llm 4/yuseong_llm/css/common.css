@@ -8,43 +8,44 @@ ul, ol, li {
     list-style: none;
 }
 a { 
-    text-decoration: none; 
-    color: inherit;
+    color: inherit; 
+    text-decoration: none;
 }
 address, em {
     font-style: normal;
 } 
-h1, h2, h3, h4, h5, h6, strong, th {
-    font-size: inherit;
+h1, h2, h3, h4, h5, h6, strong, th, textarea {
     font-weight: inherit;
+    font-size: inherit;
+    font-family: inherit;
 }
-input {
+input, textarea{
+    padding: 0;
+    margin: 0;
     border: none;
     outline: none;
     box-sizing: border-box;
-    padding: 0;
-    margin: 0;
 }
 input, button, select {
-    color: inherit; 
+    color: inherit;
+    font-size: inherit; 
     font-family: inherit;
-    font-size: inherit;
 }
 button {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    border: none;
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    border: none;
     cursor: pointer;
-    display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0;
-    margin: 0;
 }
 table {
-    border-collapse: collapse;
     border: 0;
+    border-collapse: collapse;
 }
 table caption {
     display: none;
@@ -61,11 +62,11 @@ html {
     font-size: 62.5%;/*1rem=10px*/
 }
 body {
-    font-family: 'Pretendard', sans-serif;
-    font-size: 1.6rem;
     color: #222;
     font-weight: 400;
+    font-size: 1.6rem;
     line-height: 1.75rem;
+    font-family: 'Pretendard', sans-serif;
     word-break: keep-all;
     word-wrap: break-word;
 }
@@ -97,6 +98,7 @@ body {
     --euc-bg-gray-300: #F0F1F4;
     --euc-bg-gray-400: #EEEEEE;
     --euc-bg-gray-500: #414141;
+    --euc-icon-100: #5F6CBA;
     --euc-info: #1FA7FF;
     --euc-warning: #f4bd0e;
     --euc-danger: #F93A37;
@@ -105,21 +107,25 @@ body {
     --euc-hover-bg-200: #F7F7F7;
     --euc-hover-bg-300: #F9F9F9;
     --euc-hover-bg-400: #767676;
+    --euc-hover-bg-500: #4095EB;
+    --euc-hover-bg-600: #e2e2e2;
     --euc-white-rgb: 255,255,255;
     --euc-black-rgb: 0,0,0;
     --euc-border-gradient: linear-gradient(90deg, #6BD0FF 0.5%, #A8E3FF 21.5%, #8FBAFF 43%, #CCBDFF 68.5%, #99B8FF 100%);
     --euc-text-gradient: linear-gradient(90deg, #101419 0%, #3E94EB 57%, #4A3EEB 100%);
     --euc-border-width: 1px;
     --euc-border-style: solid;
-    --euc-primary-border: #3B3B3B;
-    --euc-secondary-border: #DEDCDB;
+    --euc-border-100: #3B3B3B;
+    --euc-border-200: #DEDCDB;
+    --euc-border-300: #dfdfdf;
+    --euc-border-400: #c4e1ff;
     --euc-rounded: 0.6rem;
     --euc-rounded-sm: 0.4rem;
     --euc-rounded-lg: 0.7rem;
     --euc-rounded-xl: 1.2rem;
     --euc-rounded-xxl: 1.75rem;
     --euc-rounded-2xl: 1.8rem;
-    --euc-rounded-pill: 2rem;
+    --euc-rounded-pill: 4rem;
     --euc-shadow: 0px 4px 9px 0px rgba(0, 0, 0, 0.07);
     --euc-shadow-sm: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
     --euc-shadow-lg: 5px 6px 10px 0px rgba(226, 226, 226, 0.53);
@@ -131,47 +137,52 @@ body {
     --euc-font-medium : 500;
     --euc-font-semibold : 600;
     --euc-font-bold : 700;
-    --euc-p-1 : 2px;
-    --euc-p-2 : 4px;
-    --euc-p-3 : 6px;
-    --euc-p-4 : 8px;
-    --euc-p-5 : 10px;
-    --euc-p-6 : 12px;
-    --euc-p-7 : 14px;
-    --euc-p-8 : 16px;
-    --euc-p-9 : 18px;
-    --euc-p-10 : 20px;
-    --euc-p-11 : 22px;
-    --euc-p-12 : 24px;
-    --euc-p-13 : 26px;
-    --euc-p-14: 28px;
-    --euc-p-15 : 30px;
-    --euc-p-16 : 32px;
-    --euc-p-17 : 34px;
-    --euc-p-18 : 36px;
-    --euc-p-19 : 38px;
-    --euc-p-20 : 40px;
-    --euc-m-1 : 2px;
-    --euc-m-2 : 4px;
-    --euc-m-3 : 6px;
-    --euc-m-4 : 8px;
-    --euc-m-5 : 10px;
-    --euc-m-6 : 12px;
-    --euc-m-7 : 14px;
-    --euc-m-8 : 16px;
-    --euc-m-9 : 18px;
-    --euc-m-10 : 20px;
-    --euc-m-11 : 22px;
-    --euc-m-12 : 24px;
-    --euc-m-13 : 26px;
-    --euc-m-14: 28px;
-    --euc-m-15 : 30px;
-    --euc-m-16 : 32px;
-    --euc-m-17 : 34px;
-    --euc-m-18 : 36px;
-    --euc-m-19 : 38px;
-    --euc-m-20 : 40px;
+    --euc-p-1 : 0.2rem;
+    --euc-p-2 : 0.4rem;
+    --euc-p-3 : 0.6rem;
+    --euc-p-4 : 0.8rem;
+    --euc-p-5 : 1rem;
+    --euc-p-6 : 1.2rem;
+    --euc-p-7 : 1.4rem;
+    --euc-p-8 : 1.6rem;
+    --euc-p-9 : 1.8rem;
+    --euc-p-10 : 2rem;
+    --euc-p-11 : 2.2rem;
+    --euc-p-12 : 2.4rem;
+    --euc-p-13 : 2.6rem;
+    --euc-p-14: 2.8rem;
+    --euc-p-15 : 3rem;
+    --euc-p-16 : 3.2rem;
+    --euc-p-17 : 3.4rem;
+    --euc-p-18 : 3.6rem;
+    --euc-p-19 : 3.8rem;
+    --euc-p-20 : 4rem;
+    --euc-m-1 : 0.2rem;
+    --euc-m-2 : 0.4rem;
+    --euc-m-3 : 0.6rem;
+    --euc-m-4 : 0.8rem;
+    --euc-m-5 : 1rem;
+    --euc-m-6 : 1.2rem;
+    --euc-m-7 : 1.4rem;
+    --euc-m-8 : 1.6rem;
+    --euc-m-9 : 1.8rem;
+    --euc-m-10 : 2rem;
+    --euc-m-11 : 2.2rem;
+    --euc-m-12 : 2.4rem;
+    --euc-m-13 : 2.6rem;
+    --euc-m-14: 2.8rem;
+    --euc-m-15 : 3rem;
+    --euc-m-16 : 3.2rem;
+    --euc-m-17 : 3.4rem;
+    --euc-m-18 : 3.6rem;
+    --euc-m-19 : 3.8rem;
+    --euc-m-20 : 4rem;
+    --ico-setting: url("../images/setting.svg");
+    --ico-person: url("../images/person.svg");
+    --ico-home: url("../images/home.svg");
+    --ico-logout: url("../images/logout.svg");
 }
+
 
 .h1,h1 {
     font-size: 5rem

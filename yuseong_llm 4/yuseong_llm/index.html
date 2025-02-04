@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.svg">
+    <link rel="stylesheet" href="css/main.css">
+    <title>유성구청VOC</title>
+</head>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const tabButtons = document.querySelectorAll(".euc-tab-btn");
+      const tabContents = document.querySelectorAll(".euc-tab-content");
+    
+      tabButtons.forEach((button) => {
+        button.addEventListener("click", function () {
+          const targetTab = this.getAttribute("data-tab");
+    
+          // 모든 버튼에서 active 클래스 제거
+          tabButtons.forEach((btn) => btn.classList.remove("active"));
+          this.classList.add("active");
+    
+          // 모든 탭 내용 숨기기
+          tabContents.forEach((content) => content.classList.remove("active"));
+          document.getElementById(targetTab).classList.add("active");
+        });
+      });
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const dropdown = document.querySelector(".euc-user-dropdown");
+        const menu = dropdown.querySelector(".euc-dropdown-menu");
+
+        dropdown.addEventListener("click", function (event) {
+            event.stopPropagation(); // 부모 요소로 이벤트 전파 방지
+            menu.classList.toggle("show");
+        });
+
+        // 문서 전체를 클릭하면 닫힘
+        document.addEventListener("click", function (event) {
+            if (!dropdown.contains(event.target)) {
+                menu.classList.remove("show");
+            }
+        });
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const textarea = document.getElementById('textarea');
+        const maxHeight = 250; // 최대 높이 (px)
+
+        textarea.addEventListener('input', function() {
+            textarea.style.height = 'auto';
+            const scrollHeight = textarea.scrollHeight;
+
+            if (scrollHeight > maxHeight) {
+                textarea.style.height = maxHeight + 'px';
+                textarea.style.overflowY = 'auto'; // 스크롤 활성화
+            } else {
+                textarea.style.height = scrollHeight + 'px';
+                textarea.style.overflowY = 'hidden'; // 스크롤 숨김
+            }
+        });
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const tabButtons = document.querySelectorAll(".tab-btn");
+      const tabPanels = document.querySelectorAll(".euc-tab-content");
+
+      tabButtons.forEach((button) => {
+        button.addEventListener("click", function () {
+          const tabIndex = this.dataset.tab;
+
+          // 모든 버튼에서 active 클래스 제거
+          tabButtons.forEach((btn) => btn.classList.remove("active"));
+
+          // 클릭된 버튼에 active 클래스 추가
+          this.classList.add("active");
+
+          // 모든 콘텐츠 숨김
+          tabPanels.forEach((panel) => panel.classList.remove("active"));
+
+          // 클릭된 버튼의 콘텐츠 표시
+          document.querySelector(`.euc-tab-content[data-tab="${tabIndex}"]`).classList.add("active");
+        });
+      });
+    });
+  </script>
+<body>
+    <div class="euc-main euc-main-bg">
+        <div class="euc-sidebar euc-sidebar-fixed">
+            <div class="euc-sidebar-header">
+                <div class="euc-logo">
+                    <div class="euc-logo-img"><img src="images/logo.svg" alt="유성구청로고"></div>
+                    <span class="euc-name">유성구청 예산·회계</span>
+                </div>
+            </div>
+        </div>
+        <div class="euc-wrap">
+            <div class="euc-header">
+                <div class="euc-user-dropdown">
+                    <a href="#" class="euc-dropdown-toggle">
+                        <div class="euc-user-avatar" name="S">
+                            <span class="euc-user-initial">S</span>
+                        </div>
+                    </a>
+                    <div class="euc-dropdown-menu">
+                        <div class="euc-dropdown-inner">
+                            <ul class="euc-link-list">
+                                <li>
+                                    <a href="#">
+                                        <em class="euc-ico setting"></em>
+                                        <span>설정</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <em class="euc-ico person"></em>
+                                        <span>내 정보</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <em class="euc-ico home"></em>
+                                        <span>유성구청 홈</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <em class="euc-ico logout"></em>
+                                        <span>로그아웃</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="euc-content">
+                <div class="euc-inner">
+                    <div class="euc-search">
+                        <div class="euc-search-tit">
+                            <h1>안녕하세요, <span class="euc-username">유정</span>님<br>
+                                <strong>질문하거나 작업을 요청하세요.</strong></h1>
+                        </div>
+                        <div class="euc-search-bg">
+                            <form class="euc-search-form">
+                                <button type="mic" class="mic-button">
+                                    <em class="euc-ico mic"></em> 
+                                  </button>
+                                <textarea  id="textarea" rows="1" oninput="autoResize(this)" class="euc-textarea" placeholder="궁금한 내용을 작성해 주세요." ></textarea>
+                                <button type="submit" class="search-button">
+                                  <em class="euc-ico search"></em> 
+                                </button>
+                            </form>
+                        </div>
+                        <div class="euc-subtext">
+                            <p>유성구청 예산·회계에 대해 궁금한 점이 있으신가요? 검색어를 입력해 보세요!</p>
+                        </div>
+                    </div>
+                    <div class="euc-search-results">
+                        <div class="euc-tab-menu">
+                            <div class="euc-tab-list">
+                                <div class="euc-tab-buttons ">
+                                    <button class="euc-tab-btn active" data-tab="tab1">최신순</button>
+                                  </div>
+                                  <div class="euc-tab-buttons">
+                                      <button class="euc-tab-btn" data-tab="tab2">과거순</button>
+                                  </div>
+                            </div>
+                            <div class="euc-tab-contents">
+                              <div class="euc-tab-content active" id="tab1">
+                                <div class="euc-tab-card">
+                                    <ul>
+                                        <li>
+                                            <a href="#">
+                                                <div class="euc-user-avatar" name="V">
+                                                    <span class="euc-user-initial">V</span>
+                                                </div>
+                                                <p class="euc-card-text">예산 수립 절차 및 프로세스를 알려줘.</p>
+                                                <div class="euc-detail">
+                                                    <strong class="euc-date">2025-01-07</strong>
+                                                    <em class="euc-ico chat"></em> 
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="euc-user-avatar" name="Sparkle">
+                                                    <span class="euc-user-initial"></span>
+                                                </div>
+                                                <p class="euc-card-text">정부부서 예산 수립 절차를
+                                                    자세하게 알려드립니다.</p>
+                                                <div class="euc-detail">
+                                                    <strong class="euc-date">2025-01-07</strong>
+                                                    <em class="euc-ico chat"></em> 
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="euc-user-avatar" name="S">
+                                                    <span class="euc-user-initial" >S</span>
+                                                </div>
+                                                <p class="euc-card-text">구정기획, 예산관리에서 
+                                                    하는일을 자세하게 알고싶어.</p>
+                                                <div class="euc-detail">
+                                                    <strong class="euc-date">2025-01-07</strong>
+                                                    <em class="euc-ico chat"></em> 
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="euc-user-avatar" name="S">
+                                                    <span class="euc-user-initial">S</span>
+                                                </div>
+                                                <p class="euc-card-text">국내외 자매도시 선정 및 협약체결
+                                                    할때 협약내용이 궁금해.</p>
+                                                <div class="euc-detail">
+                                                    <strong class="euc-date">2025-01-07</strong>
+                                                    <em class="euc-ico chat"></em> 
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                              </div>
+                              <div class="euc-tab-content" id="tab2">
+                                <div class="euc-tab-card">
+                                    <ul>
+                                        <li>
+                                            <a href="#">
+                                                <div class="euc-user-avatar" name="V">
+                                                    <span class="euc-user-initial">V</span>
+                                                </div>
+                                                <p class="euc-card-text">예산 수립 절차 및 프로세스를 알려줘.</p>
+                                                <div class="euc-detail">
+                                                    <strong class="euc-date">2025-01-07</strong>
+                                                    <em class="euc-ico chat"></em> 
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="euc-user-avatar" name="Sparkle">
+                                                    <span class="euc-user-initial"></span>
+                                                </div>
+                                                <p class="euc-card-text">정부부서 예산 수립 절차를
+                                                    자세하게 알려드립니다.</p>
+                                                <div class="euc-detail">
+                                                    <strong class="euc-date">2025-01-07</strong>
+                                                    <em class="euc-ico chat"></em> 
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="euc-user-avatar" name="S">
+                                                    <span class="euc-user-initial" >S</span>
+                                                </div>
+                                                <p class="euc-card-text">구정기획, 예산관리에서 
+                                                    하는일을 자세하게 알고싶어.</p>
+                                                <div class="euc-detail">
+                                                    <strong class="euc-date">2025-01-07</strong>
+                                                    <em class="euc-ico chat"></em> 
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="euc-user-avatar" name="S">
+                                                    <span class="euc-user-initial">S</span>
+                                                </div>
+                                                <p class="euc-card-text">국내외 자매도시 선정 및 협약체결
+                                                    할때 협약내용이 궁금해.</p>
+                                                <div class="euc-detail">
+                                                    <strong class="euc-date">2025-01-07</strong>
+                                                    <em class="euc-ico chat"></em> 
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
