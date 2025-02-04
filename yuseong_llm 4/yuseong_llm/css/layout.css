@@ -4,7 +4,8 @@
 
 .euc-sidebar-header { 
     display: flex;
-    padding: 3rem;
+    min-height: 8.5rem;
+    padding: 1rem;
     align-items: center;
     justify-content: space-between;
 } 
@@ -24,6 +25,63 @@
     font-size: 2.1rem;
 }
 
+/* Sidebar - newchat */
+
+.euc-newchat {
+    padding: var(--euc-p-5);
+    margin-top: var(--euc-m-11);
+}
+.euc-newchat a {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.euc-newchat p {
+    font-weight: var(--euc-font-semibold);
+    margin: 0 1.9rem 0 0.7rem;
+}
+.euc-ico.plus {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none"><circle cx="12.5" cy="12.5" r="12.5" fill="%23414141"/><path d="M7 12.5H18M12.5 7V18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>')
+}
+.euc-newchat a:hover .plus {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none"><circle cx="12.5" cy="12.5" r="12.5" fill="%23747474"/><path d="M7 12.5H18M12.5 7V18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>')
+}
+
+/* Sidebar - history */
+.euc-history-container {
+    position: relative;
+    width: calc(100% + 15px);
+    height: 100%;
+}
+.euc-history {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+}
+.euc-history-info {
+    padding-left: 1rem;
+    padding-bottom: 1.7rem;
+    font-weight: var(--euc-font-semibold);
+    font-size: 1.4rem;
+}
+.euc-history-info + ul {
+    padding-bottom: 2.2rem;
+}
+.euc-history-item {
+    padding: 0.8rem 1rem 1rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.euc-history-text {
+    font-size: 1.4rem;
+    color: var(--euc-text-gray-700);
+}
 /* Wrap - Header */
 .euc-header {
     display: flex;
@@ -114,6 +172,7 @@
     border-radius: var(--euc-rounded-sm);
 }
 .euc-ico {
+    display: block;
     width: 1.5rem;
     height: 1.5rem;
     font-size: 2rem;
@@ -156,7 +215,7 @@
     .euc-search-form {
         display: flex;
         width: 100%;
-        padding: 1.1rem 3rem 1.1rem 2.5rem;
+        padding: 0.6rem 3rem 0.6rem 2.5rem;
         background: var(--euc-white);
         align-items: flex-end;
         border-radius: var(--euc-rounded-xl);
@@ -207,8 +266,8 @@
 
     /* 버튼 아이콘 */
     .mic {
-        width: 3rem;
-        height: 3rem;
+        width: 2.8rem;
+        height: 2.8rem;
         background-image: url(../images/mic.svg); 
     }
 
@@ -219,7 +278,7 @@
 
 
 /* 탭 컨텐츠  */
-.euc-search-results {
+.euc-search-intro {
     border-radius: 4px;
 }
 .euc-tab-menu {

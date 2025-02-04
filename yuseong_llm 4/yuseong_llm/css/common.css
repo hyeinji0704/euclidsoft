@@ -108,7 +108,7 @@ body {
     --euc-hover-bg-300: #F9F9F9;
     --euc-hover-bg-400: #767676;
     --euc-hover-bg-500: #4095EB;
-    --euc-hover-bg-600: #e2e2e2;
+    --euc-hover-bg-600: #e2e2e2; 
     --euc-white-rgb: 255,255,255;
     --euc-black-rgb: 0,0,0;
     --euc-border-gradient: linear-gradient(90deg, #6BD0FF 0.5%, #A8E3FF 21.5%, #8FBAFF 43%, #CCBDFF 68.5%, #99B8FF 100%);
@@ -119,6 +119,7 @@ body {
     --euc-border-200: #DEDCDB;
     --euc-border-300: #dfdfdf;
     --euc-border-400: #c4e1ff;
+    --euc-border-500: #e4e4e4;
     --euc-rounded: 0.6rem;
     --euc-rounded-sm: 0.4rem;
     --euc-rounded-lg: 0.7rem;
