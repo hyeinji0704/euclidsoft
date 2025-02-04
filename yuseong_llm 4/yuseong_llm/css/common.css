@@ -177,10 +177,27 @@ body {
     --euc-m-18 : 3.6rem;
     --euc-m-19 : 3.8rem;
     --euc-m-20 : 4rem;
-    --ico-setting: url("../images/setting.svg");
-    --ico-person: url("../images/person.svg");
-    --ico-home: url("../images/home.svg");
-    --ico-logout: url("../images/logout.svg");
+    --euc-user-bg-1:
+    --euc-user-bg-2:
+    --euc-user-bg-3:
+    --euc-user-bg-4:
+    --euc-user-bg-5:
+    --euc-user-bg-6:
+    --euc-user-bg-7:
+    --euc-user-bg-8:
+    --euc-user-bg-9:
+    --euc-user-bg-10:
+    --euc-user-bg-11:
+    --euc-user-bg-12:
+    --euc-user-bg-13:
+    --euc-user-bg-14:
+    --euc-user-bg-15:
+    --euc-user-bg-16:
+    --euc-user-bg-17:
+    --euc-user-bg-18:
+    --euc-user-bg-19:
+    --euc-user-bg-20:
+    --euc-user-bg-21:
 }
 
 
