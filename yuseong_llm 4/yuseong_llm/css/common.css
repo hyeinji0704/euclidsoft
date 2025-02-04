@@ -42,6 +42,7 @@ button {
     cursor: pointer;
     justify-content: center;
     align-items: center;
+    background-color: transparent;
 }
 table {
     border: 0;
@@ -97,7 +98,9 @@ body {
     --euc-bg-gray-200: #F0F1F4;
     --euc-bg-gray-300: #F0F1F4;
     --euc-bg-gray-400: #EEEEEE;
-    --euc-bg-gray-500: #414141;
+    --euc-bg-gray-500: #E4e4e4;
+    --euc-bg-gray-600: #a0a0a0;
+    --euc-bg-gray-700: #414141;
     --euc-icon-100: #5F6CBA;
     --euc-info: #1FA7FF;
     --euc-warning: #f4bd0e;

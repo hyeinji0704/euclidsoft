@@ -29,19 +29,22 @@
 </script>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        const dropdown = document.querySelector(".euc-user-dropdown");
-        const menu = dropdown.querySelector(".euc-dropdown-menu");
+        const dropdowns = document.querySelectorAll(".euc-user-dropdown");
 
-        dropdown.addEventListener("click", function (event) {
-            event.stopPropagation(); // 부모 요소로 이벤트 전파 방지
-            menu.classList.toggle("show");
+        dropdowns.forEach((dropdown) => {
+            const menu = dropdown.querySelector(".euc-dropdown-menu");
+
+            dropdown.addEventListener("click", function (event) {
+                event.stopPropagation(); // 부모 요소로 이벤트 전파 방지
+                menu.classList.toggle("show");
+            });
         });
 
-        // 문서 전체를 클릭하면 닫힘
-        document.addEventListener("click", function (event) {
-            if (!dropdown.contains(event.target)) {
+        // 문서 전체를 클릭하면 모든 드롭다운 닫힘
+        document.addEventListener("click", function () {
+            document.querySelectorAll(".euc-dropdown-menu").forEach((menu) => {
                 menu.classList.remove("show");
-            }
+            });
         });
     });
 </script>
@@ -87,23 +90,45 @@
                  <div class="euc-history-today">
                     <div class="euc-history-info">오늘</div>
                     <ul>
-                        <li class="euc-history-item">
-                            <div class="euc-history-text">예산 수립 절차 및 프로세스</div>
-                            <button type="dot" class="dot-button">
-                                <em class="euc-ico dot"></em> 
-                            </button>
+                        <li class="euc-history-item active euc-user-dropdown">
+                            <a href="#">
+                                <div class="euc-history-text">예산 수립 절차 및 프로세스</div>
+                                <button type="dot" class="dot-button">
+                                    <em class="euc-ico dot"></em> 
+                                </button>
+                                <div class="euc-dropdown-menu">
+                                    <div class="euc-dropdown-inner">
+                                        <ul class="euc-link-list">
+                                            <li>
+                                                <button href="#">
+                                                    <em class="euc-ico name_change"></em>
+                                                    <span>이름 바꾸기</span>
+                                                </button>
+                                                <button href="#">
+                                                    <em class="euc-ico delete"></em>
+                                                    <span class="delete_text">삭제</span>
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </a>
                         </li>
                         <li class="euc-history-item">
-                            <div class="euc-history-text">2025년 회계 기준 변경 내용</div>
-                            <button type="dot" class="dot-button">
-                                <em class="euc-ico dot"></em> 
-                            </button>
+                            <a href="#">
+                                <div class="euc-history-text">2025년 회계 기준 변경 내용</div>
+                                <button type="dot" class="dot-button">
+                                    <em class="euc-ico dot"></em> 
+                                </button>
+                            </a>
                         </li>
                         <li class="euc-history-item">
-                            <div class="euc-history-text">진행 계획 수립 단계</div>
-                            <button type="dot" class="dot-button">
-                                <em class="euc-ico dot"></em> 
-                            </button>
+                            <a href="#">
+                                <div class="euc-history-text">진행 계획 수립 단계</div>
+                                <button type="dot" class="dot-button">
+                                    <em class="euc-ico dot"></em> 
+                                </button>
+                            </a>
                         </li>
                     </ul>
                  </div>
@@ -111,28 +136,36 @@
                     <div class="euc-history-info">어제</div>
                     <ul>
                         <li class="euc-history-item">
-                            <div class="euc-history-text">예산 수립 절차 및 프로세스</div>
-                            <button type="dot" class="dot-button">
-                                <em class="euc-ico dot"></em> 
-                            </button>
+                            <a href="#">
+                                <div class="euc-history-text">예산 수립 절차 및 프로세스</div>
+                                <button type="dot" class="dot-button">
+                                    <em class="euc-ico dot"></em> 
+                                </button>
+                            </a>
                         </li>
                         <li class="euc-history-item">
-                            <div class="euc-history-text">2025년 회계 기준 변경 내용</div>
-                            <button type="dot" class="dot-button">
-                                <em class="euc-ico dot"></em> 
-                            </button>
+                            <a href="#">
+                                <div class="euc-history-text">2025년 회계 기준 변경 내용</div>
+                                <button type="dot" class="dot-button">
+                                    <em class="euc-ico dot"></em> 
+                                </button>
+                            </a>
                         </li>
                         <li class="euc-history-item">
-                            <div class="euc-history-text">진행 계획 수립 단계</div>
-                            <button type="dot" class="dot-button">
-                                <em class="euc-ico dot"></em> 
-                            </button>
+                            <a href="#">
+                                <div class="euc-history-text">진행 계획 수립 단계</div>
+                                <button type="dot" class="dot-button">
+                                    <em class="euc-ico dot"></em> 
+                                </button>
+                            </a>
                         </li>
                         <li class="euc-history-item">
-                            <div class="euc-history-text">정부 예산안 책자</div>
-                            <button type="dot" class="dot-button">
-                                <em class="euc-ico dot"></em> 
-                            </button>
+                            <a href="#">
+                                <div class="euc-history-text">정부 예산안 책자</div>
+                                <button type="dot" class="dot-button">
+                                    <em class="euc-ico dot"></em> 
+                                </button>
+                            </a>
                         </li>
                     </ul>
                  </div>
@@ -140,130 +173,100 @@
                     <div class="euc-history-info">지난 7일</div>
                     <ul>
                         <li class="euc-history-item">
-                            <div class="euc-history-text">정부 예산안 책자</div>
-                            <button type="dot" class="dot-button">
-                                <em class="euc-ico dot"></em> 
-                            </button>
+                            <a href="#">
+                                <div class="euc-history-text">정부 예산안 책자</div>
+                                <button type="dot" class="dot-button">
+                                    <em class="euc-ico dot"></em> 
+                                </button>
+                            </a>
                         </li>
                         <li class="euc-history-item">
-                            <div class="euc-history-text">각 부처의 예산 설명 자료</div>
-                            <button type="dot" class="dot-button">
-                                <em class="euc-ico dot"></em> 
-                            </button>
+                            <a href="#">
+                                <div class="euc-history-text">각 부처의 예산 설명 자료</div>
+                                <button type="dot" class="dot-button">
+                                    <em class="euc-ico dot"></em> 
+                                </button>
+                            </a>
                         </li>
                         <li class="euc-history-item">
-                            <div class="euc-history-text">국회 질의에 대한 답변</div>
-                            <button type="dot" class="dot-button">
-                                <em class="euc-ico dot"></em> 
-                            </button>
+                            <a href="#">
+                                <div class="euc-history-text">국회 질의에 대한 답변</div>
+                                <button type="dot" class="dot-button">
+                                    <em class="euc-ico dot"></em> 
+                                </button>
+                            </a>
                         </li>
                         <li class="euc-history-item">
-                            <div class="euc-history-text">정부 예산안 책자</div>
-                            <button type="dot" class="dot-button">
-                                <em class="euc-ico dot"></em> 
-                            </button>
+                            <a href="#">
+                                <div class="euc-history-text">정부 예산안 책자</div>
+                                <button type="dot" class="dot-button">
+                                    <em class="euc-ico dot"></em> 
+                                </button>
+                            </a>
                         </li>
                         <li class="euc-history-item">
-                            <div class="euc-history-text">각 부처의 예산 설명 자료</div>
-                            <button type="dot" class="dot-button">
-                                <em class="euc-ico dot"></em> 
-                            </button>
+                            <a href="#">
+                                <div class="euc-history-text">각 부처의 예산 설명 자료</div>
+                                <button type="dot" class="dot-button">
+                                    <em class="euc-ico dot"></em> 
+                                </button>
+                            </a>
                         </li>
                         <li class="euc-history-item">
-                            <div class="euc-history-text">국회 질의에 대한 답변</div>
-                            <button type="dot" class="dot-button">
-                                <em class="euc-ico dot"></em> 
-                            </button>
+                            <a href="#">
+                                <div class="euc-history-text">국회 질의에 대한 답변</div>
+                                <button type="dot" class="dot-button">
+                                    <em class="euc-ico dot"></em> 
+                                </button>
+                            </a>
                         </li>
                         <li class="euc-history-item">
-                            <div class="euc-history-text">정부 예산안 책자</div>
-                            <button type="dot" class="dot-button">
-                                <em class="euc-ico dot"></em> 
-                            </button>
+                            <a href="#">
+                                <div class="euc-history-text">정부 예산안 책자</div>
+                                <button type="dot" class="dot-button">
+                                    <em class="euc-ico dot"></em> 
+                                </button>
+                            </a>
                         </li>
                         <li class="euc-history-item">
-                            <div class="euc-history-text">각 부처의 예산 설명 자료</div>
-                            <button type="dot" class="dot-button">
-                                <em class="euc-ico dot"></em> 
-                            </button>
+                            <a href="#">
+                                <div class="euc-history-text">각 부처의 예산 설명 자료</div>
+                                <button type="dot" class="dot-button">
+                                    <em class="euc-ico dot"></em> 
+                                </button>
+                            </a>
                         </li>
                         <li class="euc-history-item">
-                            <div class="euc-history-text">국회 질의에 대한 답변</div>
-                            <button type="dot" class="dot-button">
-                                <em class="euc-ico dot"></em> 
-                            </button>
+                            <a href="#">
+                                <div class="euc-history-text">국회 질의에 대한 답변</div>
+                                <button type="dot" class="dot-button">
+                                    <em class="euc-ico dot"></em> 
+                                </button>
+                            </a>
                         </li>
                         <li class="euc-history-item">
-                            <div class="euc-history-text">정부 예산안 책자</div>
-                            <button type="dot" class="dot-button">
-                                <em class="euc-ico dot"></em> 
-                            </button>
+                            <a href="#">
+                                <div class="euc-history-text">정부 예산안 책자</div>
+                                <button type="dot" class="dot-button">
+                                    <em class="euc-ico dot"></em> 
+                                </button>
+                            </a>
                         </li>
                         <li class="euc-history-item">
-                            <div class="euc-history-text">각 부처의 예산 설명 자료</div>
-                            <button type="dot" class="dot-button">
-                                <em class="euc-ico dot"></em> 
-                            </button>
+                            <a href="#">
+                                <div class="euc-history-text">각 부처의 예산 설명 자료</div>
+                                <button type="dot" class="dot-button">
+                                    <em class="euc-ico dot"></em> 
+                                </button>
+                            </a>
                         </li>
                         <li class="euc-history-item">
-                            <div class="euc-history-text">국회 질의에 대한 답변</div>
-                            <button type="dot" class="dot-button">
-                                <em class="euc-ico dot"></em> 
-                            </button>
-                        </li>
-                        <li class="euc-history-item">
-                            <div class="euc-history-text">정부 예산안 책자</div>
-                            <button type="dot" class="dot-button">
-                                <em class="euc-ico dot"></em> 
-                            </button>
-                        </li>
-                        <li class="euc-history-item">
-                            <div class="euc-history-text">각 부처의 예산 설명 자료</div>
-                            <button type="dot" class="dot-button">
-                                <em class="euc-ico dot"></em> 
-                            </button>
-                        </li>
-                        <li class="euc-history-item">
-                            <div class="euc-history-text">국회 질의에 대한 답변</div>
-                            <button type="dot" class="dot-button">
-                                <em class="euc-ico dot"></em> 
-                            </button>
-                        </li>
-                        <li class="euc-history-item">
-                            <div class="euc-history-text">정부 예산안 책자</div>
-                            <button type="dot" class="dot-button">
-                                <em class="euc-ico dot"></em> 
-                            </button>
-                        </li>
-                        <li class="euc-history-item">
-                            <div class="euc-history-text">각 부처의 예산 설명 자료</div>
-                            <button type="dot" class="dot-button">
-                                <em class="euc-ico dot"></em> 
-                            </button>
-                        </li>
-                        <li class="euc-history-item">
-                            <div class="euc-history-text">국회 질의에 대한 답변</div>
-                            <button type="dot" class="dot-button">
-                                <em class="euc-ico dot"></em> 
-                            </button>
-                        </li>
-                        <li class="euc-history-item">
-                            <div class="euc-history-text">정부 예산안 책자</div>
-                            <button type="dot" class="dot-button">
-                                <em class="euc-ico dot"></em> 
-                            </button>
-                        </li>
-                        <li class="euc-history-item">
-                            <div class="euc-history-text">각 부처의 예산 설명 자료</div>
-                            <button type="dot" class="dot-button">
-                                <em class="euc-ico dot"></em> 
-                            </button>
-                        </li>
-                        <li class="euc-history-item">
-                            <div class="euc-history-text">국회 질의에 대한 답변</div>
-                            <button type="dot" class="dot-button">
-                                <em class="euc-ico dot"></em> 
-                            </button>
+                            <a href="#">
+                                <div class="euc-history-text">국회 질의에 대한 답변</div>
+                                <button type="dot" class="dot-button">
+                                    <em class="euc-ico dot"></em> 
+                                </button>
+                            </a>
                         </li>
                     </ul>
                  </div>
@@ -282,28 +285,28 @@
                         <div class="euc-dropdown-inner">
                             <ul class="euc-link-list">
                                 <li>
-                                    <a href="#">
+                                    <button href="#">
                                         <em class="euc-ico setting"></em>
                                         <span>설정</span>
-                                    </a>
+                                    </button>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <button href="#">
                                         <em class="euc-ico person"></em>
                                         <span>내 정보</span>
-                                    </a>
+                                    </button>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <button href="#">
                                         <em class="euc-ico home"></em>
                                         <span>유성구청 홈</span>
-                                    </a>
+                                    </button>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <button href="#">
                                         <em class="euc-ico logout"></em>
                                         <span>로그아웃</span>
-                                    </a>
+                                    </button>
                                 </li>
                             </ul>
                         </div>
