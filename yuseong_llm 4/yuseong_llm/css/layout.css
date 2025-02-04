@@ -113,7 +113,7 @@
     margin: 0px;
     border: var(--euc-border-width) var(--euc-border-style) var(--euc-border-300);
     inset: 0px 0px auto auto;
-    transform: translate(200px, 38px);
+    transform: translate(0, 38px);
 }
 
 /* Scroll-bar */
