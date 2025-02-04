@@ -152,10 +152,10 @@
 /* main - 검색창 컨테이너  */
     .euc-search-bg {
         display: flex;
+        width: 100%;
         border: 0.3rem solid transparent;
         background: var(--euc-white);
         align-items: center;
-        width: 100%;
         border-radius: var(--euc-rounded-xl);
         background-image: linear-gradient(rgb(247, 247, 245), rgb(247, 247, 245)), linear-gradient(90deg, #6BD0FF 0.5%, #A8E3FF 21.5%, #8FBAFF 43%, #CCBDFF 68.5%, #99B8FF 100%);
         background-origin: border-box;
@@ -172,11 +172,11 @@
 
     /* 검색 입력창 */
     .euc-textarea {
-        
-        min-width: 60rem;
         padding: 1.5rem 1.5rem 1.5rem 1rem;
         border: none;
         background: transparent;
+        
+        min-width: 60rem;
         flex: 1;
         outline: none;
         box-sizing: border-box;
@@ -296,11 +296,11 @@
 }
 
 .euc-tab-card .euc-card-text {
+    display: -webkit-box;
     margin: 1.4rem 0 2.8rem 0; 
     font-weight: var(--euc-font-medium);
     line-height: 2.1rem;
     overflow: hidden;
-    display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
 }
