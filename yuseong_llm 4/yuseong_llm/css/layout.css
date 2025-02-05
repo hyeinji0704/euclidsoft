@@ -176,6 +176,9 @@
 }
 
 /* user-avatar 색상 */
+.euc-user-avatar[name   = "question"] {
+    background-color: var(--euc-bg-gray-700);
+}
 .euc-user-avatar[name   = "S"] {
     background-color: var(--euc-icon-100);
 }
@@ -447,12 +450,95 @@
     background-image: url("../images/chat.svg"); 
 }
 
-/* 검색결과 */
-
-.euc-result-container {
-    display: grid;
-    gap: 4.8rem;
-    grid-template-columns: repeat(12, minmax(0, 1fr));
+/* 검색 질문 */
+.euc-question {
+    display: flex;
+    gap: 1.2rem;
+    justify-content: space-between;
+}
+.euc-question-text {
+    font-weight: var(--euc-font-medium);
+    line-height: 28px;
+    padding: 1.5rem 2rem;
+    background-color: var(--euc-text-gray-100);
+    word-break: break-all;
+    border-radius: var(--euc-rounded-2xl);
 }
 
+/* 검색 답변 */
+.euc-answer-title  a {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 1rem;
+    font-weight: var(--euc-font-bold);
+    font-size: 2rem;
+    color: var(--euc-text-gray-900);
+}
+.euc-answer-section {
+    padding-top: 2.5rem;
+    margin-bottom: 4rem;
+    border-top: 1px solid #aaa;
+}
+.euc-answer-main {
+    display: flex;
+    flex-direction: column;
+}
+.euc-answer-container {
+    display: flex;
+    flex-direction: column;
+    margin: 4.4rem 0 4rem 0;
+}
+.euc-answer ul {
+    margin: 1.4rem 0 1.6rem 0;
+}
+.euc-answer p {
+    color: var(--euc-text-gray-800);
+}
+.euc-answer-section {
+    display: flex;
+    flex-direction: column;
+}
+.euc-answer-section h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+}
+.euc-btn-more {
+    width: 100%;
+    padding: 0.7rem 0;
+    border: 1px solid var(--euc-border-100);
+    border-radius: var(--euc-rounded-pill);
+    background-color: transparent;
+}
+.euc-btn-more:hover {
+    background-color: var(--euc-hover-bg-300);
+}
 
+/* 다운로드 */
+.download {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+.download h5 {
+    margin-bottom: 0;
+}
+.download:hover h5 {
+    text-decoration: underline #aaa;
+}
+.download em {
+    margin-top: 1rem;
+}
+.excel {
+    background-image: url(../images/excel.svg);
+}
+.word {
+    background-image: url(../images/word.svg);
+}
+.pdf {
+    background-image: url(../images/pdf.svg);
+}
+.ppt {
+    background-image: url(../images/powerpoint.svg);
+}
