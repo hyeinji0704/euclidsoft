@@ -4,7 +4,12 @@
 
 /* Body Wrapper*/
 .euc-main {
-    position: relative;
+    display: grid;
+    grid-template-areas: "lnb content";
+    grid-template-columns: 320px 1fr;
+    background-color: var(--color_bg_screen);
+    height: 100dvh;
+    width: 100vw;
     height: 100vh;
 }
 .euc-main-bg {
@@ -19,16 +24,17 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    height: 100vh;
 }
 .euc-sub .euc-sidebar {
     border-right: 1px solid var(--euc-border-500);
     background-color: var(--euc-white);
 }
-.euc-sidebar-fixed {
+/* .euc-sidebar-fixed {
     position: fixed;
-    height: 100vh;
+    
     z-index: 100;
-}
+} */
 .euc-sidebar-wrapper {
     width: 32rem;
     height: 100%;
@@ -91,9 +97,11 @@
     max-width: 111.7rem;
 }
 .euc-sub-inner {
+    position: relative;
     margin-top: 1.4rem;
-    max-width: 72rem;
     justify-content: flex-start;
+    margin-left: auto;
+    margin-right: auto;
 }
 .euc-history-container {
     margin-top: 4rem;
@@ -108,9 +116,17 @@
     align-items: center;
     width: 100%;
 }
-.euc-sub-search {
+.euc-search-wrapper {
+    display: grid;
+    gap: 6.1rem;
+    grid-template-columns: repeat(12, minmax(0, 1fr)); 
     position: fixed;
     bottom: 6.6rem;
+    max-width: 101rem;
+    width: 100%;
+}
+.euc-sub-search {
+    grid-column: span 8 / span 8;
     max-width: 72rem;
 }
 .euc-search-tit {
@@ -154,22 +170,20 @@
 /* 검색 결과 */
 
 .euc-result-container {
+    max-width: 101rem;
     width: 100%;
-    max-width: 72rem;
     display: grid;
     gap: 6.1rem;
     grid-template-columns: repeat(12, minmax(0, 1fr));
     position: relative;
 }
 .euc-result {
-    grid-column: span 12 / span 12;
+    grid-column: span 8 / span 8;
     display: flex;
     flex-direction: column;  
     gap: 6.1rem; 
 }
 .euc-related-question {
-    position: sticky;
-    right: 0;
-    top: 0;
+    grid-column: span 4 / span 4;
 }
 
