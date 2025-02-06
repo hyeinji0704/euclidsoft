@@ -94,7 +94,7 @@
     position: relative;
     margin-bottom: 8rem;
 }
-.euc-sub .euc-inner {
+.euc-sub .euc-search-inner {
     justify-content: center;
     margin-top: 0;
     margin-bottom: 10rem;
@@ -190,7 +190,7 @@
 /* 탭 */
 
 .euc-search-intro {
-    margin-top: 10rem;
+    margin-top: 8rem;
 }
 
 /* 검색 결과 */
