@@ -4,8 +4,8 @@
 
 .euc-sidebar-header { 
     display: flex;
-    min-height: 8.5rem;
     padding: 1rem;
+    min-height: 8.5rem;
     align-items: center;
     justify-content: space-between;
 } 
@@ -33,12 +33,12 @@
 }
 .euc-newchat a {
     display: flex;
-    align-items: center;
     width: 100%;
+    align-items: center;
 }
 .euc-newchat p {
-    font-weight: var(--euc-font-semibold);
     margin: 0 1.9rem 0 0.7rem;
+    font-weight: var(--euc-font-semibold);
 }
 .euc-ico.plus {
     width: 2.5rem;
@@ -66,10 +66,10 @@
 }
 .euc-history-date span {
     display: flex;
-    align-items: center;
     height: 3.6rem;
     font-weight: var(--euc-font-semibold);
     font-size: 1.4rem;
+    align-items: center;
     padding-left: 1rem;
 }
 .euc-history-date + ul {
@@ -79,34 +79,34 @@
     position: relative;
 }
 .euc-history-item {
-    font-size: 1.4rem;
-    color: var(--euc-text-gray-700);
+    display: flex;
     width: 100%;
     height: 3.8rem;
-    display: flex;
+    color: var(--euc-text-gray-700);
+    font-size: 1.4rem;
     align-items: center;
     border-radius: var(--euc-rounded-lg);
 }
 .euc-history-item > a {
-    width: 100%;
     display: flex;
-    align-items: center;
+    width: 100%;
     padding: 1rem;
+    align-items: center;
 }
 .euc-history-item:hover, .euc-history-item.active {
     background-color: var(--euc-text-gray-100);
 }
 .euc-history-text {
-    overflow: hidden;
     white-space: nowrap;
+    overflow: hidden;
 }
 .euc-history-item .euc-dropdown  {
+    display: inline-flex;
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     padding-right: 1rem;
-    display: inline-flex;
     align-items: center;
     visibility: hidden;
 }
@@ -140,8 +140,8 @@
 
 /* Scroll-bar */
 ::-webkit-scrollbar{
-    background-color:var(--euc-white);
     width: 1rem;
+    background-color:var(--euc-white);
 }
 ::-webkit-scrollbar-thumb{
     background-color:var(--euc-bg-gray-400);
@@ -232,8 +232,8 @@
     padding: 1.2rem 0;
 }
 .euc-link-list button {
-    width: 100%;
     position: relative;
+    width: 100%;
     padding: 0.9rem 1.5rem;
     color: var(--euc-text-gray-800);
     font-weight: var(--euc-font-medium);
@@ -304,10 +304,10 @@
 
     /* 검색 입력창 */
     .euc-textarea {
+        width: 100%;
         padding: 1.5rem 1.5rem 1.5rem 1rem;
         border: none;
         background: transparent;
-        width: 100%;
         flex: 1;
         outline: none;
         box-sizing: border-box;
@@ -319,15 +319,15 @@
         border-radius: var(--euc-rounded-pill);
     }
     .search-button {
+        display: flex;
+        position: relative;
         width: 3.4rem;
         height: 3.4rem; 
         margin: 0.9rem 0 0.9rem 2rem;
         background-color: var(--euc-primary);
         box-shadow: 0 0 0 3px rgb(196, 225, 255), 0 2px 4px 0 rgba(0, 0, 0, 0.14);
-        display: flex;
         align-items: center;
         justify-content: center;
-        position: relative;
         user-select: none;
         cursor: pointer;
     }
@@ -342,9 +342,9 @@
         animation: keyframes-fill 0.3s;
     }
     .search-button .stop {
+        display: none;
         position: absolute;
         animation: keyframes-fill 0.3s;
-        display: none;
     }
     /* ------ On check event ------ */
     .search-button input:checked ~ .search {
@@ -358,10 +358,10 @@
     /* ------ Hide the default checkbox ------ */
     .search-button input {
         position: absolute;
+        width: 0;
+        height: 0;
         opacity: 0;
         cursor: pointer;
-        height: 0;
-        width: 0;
     }
     
     /* ------ Animation ------ */
@@ -495,9 +495,9 @@
     justify-content: space-between;
 }
 .euc-question-text {
+    padding: 1.5rem 2rem;
     font-weight: var(--euc-font-medium);
     line-height: 28px;
-    padding: 1.5rem 2rem;
     background-color: var(--euc-text-gray-100);
     word-break: break-all;
     border-radius: var(--euc-rounded-2xl);
@@ -506,12 +506,12 @@
 /* 검색 답변 */
 .euc-answer-title  a {
     display: flex;
-    align-items: center;
     width: 100%;
-    gap: 1rem;
+    color: var(--euc-text-gray-900);
     font-weight: var(--euc-font-bold);
     font-size: 2rem;
-    color: var(--euc-text-gray-900);
+    align-items: center;
+    gap: 1rem;
 }
 .euc-answer-section {
     padding-top: 2.5rem;
@@ -524,8 +524,8 @@
 }
 .euc-answer-container {
     display: flex;
-    flex-direction: column;
     margin: 4.4rem 0 4rem 0;
+    flex-direction: column;
 }
 .euc-answer-container ul {
     margin: 1.4rem 0 1.6rem 0;
@@ -583,18 +583,18 @@
 
 /*다운 버튼*/
 .euc-btn-movedown {
-    position: fixed;
-    left: calc(50% - 190px);
-    bottom: 20rem;
     display: none;
+    position: fixed;
+    bottom: 20rem;
+    left: calc(50% - 190px);
+    width: 3rem;
+    height: 3rem;
+    border: 1px solid var(--euc-border-200);
     opacity: 0;
     transition: opacity 0.3s, transform 0.3s;
     z-index: 9999;
-    width: 3rem;
-    height: 3rem;
     background-color: var(--euc-white);
     border-radius: var(--euc-rounded-pill);
-    border: 1px solid var(--euc-border-200);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 .euc-btn-movedown.show {

@@ -60,8 +60,8 @@ legend {
 /*태그초기화*/
 
 html {
-    font-size: 62.5%;/*1rem=10px*/
-    font-family: 'Pretendard', sans-serif;
+    font-size: 62.5%;
+    font-family: 'Pretendard', sans-serif;/*1rem=10px*/
 }
 body {
     color: #222;
@@ -183,27 +183,6 @@ body {
     --euc-m-18 : 3.6rem;
     --euc-m-19 : 3.8rem;
     --euc-m-20 : 4rem;
-    --euc-user-bg-1:
-    --euc-user-bg-2:
-    --euc-user-bg-3:
-    --euc-user-bg-4: 
-    --euc-user-bg-5:
-    --euc-user-bg-6:
-    --euc-user-bg-7:
-    --euc-user-bg-8:
-    --euc-user-bg-9:
-    --euc-user-bg-10:
-    --euc-user-bg-11:
-    --euc-user-bg-12:
-    --euc-user-bg-13:
-    --euc-user-bg-14:
-    --euc-user-bg-15:
-    --euc-user-bg-16:
-    --euc-user-bg-17:
-    --euc-user-bg-18:
-    --euc-user-bg-19:
-    --euc-user-bg-20:
-    --euc-user-bg-21:
 }
 
 
@@ -216,31 +195,31 @@ body {
 }
 
 .h3,h3 {
-    font-size: 2rem;
-    font-weight: var(--euc-font-bold);
-    margin-bottom: 2rem;
     color: var(--euc-text-gray-800);
+    font-weight: var(--euc-font-bold);
+    font-size: 2rem;
+    margin-bottom: 2rem;
 }
 
 .h4,h4 {
-    font-size: 1.6rem;
-    font-weight: var(--euc-font-semibold);
     margin: 2.4rem 0 1.6rem 0;
     color: var(--euc-text-gray-800);
+    font-weight: var(--euc-font-semibold);
+    font-size: 1.6rem;
 }
 
 .h5,h5 {
-    font-size: 1.6rem;
-    font-weight: var(--euc-font-normal);
-    color: var(--euc-text-gray-600);
     margin: 1.4rem 0 2rem 0;
+    color: var(--euc-text-gray-600);
+    font-weight: var(--euc-font-normal);
+    font-size: 1.6rem;
 }
 
 .h6,h6 {
-    font-size: 1.5rem;
-    line-height: 2.1rem;
     color: var(--euc-text-gray-600);
     font-weight: var(--euc-font-normal);
+    font-size: 1.5rem;
+    line-height: 2.1rem;
 
 }
 
