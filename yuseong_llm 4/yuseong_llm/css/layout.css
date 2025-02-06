@@ -315,18 +315,21 @@
     }
 
     /* 버튼 스타일 */
-    .euc-search-form button {
+    .euc-search-form .search-button {
         border-radius: var(--euc-rounded-pill);
     }
     .search-button {
         width: 3.4rem;
         height: 3.4rem; 
-        padding: 0.5rem;
         margin: 0.9rem 0 0.9rem 2rem;
         background-color: var(--euc-primary);
         box-shadow: 0 0 0 3px rgb(196, 225, 255), 0 2px 4px 0 rgba(0, 0, 0, 0.14);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        user-select: none;
         cursor: pointer;
-        transition: opacity .15s linear .1s, display;
     }
     .mic-button {
         width: 5rem;
@@ -334,6 +337,45 @@
         padding: 0.9rem;
         background-color: transparent;
     }
+    .search-button .search {
+        position: absolute;
+        animation: keyframes-fill 0.3s;
+    }
+    .search-button .stop {
+        position: absolute;
+        animation: keyframes-fill 0.3s;
+        display: none;
+    }
+    /* ------ On check event ------ */
+    .search-button input:checked ~ .search {
+        display: none;
+    }
+    
+    .search-button input:checked ~ .stop {
+        display: block;
+    }
+
+    /* ------ Hide the default checkbox ------ */
+    .search-button input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+    
+    /* ------ Animation ------ */
+    @keyframes keyframes-fill {
+        0% {
+        transform: scale(0.5);
+        opacity: 0;
+        }
+    
+        50% {
+        transform: scale(1.1);
+        }
+    }
+  
 
     /* 버튼 호버 효과 */
     .search-button:hover {
@@ -343,18 +385,13 @@
         background-color: var(--euc-hover-bg-200);
     }
 
-    /* 정지 버튼 */
-
     /* 버튼 아이콘 */
     .mic {
         width: 2.8rem;
         height: 2.8rem;
         background-image: url(../images/mic.svg); 
     }
-
-    .search {
-        background-image: url(../images/arr_top.svg); /* 검색 아이콘 */
-    }
+    
 /* main - 검색창 컨테이너  */
 
 
@@ -542,4 +579,35 @@
 }
 .ppt {
     background-image: url(../images/powerpoint.svg);
+}
+
+/*다운 버튼*/
+.euc-btn-movedown {
+    position: fixed;
+    left: calc(50% - 190px);
+    bottom: 20rem;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 9999;
+    width: 3rem;
+    height: 3rem;
+    background-color: var(--euc-white);
+    border-radius: var(--euc-rounded-pill);
+    border: 1px solid var(--euc-border-200);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+.euc-btn-movedown.show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+}
+.euc-btn-movedown:hover {
+    background-color: var(--euc-hover-bg-300);
+}
+.down {
+    width: 1.2rem;
+    height: 1.4rem;
+    background-image: url(../images/down.svg);
 }
