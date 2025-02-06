@@ -29,19 +29,22 @@
 </script>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        const dropdown = document.querySelector(".euc-user-dropdown");
-        const menu = dropdown.querySelector(".euc-dropdown-menu");
+        const dropdowns = document.querySelectorAll(".euc-dropdown");
 
-        dropdown.addEventListener("click", function (event) {
-            event.stopPropagation(); // 부모 요소로 이벤트 전파 방지
-            menu.classList.toggle("show");
+        dropdowns.forEach((dropdown) => {
+            const menu = dropdown.querySelector(".euc-dropdown-menu");
+
+            dropdown.addEventListener("click", function (event) {
+                event.stopPropagation(); // 부모 요소로 이벤트 전파 방지
+                menu.classList.toggle("show");
+            });
         });
 
-        // 문서 전체를 클릭하면 닫힘
-        document.addEventListener("click", function (event) {
-            if (!dropdown.contains(event.target)) {
+        // 문서 전체를 클릭하면 모든 드롭다운 닫힘
+        document.addEventListener("click", function () {
+            document.querySelectorAll(".euc-dropdown-menu").forEach((menu) => {
                 menu.classList.remove("show");
-            }
+            });
         });
     });
 </script>
@@ -65,8 +68,8 @@
     });
 </script>
 <body>
-    <div class="euc-main euc-main-bg">
-        <div class="euc-sidebar euc-sidebar-fixed">
+    <div class="euc-main ">
+        <div class="euc-sidebar">
             <div class="euc-sidebar-wrapper">
                 <div class="euc-sidebar-container">
                     <div class="euc-nav-wrapper">
@@ -80,17 +83,11 @@
                         </nav>
                     </div>
                 </div>
-                <div class="euc-sidebar-header">
-                    <a href="#" class="euc-logo">
-                        <div class="euc-logo-img"><img src="images/logo.svg" alt="유성구청로고"></div>
-                        <span class="euc-name">유성구청 예산·회계</span>
-                    </a>
-                </div>
             </div>
         </div>
-        <div class="euc-wrap">
+        <div class="euc-wrap euc-main-bg">
             <div class="euc-header">
-                <div class="euc-user-dropdown">
+                <div class="euc-dropdown">
                     <a href="#" class="euc-dropdown-toggle">
                         <div class="euc-user-avatar" name="S">
                             <span class="euc-user-initial">S</span>
@@ -100,28 +97,28 @@
                         <div class="euc-dropdown-inner">
                             <ul class="euc-link-list">
                                 <li>
-                                    <a href="#">
+                                    <button href="#">
                                         <em class="euc-ico setting"></em>
                                         <span>설정</span>
-                                    </a>
+                                    </button>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <button href="#">
                                         <em class="euc-ico person"></em>
                                         <span>내 정보</span>
-                                    </a>
+                                    </button>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <button href="#">
                                         <em class="euc-ico home"></em>
                                         <span>유성구청 홈</span>
-                                    </a>
+                                    </button>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <button href="#">
                                         <em class="euc-ico logout"></em>
                                         <span>로그아웃</span>
-                                    </a>
+                                    </button>
                                 </li>
                             </ul>
                         </div>
@@ -147,13 +144,13 @@
                             </form>
                         </div>
                         <div class="euc-subtext">
-                            <p>유성구청 예산·회계에 대해 궁금한 점이 있으신가요? 검색어를 입력해 보세요!</p>
+                            <span>유성구청 예산·회계에 대해 궁금한 점이 있으신가요? 검색어를 입력해 보세요!</span>
                         </div>
                     </div>
                     <div class="euc-search-intro">
                         <div class="euc-tab-menu">
                             <div class="euc-tab-list">
-                                <div class="euc-tab-buttons ">
+                                <div class="euc-tab-buttons">
                                     <button class="euc-tab-btn active" data-tab="tab1">최신순</button>
                                   </div>
                                   <div class="euc-tab-buttons">

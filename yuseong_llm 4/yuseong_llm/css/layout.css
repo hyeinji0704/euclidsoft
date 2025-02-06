@@ -43,15 +43,14 @@
 .euc-ico.plus {
     width: 2.5rem;
     height: 2.5rem;
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none"><circle cx="12.5" cy="12.5" r="12.5" fill="%23414141"/><path d="M7 12.5H18M12.5 7V18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>')
-}
-.euc-newchat a:hover .plus {
     background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none"><circle cx="12.5" cy="12.5" r="12.5" fill="%23747474"/><path d="M7 12.5H18M12.5 7V18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>')
 }
-
+.euc-newchat a:hover .plus {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none"><circle cx="12.5" cy="12.5" r="12.5" fill="%23414141"/><path d="M7 12.5H18M12.5 7V18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>')
+}
+ 
 /* Sidebar - history */
 .euc-history-container {
-    position: relative;
     padding-right: 0.8rem;
     transition-duration: .5s;
     transition-property: opacity;
@@ -142,10 +141,11 @@
 /* Scroll-bar */
 ::-webkit-scrollbar{
     background-color:var(--euc-white);
-    width: 1.4rem;
+    width: 1rem;
 }
 ::-webkit-scrollbar-thumb{
-    background-color:var(--euc-bg-gray-200);
+    background-color:var(--euc-bg-gray-400);
+    border-radius: 100px;
 }
 ::-webkit-scrollbar-thumb:hover{
     background-color:var(--euc-bg-gray-500);
@@ -443,6 +443,7 @@
 }
 .euc-detail .euc-date {
     color: var( --euc-text-gray-400);
+    font-weight: var(--euc-font-normal);
 }
 .chat {
     width: 2.4rem;
@@ -478,7 +479,7 @@
 .euc-answer-section {
     padding-top: 2.5rem;
     margin-bottom: 4rem;
-    border-top: 1px solid #aaa;
+    border-top: 1px solid var(--euc-text-gray-300);
 }
 .euc-answer-main {
     display: flex;
@@ -489,7 +490,7 @@
     flex-direction: column;
     margin: 4.4rem 0 4rem 0;
 }
-.euc-answer ul {
+.euc-answer-container ul {
     margin: 1.4rem 0 1.6rem 0;
 }
 .euc-answer p {
@@ -525,7 +526,7 @@
     margin-bottom: 0;
 }
 .download:hover h5 {
-    text-decoration: underline #aaa;
+    text-decoration: underline #666;
 }
 .download em {
     margin-top: 1rem;
