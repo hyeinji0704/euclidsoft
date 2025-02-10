@@ -1,0 +1,148 @@
+@charset "UTF-8";
+
+html {
+    font-size: 16px;
+}
+
+html, body {
+    width: 100%;
+    height: 400vh;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    min-height: 100vh;
+    font-family: 'Pretendard-400';
+    line-height: normal;
+    box-sizing: border-box;
+}
+body {
+  overflow: auto; /* 스크롤 가능하게 */
+}
+h2 {
+  margin: 0;  
+  padding: 0; 
+  font-size: inherit; 
+  font-weight: inherit; 
+  line-height: inherit; 
+}
+
+button {
+    margin:0;
+    padding:0;
+    background-color:transparent;
+    border:0;
+    color:inherit;
+    font-size:inherit;
+    font-weight:inherit;
+    text-decoration: none; /* underline제거 */
+  }
+
+.main {
+  background-image: url(../img/bg.png);
+  background-size: cover;
+  background-position: center top; /* 이미지 중앙 정렬 */
+  background-repeat: no-repeat; /* 이미지 반복하지 않도록 */
+  height: 100%; /* 요소 높이를 100%로 설정 */
+  width: 100%; /* 요소 너비를 100%로 설정 */
+  position: relative;
+}
+.blind {
+  position: absolute;
+  /* display: none; */
+  /* opacity: 0; */
+  opacity: 0.6;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  z-index: 3;
+  transition: .3s;
+}
+#popup_zone {
+  width: 100%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transition: .35s opacity;
+  transform: translate(-50%, -50%);
+  z-index: 10000002;
+}
+.inner {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.layout {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1320px;
+}
+.popup-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 2.4rem;
+  padding: 0 8rem;
+  color: #fff;
+  font-size: 45px;
+  font-family: 'Pretendard-500';
+}
+#popup_zone .slide_page {
+  font-size: 20px;
+  line-height: 20px;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+#popup_zone .slide_box {
+  padding: 0 4rem;
+  position: relative;
+  margin-bottom: 3rem;
+}
+#popup_zone .swiper .swiper-wrapper .swiper-slide {
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+#popup_zone .swiper .swiper-wrapper .swiper-slide>a {
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+#popup_zone .swiper .swiper-wrapper .swiper-slide>a>img {
+  position: relative;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  transition: all .5s;
+}
+
+.popupzone-util {
+  display: flex;
+  justify-content: center;
+}
+
+.close-button {
+  display: inline-flex; /* 버튼 안의 내용이 가로로 나란히 배치 */
+  align-items: center; /* 텍스트와 아이콘 세로 가운데 정렬 */
+  height: 50px; /* 버튼 높이 */
+  padding: 0 30px; /* 좌우 패딩 30px */
+  font-size: 20px; /* 텍스트 크기 */
+  color: #fff; /* 텍스트 색상 */
+  border: 1px solid #fff; /* 테두리 */
+  border-radius: 30px; /* 버튼의 둥근 모서리 */
+  background-color: #111; /* 버튼 배경색 */
+  cursor: pointer; /* 마우스 포인터 */
+  white-space: nowrap; /* 줄 바꿈 방지 */
+}
+
+.close-button img {
+  width: 20px; /* 아이콘 너비 */
+  height: 20px; /* 아이콘 높이 */
+  margin-left: 10px; /* 텍스트와 아이콘 사이의 간격 */
+}

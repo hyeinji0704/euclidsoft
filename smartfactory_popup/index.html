@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>popup</title>
+    <link rel="stylesheet" href="./css/popup.css"> <!-- main css-->
+    <link rel="stylesheet" href="./css/font.css"> <!-- font css-->
+    <script src="./js/jquery-3.7.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+    <script src="./js/common.js"></script>
+</head>
+<body>
+    <div class="main">
+        <div class="blind"></div>
+        <div id="popup_zone" class="length3">
+            <div class="inner">
+                <div class="layout">
+                    <div class="popup-title">
+                        <strong>스마트공장 팝업존</strong>
+                        <div class="slide_page">
+                            <span>팝업전체 :<b>3</b>개</span>
+                        </div>
+                    </div>
+                    <div class="slide_box">
+                        <div class="swiper"> <!-- 팝업의 높이와 넓이를 css에서 줄 수 있는 요소 -->
+                            <ul class="swiper-wrapper"> <!-- 각 팝업 콘텐츠를 감싸는 요소 -->
+                                <li class="swiper-slide"><a href=""><img src="img/Popup1.svg" alt="" /></a></li> <!-- 팝업 요소들 (div로 해도 상관없음) -->
+                                <li class="swiper-slide"><a href=""><img src="img/Popup2.svg" alt="" /></li> <!-- 팝업 요소들 (div로 해도 상관없음) -->
+                                <li class="swiper-slide"><a href=""><img src="img/Popup3.svg" alt="" /></li> <!-- 팝업 요소들 (div로 해도 상관없음) -->
+                                <li class="swiper-slide"><a href=""><img src="img/Popup1.svg" alt="" /></li> <!-- 팝업 요소들 (div로 해도 상관없음) -->
+                                <li class="swiper-slide"><a href=""><img src="img/Popup2.svg" alt="" /></li> <!-- 팝업 요소들 (div로 해도 상관없음) -->
+                                <li class="swiper-slide"><a href=""><img src="img/Popup3.svg" alt="" /></li> <!-- 팝업 요소들 (div로 해도 상관없음) -->
+                            </ul>
+                            <div class="btn_ctrl">
+                                <button class="arrow left-arrow "></button>
+                                <button class="arrow right-arrow "></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="popup_btn">
+                        <button type="button" class="close-button" onclick="closePopup()" id="popupzone_cookie">닫기<img src="img/pop_close.svg" alt="닫기 아이콘" />
+                        </button>
+                        <a class="close-button day-close-button" onclick="closePopup()">오늘 하루 열지 않기<img src="img/pop_close.svg" alt="오늘 하루 열지 않기 아이콘" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+</body>
+</html>
