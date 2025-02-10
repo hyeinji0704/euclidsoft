@@ -20,10 +20,56 @@ $(document).ready(function(){
             disableOnInteraction: true,
         },
         navigation: {
-            nextEl: '#popup-zone .left-arrow',
-            prevEl: '#popup-zone .right-arrow',
+            nextEl: '.slide_box .left-arrow',
+            prevEl: '.slide_box .right-arrow',
         },
     });
 
-	
+   
+    // body에 .on_popup 클래스 추가 (첫 로딩 시)
+    const body = $('body');
+    body.addClass('on_popup');
+
+    // popupClose 함수 정의
+    function popupClose() {
+        body.removeClass("on_popup");
+    }
+
+    // '닫기' 버튼 클릭 시 팝업 닫기
+    $('#popupzone_cookie').on('click', function(e) {
+        e.preventDefault(); // 기본 동작 방지
+        popupClose();
+    });
+
+    // '오늘 하루 열지 않기' 버튼 클릭 시 팝업 닫기 및 쿠키 설정
+    $('.day-close-button').on('click', function(e) {
+        e.preventDefault(); // 기본 동작 방지
+        popupClose();
+        // 쿠키 설정 (예: 하루 동안 팝업 열지 않기)
+        document.cookie = "popup_closed=true; path=/; max-age=" + (24 * 60 * 60); // 하루 동안 유지
+    });
+
+    // 팝업 외부 화면 클릭 시 팝업 닫기
+    $(document).on('click', function(e) {
+        if (!$(e.target).closest('#popup_zone').length) {
+            popupClose();
+        }
+    });
+
+    // 팝업 내부 클릭 이벤트 방지 (팝업 닫힘 방지용)
+    $('#popup_zone').on('click', function(e) {
+        e.stopPropagation();
+    });
+
+    // 쿠키 확인 후 팝업 표시 제어
+    function getCookie(name) {
+        const matches = document.cookie.match(new RegExp(
+            "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+        ));
+        return matches ? decodeURIComponent(matches[1]) : undefined;
+    }
+
+    if (getCookie('popup_closed')) {
+        body.removeClass('on_popup'); // 쿠키가 있으면 팝업 닫음
+    }
 })
