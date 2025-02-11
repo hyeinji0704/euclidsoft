@@ -1,0 +1,325 @@
+@charset "UTF-8";
+@import url(../css/common.css);
+@import url(../css/font.css);
+
+html {
+    font-size: 16px;
+}
+
+html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    min-height: 100vh;
+    font-family: 'Pretendard-400';
+    line-height: normal;
+    box-sizing: border-box;
+}
+body {
+  overflow: auto; /* 스크롤 가능하게 */
+}
+h2 {
+  margin: 0;  
+  padding: 0; 
+  font-size: inherit; 
+  font-weight: inherit; 
+  line-height: inherit; 
+}
+ul, ol, li {
+  list-style: none;
+}
+.eu-user-container {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  height: 100vh;
+}
+.eu-user-body.usr24 {
+  margin-top: 163px;
+}
+.eu-user-container .eu-user-body {
+  background: #fff;
+  grid-column: span 12 / span 12;
+}
+.eu-user-body .eu-u-body-common {
+  padding: 40px 0 100px;
+}
+.inner {
+  margin: 0 auto;
+  max-width: 1400px;
+  overflow: hidden;
+  position: relative;
+}
+.inner, .inner-fade {
+  margin: 0 auto;
+  max-width: 1400px;
+  overflow: hidden;
+}
+@media screen and (max-width: 1440px) {
+  .eu-u-body-common, .eu-u-header-menu, .eu-u-hearder-top {
+      padding-left: 30px !important;
+      padding-right: 30px !important;
+  }
+}
+.eu-u-body-common .eu-u-body-title {
+  align-items: center;
+  display: flex;
+  margin-bottom: 40px;
+}
+.eu-u-body-common .eu-u-body-title .title {
+  color: #222;
+  font-family: NotoSansKR-700;
+  font-size: 27px;
+  letter-spacing: -.5px;
+  line-height: 40px;
+  margin-right: 17px;
+}
+.eu-u-body-common .eu-u-body-title .breadcrumb {
+  color: #666;
+  font-family: NotoSansKR-400;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 24px;
+}
+.organ {
+  position: relative;
+  letter-spacing: -0.03em;
+}
+.organ .note {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 15px;
+  font-family: NotoSansKR-400;
+  padding: 0.25rem 0 0.25rem 0;
+  color: #777777;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.organ .note img {
+  display: block;
+  width: 41px;
+  height: 41px;
+}
+.organ .organ-list {
+  position: relative;
+  text-align: center;
+  font-family: NotoSansKR-500;
+  padding: 0;
+  font-size: 17px;
+}
+.organ .organ-list .captain {
+  margin-bottom: 40px;
+}
+.organ .organ-list .captain a {
+  display: inline-block;
+  border-radius: 10px;
+  background: #02ABC0;
+  color: #fff;
+  font-size: 22px;
+  position: relative;
+  padding: 22px 50px;
+}
+.organ .organ-list .captain a::after {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 175px;
+  background-color: #CCCCCC;
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+.organ .organ-list .captain_low {
+  margin-bottom: 40px;
+}
+.organ .organ-list .captain_low a {
+  display: inline-block;
+  padding: 18px 70px;
+  border-radius: 10px;
+  background: #1381D1;
+  color: #fff;
+  font-size: 17px;
+  position: relative;
+}
+.organ .organ-list .bureau {
+  margin-top: -6rem;
+  margin-bottom: 1.3rem;
+  text-align: left;
+}
+.organ .organ-list .bureau.type2 {
+  position: relative;
+  text-align: right;
+  margin-top: 0;
+  margin-left: 24.6%;
+  margin-right: calc(16.66% - 8px);
+  font-family: NotoSansKR-400;
+}
+.organ .organ-list .bureau ul {
+  padding-left: 6px;
+}
+.organ .organ-list .bureau.type2::before {
+  content: '';
+  width: 100%;
+  height: 1px;
+  background-color: #CCCCCC;
+  position: absolute;
+  right: 0;
+  top: 50%;
+}
+.organ .organ-list .bureau.type2 a {
+  position: relative;
+  left: auto;
+  right: 0;
+  display: inline-block;
+  width: calc(33.33% - 12px);
+  text-align: center;
+  padding: 18px 0;
+  border: 2px solid #0A88CF;
+  background-color: #fff;
+  margin-top: 0;
+  margin-left: auto;
+  border-radius: 10px;
+  color: #222222;
+}
+.organ .organ-list .headquarter-group {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  font-family: NotoSansKR-400;
+}
+.organ .organ-list .headquarter-group ul {
+  margin-top: 80px;
+  display: flex;
+  padding: 0;
+  width: calc(50% - 9px);
+  justify-content: space-between;
+  position: relative;
+}
+.organ .organ-list .headquarter-group ul::before {
+  position: absolute;
+  left: 50%;
+  top: -40px;
+  width: 68.7%;
+  height: 1px;
+  background-color: #CCCCCC;
+  content: "";
+  transform: translateX(-50%);
+}
+.organ .organ-list .headquarter-group ul li {
+  width: calc(33.33% - 12px);
+}
+.organ .organ-list .headquarter {
+  position: relative;
+}
+.organ .organ-list .organ02.headquarter::before {
+  top: -133px;
+  height: 133px;
+}
+.organ .organ-list .organ05.headquarter::before  {
+  top: -101px;
+  height: 101px;
+}
+.organ .organ-list .headquarter::before {
+  position: absolute;
+  left: 50%;
+  top: -40px;
+  width: 1px;
+  height: 40px;
+  background-color: #CCCCCC;
+  content: "";
+  transform: translateX(-50%);
+}
+.organ .organ-list .headquarter a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 0;
+  background-color: #fff;
+  border: 1px solid #222222;
+  border-radius: 10px;
+  color: #222222;
+}
+.organ .organ-list .headquarter .organ_low {
+  margin-top: 20px;
+  position: relative;
+  background-color: #F2F2F2;
+  border: 1px solid #C1C1C1;
+}
+.organ .organ-list .headquarter .organ_low::before {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 20px;
+  background-color: #ccc;
+  content: "";
+}
+
+
+/*반응형*/
+@media screen and (max-width: 1024px) {
+  .organ .organ-list {
+    font-size: 15px;
+  }
+  .organ .organ-list .captain a {
+    font-size: 18px;
+    padding: 20px 40px;
+  }
+  .organ .organ-list .captain_low a {
+    padding: 16px 60px;
+    font-size: 16px;
+  }
+  .organ .organ-list .captain a::after {
+    height: 167px;
+  }
+}
+@media screen and (max-width: 840px) {
+  .organ .note {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 0 20px 0;
+  }
+  .organ .note img {
+    width: 30px;
+    height: 30px;
+  }
+  .organ .note br.none {
+    display: none;
+  }
+}
+@media screen and (max-width: 768px) {
+  .organ .organ-list .bureau.type2 {
+    position: relative;
+    text-align: center;
+    margin-left: 0;
+    margin-right: 0;
+}
+.organ .organ-list .bureau.type2::before {
+  position: relative;
+}
+.organ .organ-list .headquarter-group {
+  flex-direction: column-reverse;
+  align-items: center;
+}
+.organ .organ-list .headquarter-group ul {
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 17px;
+}
+.organ .organ-list .headquarter-group ul li {
+  padding-bottom: 20px;
+}
+.organ .organ-list .headquarter::before {
+  top: auto;
+  bottom: -20px;
+  height: 20px;
+}
+}
