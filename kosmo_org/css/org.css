@@ -301,8 +301,15 @@ ul, ol, li {
     margin-left: 0;
     margin-right: 0;
 }
+.organ .organ-list .bureau {
+  margin-bottom: 0;
+}
 .organ .organ-list .bureau.type2::before {
   position: relative;
+}
+.organ .organ-list .bureau.type2 a {
+  width: 80%;
+  padding: 14px 0;
 }
 .organ .organ-list .headquarter-group {
   flex-direction: column-reverse;
@@ -316,10 +323,50 @@ ul, ol, li {
 }
 .organ .organ-list .headquarter-group ul li {
   padding-bottom: 20px;
+  width: 100%;
+}
+.organ .organ-list .headquarter a {
+  padding: 14px 0;
 }
 .organ .organ-list .headquarter::before {
-  top: auto;
-  bottom: -20px;
+  top: -20px;
   height: 20px;
+}
+.organ .organ-list .organ05.headquarter::before, .organ .organ-list .organ02.headquarter::before {
+  top: -20px;
+  height: 20px;
+}
+.organ .organ-list .organ01.headquarter::before {
+  top: -60px;
+  height: 60px;
+}
+.organ .organ-list .headquarter .organ_low {
+  width: 90%;
+  margin-left: 10%;
+}
+.organ .organ-list .headquarter .organ_low::before {
+  top: -42%;
+  width: 15px;
+  height: 100%;
+  left: -15px;
+  border-bottom: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  transform: translateX(0) ;
+  background-color: transparent;
+}
+.organ .organ-list .headquarter-group ul::before {
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
+  background-color: #1381D1;
+}
+.organ .organ-list .headquarter-group ul::before {
+  top: -74px;
+}  
+.organ .organ-list .headquarter-group ul.group02 {
+  width: 80%;
+}
+.organ .organ-list .headquarter-group ul.group01 {
+  margin-top: 30px;
 }
 }
