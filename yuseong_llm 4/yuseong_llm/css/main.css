@@ -194,6 +194,26 @@ height: 100%;
     font-weight: var(--euc-font-light);
     text-align: center;
 }
+.euc-search-info > img {
+    width: 2.9rem;
+    height: 2.65rem;
+}
+.euc-search-info {
+    width: 100%;
+    background: linear-gradient(90deg, #101419 0%, #3E94EB 57%, #4A3EEB 100%);
+    font-size: 2.6rem;
+    text-align: center;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: -1rem;
+}
+.euc-search-info strong {
+    font-weight: var(--euc-font-semibold);
+} 
 
 /* 탭 */
 
