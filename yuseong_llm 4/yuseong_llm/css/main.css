@@ -93,7 +93,7 @@ height: 100%;
 .euc-sub-content {
     position: relative;
     height: 200vh;
-    overflow: auto;
+    overflow: scroll;
     margin-bottom: 8rem;
 }
 .euc-sub .euc-search-inner {
@@ -148,10 +148,11 @@ height: 100%;
     gap: 6.1rem;
     grid-template-columns: repeat(12, minmax(0, 1fr));
     max-width: 101rem;
+    z-index: 100;
 }
 .euc-sub-search {
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, #FFF 68%);
-    grid-column: span 8 / span 8;
+    grid-column: span 9 / span 9;
     max-width: 72rem;
 }
 .euc-search-tit {
@@ -162,6 +163,9 @@ height: 100%;
     text-align: center;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+.euc-search-tit h1 {
+    font-size: 5rem;
 }
 .euc-search-tit::after {
     position: absolute;
@@ -194,25 +198,28 @@ height: 100%;
     font-weight: var(--euc-font-light);
     text-align: center;
 }
-.euc-search-info > img {
-    width: 2.9rem;
-    height: 2.65rem;
-}
 .euc-search-info {
+    display: grid;
     width: 100%;
+    height: 100%;
+    gap: 6.1rem;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    max-width: 101rem;
+}
+.euc-search-info-title  {
+    grid-column: span 8 / span 8;
+    max-width: 72rem;
+    width: 100%;
+    font-size: 3.3rem;
     background: linear-gradient(90deg, #101419 0%, #3E94EB 57%, #4A3EEB 100%);
-    font-size: 2.6rem;
     text-align: center;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    font-weight: var(--euc-font-semibold);
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    margin-bottom: -1rem;
-}
-.euc-search-info strong {
-    font-weight: var(--euc-font-semibold);
+    margin-bottom: 10rem;
 } 
 
 /* 탭 */
@@ -228,7 +235,7 @@ height: 100%;
     position: relative;
     width: 100%;
     max-width: 101rem;
-    gap: 6.1rem;
+    gap: 4rem;
     grid-template-columns: repeat(12, minmax(0, 1fr));
 }
 .euc-result-container:not(:first-child) {
@@ -237,13 +244,14 @@ height: 100%;
 }
 .euc-result {
     display: flex;
-    grid-column: span 8 / span 8;
+    grid-column: span 9 / span 9;
     flex-direction: column;  
     gap: 6.1rem; 
+    max-width: 72rem;
 }
 .euc-related-question {
     position: relative;
-    grid-column: span 4 / span 4;
+    grid-column: span 3 / span 3;
 }
 
 /* 연관 질문 */

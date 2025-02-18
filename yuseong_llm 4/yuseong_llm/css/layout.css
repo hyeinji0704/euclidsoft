@@ -86,6 +86,7 @@
     font-size: 1.4rem;
     align-items: center;
     border-radius: var(--euc-rounded-lg);
+    font-weight: var(--euc-font-normal);
 }
 .euc-history-item > a {
     display: flex;
@@ -312,6 +313,11 @@
         outline: none;
         box-sizing: border-box;
         resize: none; /* 사용자가 수동으로 크기 조절하지 못하게 함 */
+        color: #333;
+        font-weight: var(--euc-font-normal);
+    }
+    .euc-textarea::placeholder {
+        color: #aaa;
     }
 
     /* 버튼 스타일 */
@@ -491,6 +497,7 @@
 /* 검색 질문 */
 .euc-question {
     display: flex;
+    margin-left: 16rem;
     gap: 1.2rem;
     justify-content: space-between;
 }
@@ -504,14 +511,16 @@
 }
 
 /* 검색 답변 */
-.euc-answer-title  a {
+.euc-answer-title {
     display: flex;
     width: 100%;
+    align-items: center;
+    gap: 1rem;
+}
+.euc-answer-title p {
     color: var(--euc-text-gray-900);
     font-weight: var(--euc-font-bold);
     font-size: 2rem;
-    align-items: center;
-    gap: 1rem;
 }
 .euc-answer-section {
     padding-top: 2.5rem;
@@ -530,6 +539,11 @@
 .euc-answer-container ul {
     margin: 1.4rem 0 1.6rem 0;
 }
+euc-answer-container span {
+    color: var(--euc-text-gray-800);
+    font-weight: var(--euc-font-bold);
+    font-size: 2rem;
+}
 .euc-answer p {
     color: var(--euc-text-gray-800);
 }
@@ -537,17 +551,52 @@
     display: flex;
     flex-direction: column;
 }
+
+.euc-answer-section .euc-answer-container {
+    max-height: 250px; /* 원하는 높이 */
+    overflow: hidden;
+    position: relative;
+}
+
+.euc-answer-list .euc-answer-container {
+    max-height: 500px; /* 원하는 높이 */
+    overflow: hidden;
+    position: relative;
+}
+.euc-answer-law .euc-answer-container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    z-index: 5;
+    right: 0;
+    width: 100%;
+    height: 200px; /* 페이드 효과를 주기 위해 추가 */
+    background: linear-gradient(to bottom, transparent, white);
+}
+.euc-answer-law .euc-answer-container.expanded {
+    max-height: none; /* 전체 콘텐츠 표시 */
+    overflow: visible; /* 스크롤 제거 */
+  }
+
+.euc-answer-law .euc-answer-container.expanded::after {
+    content: none; /* 페이드 효과 제거 */
+  }
 .euc-answer-section h3 {
     display: flex;
     align-items: center;
     gap: 0.7rem;
 }
 .euc-btn-more {
+    display: none;
     width: 100%;
     padding: 0.7rem 0;
     border: 1px solid var(--euc-border-100);
     border-radius: var(--euc-rounded-pill);
-    background-color: transparent;
+    background-color: #fff;
+    cursor: pointer;
+    z-index: 10;
+    position: relative;
+    margin-top: -2.5rem;
 }
 .euc-btn-more:hover {
     background-color: var(--euc-hover-bg-300);
@@ -586,7 +635,7 @@
     display: none;
     position: fixed;
     bottom: 20rem;
-    left: calc(50% - 190px);
+    left: calc(50% - 165px);
     width: 3rem;
     height: 3rem;
     border: 1px solid var(--euc-border-200);
@@ -611,3 +660,86 @@
     height: 1.4rem;
     background-image: url(../images/down.svg);
 }
+
+/* 피드백 */
+
+.euc-feedback {
+    font-size: 1.5rem;
+    letter-spacing: -0.03rem;
+    font-weight: var(--euc-font-normal);
+}
+.euc-feedback-step01, .euc-feedback-step02 {
+}
+.euc-feedback-step01 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.8rem 3rem;
+    border-radius: var(--euc-rounded);
+    border: 1px solid #E3E8F0;
+    background: #F4F6FB;
+    width: 100%;
+}
+.euc-feedback-title {
+    width: 20%;
+    color: #4D556B;
+}
+.euc-feedback-inner {
+    width: calc(80% - 3rem);
+    display: flex;
+    justify-content: space-between;
+}
+.euc-feedback-radiobtn {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    align-items: center;
+}
+.euc-radio-button {
+    display: flex;
+    gap: 0.8rem;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+    color: #666E85;
+  }
+  
+  .euc-radio-button input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+  }
+  
+  .euc-radio {
+    position: relative;
+    display: inline-block;
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 50%;
+    border: 1px solid #A9B4C3;
+    background-color: var(--euc-white);
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .euc-radio::before {
+    position: absolute;
+    content: '';
+    width: 0.6rem;
+    height: 0.6rem;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    transform: translate(-44%, -44%);
+    background-color: var(--euc-white);
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .euc-radio-button input[type="radio"]:checked + .euc-radio {
+    border: 1px solid #0082E8;
+    background: linear-gradient(180deg, #009DFD 0%, #0391EC 100%);
+  }
+  
+  .euc-radio-button input[type="radio"]:checked + .euc-radio::before {
+    opacity: 1;
+  }
+  

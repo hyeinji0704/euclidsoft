@@ -220,7 +220,6 @@ body {
     font-weight: var(--euc-font-normal);
     font-size: 1.5rem;
     line-height: 2.1rem;
-
 }
 
 h3:not(:first-child){

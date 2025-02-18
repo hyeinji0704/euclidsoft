@@ -201,13 +201,13 @@ ul, ol, li {
   position: relative;
 }
 .organ .organ-list .headquarter-group ul::before {
-  position: absolute;
+  content: "";
   left: 50%;
   top: -40px;
   width: 68.7%;
   height: 1px;
+  position: absolute;
   background-color: #CCCCCC;
-  content: "";
   transform: translateX(-50%);
 }
 .organ .organ-list .headquarter-group ul li {
@@ -225,13 +225,13 @@ ul, ol, li {
   height: 101px;
 }
 .organ .organ-list .headquarter::before {
-  position: absolute;
+  content: "";
   left: 50%;
   top: -40px;
   width: 1px;
   height: 40px;
+  position: absolute;
   background-color: #CCCCCC;
-  content: "";
   transform: translateX(-50%);
 }
 .organ .organ-list .headquarter a {
@@ -295,64 +295,79 @@ ul, ol, li {
   }
 }
 @media screen and (max-width: 768px) {
-  .organ .organ-list .bureau.type2 {
-    position: relative;
-    text-align: center;
-    margin-left: 0;
-    margin-right: 0;
+.organ .organ-list::after {
+  position: absolute;
+  left: 5%;
+  top: 163px;
+  width: 1px;
+  height: calc(100% - 209px);
+  content: "";
+  background-color: #ccc;
+}
+.organ .organ-list .captain a {
+  width: 100%;
+}
+.organ .organ-list .captain a::after {
+  height: 96px;
+}
+.organ .organ-list .captain_low a {
+  width: 100%;
+}
+.organ .organ-list .bureau.type2 {
+  position: relative;
+  text-align: right;
+  margin-left: 0;
+  margin-right: 0;
 }
 .organ .organ-list .bureau {
   margin-bottom: 0;
 }
 .organ .organ-list .bureau.type2::before {
-  position: relative;
+  margin-right: 90%;
+  width: 5%;
 }
 .organ .organ-list .bureau.type2 a {
-  width: 100%;
+  width: 90%;
   padding: 14px 0;
 }
 .organ .organ-list .headquarter-group {
   flex-direction: column-reverse;
-  align-items: center;
+  align-items: flex-end;
 }
 .organ .organ-list .headquarter-group ul {
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  width: 80%;
   margin-top: 17px;
 }
 .organ .organ-list .headquarter-group ul li {
-  padding-bottom: 20px;
   width: 100%;
+  margin-bottom: 20px;
 }
 .organ .organ-list .headquarter a {
   padding: 14px 0;
 }
 .organ .organ-list .headquarter::before {
-  top: -20px;
-  height: 20px;
+  content: '';
+  width: 100%;
+  height: 1px;
+  background-color: #CCCCCC;
+  right: 0;
+  left: auto;
+  top: 50%;
+  position: absolute;
+  transform: translateX(0);
 }
-.organ .organ-list .organ05.headquarter::before, .organ .organ-list .organ02.headquarter::before {
-  top: -20px;
-  height: 20px;
+.organ .organ-list .organ01.headquarter::before{
+  top: calc(50% - 36px);
 }
-.organ .organ-list .organ01.headquarter::before {
-  top: -60px;
-  height: 60px;
+.organ .organ-list .organ05.headquarter::before{
+  top: 50%;
+  height: 1px;
 }
-.organ .organ-list .headquarter .organ_low {
-  width: 90%;
-  margin-left: 10%;
-}
-.organ .organ-list .headquarter .organ_low::before {
-  top: -42%;
-  width: 15px;
-  height: 100%;
-  left: -15px;
-  border-bottom: 1px solid #ccc;
-  border-left: 1px solid #ccc;
-  transform: translateX(0) ;
-  background-color: transparent;
+.organ .organ-list .organ02.headquarter::before {
+  top: 50%;
+  height: 1px;
 }
 .organ .organ-list .headquarter-group ul::before {
   display: none;
@@ -361,6 +376,32 @@ ul, ol, li {
   top: -74px;
 }  
 .organ .organ-list .headquarter-group ul.group01 {
+  width: 90%;
   margin-top: 30px;
 }
+.organ .organ-list ul.group01 .headquarter::before {
+  margin-right: 100%;
+  width: 5.5%;
+}
+.organ .organ-list ul.group02 .headquarter::before {
+  margin-right: 100%;
+  width: 5%;
+  background-color: transparent;
+  border-left: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+.organ .organ-list .organ04.headquarter::before {
+  top: -17px;
+  height: calc(100% - 7px);
+}
+.organ .organ-list .organ05.headquarter::before {
+  top: -70%;
+  height: calc(100% - 7px);
+}
+.organ .organ-list .organ06.headquarter::before {
+  top: auto;
+  bottom: 50%;
+  height: 150px;
+}
+
 }
