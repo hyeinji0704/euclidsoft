@@ -669,16 +669,16 @@ euc-answer-container span {
     font-weight: var(--euc-font-normal);
 }
 .euc-feedback-step01, .euc-feedback-step02 {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.euc-feedback-step01 {
-    padding: 1.8rem 3rem;
     border-radius: var(--euc-rounded);
     border: 1px solid #E3E8F0;
     background: #F4F6FB;
     width: 100%;
+}
+.euc-feedback-step01 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.8rem 3rem;
 }
 .euc-feedback-title {
     width: 20%;
@@ -752,4 +752,16 @@ euc-answer-container span {
     border-radius: var(--euc-rounded-pill);
     background-color: #A9B0B8;
     color: var(--euc-white);
+  }
+
+  .euc-feedback-step02 {
+    padding: 2rem 2rem 2rem 5.5rem;
+  }
+  .euc-feedback-step02 .euc-feedback-title {
+    width: 100%;
+  }
+  .euc-feedback-input {
+    display: flex;
+    margin-top: 1.6rem;
+    justify-content: space-between;
   }
