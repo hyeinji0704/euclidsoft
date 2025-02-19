@@ -919,21 +919,6 @@ euc-answer-container span {
     animation: ping 3s ease-in-out infinite;
   }
   
-  /* @keyframes ping {
-    0% {
-      opacity: 0;
-      transform: scale(1);
-    }
-    50%{
-      opacity: 0.8;
-      transform: scale(2);
-    }
-    100%{
-        opacity: 1;
-        transform: scale(2);
-      }
-  } */
-
   .euc-loader-title {
     display: flex;
     width: 100%;
@@ -951,7 +936,7 @@ euc-answer-container span {
     margin-top: 1.2rem;
 }
 
-.skeleton-loader {
+.euc-skeleton-loader {
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -963,12 +948,12 @@ euc-answer-container span {
     border-radius: 6px;
 }
 
-.text-large {
+.euc-text-large {
     height: 24px;
     margin-top: 3.6rem;
 }
 
-.text-small {
+.euc-text-small {
     height: 16px;
     margin: 12px 0;
 }
