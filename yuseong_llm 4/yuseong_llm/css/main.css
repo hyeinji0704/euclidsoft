@@ -207,7 +207,7 @@ height: 100%;
     max-width: 101rem;
 }
 .euc-search-info-title  {
-    grid-column: span 8 / span 8;
+    grid-column: span 9 / span 9;
     max-width: 72rem;
     width: 100%;
     font-size: 3.3rem;
@@ -240,7 +240,7 @@ height: 100%;
 }
 .euc-result-container:not(:first-child) {
     padding: 7rem 0;
-    border-top: 1px solid var(--euc-text-gray-300);
+    /* border-top: 1px solid var(--euc-text-gray-300); */
 }
 .euc-result {
     display: flex;
