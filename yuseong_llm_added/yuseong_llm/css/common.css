@@ -1,0 +1,235 @@
+/*태그초기화*/
+* {
+    padding: 0;   
+    margin: 0;
+    box-sizing: border-box;
+}
+ul, ol, li {
+    list-style: none;
+}
+a { 
+    color: inherit; 
+    text-decoration: none;
+}
+address, em {
+    font-style: normal;
+} 
+h1, h2, h3, h4, h5, h6, strong, th, textarea {
+    font-weight: inherit;
+    font-size: inherit;
+    font-family: inherit;
+}
+input, textarea{
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+}
+input, button, select {
+    color: inherit;
+    font-size: inherit; 
+    font-family: inherit;
+}
+button {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    border: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+}
+table {
+    border: 0;
+    border-collapse: collapse;
+}
+table caption {
+    display: none;
+}
+fieldset {
+    border: 0;
+}
+legend {
+    display: none; 
+}
+/*태그초기화*/
+
+html {
+    font-size: 62.5%;
+    font-family: 'Pretendard', sans-serif;/*1rem=10px*/
+}
+body {
+    color: #222;
+    font-weight: 500;
+    font-size: 1.6rem;
+    line-height: 1.75rem;
+    font-family: 'Pretendard', sans-serif;
+    word-break: keep-all;
+    word-wrap: break-word;
+}
+.wrapper {
+    width: 1620px; /* 넓이 제한 */
+    margin: 0 auto; /* 센터 */
+}
+#wrap { /*id="wrap"에 적용되는 스타일 */
+    min-width: 100%;
+    overflow: hidden; /*sticky 사용할 때는 쓰면 안됨*/
+}
+
+
+:root,[data-euc-theme=light] {
+    --euc-primary: #0072E5;
+    --euc-white: #fff;
+    --euc-text-dark: #222222;
+    --euc-text-gray-100: #F0F1F4;
+    --euc-text-gray-200: #B0B0B0;
+    --euc-text-gray-300: #aaaaaa;
+    --euc-text-gray-400: #888888;
+    --euc-text-gray-500: #767676;
+    --euc-text-gray-600: #666666; 
+    --euc-text-gray-700: #555555;
+    --euc-text-gray-800: #333333;
+    --euc-text-gray-900: #222222;
+    --euc-bg-gray-100: #F7F7F7;
+    --euc-bg-gray-200: #F0F1F4;
+    --euc-bg-gray-300: #F0F1F4;
+    --euc-bg-gray-400: #EEEEEE;
+    --euc-bg-gray-500: #E4e4e4;
+    --euc-bg-gray-600: #a0a0a0;
+    --euc-bg-gray-700: #414141;
+    --euc-icon-100: #5F6CBA;
+    --euc-info: #1FA7FF;
+    --euc-warning: #f4bd0e;
+    --euc-danger: #F93A37;
+    --euc-hover-border: #1FA7FF;
+    --euc-hover-bg-100: #F0F1F4;
+    --euc-hover-bg-200: #F7F7F7;
+    --euc-hover-bg-300: #F9F9F9;
+    --euc-hover-bg-400: #767676;
+    --euc-hover-bg-500: #4095EB;
+    --euc-hover-bg-600: #e2e2e2; 
+    --euc-white-rgb: 255,255,255;
+    --euc-black-rgb: 0,0,0;
+    --euc-border-gradient: linear-gradient(90deg, #6BD0FF 0.5%, #A8E3FF 21.5%, #8FBAFF 43%, #CCBDFF 68.5%, #99B8FF 100%);
+    --euc-text-gradient: linear-gradient(90deg, #101419 0%, #3E94EB 57%, #4A3EEB 100%);
+    --euc-border-width: 1px;
+    --euc-border-style: solid;
+    --euc-border-100: #3B3B3B;
+    --euc-border-200: #DEDCDB;
+    --euc-border-300: #dfdfdf;
+    --euc-border-400: #c4e1ff;
+    --euc-border-500: #e4e4e4;
+    --euc-rounded: 0.6rem;
+    --euc-rounded-sm: 0.4rem;
+    --euc-rounded-lg: 0.7rem;
+    --euc-rounded-xl: 1.2rem;
+    --euc-rounded-xxl: 1.75rem;
+    --euc-rounded-2xl: 1.8rem;
+    --euc-rounded-pill: 4rem;
+    --euc-shadow: 0px 4px 9px 0px rgba(0, 0, 0, 0.07);
+    --euc-shadow-sm: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
+    --euc-shadow-lg: 5px 6px 10px 0px rgba(226, 226, 226, 0.53);
+    --euc-text-xs: 1.4rem;
+    --euc-text-sm: 1.5rem;
+    --euc-text-base: 1.6rem;
+    --euc-text-xl: 2.2rem;
+    --euc-font-light : 300;
+    --euc-font-normal : 400;
+    --euc-font-medium : 500;
+    --euc-font-semibold : 600;
+    --euc-font-bold : 700;
+    --euc-p-1 : 0.2rem;
+    --euc-p-2 : 0.4rem;
+    --euc-p-3 : 0.6rem;
+    --euc-p-4 : 0.8rem;
+    --euc-p-5 : 1rem;
+    --euc-p-6 : 1.2rem;
+    --euc-p-7 : 1.4rem;
+    --euc-p-8 : 1.6rem;
+    --euc-p-9 : 1.8rem;
+    --euc-p-10 : 2rem;
+    --euc-p-11 : 2.2rem;
+    --euc-p-12 : 2.4rem;
+    --euc-p-13 : 2.6rem;
+    --euc-p-14: 2.8rem;
+    --euc-p-15 : 3rem;
+    --euc-p-16 : 3.2rem;
+    --euc-p-17 : 3.4rem;
+    --euc-p-18 : 3.6rem;
+    --euc-p-19 : 3.8rem;
+    --euc-p-20 : 4rem;
+    --euc-m-1 : 0.2rem;
+    --euc-m-2 : 0.4rem;
+    --euc-m-3 : 0.6rem;
+    --euc-m-4 : 0.8rem;
+    --euc-m-5 : 1rem;
+    --euc-m-6 : 1.2rem;
+    --euc-m-7 : 1.4rem;
+    --euc-m-8 : 1.6rem;
+    --euc-m-9 : 1.8rem;
+    --euc-m-10 : 2rem;
+    --euc-m-11 : 2.2rem;
+    --euc-m-12 : 2.4rem;
+    --euc-m-13 : 2.6rem;
+    --euc-m-14: 2.8rem;
+    --euc-m-15 : 3rem;
+    --euc-m-16 : 3.2rem;
+    --euc-m-17 : 3.4rem;
+    --euc-m-18 : 3.6rem;
+    --euc-m-19 : 3.8rem;
+    --euc-m-20 : 4rem;
+}
+
+
+.h1,h1 {
+    font-size: 5rem
+}
+
+.h2,h2 {
+    font-size: 2.2rem
+}
+
+.h3,h3 {
+    color: var(--euc-text-gray-800);
+    font-weight: var(--euc-font-bold);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.h4,h4 {
+    margin: 2.4rem 0 1.6rem 0;
+    color: var(--euc-text-gray-800);
+    font-weight: var(--euc-font-semibold);
+    font-size: 1.6rem;
+}
+
+.h5,h5 {
+    margin: 1.4rem 0 2rem 0;
+    color: var(--euc-text-gray-600);
+    font-weight: var(--euc-font-normal);
+    font-size: 1.6rem;
+}
+
+.h6,h6 {
+    color: var(--euc-text-gray-600);
+    font-weight: var(--euc-font-normal);
+    font-size: 1.5rem;
+    line-height: 2.1rem;
+}
+
+h3:not(:first-child){
+    margin-top: 1rem;
+}
+
+p:not(:first-child){
+    margin-top: 1rem;
+}
+p {
+    margin-top: 1.6rem;
+    margin-bottom: 1rem;
+}

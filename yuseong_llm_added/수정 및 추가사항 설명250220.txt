@@ -1,0 +1,34 @@
+***추가 및 수정사항들***
+※ 주석 처리 
+-changed.start 000 / changed.end 000 (변경)
+-added.start 000 / added.start 000 (추가)
+-delete.start / delete.end (삭제)
+
+1. 피드백 
+- content.html(.euc-feedback)에 구조 , script 추가  
+- layout.css에 추가  
+
+2. 더보기
+- content.html에 script 추가 
+- layout.css에 바뀐 부분 표시
+   <.euc-answer-section ~ .euc-btn-more:hover>이 부분 교체해주시면 됩니다.
+- 연관질문에는 더보기 기능 없습니다. 관련 법률 및 규정에서만 더보기 기능 추가해주세요.
+
+3. 알람창
+- layout.css에 추가
+
+4. 로딩
+- loading.html에 구조 추가
+- layout.css에 추가
+- 로딩은 항상 <div class="euc-result"></div> 이 구조 맨 위에 뜨게 해주세요.
+  첫 질문할 때와 추가 질문 할 때가 동일합니다.
+- 로딩 중 위 질문을 볼 때 답변이 끝나면 그 곳으로 가게 하는 기능을 추가해주세요.
+  빠르게 이동 부탁드립니다. (속도 1s 정도)
+
+***삭제사항***
+1. <main.css>
+   .euc-result-container:not(:first-child) {
+    padding: 7rem 0;
+    border-top: 1px solid var(--euc-text-gray-300);
+}
+이 부분에서 border-top 삭제해주세요.
