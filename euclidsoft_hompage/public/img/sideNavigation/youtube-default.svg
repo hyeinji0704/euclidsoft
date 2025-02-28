@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <g id="그룹_10400" data-name="그룹 10400" transform="translate(-166 -1213)">
+    <g id="사각형_5675" data-name="사각형 5675" transform="translate(166 1213)" fill="#fff" stroke="#ccc" stroke-width="2">
+      <rect width="32" height="32" rx="7" stroke="none"/>
+      <rect x="1" y="1" width="30" height="30" rx="6" fill="none"/>
+    </g>
+    <g id="그룹_10395" data-name="그룹 10395" transform="translate(174 1223)">
+      <path id="패스_6357" data-name="패스 6357" d="M15.67,1.878A2.081,2.081,0,0,0,14.26.367,43.744,43.744,0,0,0,8,0,45.456,45.456,0,0,0,1.74.353,2.125,2.125,0,0,0,.329,1.878,24.2,24.2,0,0,0,0,6a24.113,24.113,0,0,0,.329,4.122,2.081,2.081,0,0,0,1.41,1.511A43.835,43.835,0,0,0,8,12a45.456,45.456,0,0,0,6.26-.353,2.081,2.081,0,0,0,1.41-1.511A24.2,24.2,0,0,0,16,6.014,22.972,22.972,0,0,0,15.67,1.878Zm0,0" transform="translate(0 0)" fill="#ccc"/>
+      <path id="패스_6358" data-name="패스 6358" d="M204.969,107.237l4.126-2.376-4.126-2.376Zm0,0" transform="translate(-198.542 -98.861)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

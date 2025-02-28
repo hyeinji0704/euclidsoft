@@ -1,0 +1,14 @@
+@import url(./common.css);
+@import url(./globals.css);
+@import url(././main/part.css);
+@import url(././main/service.css);
+@import url(././main/tab.css);
+@import url(././main/tech.css);
+@import url(././main/title.css);
+
+
+.wrapper {
+    max-width: 128rem !important;
+    margin: 0 auto; /* 센터 */
+}
+

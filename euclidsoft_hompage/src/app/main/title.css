@@ -1,0 +1,53 @@
+.title {
+    padding: 8rem 0 12rem 0;
+    padding-right: 32rem;
+}
+.title > span {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #777777;
+    display: block;
+}
+.title > h1  {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #222;
+    padding-bottom: 3.5rem;
+}
+.title > p {
+    color: #666;
+    font-size: 1.8rem;
+    font-weight: 500;
+    line-height: 3.2rem; /* 177.778% */
+}
+.main_photo {
+    position: absolute;
+    width: 100%;
+    height: 50rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url(../../../public/img/product/secuai_0.png);
+    background-position: top center;
+    background-size: cover;
+}
+.main_photo > .photo_txt {
+    position: absolute;
+    width: 1280px;
+    top: 0;
+    margin-top: 31rem;
+    color: #FFF;
+    font-family: Poppins;
+}
+.main_photo > .photo_txt > h1 {
+    font-size: 4rem;
+    line-height: 120%;
+}
+.main_photo > .photo_txt > p {
+    font-size: 2.6rem;
+    color: rgba(255, 255, 255, 0.62);
+    font-weight: 400;
+    line-height: 120%;
+}

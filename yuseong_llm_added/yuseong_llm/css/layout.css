@@ -597,6 +597,7 @@ euc-answer-container span {
     position: relative;
     width: 100%;
     padding: 0.7rem 0;
+    height: 4rem;
     border: 1px solid var(--euc-border-100);
     border-radius: var(--euc-rounded-pill);
     background-color: #fff;
