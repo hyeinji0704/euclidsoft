@@ -1,0 +1,225 @@
+.cnt {
+    padding-top: 10rem;
+}
+.cnt:last-child {
+    padding-bottom: 12rem;
+}
+.cnt_tit {
+    padding: 2rem 0;
+    color: #222;
+    text-align: center;
+    font-size: 2.6rem;
+    font-weight: 800;
+    background: #FAFAFA;
+    border-top: 1px;
+    border-bottom: 1px;
+    border-left: 0;
+    border-right: 0;
+    border-style: solid;
+    border-color: #222222;
+    margin-bottom: 4.5rem;
+}
+.cnt_item:not(:last-child) {
+    padding-bottom: 10rem;
+}
+.cnt_item h1 {
+    color: #222;
+    font-size: 2.2rem;
+    font-weight: 700;
+    padding: 2rem 0 5rem 0;
+    position: relative;
+}
+.cnt_item h1::before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 12.7rem;
+    height: 0.6rem;
+    flex-shrink: 0;
+    background-color: #0319DE;
+    content: "";
+}
+.cnt_item h2 {
+    color: #01108E;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin: 5rem 0 3rem 0;
+}
+.cnt_item span {
+    display: block;
+    color: #666;
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-top: 1.2rem;
+    padding-left: 2rem;
+    position: relative;
+}
+.cnt_item span::before {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: #3649D8;
+    border-radius: 50%;
+    content: "";
+}
+.cnt_img {
+    width: 100%;
+    height: 100%;
+}
+.cnt_img img {
+    width: 100%;
+    height: 100%;
+}
+
+
+/*핵심기술 css*/
+.tech {
+    margin-top: 50rem;
+}/* 중복값으로 들어가면 지우셔도 됩니다.*/
+.tech > .cnt_item > ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.tech > .cnt_item > ul > .card {
+    width: calc(33.33% - 4rem);
+    text-align: center;
+    height: 30rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 0 3.3rem 0;
+    border-radius: 1rem;
+    background: #F5F6F8;
+    transition: all 0.35s ease-in-out;
+}
+.tech > .cnt_item > ul > .card > .tech_img {
+    width: 16rem;
+    height: 16rem;
+    text-align: center;
+    display: block;
+    background-repeat: no-repeat;
+    transition: 
+    width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), 
+    height 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+    transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.tech > .cnt_item > ul > .card > .tech_img.img01 {
+    background-image: url(../../../public/img/product/secuai_tech_icon_1.svg);
+    width: 15.8rem;
+    height: 12.9rem;
+}
+.tech > .cnt_item > ul > .card > .tech_img.img02 {
+    background-image: url(../../../public/img/product/secuai_tech_icon_2.svg);
+    width: 17.4rem;
+    height: 12.6rem;
+}
+.tech > .cnt_item > ul > .card > .tech_img.img03 {
+    background-image: url(../../../public/img/product/secuai_tech_icon_3.svg);
+    width: 14.4rem;
+    height: 10.9rem;
+}
+.tech > .cnt_item > ul > .card > p {
+    font-size: 2.4rem;
+    font-weight: 600;
+    line-height: 2.4rem; /* 100% */
+    letter-spacing: -0.048rem;
+    color: #131314;
+    transition: all 0.35s ease-in-out;
+}
+.tech > .cnt_item > ul > .card > p + p {
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 2.4rem; /* 150% */
+    letter-spacing: -0.032rem;
+    color: #94959C;
+    margin: 1rem 0 3rem 0 ;
+    transition: all 0.35s ease-in-out;
+}
+.tech > .cnt_item > ul > .card.active {
+    background-color: #01108E;
+}
+.tech > .cnt_item > ul > .card.active > p {
+    color: #ffffff;
+}
+.tech > .cnt_item > ul > .card.active > p + p {
+    color: #5866DC;
+}
+.tech > .cnt_item > ul > .card.active > .tech_img {
+    transform: scale(105%);
+}
+/*서비스 구성도 css*/
+
+/*활용분야 css*/
+.part .cnt_tit {
+    margin-bottom: 8rem;
+}
+
+@media screen and (max-width: 1400px) {
+    .cnt:last-child {
+        padding-bottom: 10rem;
+    }
+    .cnt_item span {
+        font-size: 1.6rem;
+    }
+    .cnt_item h1 {
+        font-size: 2rem;
+        padding: 2rem 0 4rem 0;
+        position: relative;
+    }
+    .cnt_item h2 {
+        font-size: 2rem;
+        margin: 4rem 0 2rem 0;
+    }
+    .tech {
+        margin-top: 26rem;
+    }
+}
+@media screen and (max-width: 749px) {
+    .cnt {
+        padding-top: 6rem;
+    }
+    .cnt:last-child {
+        padding-bottom: 8rem;
+    }
+    .cnt_tit {
+        padding: 1.6rem 0;
+        font-size: 2.2rem;
+    }
+    .cnt_item:not(:last-child) {
+        padding-bottom: 6rem;
+    }
+    .tech > .cnt_item > ul {
+        flex-direction: column;
+    }
+    .tech > .cnt_item > ul > .card {
+        width: 100%;
+        margin-bottom: 2rem;
+        padding: 3rem 0 1.8rem 0;
+        height: 25rem;
+    }
+    .tech > .cnt_item > ul > .card > p {
+        font-size: 2rem;
+    }
+    .tech > .cnt_item > ul > .card > p + p {
+        font-size: 1.6rem;
+    }
+    .tech > .cnt_item > ul > .card > .tech_img.img01 {
+        transform: scale(0.9);
+    }
+    .tech > .cnt_item > ul > .card > .tech_img.img02 {
+        transform: scale(0.9);
+    }
+    .tech > .cnt_item > ul > .card > .tech_img.img03 {
+        transform: scale(0.9);
+    }
+    .part .cnt_tit {
+        margin-bottom: 4rem;
+    }
+}
+
+

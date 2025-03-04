@@ -1,13 +1,67 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product-인공지능-SecuAI</title>
     <link href="./main.css" rel="stylesheet">
 </head>
 <body>
-    <div class="wrapper">
-        
+    <script>
+        //서브페이지 - product - card 애니메이션 
+        document.addEventListener('DOMContentLoaded', function() {
+          const cards = document.querySelectorAll('.card');
+          let currentActiveIndex = 0;
+          const interval = 3500; 
+          let autoChangeInterval;
+          let isHovering = false;
+          
+          // 모든 카드 비활성화하는 함수
+          function deactivateAllCards() {
+            cards.forEach(card => {
+              card.classList.remove('active');
+            });
+          }
+          
+          // 특정 카드 활성화하는 함수
+          function activateCard(index) {
+            deactivateAllCards();
+            cards[index].classList.add('active');
+            currentActiveIndex = index;
+          }
+          
+          // hover 이벤트 추가
+          cards.forEach((card, index) => {
+            // 마우스가 카드 위에 올라갔을 때
+            card.addEventListener('mouseenter', function() {
+              isHovering = true;
+              activateCard(index);
+              // 자동 전환 중지
+              clearInterval(autoChangeInterval);
+            });
+            
+            // 마우스가 카드에서 벗어났을 때
+            card.addEventListener('mouseleave', function() {
+              isHovering = false;
+              // 자동 전환 재시작
+              autoChangeInterval = setInterval(changeActiveCard, interval);
+            });
+          });
+          // 자동으로 다음 카드로 변경하는 함수
+          function changeActiveCard() {
+            if (!isHovering) {
+              currentActiveIndex = (currentActiveIndex + 1) % cards.length;
+              activateCard(currentActiveIndex);
+            }
+          }
+          // 첫 번째 카드 활성화
+          activateCard(0);
+          
+          // 자동 순환 시작
+          autoChangeInterval = setInterval(changeActiveCard, interval);
+        });
+      </script>
+      </script>
+    <div class="wrapper sub_nav">
         <div class="sub_tab">
             <ul>
                 <li class="active"><a>SecuAI</a></li>
@@ -15,13 +69,13 @@
                 <li><a>LIME-AICDSS</a></li>
             </ul>
         </div>
-
     </div>    
-    <div class="wrapper">
+
+    <div class="wrapper sub_tit">
         <div class="title">
             <span>암호화 키관리 시스템 씨큐에이아이</span>
             <h1>SecuAI</h1>
-            <p>AI 모델을 Kubernetes 클러스터에서 배포하고, SecuAI Cryptosystem을 사용하여 엣지 디바이스에서 암호화된 모델을 처리하며,
+            <p>AI 모델을 Kubernetes 클러스터에서 배포하고, SecuAI Cryptosystem을 사용하여 엣지 디바이스에서 암호화된 모델을 처리하며,<br>
                 중앙에서 통합 관리되는 KMS를 통해 암호화 키를 생성, 배포, 관리, 폐기하는 시스템입니다.</p>
         </div>
     </div>
@@ -33,7 +87,7 @@
         </div>
     </div>
 
-    <div class="wrapper">
+    <div class="wrapper sub_con">
         <div class="tech cnt">
             <div class="cnt_tit">핵심기술</div>
             <div class="cnt_item">
@@ -51,17 +105,17 @@
             <div class="cnt_item">
                 <h1>도입효과</h1>
                 <ul>
-                    <li class="active">
+                    <li class="card">
                         <p>AI 모델 생성 서버 to 엣지</p>
                         <p>디바이스까지 안전한 배포관리</p>
                         <div class="tech_img img01"></div>
                     </li>
-                    <li>
+                    <li class="card">
                         <p>실시간 데이터</p>
                         <p>암호화 및 복호화</p>
                         <div class="tech_img img02"></div>
                     </li>
-                    <li>
+                    <li class="card">
                         <p>강력한 암호화</p>
                         <p>알고리즘 데이터 관리</p>
                         <div class="tech_img img03"></div>
@@ -72,9 +126,26 @@
         </div>
         <div class="serivce cnt">
             <div class="cnt_tit">서비스 구성도</div>
+            <div class="cnt_img"><img src="../../public/img/product/secuai_1.png"></div>
         </div>
         <div class="part cnt">
             <div class="cnt_tit">활용분야</div>
+            <div class="cnt_item">
+                <h2>데이터 보안 및 개인정보 보호</h2>
+                <span>기밀성이 중요한 데이터를 사용하여 모델을 학습할 때 데이터와 모델을 보호</span>
+                <h2>금융 산업</h2>
+                <span>기밀성이 중요한 데이터를 사용하여 모델을 학습할 때 데이터와 모델을 보호</span>
+                <h2>의료 데이터 처리</h2>
+                <span>민감한 의료 데이터를 사용할 때 개인정보 보호를 강화하여 데이터 보안을 유지</span>
+                <h2>인공지능 협력 연구</h2>
+                <span>다양한 연구 기관이 민감한 데이터를 공유하지 않고도 협력하여 모델을 개발</span>
+                <h2>사물인터넷</h2>
+                <span>연결된 기기들이 수집하는 데이터를 안전하게 처리하여 프라이버시와 보안을 강화</span>
+                <h2>국방분야</h2>
+                <span>암호화된 모델을 사용하여 군 통신 시스템에서 데이터를 보호하고, 전송 중 정보의 기밀성과 무결성을 유지.</span>
+                <span>무기 시스템의 AI 모델 보호를 통해 적으로부터 기술 탈취를 막고, 시스템의 신뢰성을 강화.</span>
+                <span>드론과 자율 무기 시스템의 의사결정 모델을 보호하여 해킹 등 외부 위협을 방지</span>
+            </div>
         </div>
     </div>
     </div>

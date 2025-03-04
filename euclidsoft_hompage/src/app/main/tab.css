@@ -1,5 +1,4 @@
 .sub_tab {
-    margin: 4rem;
     font-size: 1.8rem;
     font-weight: 600;
 }
@@ -13,10 +12,11 @@
 }
 .sub_tab > ul > li {
     width: 18rem;
-    padding: 1rem 0;
-    margin: 0 1rem;
+    padding: 1rem 2rem;
+    margin-right: 1rem;
     border-radius: 50px;
     color: #777777;
+    transition: all 0.3s ease;
 }
 .sub_tab > ul > li.active, .sub_tab > ul > li:hover {
     background-color: #00108E;
@@ -32,3 +32,27 @@
     text-align: center;
     cursor: pointer;
 }
+
+
+@media screen and (max-width: 1400px) {
+    .sub_tab {
+        font-size: 1.6rem;
+    }
+    .sub_tab > ul {
+        padding: 0 15rem;
+    }
+    .sub_tab > ul > li {
+        width: calc(33.33% - 2rem);
+    }
+}
+@media screen and (max-width: 749px) {
+    .sub_tab > ul {
+        padding: 0;
+        justify-content: flex-start;
+    }
+    .sub_tab > ul > li {
+        min-width: 14rem;
+    }
+}
+
+
