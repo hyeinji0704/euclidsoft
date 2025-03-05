@@ -95,6 +95,8 @@ body {
     --euc-text-gray-700: #555555;
     --euc-text-gray-800: #333333;
     --euc-text-gray-900: #222222;
+    --euc-text-blue-100: #4D556B;
+    --euc-text-blue-200: #666E85;
     --euc-bg-gray-100: #F7F7F7;
     --euc-bg-gray-200: #F0F1F4;
     --euc-bg-gray-300: #F0F1F4;
@@ -102,6 +104,9 @@ body {
     --euc-bg-gray-500: #E4e4e4;
     --euc-bg-gray-600: #a0a0a0;
     --euc-bg-gray-700: #414141;
+    --euc-bg-blue-100: #F9FBFF;
+    --euc-bg-blue-200: #A9AFB8;
+    --euc-bg-blue-300: #878D93;
     --euc-icon-100: #5F6CBA;
     --euc-info: #1FA7FF;
     --euc-warning: #f4bd0e;
@@ -115,6 +120,7 @@ body {
     --euc-hover-bg-600: #e2e2e2; 
     --euc-white-rgb: 255,255,255;
     --euc-black-rgb: 0,0,0;
+    --euc-bg-gradient: linear-gradient(180deg, #009DFD 0%, #0391EC 100%);
     --euc-border-gradient: linear-gradient(90deg, #6BD0FF 0.5%, #A8E3FF 21.5%, #8FBAFF 43%, #CCBDFF 68.5%, #99B8FF 100%);
     --euc-text-gradient: linear-gradient(90deg, #101419 0%, #3E94EB 57%, #4A3EEB 100%);
     --euc-border-width: 1px;
@@ -124,6 +130,9 @@ body {
     --euc-border-300: #dfdfdf;
     --euc-border-400: #c4e1ff;
     --euc-border-500: #e4e4e4;
+    --euc-border-600: #B3CBDB;
+    --euc-border-blue-100:#EBF1F9;
+    --euc-border-blue-200:#A9B4C3;
     --euc-rounded: 0.6rem;
     --euc-rounded-sm: 0.4rem;
     --euc-rounded-lg: 0.7rem;

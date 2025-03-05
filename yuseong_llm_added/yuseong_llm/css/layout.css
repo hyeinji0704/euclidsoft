@@ -51,11 +51,11 @@
  
 /* Sidebar - history */
 .euc-history-container {
-    padding-right: 0.8rem;
     transition-duration: .5s;
     transition-property: opacity;
     transition-timing-function: cubic-bezier(.4,0,.2,1);
     overflow-y: auto;
+    scrollbar-gutter: stable;
 }
 .euc-history {
     display: flex;
@@ -140,17 +140,66 @@
 }
 
 /* Scroll-bar */
-::-webkit-scrollbar{
-    width: 1rem;
-    background-color:var(--euc-white);
+/* 스크롤바 스타일 */
+::-webkit-scrollbar {
+    width: 12px; /* 세로 스크롤바 너비 */
+    height: 12px; /* 가로 스크롤바 높이 */
 }
-::-webkit-scrollbar-thumb{
-    background-color:var(--euc-bg-gray-400);
-    border-radius: 100px;
+
+/* 스크롤바 트랙 */
+::-webkit-scrollbar-track {
+    background-color: var(--euc-bg-gray-100); /* 트랙 색상 (연한 회색) */
 }
-::-webkit-scrollbar-thumb:hover{
-    background-color:var(--euc-bg-gray-500);
+
+/* 스크롤바 핸들(Thumb) */
+::-webkit-scrollbar-thumb {
+    background-color: var(--euc-text-gray-200); /* 핸들 색상 (중간 회색) */
 }
+
+/* 스크롤바 핸들: 호버 시 */
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--euc-text-gray-400); /* 호버 시 핸들 색상 변경 */
+}
+
+/* 스크롤바 핸들: 활성 상태 (클릭 시) */
+::-webkit-scrollbar-thumb:active {
+    background-color: var(--euc-bg-gray-600); /* 클릭 시 더 진한 색상 */
+}
+/* 스크롤바 버튼 (위/아래) */
+::-webkit-scrollbar-button {
+    background-color: #d4d4d4; /* 버튼 배경색 */
+    height: 16px; /* 버튼 높이 */
+    border-radius: 50%; /* 둥근 버튼 */
+}
+
+/* 스크롤바 버튼: 호버 시 */
+::-webkit-scrollbar-button:hover {
+    background-color: #a0a0a0; /* 버튼 호버 시 색상 */
+}
+
+/* 위쪽 끝 버튼 (스크롤 위로) */
+::-webkit-scrollbar-button:start:decrement {
+    display: block;
+    background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="gray"%3E%3Cpath d="M12 8l-6 6h12z"/%3E%3C/svg%3E') center no-repeat;
+    background-size: 8px;
+    height: 16px;
+}
+
+/* 아래쪽 끝 버튼 (스크롤 아래로) */
+::-webkit-scrollbar-button:end:increment {
+    display: block;
+    background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="gray"%3E%3Cpath d="M12 16l6-6H6z"/%3E%3C/svg%3E') center no-repeat;
+    background-size: 8px;
+    height: 16px;
+}
+
+/* 중간 버튼 숨기기 */
+::-webkit-scrollbar-button:decrement,
+::-webkit-scrollbar-button:increment {
+    display: none;
+}
+
+
 
 /* Wrap - Header */
 .euc-header {
@@ -165,7 +214,7 @@
     display: flex;
     width: 3.2rem;
     height: 3.2rem;
-    color: #fff;
+    color: var(--euc-white);
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
@@ -176,7 +225,7 @@
     font-weight: var(--euc-font-medium);
 }
 
-/* user-avatar 색상 */
+/* user-avatar 색상 
 .euc-user-avatar[name   = "question"] {
     background-color: var(--euc-bg-gray-700);
 }
@@ -188,10 +237,11 @@
 }
 .euc-user-avatar[name   = "Sparkle"] {
     background-color: #FF5A5A;
+
     background-image: url(../images/avatar.svg);
     background-position: center center;
     background-repeat: no-repeat;
-}
+}*/
 
 
 /* dropdown */
@@ -218,7 +268,7 @@
 
     /* 스타일 */
     box-shadow: var(--euc-shadow);
-    background-color: var(--euc-bg, #fff); /* 배경색 추가 가능 */
+    background-color: var(--euc-bg, --euc-white); /* 배경색 추가 가능 */
     opacity: 0;
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
@@ -290,7 +340,7 @@
         background: var(--euc-white);
         align-items: center;
         border-radius: var(--euc-rounded-xl);
-        background-image: linear-gradient(rgb(247, 247, 245), rgb(247, 247, 245)), linear-gradient(90deg, #6BD0FF 0.5%, #A8E3FF 21.5%, #8FBAFF 43%, #CCBDFF 68.5%, #99B8FF 100%);
+        background-image: linear-gradient(rgb(247, 247, 245), rgb(247, 247, 245)), var(--euc-border-gradient);
         background-origin: border-box;
         background-clip: content-box, border-box;
     }
@@ -309,7 +359,7 @@
         padding: 1.5rem 1.5rem 1.5rem 1rem;
         border: none;
         background: transparent;
-        color: #333;
+        color: var(--euc-text-gray-800);
         font-weight: var(--euc-font-normal);
         flex: 1;
         outline: none;
@@ -317,7 +367,7 @@
         resize: none; /* 사용자가 수동으로 크기 조절하지 못하게 함 */
     }
     .euc-textarea::placeholder {
-        color: #aaa;
+        color: var(--euc-text-gray-300);
     }
 
     /* 버튼 스타일 */
@@ -338,7 +388,7 @@
         cursor: pointer;
     }
     .search-button.disabled {
-        background-color: #cccccc;
+        background-color: var(--euc-bg-gray-500);
         box-shadow: 0 0 0 3px rgb(230, 230, 230);
     }
     .mic-button {
@@ -600,7 +650,7 @@ euc-answer-container span {
     height: 4rem;
     border: 1px solid var(--euc-border-100);
     border-radius: var(--euc-rounded-pill);
-    background-color: #fff;
+    background-color: var(--euc-white);
     cursor: pointer;
     z-index: 10;
     margin-top: -2.5rem;
@@ -621,7 +671,7 @@ euc-answer-container span {
     margin-bottom: 0;
 }
 .download:hover h5 {
-    text-decoration: underline #666;
+    text-decoration: underline var(--euc-text-gray-600);
 }
 .download em {
     margin-top: 1rem;
@@ -681,8 +731,8 @@ euc-answer-container span {
 }
 .euc-feedback-step01, .euc-feedback-step02 {
     width: 100%;
-    border: 1px solid #EBF1F9;
-    background: #F9FBFF;
+    border: 1px solid var(--euc-border-blue-100);
+    background: var(--euc-bg-blue-100);
     border-radius: var(--euc-rounded);
 }
 .euc-feedback-step01 {
@@ -693,7 +743,7 @@ euc-answer-container span {
 }
 .euc-feedback-title {
     width: 20%;
-    color: #4D556B;
+    color: var(--euc-text-blue-100);
 }
 .euc-feedback-inner {
     display: flex;
@@ -709,7 +759,7 @@ euc-answer-container span {
 .euc-radio-button {
     display: flex;
     position: relative;
-    color: #666E85;
+    color: var(--euc-text-blue-200);
     gap: 0.8rem;
     justify-content: center;
     align-items: center;
@@ -724,7 +774,7 @@ euc-answer-container span {
     position: relative;
     width: 1.8rem;
     height: 1.8rem;
-    border: 1px solid #A9B4C3;
+    border: 1px solid var(--euc-border-blue-200);
     border-radius: 50%;
     background-color: var(--euc-white);
     transition: all 0.2s ease-in-out;
@@ -745,8 +795,8 @@ euc-answer-container span {
 }
 
 .euc-radio-button input[type="radio"]:checked + .euc-radio {
-    border: 1px solid #0082E8;
-    background: linear-gradient(180deg, #009DFD 0%, #0391EC 100%);
+    border: 1px solid var(--euc-primary);
+    background: var(--euc-bg-gradient);
 }
 
 .euc-radio-button input[type="radio"]:checked + .euc-radio::before {
@@ -761,7 +811,7 @@ euc-answer-container span {
     justify-content: space-between;
     gap: 0.6rem;
     border-radius: var(--euc-rounded-pill);
-    background-color: #A9B0B8;
+    background-color: var(--euc-bg-gray-600);
 }
 
 .euc-feedback-step02 {
@@ -793,32 +843,32 @@ euc-answer-container span {
     width: calc(100% - 60px);
     height: 4rem;
     padding: 1rem 1rem 1rem 2.1rem;
-    border: 1px solid #D0D6DF;
+    border: 1px solid var(--euc-border-300);
     border-radius: 0.2rem;
     margin-right: 0.5rem;
     overflow-y: auto;
     resize: none;
 }
 .euc-feedback-input textarea::placeholder {
-    color: #CACDD6;
+    color: var(--euc-text-gray-200);
     font-weight: var(--euc-font-normal);
 }
 .euc-feedback-submit {
     padding: 1.1rem 1.7rem;
-    background: #A9AFB8;
+    background: var(--euc-bg-blue-200);
     color: var(--euc-white);
     border-radius: 0.2rem;
     pointer-events: auto; /* 클릭 가능 */
 }
 .euc-feedback-submit.inactive {
     color: var(--euc-white);
-    background-color: #ccc; /* 비활성화된 버튼 배경색 */
+    background-color: var(--euc-text-gray-200); /* 비활성화된 버튼 배경색 */
     cursor: not-allowed; /* 비활성화 커서 */
     pointer-events: none; /* 클릭 불가 */
 }
 
 .euc-feedback-button:hover, .euc-feedback-submit:hover {
-    background-color: #878D93;
+    background-color: var(--euc-bg-blue-300);
 }
 
 .euc-feedback-step02 {
@@ -935,7 +985,7 @@ euc-answer-container span {
     margin-left: 5.8rem;
 }
 .euc-loader-title span {
-    background: linear-gradient(90deg, #101419 0%, #3E94EB 57%, #4A3EEB 100%);
+    background: var(--euc-text-gradient);
     font-weight: var(--euc-font-bold);
     font-size: 2rem;
     line-height: 1.8rem;
