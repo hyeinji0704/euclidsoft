@@ -107,6 +107,8 @@ body {
     --euc-bg-blue-100: #F9FBFF;
     --euc-bg-blue-200: #A9AFB8;
     --euc-bg-blue-300: #878D93;
+    --euc-bg-blue-400: #c7d1dc;
+    --euc-bg-blue-500: #E5F1FC;
     --euc-icon-100: #5F6CBA;
     --euc-info: #1FA7FF;
     --euc-warning: #f4bd0e;
@@ -133,6 +135,7 @@ body {
     --euc-border-600: #B3CBDB;
     --euc-border-blue-100:#EBF1F9;
     --euc-border-blue-200:#A9B4C3;
+    --euc-border-blue-300:#D0D6DF;
     --euc-rounded: 0.6rem;
     --euc-rounded-sm: 0.4rem;
     --euc-rounded-lg: 0.7rem;
@@ -238,7 +241,7 @@ h3:not(:first-child){
 p:not(:first-child){
     margin-top: 1rem;
 }
-p {
+.euc-answer-section p {
     margin-top: 1.6rem;
     margin-bottom: 1rem;
 }
