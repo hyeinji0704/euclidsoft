@@ -133,7 +133,7 @@
 }
 .tech > .cnt_item > ul > .card.active > p + p {
     color: #5866DC;
-}.
+}
 .tech > .cnt_item > ul > .card.active > .tech_img {
     transform: scale(105%);
 }
