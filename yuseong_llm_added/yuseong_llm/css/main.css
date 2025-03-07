@@ -96,7 +96,7 @@ height: 100%;
     overflow-x: auto;
     overflow-y: auto;
     scrollbar-gutter: stable;
-    margin-bottom: 8rem;
+    margin-bottom: 12rem;
 }
 .euc-sub .euc-search-inner {
     justify-content: center;
@@ -160,7 +160,7 @@ height: 100%;
 .euc-search-tit {
     position: relative; 
     width: 100%;
-    background: linear-gradient(90deg, #101419 0%, #3E94EB 57%, #4A3EEB 100%);
+    background: var(--euc-text-gradient);
     line-height: 63px;
     text-align: center;
     -webkit-background-clip: text;
