@@ -7,57 +7,63 @@
 </head>
 <body>
     <script>
-        //서브페이지 - product - card 애니메이션 
-        document.addEventListener('DOMContentLoaded', function() {
-          const cards = document.querySelectorAll('.card');
-          let currentActiveIndex = 0;
-          const interval = 3500; 
-          let autoChangeInterval;
-          let isHovering = false;
-          
-          // 모든 카드 비활성화하는 함수
-          function deactivateAllCards() {
-            cards.forEach(card => {
-              card.classList.remove('active');
+            document.addEventListener('DOMContentLoaded', function() {
+        const cards = document.querySelectorAll('.card');
+        let currentActiveIndex = 0;
+        const interval = 3500;
+        let autoChangeInterval;
+        let isHovering = false;
+
+        // 스타일 적용 함수
+        function applyStyles(card, apply = true) {
+            card.style.backgroundColor = apply ? '#262C5A' : ''; // 원하는 배경색
+            const paragraphs = card.querySelectorAll('p + p');
+            paragraphs.forEach(p => {
+            p.style.color = apply ? '#8C91C0' : ''; // 원하는 텍스트 색상
             });
-          }
-          
-          // 특정 카드 활성화하는 함수
-          function activateCard(index) {
+        }
+
+        function deactivateAllCards() {
+            cards.forEach(card => {
+            card.classList.remove('active');
+            applyStyles(card, false); // 스타일 제거
+            });
+        }
+
+        function activateCard(index) {
             deactivateAllCards();
             cards[index].classList.add('active');
+            applyStyles(cards[index], true); // active일 때 스타일 적용
             currentActiveIndex = index;
-          }
-          
-          // hover 이벤트 추가
-          cards.forEach((card, index) => {
-            // 마우스가 카드 위에 올라갔을 때
+        }
+
+        cards.forEach((card, index) => {
             card.addEventListener('mouseenter', function() {
-              isHovering = true;
-              activateCard(index);
-              // 자동 전환 중지
-              clearInterval(autoChangeInterval);
+            isHovering = true;
+            activateCard(index);
+            clearInterval(autoChangeInterval);
+            applyStyles(card, true); // hover 시 스타일 적용
             });
-            
-            // 마우스가 카드에서 벗어났을 때
+
             card.addEventListener('mouseleave', function() {
-              isHovering = false;
-              // 자동 전환 재시작
-              autoChangeInterval = setInterval(changeActiveCard, interval);
-            });
-          });
-          // 자동으로 다음 카드로 변경하는 함수
-          function changeActiveCard() {
-            if (!isHovering) {
-              currentActiveIndex = (currentActiveIndex + 1) % cards.length;
-              activateCard(currentActiveIndex);
+            isHovering = false;
+            // active 상태가 아니면 스타일 제거
+            if (!card.classList.contains('active')) {
+                applyStyles(card, false);
             }
-          }
-          // 첫 번째 카드 활성화
-          activateCard(0);
-          
-          // 자동 순환 시작
-          autoChangeInterval = setInterval(changeActiveCard, interval);
+            autoChangeInterval = setInterval(changeActiveCard, interval);
+            });
+        });
+
+        function changeActiveCard() {
+            if (!isHovering) {
+            currentActiveIndex = (currentActiveIndex + 1) % cards.length;
+            activateCard(currentActiveIndex);
+            }
+        }
+
+        activateCard(0);
+        autoChangeInterval = setInterval(changeActiveCard, interval);
         });
       </script>
     <div class="wrapper sub_nav">
@@ -72,29 +78,22 @@
 
     <div class="wrapper sub_tit">
         <div class="title">
-            <span>암호화 키관리 시스템 씨큐에이아이</span>
-            <h1>SecuAI</h1>
-            <p>AI 모델을 Kubernetes 클러스터에서 배포하고, SecuAI Cryptosystem을 사용하여 엣지 디바이스에서 암호화된 모델을 처리하며,<br>
-                중앙에서 통합 관리되는 KMS를 통해 암호화 키를 생성, 배포, 관리, 폐기하는 시스템입니다.</p>
+            <span>행동인식 기반 자동탐지 솔루션 올키퍼</span>
+            <h1>Allkeeper</h1>
+            <p>AI 행동인식 솔루션은 사람의 행동을 인식하고 쓰레기 무단 투기를 실시간으로 탐지하여 무단 투기 데이터 및 투기 현장의 종합적인 관리를 도와주는 솔루션입니다.</p>
         </div>
     </div>
 
     <div class="main_photo">
-        <div class="photo_txt">
-            <h1>LLM</h1>
-            <p>LARGE LANGUAGE MODEL</p>
+        <img src="../../public/img/product/allkeeper_0.png">
+        <div class="photo_txt center">
+            <h1>AI Behavior Recognition Solution</h1>
         </div>
     </div>
 
     <div class="wrapper sub_con">
         <div class="tech cnt">
             <div class="cnt_tit">핵심기술</div>
-            <div class="cnt_item">
-                <h1>구성요소</h1>
-                <span>대칭키: 대칭키 사용을 통해 암·복호화의 수행 속도 향상</span>
-                <span>비대칭키: 대칭키를 공개키로 암호화, 개인키로 복호화 실행</span>
-                <span>검증된 RSA의 공개키 암호화 알고리즘 사용으로 보안강화</span>
-            </div>
             <div class="cnt_item">
                 <h1>주요기능</h1>
                 <span>키 생성 및 배포 : 암호화 키로 모델을 암호화하여 엣지 디바이스에 배포</span>
@@ -105,19 +104,19 @@
                 <h1>도입효과</h1>
                 <ul>
                     <li class="card">
-                        <p>AI 모델 생성 서버 to 엣지</p>
-                        <p>디바이스까지 안전한 배포관리</p>
-                        <div class="tech_img img01"></div>
+                        <p>AI 기반 정밀 감지</p>
+                        <p>투기 행위 탐지 정확도 향상</p>
+                        <img class="tech_img img01" src="../../public/img/product/allkeeper_tech_icon_1.svg" style="width: 25.1rem; height: 15.4rem;">
                     </li>
                     <li class="card">
-                        <p>실시간 데이터</p>
-                        <p>암호화 및 복호화</p>
-                        <div class="tech_img img02"></div>
+                        <p>실시간 경고 시스템</p>
+                        <p>불법 투기 예방 효과</p>
+                        <img class="tech_img img02" src="../../public/img/product/allkeeper_tech_icon_2.svg" style="width: 32rem; height: 22.4rem; margin-top: -7.2rem;">
                     </li>
                     <li class="card">
-                        <p>강력한 암호화</p>
-                        <p>알고리즘 데이터 관리</p>
-                        <div class="tech_img img03"></div>
+                        <p>데이터 수집 및 분석</p>
+                        <p>효율적인 투기 관리</p>
+                        <img class="tech_img img03" src="../../public/img/product/allkeeper_tech_icon_3.svg" style="width: 16.5rem; height: 14.5rem;">
                     </li>
                 </ul>
             </div>

@@ -102,26 +102,10 @@
     height: 16rem;
     text-align: center;
     display: block;
-    background-repeat: no-repeat;
     transition: 
     width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), 
     height 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
     transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-.tech > .cnt_item > ul > .card > .tech_img.img01 {
-    background-image: url(../../../public/img/product/secuai_tech_icon_1.svg);
-    width: 15.8rem;
-    height: 12.9rem;
-}
-.tech > .cnt_item > ul > .card > .tech_img.img02 {
-    background-image: url(../../../public/img/product/secuai_tech_icon_2.svg);
-    width: 17.4rem;
-    height: 12.6rem;
-}
-.tech > .cnt_item > ul > .card > .tech_img.img03 {
-    background-image: url(../../../public/img/product/secuai_tech_icon_3.svg);
-    width: 14.4rem;
-    height: 10.9rem;
 }
 .tech > .cnt_item > ul > .card > p {
     font-size: 2.4rem;
@@ -140,16 +124,16 @@
     margin: 1rem 0 3rem 0 ;
     transition: all 0.35s ease-in-out;
 }
+.tech > .cnt_item > ul > .card.active > p {
+    color: #ffffff;
+}
 .tech > .cnt_item > ul > .card.active {
     background-color: #01108E;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.07);
 }
-.tech > .cnt_item > ul > .card.active > p {
-    color: #ffffff;
-}
 .tech > .cnt_item > ul > .card.active > p + p {
     color: #5866DC;
-}
+}.
 .tech > .cnt_item > ul > .card.active > .tech_img {
     transform: scale(105%);
 }
