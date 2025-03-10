@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product-빅데이터-LIME-MLOps</title>
+    <link href="./main.css" rel="stylesheet">
+</head>
+<body>
+    <script>
+            document.addEventListener('DOMContentLoaded', function() {
+        const cards = document.querySelectorAll('.card');
+        let currentActiveIndex = 0;
+        const interval = 3500;
+        let autoChangeInterval;
+        let isHovering = false;
+
+        // 스타일 적용 함수
+        function applyStyles(card, apply = true) {
+            card.style.backgroundColor = apply ? '#2A3F5B' : ''; // 원하는 배경색
+            const paragraphs = card.querySelectorAll('p + p');
+            paragraphs.forEach(p => {
+            p.style.color = apply ? '#98B4D7' : ''; // 원하는 텍스트 색상
+            });
+        }
+
+        function deactivateAllCards() {
+            cards.forEach(card => {
+            card.classList.remove('active');
+            applyStyles(card, false); // 스타일 제거
+            });
+        }
+
+        function activateCard(index) {
+            deactivateAllCards();
+            cards[index].classList.add('active');
+            applyStyles(cards[index], true); // active일 때 스타일 적용
+            currentActiveIndex = index;
+        }
+
+        cards.forEach((card, index) => {
+            card.addEventListener('mouseenter', function() {
+            isHovering = true;
+            activateCard(index);
+            clearInterval(autoChangeInterval);
+            applyStyles(card, true); // hover 시 스타일 적용
+            });
+
+            card.addEventListener('mouseleave', function() {
+            isHovering = false;
+            // active 상태가 아니면 스타일 제거
+            if (!card.classList.contains('active')) {
+                applyStyles(card, false);
+            }
+            autoChangeInterval = setInterval(changeActiveCard, interval);
+            });
+        });
+
+        function changeActiveCard() {
+            if (!isHovering) {
+            currentActiveIndex = (currentActiveIndex + 1) % cards.length;
+            activateCard(currentActiveIndex);
+            }
+        }
+
+        activateCard(0);
+        autoChangeInterval = setInterval(changeActiveCard, interval);
+        });
+      </script>
+    <div class="wrapper sub_nav">
+        <div class="sub_tab">
+            <ul>
+                <li><a>LIME-MLOps</a></li>
+                <li class="active"><a>LABEL-ON</a></li>
+            </ul>
+        </div>
+    </div>    
+
+    <div class="wrapper sub_tit">
+        <div class="title">
+            <span>다차원 네트워크 분석 솔루션</span>
+            <h1>LIME-MLOps</h1>
+            <p>Lime-LLMOps는 자연어처리 기반의 다차원 네트워크 분석 솔루션으로, 비정형 자연어 데이터를 수집·정제·전처리·검색·분석·시각화하는 전주기 자동화 파이프라인을 제공합니다.<br>
+                대규모 언어 모델(LLM)과 다양한 자연어 분석 기법을 활용한 RAG(Retrieval-Augmented Generation)를 적용하여, 분석 대상 데이터에서 Topic 모델을 추출하고<br> 
+                이를 기반으로 최적화된 검색식을 생성합니다. 이를 통해 더욱 풍부한 검색 결과를 제공하며, 검색된 데이터 간의 관계를 분석하여 연결성을 파악합니다.<br>
+                도출된 분석 결과는 다양한 시각화 도구를 활용해 직관적으로 제공되며, 이를 통해 사용자의 보다 효과적인 의사결정을 지원합니다.</p>
+        </div>
+    </div>
+
+    <div class="main_photo">
+        <img src="../../public/img/product/limemlops_0.png">
+        <div class="photo_txt center"></div>
+    </div>
+
+    <div class="wrapper sub_con">
+        <div class="tech cnt">
+            <div class="cnt_tit">핵심기술</div>
+            <div class="cnt_item">
+                <h1>특장점</h1>
+                <img src="../../public/img/product/limemlops_tech.png">
+                <!--여기에 현재 홈페이지 LIME-NET 특징이 들어가야합니다. -->
+            </div>
+            <div class="cnt_item">
+                <h1>주요기능</h1>
+                <h2>Data Engineering</h2>
+                <span>수집-전처리-검색-분석 파이프라인의 자동화로 변화하는 데이터 실시간 동기화</span>
+                <span>중첩구조의 데이터 마트를 구성하고 검색엔진 적재하여 다차원 분석에 빠른 속도의 검색 서비스 제공</span>
+                <h2>Visualization (시각화)</h2>
+                <span>분석결과에 직접 접근하여 분석하고 의사결정 할 수 있는 사용자 편의성이 고려 된 시각화 도구 제공</span>
+                <span>토픽모델링, 다차원네트워크 분석도 등 Web Base의 최적화 된 시각화 도구 제공</span>
+                <h2>Analysis (분석)</h2>
+                <span>각종 코어 분석 모듈 및 학습 모델을 이식하여 분석할 수 있는 플랫폼을 구성하여 서비스를 제공</span>
+                <span>임베딩을 통한 네트워크분석, 토픽모델링, 과학기술표준분류 모델 등의 자연어 처리 분석 모듈 탑재</span>
+                <span>LLM모델을 활용한 RAG 파이프라인을 구축</span>
+            </div>
+            <div class="cnt_item">
+                <h1>활용예시</h1>
+            </div>
+            <div class="cnt_item">
+                <h1>도입효과</h1>
+                <h2>Data Engineering</h2>
+                <span>수집-전처리-검색-분석 파이프라인의 자동화로 변화하는 데이터 실시간 동기화</span>
+                <h2>Visualization (시각화)</h2>
+                <span>분석결과에 직접 접근하여 분석하고 의사결정 할 수 있는 사용자 편의성이 고려 된 시각화 도구 제공</span>
+                <h2>Analysis (분석)</h2>
+                <span>각종 코어 분석 모듈 및 학습 모델을 이식하여 분석할 수 있는 플랫폼을 구성하여 서비스를 제공</span>
+                <h2>Analysis (분석)</h2>
+                <span>각종 코어 분석 모듈 및 학습 모델을 이식하여 분석할 수 있는 플랫폼을 구성하여 서비스를 제공</span>
+                <h2>Analysis (분석)</h2>
+                <span>각종 코어 분석 모듈 및 학습 모델을 이식하여 분석할 수 있는 플랫폼을 구성하여 서비스를 제공</span>
+            </div>
+
+        </div>
+        <div class="serivce cnt">
+            <div class="cnt_tit">서비스 구성도</div>
+            <div class="cnt_img "><img src="../../public/img/product/limeaicdss_1.svg" class="p_mo" ></div>
+        </div>
+        <div class="part cnt">
+            <div class="cnt_tit">활용분야</div>
+            <div class="cnt_item">
+                <h2>진단 지원</h2>
+                <span>CDSS는 환자의 증상, 병력, 검사 결과를 분석하여 가능한 진단을 제안하거나 진단의 정확성 향상에 기여</span>
+                <h2>치료 계획 수립</h2>
+                <span>환자의 상태에 따라 최적의 치료 방안을 제시하거나, 특정 약물의 부작용 및 약물 상호작용을 예측하여 치료 계획을 조정하는 데 사용</span>
+                <h2>의료 오류 감소</h2>
+                <span>CDSS는 의사들이 환자의 데이터를 보다 체계적으로 분석하게 함으로써 의료 오류를 줄이는 데 기여</span>
+                <h2>환자 모니터링 및 관리</h2>
+                <span>만성질환 환자들을 위한 모니터링을 지원하고, 위험 신호를 조기에 포착하여 의료진이 신속하게 대응할 수 있도록 지원</span>
+            </div>
+        </div>
+    </div>
+    </div>
+</body> 
+</html>
