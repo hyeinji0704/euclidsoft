@@ -87,6 +87,7 @@ body {
     --euc-white: #fff;
     --euc-text-dark: #222222;
     --euc-text-gray-100: #F0F1F4;
+    --euc-text-gray-150: #cacaca;
     --euc-text-gray-200: #B0B0B0;
     --euc-text-gray-300: #aaaaaa;
     --euc-text-gray-400: #888888;
@@ -97,6 +98,7 @@ body {
     --euc-text-gray-900: #222222;
     --euc-text-blue-100: #474952;
     --euc-text-blue-200: #666E85;
+    --euc-text-blue-300: #3F4147;
     --euc-bg-gray-100: #F7F7F7;
     --euc-bg-gray-200: #F0F1F4;
     --euc-bg-gray-300: #F0F1F4;
@@ -109,10 +111,13 @@ body {
     --euc-bg-blue-300: #878D93;
     --euc-bg-blue-400: #c7d1dc;
     --euc-bg-blue-500: #E5F1FC;
+    --euc-bg-blue-600: #D4DDE6;
     --euc-icon-100: #5F6CBA;
     --euc-info: #1FA7FF;
     --euc-warning: #f4bd0e;
     --euc-danger: #F93A37;
+    --euc-danger-100: #D62724;
+    --euc-hover-danger: #F04A48;
     --euc-hover-border: #1FA7FF;
     --euc-hover-bg-100: #F0F1F4;
     --euc-hover-bg-200: #F7F7F7;
@@ -136,6 +141,7 @@ body {
     --euc-border-blue-100:#EBF1F9;
     --euc-border-blue-200:#A9B4C3;
     --euc-border-blue-300:#D0D6DF;
+    --euc-border-blue-400:#bfc3c9;
     --euc-rounded: 0.6rem;
     --euc-rounded-sm: 0.4rem;
     --euc-rounded-lg: 0.7rem;

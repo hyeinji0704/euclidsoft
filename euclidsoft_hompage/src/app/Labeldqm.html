@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product-데이터품질-Lime-DQM</title>
+    <link href="./main.css" rel="stylesheet">
+</head>
+<body>
+    <script>
+            document.addEventListener('DOMContentLoaded', function() {
+        const cards = document.querySelectorAll('.card');
+        let currentActiveIndex = 0;
+        const interval = 3500;
+        let autoChangeInterval;
+        let isHovering = false;
+
+        // 스타일 적용 함수
+        function applyStyles(card, apply = true) {
+            card.style.backgroundColor = apply ? '#262C5A' : ''; // 원하는 배경색
+            const paragraphs = card.querySelectorAll('p + p');
+            paragraphs.forEach(p => {
+            p.style.color = apply ? '#8C92C0' : ''; // 원하는 텍스트 색상
+            });
+        }
+
+        function deactivateAllCards() {
+            cards.forEach(card => {
+            card.classList.remove('active');
+            applyStyles(card, false); // 스타일 제거
+            });
+        }
+
+        function activateCard(index) {
+            deactivateAllCards();
+            cards[index].classList.add('active');
+            applyStyles(cards[index], true); // active일 때 스타일 적용
+            currentActiveIndex = index;
+        }
+
+        cards.forEach((card, index) => {
+            card.addEventListener('mouseenter', function() {
+            isHovering = true;
+            activateCard(index);
+            clearInterval(autoChangeInterval);
+            applyStyles(card, true); // hover 시 스타일 적용
+            });
+
+            card.addEventListener('mouseleave', function() {
+            isHovering = false;
+            // active 상태가 아니면 스타일 제거
+            if (!card.classList.contains('active')) {
+                applyStyles(card, false);
+            }
+            autoChangeInterval = setInterval(changeActiveCard, interval);
+            });
+        });
+
+        function changeActiveCard() {
+            if (!isHovering) {
+            currentActiveIndex = (currentActiveIndex + 1) % cards.length;
+            activateCard(currentActiveIndex);
+            }
+        }
+
+        activateCard(0);
+        autoChangeInterval = setInterval(changeActiveCard, interval);
+        });
+      </script>
+    <div class="wrapper sub_nav">
+        <div class="sub_tab">
+            <ul>
+            </ul>
+        </div>
+    </div>    
+    <!--여기서부터 기존 라임디큐엠 부분으로 쓰시면 됩니다.-->   
+    <div class="wrapper sub_tit">
+        <div class="title">
+            <span>데이터 품질관리 플랫폼</span>
+            <h1>Lime-DQM</h1>
+            <p>LIME-DQM은 AI 학습데이터 품질을 자동 검증하고 정합성을 판별하는 플랫폼입니다.<br>
+                많은 프로젝트를 통해 확보된 100여개의 품질측정 모듈을 이용하여 간편하게 데이터 품질을 검증합니다.<br>
+                텍스트, 이미지, 영상, 음성 형태의 정형/비정형 데이터 품질을 검증합니다.<br>
+                대시보드를 통해 진행상황을 한눈에 파악할 수 있습니다.<br>
+                다양한 자동화 기능이 제공되며 검증 결과에 대한 보고서 출력기능도 지원합니다.</p>
+        </div>
+    </div>
+
+    <div class="main_photo">
+        <img src="../../public/img/product/limedqm_0.png">
+        <div class="photo_txt center"></div>
+    </div>
+    <!--여기까지는 기존 라임디큐엠 부분으로 쓰시면 됩니다.-->
+
+    <div class="wrapper sub_con">
+        <div class="tech cnt">
+            <div class="cnt_tit">핵심기술</div>
+            <div class="cnt_item">
+                <h1>특장점</h1>
+                <!--기존에 라임디큐엠 특장점 부분 여기에 넣어주세요.-->
+            </div>
+            <div class="cnt_item">
+                <h1>도입효과</h1>
+                <ul>
+                    <li class="card quarter_card" >
+                        <p>데이터 품질 향상</p>
+                        <p>표준화와 정규화</p>
+                        <img class="tech_img img01" src="../../public/img/product/Limedqm_tech_icon_1.svg" >
+                    </li>
+                    <li class="card quarter_card" >
+                        <p>업무 효율성 증대</p>
+                        <p>프로세스 최적화</p>
+                        <img class="tech_img img02" src="../../public/img/product/Limedqm_tech_icon_2.svg">
+                    </li>
+                    <li class="card quarter_card" >
+                        <p>데이터 신뢰성 확보</p>
+                        <p>정확성 검증과 모니터링</p>
+                        <img class="tech_img img03" src="../../public/img/product/Limedqm_tech_icon_3.svg">
+                    </li>
+                    <li class="card quarter_card" >
+                        <p>AI 모델 성능 개선</p>
+                        <p>학습 데이터 확장</p>
+                        <img class="tech_img img03" src="../../public/img/product/Limedqm_tech_icon_4.svg">
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="serivce cnt">
+            <div class="cnt_tit">서비스 구성도</div>
+            <div class="cnt_img "><img src="../../public/img/product/limedqm_6.svg"></div>
+            <div class="cnt_img " style="margin-top: 3.6rem;"><img src="../../public/img/product/limedqm_7.svg"></div>
+            <div class="cnt_content cnt_content_02">
+                <div class="cnt_img" >
+                    <img src="../../public/img/product/limedqm_8.png" >
+                </div>
+                <div class="cnt_item">
+                    <span>데이터셋에 대한 다양성, 정확성, 유효성 검증에 대한 정량적 평가 보고서를 출력</span>
+                    <span>날짜별 버전을 관리하여 프로젝트-데이터셋-모델-DQM보고서</span>
+                    <span>자사의 제품 Lime-DQM은 NIA AI학습용 데이터 구축과정을 통해 PMO 조직에서 활용되어 데이터 품질을 ‘우수’로 평가받은 사례가 있음</span>
+                </div>
+            </div>
+        </div>
+        <div class="part cnt">
+            <div class="cnt_tit">활용분야</div>
+            <div class="cnt_item">
+                <h1>활용분야</h1>
+                <span>인공지능(AI) 학습 데이터 구축 및 품질 검수</span>
+                <span>농축산업 데이터 품질 관리</span>
+                <span>멀티모달 데이터 품질 관리</span>
+            </div>
+            <div class="cnt_item">
+                <h1>적용사례</h1>
+                <span>인공지능(AI) 학습 데이터 구축 및 품질 검수</span>
+                <span>농축산업 데이터 품질 관리</span>
+                <span>멀티모달 데이터 품질 관리</span>
+            </div>
+            <div class="cnt_item">
+                <h1>구축실적</h1>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+</html>

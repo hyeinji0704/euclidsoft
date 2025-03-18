@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.svg">
+    <link rel="stylesheet" href="css/main.css">
+    <title>유성구청VOC-로그인</title>
+</head>
+<body>
+    <!-- 로그인 페이지 -->
+    <div class="euc-login-container" >
+        <div class="euc-login-logo">
+            <img src="./images/sparkle.svg">
+            <p><span>유성구청 예산·회계</span>에<br>
+                오신 것을 환영합니다</P>
+        </div>
+        
+        <div class="euc-login-form">
+            <div class="euc-login-form-group">
+                <label for="login-id">아이디</label>
+                <input class="warning" type="text"  placeholder="아이디를 입력하세요" >
+                <!--
+                * input 경고 상태 *
+                <input class="warning" type="text"  placeholder="아이디를 입력하세요" >
+                -->
+                <!--입력하지 않았을 때 경고 메시지-->
+                <span class="euc-warning-msg">아이디를 입력해 주세요</span>
+            </div>
+            
+            <div class="euc-login-form-group">
+                <label for="login-password">비밀번호</label>
+                <input type="password"  placeholder="비밀번호를 입력하세요" >
+                <!--
+                비밀번호 경고 메시지
+                <span class="euc-warning-msg">가입되어 있지 않은 계정이거나, 이메일 또는 비밀번호가 일치하지 않습니다</span>
+                -->
+            </div>
+            
+            <button type="submit" class="euc-login-btn ">로그인</button>
+            <!--
+            * 버튼 비활성화 상태 *
+            <button type="submit" class="euc-login-btn inactive">로그인</button>
+            -->
+            
+            <div class="euc-login-secondary-btn">
+                <p>아직 계정이 없으신가요?</p>
+                <a href="#">회원가입</a>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

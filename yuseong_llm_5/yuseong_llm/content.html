@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.svg">
+    <link rel="stylesheet" href="css/main.css">
+    <title>유성구청VOC-검색화면</title>
+</head>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const tabButtons = document.querySelectorAll(".euc-tab-btn");
+      const tabContents = document.querySelectorAll(".euc-tab-content");
+    
+      tabButtons.forEach((button) => {
+        button.addEventListener("click", function () {
+          const targetTab = this.getAttribute("data-tab");
+    
+          // 모든 버튼에서 active 클래스 제거
+          tabButtons.forEach((btn) => btn.classList.remove("active"));
+          this.classList.add("active");
+    
+          // 모든 탭 내용 숨기기
+          tabContents.forEach((content) => content.classList.remove("active"));
+          document.getElementById(targetTab).classList.add("active");
+        });
+      });
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const dropdowns = document.querySelectorAll(".euc-dropdown");
+
+        dropdowns.forEach((dropdown) => {
+            const menu = dropdown.querySelector(".euc-dropdown-menu");
+
+            dropdown.addEventListener("click", function (event) {
+                event.stopPropagation(); // 부모 요소로 이벤트 전파 방지
+                menu.classList.toggle("show");
+            });
+        });
+
+        // 문서 전체를 클릭하면 모든 드롭다운 닫힘
+        document.addEventListener("click", function () {
+            document.querySelectorAll(".euc-dropdown-menu").forEach((menu) => {
+                menu.classList.remove("show");
+            });
+        });
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const textarea = document.getElementById('textarea');
+        const maxHeight = 250; // 최대 높이 (px)
+
+        textarea.addEventListener('input', function() {
+            textarea.style.height = 'auto';
+            const scrollHeight = textarea.scrollHeight;
+
+            if (scrollHeight > maxHeight) {
+                textarea.style.height = maxHeight + 'px';
+                textarea.style.overflowY = 'auto'; // 스크롤 활성화
+            } else {
+                textarea.style.height = scrollHeight + 'px';
+                textarea.style.overflowY = 'hidden'; // 스크롤 숨김
+            }
+        });
+    });
+</script>
+<script>
+ document.addEventListener("DOMContentLoaded", function () {
+    const downBtn = document.querySelector(".euc-btn-movedown");
+    const container = document.querySelector(".euc-sub-content");
+
+    // 스크롤 위치 체크 함수
+    const checkScrollPosition = () => {
+        const { scrollTop, scrollHeight, clientHeight } = container;
+
+        // 처음부터 버튼을 보이게 설정
+        downBtn.classList.add("show");
+
+        // 컨텐츠 끝에서 50px 이내일 때 버튼 숨기기
+        if (scrollTop + clientHeight >= scrollHeight - 50) {
+            downBtn.classList.remove("show");
+        }
+    };
+
+    // 스크롤 이벤트 리스너
+    container.addEventListener("scroll", checkScrollPosition);
+
+    // 클릭 시 부드럽게 맨 아래로 스크롤
+    downBtn.addEventListener("click", function () {
+        container.scrollTo({
+            top: container.scrollHeight,
+            behavior: "smooth"
+        });
+    });
+
+    // 페이지 로드 시 초기 상태 체크
+    checkScrollPosition();
+});
+
+</script>
+<!-- added.start 더보기-->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+  const containers = document.querySelectorAll('.euc-answer-law .euc-answer-container');
+  
+  containers.forEach((container) => {
+    const btnMore = container.nextElementSibling; // 각 컨테이너의 다음 요소로 버튼을 찾음
+
+    // 텍스트가 넘칠 경우 "더보기" 버튼을 표시
+    if (container.scrollHeight > container.clientHeight) {
+      btnMore.style.display = 'inline-block'; // 버튼 표시
+    }
+
+    // "더보기" 버튼 클릭 시 전체 콘텐츠 표시 및 "접기"로 문구 변경
+    btnMore.addEventListener('click', () => {
+      if (container.classList.contains('expanded')) {
+        // 접기 동작
+        container.classList.remove('expanded');
+        btnMore.textContent = '더보기'; // 버튼 문구를 "더보기"로 변경
+        container.style.maxHeight = '250px'; // 콘텐츠 높이를 다시 제한
+        container.style.overflow = 'hidden'; // 스크롤 다시 활성화
+      } else {
+        // 더보기 동작
+        container.classList.add('expanded');
+        btnMore.textContent = '접기'; // 버튼 문구를 "접기"로 변경
+        container.style.maxHeight = 'none'; // 콘텐츠 높이 제한 제거
+        container.style.overflow = 'visible'; // 스크롤 제거
+      }
+    });
+  });
+});
+
+  </script>
+<!-- added.end 더보기 
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const textarea = document.querySelector('.euc-feedback-input textarea');
+        const submitButton = document.querySelector('.euc-feedback-submit');
+        const customAlert = document.getElementById('custom-alert');
+
+        // 전송 버튼 클릭 시 커스텀 알림 표시
+        submitButton.addEventListener('click', function() {
+            // 알림창 표시
+            customAlert.classList.remove('hidden');
+
+            // 텍스트 초기화
+            textarea.value = '';
+
+            // 2초 후 알림창 숨기기
+            setTimeout(() => {
+                customAlert.classList.add('hidden');
+            }, 3000);
+        });
+    });
+</script>
+
+<script>
+    // 페이지가 로드된 후 스크립트 실행
+    document.addEventListener('DOMContentLoaded', function() {
+        // 좋아요 버튼 이벤트 리스너
+        document.getElementById('like').addEventListener('click', function() {
+            this.classList.toggle('active');
+            // 싫어요가 활성화되어 있으면 비활성화
+            document.getElementById('dislike').classList.remove('active');
+        });
+        
+        // 싫어요 버튼 이벤트 리스너
+        document.getElementById('dislike').addEventListener('click', function() {
+            this.classList.toggle('active');
+            // 좋아요가 활성화되어 있으면 비활성화
+            document.getElementById('like').classList.remove('active');
+        });
+    });
+</script>
+<script>
+    // 페이지가 로드된 후 스크립트 실행
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('copy').addEventListener('click', function() {
+      // 버튼 상태 변경
+      this.classList.add('checked');
+      
+      // 2초 후에 버튼 상태를 원래대로 돌리기
+      setTimeout(() => {
+        this.classList.remove('checked');
+      }, 2000);
+        });
+    });
+    
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const actionIcons = document.querySelectorAll('.euc-action-icon');
+        const tooltip = document.getElementById('custom-tooltip');
+        const tooltipText = tooltip.querySelector('p');
+
+        // 각 아이콘에 툴팁 메시지 매핑
+        const tooltipMessages = {
+            'retry': '재생성',
+            'copy': '복사',
+            'like': '좋아요',
+            'dislike': '싫어요'
+        };
+
+        actionIcons.forEach(icon => {
+            icon.addEventListener('mouseover', function() {
+                const iconId = this.id;
+                tooltipText.textContent = tooltipMessages[iconId] || '기능'; // 기본값
+                tooltip.classList.remove('hidden');
+                positionTooltip(this); // 툴팁 위치 조정
+            });
+
+            icon.addEventListener('mouseout', function() {
+                tooltip.classList.add('hidden');
+            });
+
+            // 툴팁 위치를 아이콘 아래로 중앙에 맞춤
+            function positionTooltip(icon) {
+                const rect = icon.getBoundingClientRect();
+                const tooltipWidth = tooltip.offsetWidth;
+                const iconWidth = rect.width;
+
+                tooltip.style.top = `${rect.bottom + window.scrollY + 5}px`; // 아이콘 아래쪽
+                tooltip.style.left = `${rect.left + (iconWidth / 2) - (tooltipWidth / 2) + window.scrollX}px`; // 정확한 중앙
+            }
+            // 마우스 이동 시 툴팁 위치 업데이트 (필요 시 주석 해제)
+            // icon.addEventListener('mousemove', function(e) {
+            //     positionTooltip(this);
+            // });
+        });
+    });
+</script>
+
+-->
+<body>
+    <div class="euc-main euc-sub">
+        <div class="euc-sidebar">
+            <div class="euc-sidebar-wrapper">
+                <div class="euc-sidebar-container">
+                    <div class="euc-nav-wrapper">
+                        <nav>
+                            <div class="euc-sidebar-header">
+                                <a href="#" class="euc-logo">
+                                    <div class="euc-logo-img"><img src="images/logo.svg" alt="유성구청로고"></div>
+                                    <span class="euc-name">유성구청 예산·회계</span>
+                                </a>
+                            </div>
+                            <div class="euc-newchat">
+                                <a href="#">
+                                    <img src="images/new_chat.svg">
+                                    <p>새 대화</p>
+                                    <div type="plus" class="plus-button">
+                                        <em class="euc-ico plus"></em> 
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="euc-history-container">
+                                <div class="euc-history">
+                                    <div class="euc-history-info">
+                                        <div class="euc-history-date"><span>오늘</span></div>
+                                        <ul>
+                                            <li>
+                                                <div class="euc-history-item active">
+                                                    <a href="#">
+                                                        <div class="euc-history-text">예산 수립 절차 및 프로세스</div>
+                                                    </a>
+                                                    <div class="euc-dropdown">
+                                                        <button type="dot" class="dot-button">
+                                                            <em class="euc-ico dot"></em> 
+                                                        </button>
+                                                        <div class="euc-dropdown-menu">
+                                                            <div class="euc-dropdown-inner">
+                                                                <ul class="euc-link-list">
+                                                                    <li>
+                                                                        <button href="#">
+                                                                            <em class="euc-ico name_change"></em>
+                                                                            <span>이름 바꾸기</span>
+                                                                        </button>
+                                                                        <button href="#">
+                                                                            <em class="euc-ico delete"></em>
+                                                                            <span class="delete_text">삭제</span>
+                                                                        </button>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="euc-history-item ">
+                                                    <a href="#">
+                                                        <div class="euc-history-text">예산 수립 절차 및 프로세스</div>
+                                                    </a>
+                                                    <div class="euc-dropdown">
+                                                        <button type="dot" class="dot-button">
+                                                            <em class="euc-ico dot"></em> 
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="euc-history-item">
+                                                    <a href="#">
+                                                        <div class="euc-history-text">예산 수립 절차 및 프로세스</div>
+                                                    </a>
+                                                    <div class="euc-dropdown">
+                                                        <button type="dot" class="dot-button">
+                                                            <em class="euc-ico dot"></em> 
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="euc-history-item">
+                                                    <a href="#">
+                                                        <div class="euc-history-text">예산 수립 절차 및 프로세스</div>
+                                                    </a>
+                                                    <div class="euc-dropdown">
+                                                        <button type="dot" class="dot-button">
+                                                            <em class="euc-ico dot"></em> 
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="euc-history-info">
+                                        <div class="euc-history-date"><span>어제</span></div>
+                                        <ul>
+                                            <li>
+                                                <div class="euc-history-item">
+                                                    <a href="#">
+                                                        <div class="euc-history-text">예산 수립 절차 및 프로세스</div>
+                                                    </a>
+                                                    <div class="euc-dropdown">
+                                                        <button type="dot" class="dot-button">
+                                                            <em class="euc-ico dot"></em> 
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="euc-history-item">
+                                                    <a href="#">
+                                                        <div class="euc-history-text">예산 수립 절차 및 프로세스</div>
+                                                    </a>
+                                                    <div class="euc-dropdown">
+                                                        <button type="dot" class="dot-button">
+                                                            <em class="euc-ico dot"></em> 
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="euc-history-item">
+                                                    <a href="#">
+                                                        <div class="euc-history-text">예산 수립 절차 및 프로세스</div>
+                                                    </a>
+                                                    <div class="euc-dropdown">
+                                                        <button type="dot" class="dot-button">
+                                                            <em class="euc-ico dot"></em> 
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="euc-history-item">
+                                                    <a href="#">
+                                                        <div class="euc-history-text">예산 수립 절차 및 프로세스</div>
+                                                    </a>
+                                                    <div class="euc-dropdown">
+                                                        <button type="dot" class="dot-button">
+                                                            <em class="euc-ico dot"></em> 
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="euc-history-info">
+                                        <div class="euc-history-date"><span>지난 7일</span></div>
+                                        <ul>
+                                            <li>
+                                                <div class="euc-history-item">
+                                                    <a href="#">
+                                                        <div class="euc-history-text">예산 수립 절차 및 프로세스</div>
+                                                    </a>
+                                                    <div class="euc-dropdown">
+                                                        <button type="dot" class="dot-button">
+                                                            <em class="euc-ico dot"></em> 
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="euc-history-item">
+                                                    <a href="#">
+                                                        <div class="euc-history-text">예산 수립 절차 및 프로세스</div>
+                                                    </a>
+                                                    <div class="euc-dropdown">
+                                                        <button type="dot" class="dot-button">
+                                                            <em class="euc-ico dot"></em> 
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="euc-history-item">
+                                                    <a href="#">
+                                                        <div class="euc-history-text">예산 수립 절차 및 프로세스</div>
+                                                    </a>
+                                                    <div class="euc-dropdown">
+                                                        <button type="dot" class="dot-button">
+                                                            <em class="euc-ico dot"></em> 
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="euc-history-item">
+                                                    <a href="#">
+                                                        <div class="euc-history-text">예산 수립 절차 및 프로세스</div>
+                                                    </a>
+                                                    <div class="euc-dropdown">
+                                                        <button type="dot" class="dot-button">
+                                                            <em class="euc-ico dot"></em> 
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="euc-history-item">
+                                                    <a href="#">
+                                                        <div class="euc-history-text">예산 수립 절차 및 프로세스</div>
+                                                    </a>
+                                                    <div class="euc-dropdown">
+                                                        <button type="dot" class="dot-button">
+                                                            <em class="euc-ico dot"></em> 
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="euc-history-item">
+                                                    <a href="#">
+                                                        <div class="euc-history-text">예산 수립 절차 및 프로세스</div>
+                                                    </a>
+                                                    <div class="euc-dropdown">
+                                                        <button type="dot" class="dot-button">
+                                                            <em class="euc-ico dot"></em> 
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="euc-history-item">
+                                                    <a href="#">
+                                                        <div class="euc-history-text">예산 수립 절차 및 프로세스</div>
+                                                    </a>
+                                                    <div class="euc-dropdown">
+                                                        <button type="dot" class="dot-button">
+                                                            <em class="euc-ico dot"></em> 
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="euc-history-item">
+                                                    <a href="#">
+                                                        <div class="euc-history-text">예산 수립 절차 및 프로세스</div>
+                                                    </a>
+                                                    <div class="euc-dropdown">
+                                                        <button type="dot" class="dot-button">
+                                                            <em class="euc-ico dot"></em> 
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="euc-history-item">
+                                                    <a href="#">
+                                                        <div class="euc-history-text">예산 수립 절차 및 프로세스</div>
+                                                    </a>
+                                                    <div class="euc-dropdown">
+                                                        <button type="dot" class="dot-button">
+                                                            <em class="euc-ico dot"></em> 
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="euc-history-item">
+                                                    <a href="#">
+                                                        <div class="euc-history-text">예산 수립 절차 및 프로세스</div>
+                                                    </a>
+                                                    <div class="euc-dropdown">
+                                                        <button type="dot" class="dot-button">
+                                                            <em class="euc-ico dot"></em> 
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="euc-wrap euc-sub-wrap">
+            <div class="euc-header euc-sub-header">
+                <div class="euc-dropdown">
+                    <a href="#" class="euc-dropdown-toggle">
+                        <div class="euc-user-avatar" name="S">
+                            <span class="euc-user-initial">S</span>
+                        </div>
+                    </a>
+                    <div class="euc-dropdown-menu">
+                        <div class="euc-dropdown-inner">
+                            <ul class="euc-link-list">
+                                <li>
+                                    <button>
+                                        <em class="euc-ico setting"></em>
+                                        <span>설정</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button>
+                                        <em class="euc-ico person"></em>
+                                        <span>내 정보</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button>
+                                        <em class="euc-ico home"></em>
+                                        <span>유성구청 홈</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button>
+                                        <em class="euc-ico logout"></em>
+                                        <span>로그아웃</span>
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="euc-content euc-sub-content">
+                <div class="euc-inner euc-sub-inner">
+                    <div class="euc-result-container">
+                        <div class="euc-result">
+                            <div class="euc-question">
+                                <div class="euc-user-avatar" name="question">
+                                    <span class="euc-user-initial">S</span>
+                                </div>
+                                <div class="euc-question-text">정부 부처에서 매년 수행하는 예산 수립 절차와 예산안 작성 단계에서부터 국회 심의 및 
+                                    확정, 이후 집행 계획 수립까지의 전체적인 프로세스를 단계별로 설명해 주세요. 
+                                    또한, 각 단계에서 필요로 하는 서류나 자료는 무엇인지도 알고 싶습니다.
+                                </div>
+                            </div>
+                            <div class="euc-answer">
+                                <div class="euc-answer-title">
+                                        <img src="images/new_chat.svg">
+                                        <p>답변입니다.</p>
+                                </div>
+                                <div class="euc-answer-main">
+                                    <div class="euc-answer-container">
+                                        <h3>정부 부처 예산 수립 절차</h3>
+                                        <p>정부 부처의 예산 수립 절차는 예산안 작성, 국회 심의 및 확정, 집행 계획 수립의 세 가지 주요 단계로 나뉩니다.</p>
+                                        <h4>주요프로세스</h4>
+                                        <ul>
+                                            <li>
+                                                <p>1. 사업 평가 및 목표 설정</p>
+                                                <h5> &nbsp;&middot;&nbsp; 기존 사업의 성과를 분석하고, 다음 연도의 목표를 설정합니다.</h5>
+                                            </li>
+                                            <li>
+                                                <p>2. 사업 평가 및 목표 설정</p>
+                                                <h5> &nbsp;&middot;&nbsp; 기존 사업의 성과를 분석하고, 다음 연도의 목표를 설정합니다.</h5>
+                                            </li>
+                                            <li>
+                                                <p>3. 사업 평가 및 목표 설정</p>
+                                                <h5> &nbsp;&middot;&nbsp; 기존 사업의 성과를 분석하고, 다음 연도의 목표를 설정합니다.</h5>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="euc-answer-section euc-answer-law">
+                                    <div class="euc-answer-container">
+                                        <h3>
+                                            <img src="images/law.svg">
+                                            <span>관련 법률 및 규정</span>
+                                        </h3>
+                                        <ul>
+                                            <li>
+                                                <p>국가재정법 제29조</p>
+                                                <h5> &nbsp;&middot;&nbsp; ** 제20조 (지방자치단체의 관할구역 자치사무에 필요한 경비)**
+
+                                                    ① 지방자치단체의 관할구역 자치사무에 필요한 경비는 그 지방자치단체가 전액을 부담한다.</h5>
+                                            </li>
+                                            <li>
+                                                <p>기업회계기준서 제1016호</p>
+                                                <h5> &nbsp;&middot;&nbsp; ** 제20조 (지방자치단체의 관할구역 자치사무에 필요한 경비)**
+
+                                                    ① 지방자치단체의 관할구역 자치사무에 필요한 경비는 그 지방자치단체가 전액을 부담한다.</h5>
+                                            </li>
+                                            <li>
+                                                <p>지방재정법 제33조</p>
+                                                <h5> &nbsp;&middot;&nbsp; ** 제20조 (지방자치단체의 관할구역 자치사무에 필요한 경비)**
+
+① 지방자치단체의 관할구역 자치사무에 필요한 경비는 그 지방자치단체가 전액을 부담한다.</h5>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- added.start 더보기 -->
+                                    <button class="euc-btn-more" >더보기</button>
+                                    <!-- added.end 더보기 -->
+                                </div>
+                                <div class="euc-answer-section euc-answer-list">
+                                    <div class="euc-answer-container">
+                                        <h3>
+                                            <img src="images/list.svg">
+                                            <span>연관서식</span>
+                                        </h3>
+                                        <ul>
+                                            <li>
+                                                <p>1. 예산 수립 관련 서식</p>
+                                                <a href="파일경로/예제.pdf" download class="download">
+                                                    <h5>&nbsp;&middot;&nbsp; 국가의 예산 편성 및 집행에 관한 기본 규정을 담고 있습니다.</h5>
+                                                    <em class="euc-ico excel"></em> 
+                                                </a>
+                                                <a href="파일경로/예제.pdf" download class="download">
+                                                    <h5>&nbsp;&middot;&nbsp; 국가의 예산 편성 및 집행에 관한 기본 규정을 담고 있습니다.</h5>
+                                                    <em class="euc-ico word"></em> 
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <p>2. 회계 기준 변경 관련 서식</p>
+                                                <a href="파일경로/예제.pdf" download class="download">
+                                                    <h5>&nbsp;&middot;&nbsp; 국가의 예산 편성 및 집행에 관한 기본 규정을 담고 있습니다.</h5>
+                                                    <em class="euc-ico pdf"></em> 
+                                                </a>
+                                                <a href="파일경로/예제.pdf" download class="download">
+                                                    <h5>&nbsp;&middot;&nbsp; 국가의 예산 편성 및 집행에 관한 기본 규정을 담고 있습니다.</h5>
+                                                    <em class="euc-ico ppt"></em> 
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- added.start 피드백-->
+                                <div class="euc-feedback">
+                                    <div class="euc-feedback-action">
+                                        <div class="euc-action-icon" >
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                                <path d="M14.75 8C14.75 6.20979 14.0388 4.4929 12.773 3.22703C11.5071 1.96116 9.79021 1.25 8 1.25C6.11296 1.2571 4.30173 1.99342 2.945 3.305L1.25 5M1.25 5V1.25M1.25 5H5M1.25 8C1.25 9.79021 1.96116 11.5071 3.22703 12.773C4.4929 14.0388 6.20979 14.75 8 14.75C9.88704 14.7429 11.6983 14.0066 13.055 12.695L14.75 11M14.75 11H11M14.75 11V14.75" stroke="#555555" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                              </svg>
+                                            <!--added.start 툴팁-->
+                                            <div class="euc-custom-tooltip">
+                                                <p>재생성</p>
+                                            </div>
+                                        </div>
+                                        <!--added.end 알람창-->
+                                        <div class="euc-action-icon" ><!--카피 아이콘-->
+                                            <svg class="copied" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                                                <path d="M15.4 12.2C16.28 12.2 17 11.48 17 10.6V2.6C17 1.72 16.28 1 15.4 1H7.4C6.52 1 5.8 1.72 5.8 2.6M10.6 5.8H2.6C1.71634 5.8 1 6.51634 1 7.4V15.4C1 16.2837 1.71634 17 2.6 17H10.6C11.4837 17 12.2 16.2837 12.2 15.4V7.4C12.2 6.51634 11.4837 5.8 10.6 5.8Z" stroke="#555555" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+                                              </svg>
+                                        </div>
+                                        <div class="euc-action-icon" ><!--카피 버튼을 누르면 체크 아이콘이 나오고 2초 뒤에 다시 카피 아이콘으로 돌아옵니다. -->
+                                            <svg class="check" xmlns="http://www.w3.org/2000/svg" width="18" height="12" viewBox="0 0 18 12" fill="none">
+                                                <path d="M16.5 1L6.1875 11L1.5 6.45455" stroke="#555555" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+                                        </div>
+                                        <div class="euc-action-icon">
+                                            <svg class="like" xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18" fill="none">
+                                                <path d="M4.13641 17.4307H1.56958C1.17262 17.4303 0.792049 17.2855 0.511352 17.0282C0.230655 16.7709 0.0727479 16.422 0.0722656 16.0581V7.43023C0.0727479 7.06633 0.230655 6.71746 0.511352 6.46014C0.792049 6.20282 1.17262 6.05806 1.56958 6.05762H4.13641C4.53337 6.05806 4.91394 6.20282 5.19464 6.46014C5.47534 6.71746 5.63324 7.06633 5.63373 7.43023V16.0581C5.63324 16.422 5.47534 16.7709 5.19464 17.0282C4.91394 17.2855 4.53337 17.4303 4.13641 17.4307ZM1.56958 7.23415C1.51288 7.23425 1.45854 7.25494 1.41845 7.29169C1.37836 7.32844 1.35579 7.37826 1.35568 7.43023V16.0581C1.35579 16.1101 1.37836 16.1599 1.41845 16.1967C1.45854 16.2334 1.51288 16.2541 1.56958 16.2542H4.13641C4.19311 16.2541 4.24745 16.2334 4.28754 16.1967C4.32763 16.1599 4.3502 16.1101 4.35031 16.0581V7.43023C4.3502 7.37826 4.32763 7.32844 4.28754 7.29169C4.24745 7.25494 4.19311 7.23425 4.13641 7.23415H1.56958Z" fill="#555555"/>
+                                                <path d="M15.1356 16.647H4.99278C4.8226 16.6469 4.65941 16.585 4.53908 16.4746C4.41874 16.3643 4.35112 16.2147 4.35107 16.0587V7.43084C4.35109 7.29968 4.39891 7.17229 4.48694 7.0689C4.57497 6.96551 4.69816 6.89205 4.83695 6.86019C7.37202 6.2792 9.06195 4.7105 10.0028 2.06407C10.1865 1.53315 10.5885 1.08866 11.1236 0.824738C11.6587 0.560819 12.2848 0.498202 12.8694 0.650149C13.4539 0.802097 13.951 1.15667 14.2553 1.63878C14.5597 2.12089 14.6473 2.69265 14.4997 3.23298L13.5155 6.84257H17.0022C17.2982 6.84251 17.5903 6.90504 17.8557 7.0253C18.121 7.14556 18.3526 7.3203 18.5323 7.53595C18.712 7.7516 18.835 8.00233 18.8918 8.26866C18.9486 8.53499 18.9376 8.80974 18.8597 9.07155L16.993 15.3464C16.881 15.7195 16.6388 16.0486 16.3033 16.2835C15.9679 16.5184 15.5577 16.6461 15.1356 16.647ZM5.63449 15.4705H15.1356C15.2764 15.4701 15.4132 15.4275 15.5251 15.349C15.6369 15.2706 15.7176 15.1607 15.7547 15.0361L17.6214 8.76211C17.6473 8.67484 17.6509 8.58327 17.632 8.49451C17.613 8.40575 17.572 8.32219 17.5121 8.25032C17.4522 8.17844 17.3751 8.1202 17.2866 8.0801C17.1982 8.04 17.1009 8.01913 17.0022 8.01912H12.6933C12.5958 8.01903 12.4996 7.9986 12.4119 7.95935C12.3243 7.92011 12.2476 7.8631 12.1876 7.79264C12.1276 7.72218 12.0859 7.64011 12.0657 7.55268C12.0454 7.46524 12.0472 7.37473 12.0708 7.288L13.2548 2.94763C13.2935 2.80484 13.2963 2.65582 13.263 2.51189C13.2296 2.36795 13.1609 2.23287 13.0621 2.1169C12.9632 2.00093 12.8369 1.9071 12.6927 1.84254C12.5484 1.77798 12.39 1.74437 12.2295 1.74428C12.0043 1.74619 11.7856 1.81345 11.6047 1.93641C11.4238 2.05937 11.2901 2.2317 11.2227 2.42867C10.1941 5.32289 8.36303 7.10989 5.63449 7.87778V15.4705Z" fill="#555555"/>
+                                                </svg>
+                                        </div>
+                                        <div class="euc-action-icon">
+                                            <svg class="like_active" xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18" fill="none">
+                                                <path d="M3.8405 6.5166H1.13246C0.633764 6.5166 0.229492 6.88721 0.229492 7.34437V16.449C0.229492 16.9062 0.633764 17.2768 1.13246 17.2768H3.8405C4.33919 17.2768 4.74347 16.9062 4.74347 16.449V7.34437C4.74347 6.88721 4.33919 6.5166 3.8405 6.5166Z" fill="url(#paint0_linear_2320_438)"/>
+                                                <path d="M18.7233 8.91301L16.7569 15.5304C16.6788 15.7941 16.5081 16.0268 16.2711 16.1926C16.0342 16.3584 15.7443 16.448 15.4462 16.4475H5.82129V7.03136C8.33952 6.12216 9.81425 4.28005 10.6767 1.8766C10.8148 1.4689 11.1209 1.12668 11.53 0.922744C11.9391 0.718808 12.4189 0.669251 12.8672 0.784616C13.3156 0.899981 13.6972 1.17116 13.9307 1.54047C14.1643 1.90978 14.2315 2.34806 14.118 2.76208L12.8673 7.34761H17.4209C17.6286 7.3479 17.8335 7.39206 18.0196 7.47666C18.2056 7.56126 18.3679 7.68402 18.4939 7.83542C18.6199 7.98682 18.7061 8.16278 18.7458 8.34966C18.7856 8.53654 18.7779 8.72931 18.7233 8.91301Z" fill="url(#paint1_linear_2320_438)"/>
+                                                <defs>
+                                                    <linearGradient id="paint0_linear_2320_438" x1="2.48648" y1="6.5166" x2="2.48648" y2="17.2768" gradientUnits="userSpaceOnUse">
+                                                    <stop stop-color="#009DFD"/>
+                                                    <stop offset="1" stop-color="#0391EC"/>
+                                                    </linearGradient>
+                                                    <linearGradient id="paint1_linear_2320_438" x1="12.2961" y1="0.723633" x2="12.2961" y2="16.4475" gradientUnits="userSpaceOnUse">
+                                                    <stop stop-color="#009DFD"/>
+                                                    <stop offset="1" stop-color="#0391EC"/>
+                                                    </linearGradient>
+                                                </defs>
+                                                </svg>
+                                        </div>
+                                        <div class="euc-action-icon">
+                                            <svg class="dislike" xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18" fill="none">
+                                                <path d="M14.8636 0.569266L17.4304 0.569267C17.8274 0.569709 18.208 0.714465 18.4886 0.971785C18.7693 1.22911 18.9273 1.57798 18.9277 1.94188L18.9277 10.5698C18.9273 10.9337 18.7693 11.2825 18.4886 11.5399C18.208 11.7972 17.8274 11.9419 17.4304 11.9424L14.8636 11.9424C14.4666 11.9419 14.0861 11.7972 13.8054 11.5399C13.5247 11.2825 13.3668 10.9337 13.3663 10.5698L13.3663 1.94188C13.3668 1.57798 13.5247 1.2291 13.8054 0.971785C14.0861 0.714465 14.4666 0.569708 14.8636 0.569266ZM17.4304 10.7659C17.4871 10.7658 17.5415 10.7451 17.5816 10.7083C17.6216 10.6716 17.6442 10.6217 17.6443 10.5698L17.6443 1.94188C17.6442 1.88991 17.6216 1.84009 17.5816 1.80334C17.5415 1.76659 17.4871 1.7459 17.4304 1.7458L14.8636 1.7458C14.8069 1.7459 14.7526 1.76659 14.7125 1.80334C14.6724 1.84009 14.6498 1.88991 14.6497 1.94188L14.6497 10.5698C14.6498 10.6217 14.6724 10.6716 14.7125 10.7083C14.7525 10.7451 14.8069 10.7658 14.8636 10.7659L17.4304 10.7659Z" fill="#555555"/>
+                                                <path d="M3.86441 1.35302L14.0072 1.35302C14.1774 1.35306 14.3406 1.41505 14.4609 1.52536C14.5813 1.63567 14.6489 1.78528 14.6489 1.94128L14.6489 10.5692C14.6489 10.7003 14.6011 10.8277 14.5131 10.9311C14.425 11.0345 14.3018 11.108 14.1631 11.1398C11.628 11.7208 9.93805 13.2895 8.99723 15.9359C8.81346 16.4669 8.41146 16.9113 7.87639 17.1753C7.34132 17.4392 6.71519 17.5018 6.13063 17.3498C5.54607 17.1979 5.04899 16.8433 4.74466 16.3612C4.44034 15.8791 4.35269 15.3073 4.50026 14.767L5.48455 11.1574L1.99778 11.1574C1.70175 11.1575 1.40971 11.095 1.14434 10.9747C0.878968 10.8544 0.64743 10.6797 0.467727 10.464C0.288025 10.2484 0.165 9.99767 0.108218 9.73134C0.0514359 9.465 0.0624277 9.19026 0.140337 8.92845L2.00697 2.65363C2.11897 2.28054 2.36123 1.95137 2.69668 1.71648C3.03213 1.48159 3.4423 1.35392 3.86441 1.35302ZM13.3655 2.52955L3.86441 2.52954C3.72359 2.52987 3.58677 2.57253 3.47494 2.65097C3.3631 2.72942 3.28242 2.83933 3.24526 2.96385L1.37863 9.23789C1.3527 9.32515 1.34907 9.41673 1.36801 9.50549C1.38696 9.59425 1.42797 9.67781 1.48786 9.74968C1.54776 9.82155 1.62492 9.8798 1.71335 9.9199C1.80179 9.96 1.89912 9.98086 1.99778 9.98088L6.30674 9.98088C6.40424 9.98097 6.50045 10.0014 6.58805 10.0406C6.67566 10.0799 6.75237 10.1369 6.81236 10.2074C6.87236 10.2778 6.91406 10.3599 6.93431 10.4473C6.95455 10.5348 6.95282 10.6253 6.92923 10.712L5.74524 15.0524C5.70646 15.1952 5.70366 15.3442 5.73705 15.4881C5.77044 15.632 5.83914 15.7671 5.93794 15.8831C6.03675 15.9991 6.16307 16.0929 6.30732 16.1575C6.45156 16.222 6.60995 16.2556 6.77048 16.2557C6.99566 16.2538 7.21439 16.1865 7.39528 16.0636C7.57617 15.9406 7.70991 15.7683 7.77732 15.5713C8.80589 12.6771 10.637 10.8901 13.3655 10.1222L13.3655 2.52955Z" fill="#555555"/>
+                                                </svg>
+                                        </div>
+                                        <div class="euc-action-icon" >
+                                            <svg class="dislike_active" xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18" fill="none">
+                                                <path d="M15.1595 11.4834L17.8675 11.4834C18.3662 11.4834 18.7705 11.1128 18.7705 10.6556L18.7705 1.55099C18.7705 1.09382 18.3662 0.723222 17.8675 0.723222L15.1595 0.723221C14.6608 0.723221 14.2565 1.09382 14.2565 1.55099L14.2565 10.6556C14.2565 11.1128 14.6608 11.4834 15.1595 11.4834Z" fill="url(#paint0_linear_2346_766)"/>
+                                                <path d="M0.276718 9.08699L2.24306 2.4696C2.32121 2.20592 2.49195 1.9732 2.72887 1.80742C2.9658 1.64164 3.25571 1.55204 3.55376 1.55249L13.1787 1.55249L13.1787 10.9686C10.6605 11.8778 9.18575 13.72 8.32332 16.1234C8.18524 16.5311 7.87908 16.8733 7.46997 17.0773C7.06087 17.2812 6.58111 17.3307 6.13275 17.2154C5.6844 17.1 5.30284 16.8288 5.06926 16.4595C4.83567 16.0902 4.76849 15.6519 4.88201 15.2379L6.1327 10.6524L1.57906 10.6524C1.37136 10.6521 1.16652 10.6079 0.980448 10.5233C0.794373 10.4387 0.63206 10.316 0.506104 10.1646C0.380148 10.0132 0.293935 9.83722 0.254154 9.65034C0.214373 9.46346 0.222094 9.27069 0.276718 9.08699Z" fill="url(#paint1_linear_2346_766)"/>
+                                                <defs>
+                                                    <linearGradient id="paint0_linear_2346_766" x1="16.5135" y1="11.4834" x2="16.5135" y2="0.723222" gradientUnits="userSpaceOnUse">
+                                                    <stop stop-color="#009DFD"/>
+                                                    <stop offset="1" stop-color="#0391EC"/>
+                                                    </linearGradient>
+                                                    <linearGradient id="paint1_linear_2346_766" x1="6.70392" y1="17.2764" x2="6.70392" y2="1.55249" gradientUnits="userSpaceOnUse">
+                                                    <stop stop-color="#009DFD"/>
+                                                    <stop offset="1" stop-color="#0391EC"/>
+                                                    </linearGradient>
+                                                </defs>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="euc-feedback-step">
+                                        <div class="euc-feedback-step01" >
+                                            <button class="euc-feedback-close"><img src="images/close.svg"></button>
+                                            <div class="euc-feedback-title">답변이 마음에 드는 이유를 선택해주세요. <span>(중복가능)</span></div>
+                                            <div class="euc-feedback-options">
+                                                <button class="euc-feedback-option "><p>답변 내용이 유용함</p></button>
+                                                <button class="euc-feedback-option "><p>법률 정보가 정확함</p></button>
+                                                <button class="euc-feedback-option"><p>법률 정보가 결정에 도움이 됨</p></button>
+                                                <button class="euc-feedback-option"><p>최신 법률로 신뢰할 수 있음</p></button>
+                                                <button class="euc-feedback-option"><p>연관 질문들이 도움이 됨</p></button>
+                                            </div>
+                                        </div>
+                                        <div class="euc-feedback-step02" >
+                                            <div class="euc-feedback-title">자세한 의견을 남겨주시면 서비스 향상에 반영하겠습니다. <span>(선택사항)</span></div>
+                                            <div class="euc-feedback-input">
+                                                <textarea placeholder="예: 예산 항목 분류가 부정확해요. 더 세분화된 분류가 필요해요." class="input" name="text" type="text" ></textarea>
+                                            </div>
+                                            <button class="euc-feedback-submit inactive"> 
+                                                <span>전송</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--added.end 피드백-->
+                                <!-- added.start 피드백
+                                <div class="euc-feedback">
+                                    <div class="euc-feedback-step01">
+                                        <div class="euc-feedback-title">원하는 답변이었나요?</div>
+                                        <div class="euc-feedback-inner">
+                                            <div class="euc-feedback-radiobtn">
+                                                <label class="euc-radio-button">
+                                                    <input type="radio" name="example-radio" value="option1">
+                                                    <span class="euc-radio"></span>
+                                                    만족
+                                                </label>
+                                                <label class="euc-radio-button">
+                                                    <input type="radio" name="example-radio" value="option2">
+                                                    <span class="euc-radio"></span>
+                                                    보통
+                                                </label>
+                                                <label class="euc-radio-button">
+                                                    <input type="radio" name="example-radio" value="option2">
+                                                    <span class="euc-radio"></span>
+                                                    불만족
+                                                </label>
+                                            </div>
+                                            <button class="euc-feedback-button"> 
+                                                <span>피드백 작성하기</span>
+                                                <img src="images/arr_right.svg" alt="">
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="euc-feedback-step02">
+                                        <button class="euc-feedback-backbtn"></button>
+                                        <div class="euc-feedback-title">답변이 마음에 들지 않으셨나요? 그에 맞는 피드백을 작성해 주세요.</div>
+                                        <div class="euc-feedback-input">
+                                            <textarea placeholder="피드백을 입력해 주세요." class="input" name="text" type="text" ></textarea>
+                                            <button class="euc-feedback-submit inactive"> 
+                                                <span>전송</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                added.end 피드백-->
+
+                            </div>
+                        </div>
+                        <div class="euc-related-question">
+                            <div class="euc-answer-section euc-answer-list">
+                                <div class="euc-answer-container">
+                                    <h3>
+                                        <img src="images/three-dot.svg">
+                                        <span>연관 질문</span>
+                                    </h3>
+                                    <ul>
+                                        <li>
+                                            <a href="#">
+                                                <p><span class="grey-dot"></span>예산 수립 절차는 어떻게 되나요?</p>
+                                                <h6>각 부처가 사업 성과를 분석하고 다음 연도의 목표를 설정해 예산요구서를 작성한 뒤 기획재정이 필요합니다.</h6>
+                                            </a>
+                                            
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <p><span class="grey-dot"></span>각 부처의 예산 설명 자료</p>
+                                                <h6>각 부처가 사업 성과를 분석하고 다음 연도의 목표를 설정해 예산요구서를 작성한 뒤 기획재정이 필요합니다.</h6>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <p><span class="grey-dot"></span>주요 프로세스 계획 작성안 자료</p>
+                                                <h6>각 부처가 사업 성과를 분석하고 다음 연도의 목표를 설정해 예산요구서를 작성한 뒤 기획재정이 필요합니다.</h6>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="euc-btn-movedown">
+                    <em class="euc-ico down"></em>
+                </button>
+                <div class="euc-search-wrapper">
+                    <div class="euc-search euc-sub-search">
+                        <div class="euc-search-bg">
+                            <form class="euc-search-form">
+                                <button type="mic" class="mic-button">
+                                    <em class="euc-ico mic"></em> 
+                                  </button>
+                                <textarea  id="textarea" rows="1" oninput="autoResize(this)" class="euc-textarea" placeholder="후속 질문을 입력하세요." ></textarea>
+                                <label type="submit" class="search-button">
+                                    <input checked="checked" type="checkbox"/>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="18" viewBox="0 0 16 19" fill="none" class=" search">
+                                        <path d="M8 1V18M8 1L1 8.28571M8 1L15 8.28571" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none" class=" stop">
+                                        <path d="M0 7C0 3.70017 0 2.05025 1.02513 1.02513C2.05025 0 3.70017 0 7 0C10.2998 0 11.9498 0 12.9748 1.02513C14 2.05025 14 3.70017 14 7C14 10.2998 14 11.9498 12.9748 12.9748C11.9498 14 10.2998 14 7 14C3.70017 14 2.05025 14 1.02513 12.9748C0 11.9498 0 10.2998 0 7Z" fill="white"/>
+                                    </svg>
+                                </label>
+                            </form>
+                        </div>
+                        <div class="euc-subtext">
+                            <span>이 채팅봇은 참고용 정보를 제공하며, 유성구청의 공식 입장을 대변하지 않을 수 있습니다.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--added.start 알람창-->
+    <div id="custom-alert" class="custom-alert hidden">
+        <p>피드백 감사합니다! 여러분의 의견이 저희를 더 나아지게 만듭니다.</p>
+    </div>
+    <!--added.end 알람창-->
+    <!--added.start 툴팁-->
+    <div id="custom-tooltip" class="custom-tooltip hidden">
+        <p>좋은 답변</p>
+    </div>
+    <!--added.end 알람창-->
+</body>
+</html> 

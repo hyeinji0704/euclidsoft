@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.svg">
+    <link rel="stylesheet" href="css/main.css">
+    <title>유성구청VOC-설정</title>
+</head>
+<body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        const selectContainer = document.querySelector('.euc-select-container');
+        const selected = document.querySelector('.euc-select-selected');
+        const options = document.querySelector('.euc-select-options');
+        const hiddenInput = document.getElementById('department-value');
+        
+        // 선택 영역 클릭 시 옵션 목록 표시/숨김
+        selected.addEventListener('click', function(e) {
+            e.stopPropagation();
+            selectContainer.classList.toggle('active');
+        });
+        
+        // 옵션 선택 시
+        const optionItems = document.querySelectorAll('.euc-select-options li');
+        optionItems.forEach(item => {
+            item.addEventListener('click', function() {
+            // 선택된 텍스트와 값 업데이트
+            selected.textContent = this.textContent;
+            hiddenInput.value = this.getAttribute('data-value');
+            
+            // 선택된 항목 스타일 변경
+            optionItems.forEach(el => el.classList.remove('selected'));
+            this.classList.add('selected');
+            
+            // 드롭다운 닫기
+            selectContainer.classList.remove('active');
+            });
+        });
+        
+        // 외부 클릭 시 드롭다운 닫기
+        document.addEventListener('click', function() {
+            selectContainer.classList.remove('active');
+        });
+        });
+    </script>
+    <div class="euc-modal-wrap">
+        <div class="euc-setting-container">
+            <div class="euc-detail-header">
+                <p class="euc-detail-title">설정</p>
+                <button class="euc-feedback-close"><img src="images/close.svg"></button>
+            </div>
+            <div class="euc-detail-content">
+                <div class="euc-detail-menu">
+                    <ul class="euc-link-list">
+                        <li class="euc-link-list-selected">
+                            <button>
+                                <em class="euc-ico person"></em>
+                                <span>프로필</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button >
+                                <em class="euc-ico appearance"></em>
+                                <span>외형</span>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="euc-setting-section euc-detail-section">
+                    <div style="display: none;"><!--설정-프로필-->
+                        <div class="euc-login-form-group">
+                            <label for="signup-name">사용자 이름</label>
+                            <input type="text" value="변경 전 이름">
+                        </div>
+                        
+                        <div class="euc-login-form-group">
+                            <label for="department">소속부서</label>
+                            <div class="euc-select-container">
+                              <div class="euc-select-selected" id="department-display">소속부서를 선택하세요</div>
+                              <input type="hidden" id="department-value" name="department" value="">
+                              <ul class="euc-select-options">
+                                <li data-value="회계팀">회계팀</li>
+                                <li data-value="재무팀">재무팀</li>
+                                <li data-value="예산관리팀">예산관리팀</li>
+                                <li data-value="자금운용팀">자금운용팀</li>
+                                <li data-value="세무팀">세무팀</li>
+                                <li data-value="결산팀">결산팀</li>
+                                <li data-value="회계감사팀">회계감사팀</li>
+                                <li data-value="예산기획팀">예산기획팀</li>
+                                <li data-value="기타">기타</li>
+                              </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div><!--설정-외형-->
+                        <div class="euc-login-form-group">
+                            <label for="signup-name">테마</label>
+                            <div class="euc-setting-mode-btn">
+                                <button class="euc-mode-btn active">
+                                    <em class="euc-ico light"></em>
+                                    <span>라이트 모드</span>
+                                </button>
+                                <button class="euc-mode-btn">
+                                    <em class="euc-ico dark"></em>
+                                    <span>다크 모드</span>
+                                </button>
+                                <button class="euc-mode-btn">
+                                    <em class="euc-ico system"></em>
+                                    <span>시스템</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="euc-detail-footer">
+                        <button class="euc-btn euc-btn-cancel">취소</button>
+                        <button class="euc-btn euc-btn-save">저장</button>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

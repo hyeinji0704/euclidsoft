@@ -1,0 +1,308 @@
+@import url(font.css);
+@import url(common.css);
+@import url(layout.css);
+
+/* Body Wrapper*/
+.euc-main {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+.euc-sub {
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    grid-template-areas: "lnb content";
+    grid-template-columns: 320px 1fr;
+    background-color: var(--color_bg_screen);
+}
+.euc-main-bg {
+    position: absolute;
+    width: 100%;
+    height: 100vh; 
+    overflow: hidden;
+}
+.euc-main-bg img {
+    width: 100%;
+    height: 100%;
+}
+.euc-sidebar {
+    display: flex;
+    position: relative;
+    width: 32rem;
+    height: 100vh;
+    padding: 0 1rem 0 2rem;
+    flex-direction: column;
+    justify-content: flex-start;
+    z-index: 1;
+}
+.euc-sub .euc-sidebar {
+    border-right: 1px solid var(--euc-border-500);
+    background-color: var(--euc-white);
+}
+.euc-sidebar-wrapper {
+    width: 100%;
+    height: 100%;
+}
+.euc-sidebar-container {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    min-height: 0;
+}
+.euc-nav-wrapper {
+    width: 100%;
+    height: 100%;
+}
+.euc-nav-wrapper nav {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+}
+.euc-wrap {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100%;
+    height: 100vh;
+    transform: translate(-50%, 0);
+}
+.euc-sub-wrap {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    background-color: var(--euc-white);
+}
+.euc-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 9.2rem;
+}
+.euc-sub-header {
+    position: sticky;
+    background-color: var(--euc-white);
+}
+.euc-content {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+}
+.euc-sub-content {
+    position: relative;
+    height: 200vh;
+    overflow-x: auto;
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+    margin-bottom: 12rem;
+}
+.euc-sub .euc-search-inner {
+    justify-content: center;
+    margin-top: 0;
+    margin-bottom: 10rem;
+}
+.euc-sub .euc-search-inner .euc-search-tit h1 {
+    font-size: 4rem;
+}
+.euc-sub .euc-search-inner .euc-search-bg {
+    margin: var(--euc-m-8) 0 var(--euc-m-10) 0;
+}
+.euc-inner {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20rem;
+    max-width: 111.7rem;
+}
+.euc-sub-inner {
+    position: relative;
+    margin-top: 1.4rem;
+    justify-content: flex-start;
+    margin-left: auto;
+    margin-right: auto;
+}
+.euc-history-container {
+    position: absolute;
+    top: 18rem;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 18rem);
+    padding: 0 1rem;
+    margin-bottom: 2.4rem;
+}
+.euc-history {
+    padding-bottom: 0.5rem;
+}
+.euc-search {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+.euc-search-wrapper {
+    display: grid; 
+    position: fixed;
+    bottom: 3.6rem;
+    width: 100%;
+    gap: 6.1rem;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    max-width: 101rem;
+    z-index: 100;
+}
+.euc-sub-search {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, #FFF 68%);
+    grid-column: span 9 / span 9;
+    max-width: 72rem;
+}
+.euc-search-tit {
+    position: relative; 
+    width: 100%;
+    background: var(--euc-text-gradient);
+    line-height: 63px;
+    text-align: center;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.euc-search-tit h1 {
+    font-size: 5rem;
+}
+.euc-search-tit::after {
+    position: absolute;
+    top: -2rem;
+    right: 50%;
+    width: 4.7rem;
+    height: 4.3rem;
+    background: url(../images/sparkle.svg) center center / cover;
+    content: "";
+    transform: translate(25rem ,0);
+}
+.euc-sub .euc-search-tit::after {
+    position: relative;
+}
+.euc-search-tit strong {
+    font-weight: var(--euc-font-semibold);
+} 
+.euc-search-bg {
+    margin: var(--euc-m-19) 0 var(--euc-m-10) 0;
+    max-width: 76rem;
+}
+.euc-sub-search .euc-search-bg {
+    margin: var(--euc-m-19) 0 var(--euc-m-4) 0;
+}
+.euc-sub-search .euc-subtext {
+    font-size: 1.4rem;
+}
+.euc-subtext {
+    color: var(--euc-text-gray-400);
+    font-weight: var(--euc-font-light);
+    text-align: center;
+}
+.euc-search-info {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    gap: 6.1rem;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    max-width: 101rem;
+}
+.euc-search-info-title  {
+    display: flex;
+    width: 100%;
+    background: var(--euc-text-gradient);
+    font-weight: var(--euc-font-semibold);
+    font-size: 3.3rem;
+    text-align: center;
+    grid-column: span 9 / span 9;
+    max-width: 72rem;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10rem;
+} 
+
+/* 탭 */
+
+.euc-search-intro {
+    margin-top: 8rem;
+}
+
+/* 검색 결과 */
+
+.euc-result-container {
+    display: grid;
+    position: relative;
+    width: 100%;
+    max-width: 101rem;
+    gap: 4rem;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.euc-result-container:not(:first-child) {
+    padding: 7rem 0;
+    /* delete.start */ 
+    /* border-top: 1px solid var(--euc-text-gray-300);  */
+    /* delete.end */
+}
+
+.euc-result {
+    display: flex;
+    grid-column: span 9 / span 9;
+    flex-direction: column;  
+    gap: 6.1rem; 
+    max-width: 72rem;
+}
+.euc-related-question {
+    position: relative;
+    grid-column: span 3 / span 3;
+}
+
+/* 연관 질문 */
+.euc-related-question .euc-answer-list {
+    position: sticky;
+    top: 0;
+}
+.euc-related-question .euc-answer-section {
+    border-top: 0;
+    padding-top: 0;
+}
+.euc-related-question .euc-answer-container {
+    margin-top: 0;
+}
+.euc-related-question ul {
+    margin-top: 0;
+}
+.euc-related-question ul li {
+    border-bottom: 1px solid var(--euc-text-gray-100);
+}
+.euc-related-question ul li:last-child {
+    border-bottom: 0;
+}
+.euc-related-question ul li a {
+    display: block;
+    padding: 2rem 0 2rem 1.5rem;
+}
+.euc-related-question ul li a:hover {
+    text-decoration: underline var(--euc-text-gray-600);
+}
+.euc-related-question h3 {
+    margin-bottom: 1rem;
+}
+.euc-related-question p {
+    position: relative;
+    margin-top: 0;
+}
+.grey-dot {
+    position: absolute;
+    top: 50%;
+    left: -1.5rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    transform: translate(0,-50%);
+    background-color: var(--euc-border-600);
+    border-radius: var(--euc-rounded-pill);
+}

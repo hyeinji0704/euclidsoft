@@ -39,7 +39,8 @@
     color: #222;
     font-size: 2.2rem;
     font-weight: 700;
-    padding: 2rem 0 5rem 0;
+    padding-top: 2rem;
+    margin-bottom: 5rem;
     position: relative;
 }
 .cnt_item h1::before {
@@ -58,6 +59,9 @@
     font-weight: 700;
     margin: 5rem 0 3rem 0;
 }
+.cnt_item h2.firstline, .cnt_item h2:first-child {
+    margin: 0 0 3rem 0;
+}
 .cnt_item span {
     display: block;
     color: #666;
@@ -66,6 +70,7 @@
     margin-top: 1.2rem;
     padding-left: 2rem;
     position: relative;
+    line-height: 155%;
 }
 .cnt_item span::before {
     position: absolute;
@@ -77,6 +82,12 @@
     background-color: #3649D8;
     border-radius: 50%;
     content: "";
+}
+.cnt_item.dot_none span {
+    padding-left: 0;
+}
+.cnt_item.dot_none span::before {
+    display: none;
 }
 .cnt_img {
     width: 100%;
@@ -104,9 +115,6 @@
 .tech {
     margin-top: 50rem;
 }/* 중복값으로 들어가면 지우셔도 됩니다.*/
-.tech > .cnt_item > h2:first-child {
-    margin: 0 0 3rem 0;
-}
 .tech > .cnt_item > ul {
     display: flex;
     justify-content: space-between;
@@ -153,7 +161,10 @@
 .tech > .cnt_item > ul > .card.half_card > .tech_img.img02 {
     margin-top: -4rem;
 }
-
+/*카드 4개일 때 */
+.tech > .cnt_item > ul > .card.quarter_card {
+    width: calc(25% - 2.6rem);
+}
 
 
 
@@ -188,19 +199,78 @@
 .tech > .cnt_item > ul > .card.active > .tech_img {
     transform: scale(105%);
 }
+.tech > .cnt_item > .cnt_ex {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 5rem 4rem;
+    border: 2px solid #23319D;
+    background: #FFF;
+    border-radius: 1rem;
+    gap: 2.2rem;
+}
+.tech > .cnt_item > .cnt_ex::before {
+    position: absolute;
+    left: 6.2rem;
+    top: -1.6rem;
+    content: "분석결과 시각화 예시";
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #01108E;
+    z-index: 10;
+}
+.tech > .cnt_item > .cnt_ex::after {
+    position: absolute;
+    left: 4rem;
+    top: -0.2rem;
+    width: 23.2rem;
+    height: 1.8rem;
+    background-color: #FFF;
+    content: "";
+    z-index: 1;
+}
+.tech > .cnt_item > .cnt_ex.st02 {
+    background-color: #FAFAFA; 
+    gap: 8.8rem;
+}
+.tech > .cnt_item > .cnt_ex.st02::before {
+    content: "법령 정보(가스안전 관련 )를 기반으로 한 법률 정보 제공 기능 예시";
+}
+.tech > .cnt_item > .cnt_ex.st02::after  {
+    width: 61.4rem;
+    background-color: #FAFAFA; 
+}
+.tech > .cnt_item > .cnt_ex:not(:last-child) {
+    margin-bottom: 7.6rem;
+}
+
+
+
 /*서비스 구성도 css*/
-.serivce .cnt_content {
+.serivce .cnt_content_01, .serivce .cnt_content_02 {
     gap: 4rem;
 }
-.serivce .cnt_content .cnt_img {
+.serivce .cnt_content_02 {
+    margin-top: 1rem;
+    align-items: start;
+}
+.serivce .cnt_content_01 .cnt_img, .serivce .cnt_content_02 .cnt_img {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.serivce .cnt_content_01 .cnt_img {
     width: 40%;
 }
-.serivce .cnt_content .cnt_item  {
+.serivce .cnt_content_01 .cnt_item  {
     width: 55%;
+}
+.serivce .cnt_content_02 .cnt_img {
+    width: 20rem;
+}
+.serivce .cnt_content_02 .cnt_item  {
+    width: calc(100% - 25rem);
 }
 .serivce .cnt_content .cnt_img p {
     color: #222;
@@ -233,15 +303,15 @@
 
 
 /*활용분야 css*/
+.part .cnt_item:not(:last-child) {
+    padding-bottom: 4rem;
+}
 .part .cnt_tit {
     margin-bottom: 8rem;
 }
 .part .cnt_content {
     gap: 3rem;
     margin-top: 0;
-}
-.part .cnt_item:not(:last-child) {
-    padding-bottom: 4rem;
 }
 .part .cnt_content .cnt_img {
     box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.10);
@@ -262,7 +332,8 @@
     }
     .cnt_item h1 {
         font-size: 2rem;
-        padding: 2rem 0 4rem 0;
+        padding-top: 2rem;
+        margin-bottom: 4rem;
         position: relative;
     }
     .cnt_item h2 {
@@ -290,6 +361,9 @@
     .tech > .cnt_item > ul > .card > .tech_img.img03 {
         transform: scale(0.7);
     }
+    .tech > .cnt_item > ul > .card.quarter_card > .tech_img {
+        transform: scale(0.85);
+    }
     .tech > .cnt_item > ul > .card.half_card > .tech_img {
         margin-right: 5rem;
     }
@@ -305,6 +379,18 @@
     }
     .serivce .cnt_img .p_mo {
         padding: 0 7rem ;
+    }
+    .tech > .cnt_item > .cnt_ex::before {
+        font-size: 1.8rem;
+    }
+    .tech > .cnt_item > .cnt_ex::after {
+        width: 19.5rem;
+    }
+    .tech > .cnt_item > .cnt_ex.st02 {
+        gap: 5rem;
+    }
+    .tech > .cnt_item > .cnt_ex.st02::after  {
+        width: 51rem;
     }
 }
 @media screen and (max-width: 749px) {
@@ -366,7 +452,30 @@
         margin-top: -2rem;
         margin-left: 3rem;
     }
-    .serivce .cnt_content .cnt_item  {
+    .tech > .cnt_item > ul > .card.quarter_card > .tech_img {
+        margin-top: -0.8rem;
+    }
+    .tech > .cnt_item > .cnt_ex {
+        padding: 4rem 2rem;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .tech > .cnt_item > .cnt_ex.st02 {
+        gap: 2rem;
+    }
+    .tech > .cnt_item > .cnt_ex::before {
+        left: 3rem;
+        margin-right: 2.2rem;
+    }
+    .tech > .cnt_item > .cnt_ex::after {
+        left: 2rem;
+        width: 19.5rem;
+        top: -0.3rem;
+    }
+    .tech > .cnt_item > .cnt_ex.st02::after  {
+        width: 33.5rem;
+    }
+    .serivce .cnt_content_01 .cnt_item  {
         width: 100%;
     }
     .serivce .cnt_images {
