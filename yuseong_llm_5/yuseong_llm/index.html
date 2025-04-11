@@ -49,6 +49,27 @@
     });
 </script>
 <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const dropdowns = document.querySelectorAll(".euc-header-dropdown");
+
+        dropdowns.forEach((dropdown) => {
+            const menu = dropdown.querySelector(".euc-dropdown-menu");
+
+            dropdown.addEventListener("click", function (event) {
+                event.stopPropagation(); // 부모 요소로 이벤트 전파 방지
+                menu.classList.toggle("show");
+            });
+        });
+
+        // 문서 전체를 클릭하면 모든 드롭다운 닫힘
+        document.addEventListener("click", function () {
+            document.querySelectorAll(".euc-dropdown-menu").forEach((menu) => {
+                menu.classList.remove("show");
+            });
+        });
+    });
+</script>
+<script>
     document.addEventListener('DOMContentLoaded', function() {
         const textarea = document.getElementById('textarea');
         const maxHeight = 180; // 최대 높이 (px)
@@ -70,25 +91,15 @@
 <body>
     <div class="euc-main ">
         <div class="euc-main-bg"><img src="images/main_bg.png"></div>
-        <div class="euc-sidebar">
-            <div class="euc-sidebar-wrapper">
-                <div class="euc-sidebar-container">
-                    <div class="euc-nav-wrapper">
-                        <nav>
-                            <div class="euc-sidebar-header">
-                                <a href="#" class="euc-logo">
-                                    <div class="euc-logo-img"><img src="images/logo.svg" alt="유성구청로고"></div>
-                                    <span class="euc-name">유성구청 예산·회계</span>
-                                </a>
-                            </div>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="euc-wrap euc-main-bg">
             <div class="euc-header">
-                <div class="euc-dropdown">
+                <div class="euc-sidebar-header">
+                    <a href="#" class="euc-logo">
+                        <div class="euc-logo-img"><img src="images/logo.svg" alt="유성구청로고"></div>
+                        <span class="euc-name">유성구청 예산·회계</span>
+                    </a>
+                </div>
+                <div class="euc-header-dropdown">
                     <a href="#" class="euc-dropdown-toggle">
                         <div class="euc-user-avatar" name="S">
                             <span class="euc-user-initial">S</span>

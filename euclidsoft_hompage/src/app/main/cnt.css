@@ -164,10 +164,10 @@
     margin-top: -4rem;
 }
 .tech > .cnt_item > ul > .card.half_card > .tech_img.img03 {
-    margin-top: -9.2rem;
+    margin-top: -10.5rem;
 }
 .tech > .cnt_item > ul > .card.half_card > .tech_img.img04 {
-    margin-top: -9rem;
+    margin-top: -11rem;
 }
 /*카드 4개일 때 */
 .tech > .cnt_item > ul > .card.quarter_card {
@@ -420,6 +420,7 @@
     .cnt_tit {
         padding: 1.6rem 0;
         font-size: 2.2rem;
+        margin-bottom: 4rem;
     }
     .cnt_item:not(:last-child) {
         padding-bottom: 6rem;
@@ -473,6 +474,9 @@
     .tech > .cnt_item > ul > .card.half_card > .tech_img.img04 {
         transform: scale(0.75);
     }
+    .tech > .cnt_item > ul > .card.quarter_card {
+        width: 100%;
+    }
     .tech > .cnt_item > ul > .card.quarter_card > .tech_img {
         margin-top: -0.8rem;
     }
@@ -499,12 +503,18 @@
     .serivce .cnt_content_01 .cnt_item, .serivce .cnt_content_02 .cnt_item  {
         width: 100%;
     }
-    .serivce .cnt_images {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
     .serivce .cnt_images .cnt_img {
         padding: 2rem 0;
+    }
+    .part .cnt_content {
+        gap: 3rem;
+        margin-top: 0;
+        flex-direction: column;
+        width: 100%;
+    }
+    .part .cnt_content .cnt_images {
+        width: 100%;
+        height: auto;
     }
     .part .cnt_tit {
         margin-bottom: 4rem;

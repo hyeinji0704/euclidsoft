@@ -5,7 +5,7 @@
 .euc-sidebar-header { 
     display: flex;
     padding: 1rem;
-    min-height: 8.5rem;
+    height: 9.2rem;
     align-items: center;
     justify-content: space-between;
 } 
@@ -175,16 +175,6 @@
 }
 /* Scroll-bar - changed0306 */
 
-
-
-/* Wrap - Header */
-.euc-header {
-    display: flex;
-    padding: 3rem 4.35rem;
-    justify-content: flex-end;
-    align-items: center;
-}
-
 /* user-avatar */     
 .euc-user-avatar {
     display: flex;
@@ -221,6 +211,7 @@
 
 
 /* dropdown */
+
 .euc-dropdown {
     position: relative;
 }
@@ -232,9 +223,9 @@
     position: absolute;
     margin: 0px;
     border: var(--euc-border-width) var(--euc-border-style) var(--euc-border-300);
-    inset: 0px 0px auto auto;
-    transform: translate(0, 38px);
-    z-index: 10;
+    inset: 0px 36px auto auto;
+    transform: translate(0, 76px);
+    z-index: 100;
 
     /* 크기 및 박스 모델 */
     min-width: 21rem;
@@ -1095,6 +1086,15 @@ euc-answer-container span {
     flex: 1;
 }
 
+.euc-signup-secondary-btn {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    font-size: 1.6rem;
+    font-weight: var(--euc-font-bold);
+    color: var(--euc-hover-bg-500);
+    margin-top: -2rem;
+}
 
 /*드롭다운 v2*/
 .euc-select-container {
