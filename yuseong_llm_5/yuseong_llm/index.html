@@ -8,6 +8,42 @@
     <title>유성구청VOC</title>
 </head>
 <script>
+  document.addEventListener('DOMContentLoaded', function() {
+  const body = document.body;
+  const mainBgImage = document.getElementById('main-bg-image');
+
+  function updateBackgroundImage(theme) {
+    if (theme === 'dark') {
+      mainBgImage.src = mainBgImage.dataset.darkImage;
+    } else {
+      mainBgImage.src = 'images/main_bg.png'; // 라이트 모드 이미지 경로
+    }
+  }
+
+  // (선택 사항) 로컬 스토리지에서 테마 설정 불러와 초기 이미지 설정
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme) {
+    updateBackgroundImage(savedTheme);
+  } else {
+    // 초기 테마가 설정되지 않았다면 기본적으로 라이트 모드 이미지 표시
+    updateBackgroundImage('light');
+  }
+
+  // 테마 변경 이벤트 리스너 (기존 테마 전환 코드에 추가)
+  const themeToggle = document.getElementById('theme-toggle'); // 테마 전환 버튼 요소 (이전 질문에서 사용한 ID라고 가정)
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function() {
+      const currentTheme = body.getAttribute('data-euc-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      body.setAttribute('data-euc-theme', newTheme);
+      updateBackgroundImage(newTheme);
+      localStorage.setItem('theme', newTheme); // (선택 사항) 테마 설정 저장
+      themeToggle.textContent = newTheme === 'dark' ? '라이트 모드로 변경' : '다크 모드로 변경'; // (선택 사항) 버튼 텍스트 업데이트
+    });
+  }
+});
+</script>
+<script>
     document.addEventListener("DOMContentLoaded", function () {
       const tabButtons = document.querySelectorAll(".euc-tab-btn");
       const tabContents = document.querySelectorAll(".euc-tab-content");
@@ -90,7 +126,9 @@
 </script>
 <body>
     <div class="euc-main ">
-        <div class="euc-main-bg"><img src="images/main_bg.png"></div>
+        <div class="euc-main-bg">
+            <img src="images/main_bg.png" data-dark-image="images/main_bg_dark.png" id="main-bg-image">
+        </div>
         <div class="euc-wrap euc-main-bg">
             <div class="euc-header">
                 <div class="euc-sidebar-header">
@@ -146,7 +184,7 @@
                         </div>
                         <div class="euc-search-bg">
                             <form class="euc-search-form">
-                                <button type="mic" class="mic-button">
+                                <button type="mic" class="mic-button" id="theme-toggle">
                                     <em class="euc-ico mic"></em> 
                                   </button>
                                 <textarea  id="textarea" rows="1" oninput="autoResize(this)" class="euc-textarea" placeholder="궁금한 내용을 작성해 주세요." ></textarea>

@@ -454,7 +454,7 @@
     border-radius: var(--euc-rounded-sm); 
 }
 .euc-tab-buttons button.active {
-    background-color: var(--euc-white);
+    background-color: var(--euc-button-bg);
     box-shadow: 0 0 0 1px var(--euc-hover-bg-600);
 }
 
@@ -481,13 +481,14 @@
     padding: 2.4rem 3rem;
     border: 1px solid var(--euc-border-200);
     border-radius: var(--euc-rounded-xl);
-    background-color: var(--euc-white);
+    background-color: var(--euc-main-bg);
     box-shadow: var(--euc-shadow-sm);
 }
 .euc-tab-card ul li a {
     display: block;
 }
 .euc-tab-card ul li:hover {
+    background-color: var(--euc-main-bg);
     border: 1px solid var(--euc-info);
 }
 
