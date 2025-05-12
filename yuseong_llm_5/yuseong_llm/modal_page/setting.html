@@ -7,48 +7,76 @@
     <link rel="stylesheet" href="../css/main.css">
     <title>유성구청VOC-설정</title>
 </head>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const body = document.body;
+      const themeToggle = document.getElementById('theme-toggle'); // 테마 전환 요소
+    
+      // 모든 '.theme-dark' 클래스를 가진 요소
+      const darkElements = document.querySelectorAll('.theme-dark');
+    
+      // 로컬 스토리지에서 테마 설정 불러와 초기 테마 적용
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        body.setAttribute('data-euc-theme', savedTheme);
+        updateVisibility(savedTheme);
+      } else {
+        body.setAttribute('data-euc-theme', 'light');
+        updateVisibility('light');
+      }
+    
+      // 테마에 따라 요소의 visibility 제어 함수
+      function updateVisibility(theme) {
+        // '.theme-dark' 클래스를 가진 요소 표시/숨김
+        darkElements.forEach(element => {
+          element.style.display = theme === 'dark' ? 'inline-block' : 'none';
+        });
+    
+        // '.theme-dark' 클래스가 없는 기본 이미지 요소 (.euc-ico.dot) 숨김/표시
+        const lightDotElements = document.querySelectorAll(':not(.theme-dark).euc-ico.dot');
+        lightDotElements.forEach(element => {
+          element.style.display = theme === 'dark' ? 'none' : 'inline-block';
+        });
+    
+       // 모든 .euc-action-icon svg 요소 처리
+       const actionIconSvgs = document.querySelectorAll('.euc-action-icon svg');
+        actionIconSvgs.forEach(element => {
+          // 'like_active' 또는 'dislike_active' 클래스를 가진 SVG는 항상 보이게 함
+          if (element.classList.contains('like_active') || element.classList.contains('dislike_active')) {
+            element.style.display = 'inline-block';
+            return;
+          }
+    
+    
+          if (theme === 'dark') {
+            // 다크 모드일 때, '.dark-theme' 클래스가 없는 아이콘 숨김
+            element.style.display = element.classList.contains('dark-theme') ? 'inline-block' : 'none';
+          } else {
+            // 라이트 모드일 때, '.dark-theme' 클래스를 가진 아이콘 숨김
+            element.style.display = element.classList.contains('dark-theme') ? 'none' : 'inline-block';
+          }
+        });
+      }
+    
+      // 테마 변경 이벤트 리스너
+      if (themeToggle) {
+        themeToggle.addEventListener('click', function() {
+          const currentTheme = body.getAttribute('data-euc-theme');
+          const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    
+          body.setAttribute('data-euc-theme', newTheme);
+          updateVisibility(newTheme);
+          localStorage.setItem('theme', newTheme); // 테마 설정 저장
+        });
+      }
+    });
+      </script>
 <body>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-        const selectContainer = document.querySelector('.euc-select-container');
-        const selected = document.querySelector('.euc-select-selected');
-        const options = document.querySelector('.euc-select-options');
-        const hiddenInput = document.getElementById('department-value');
-        
-        // 선택 영역 클릭 시 옵션 목록 표시/숨김
-        selected.addEventListener('click', function(e) {
-            e.stopPropagation();
-            selectContainer.classList.toggle('active');
-        });
-        
-        // 옵션 선택 시
-        const optionItems = document.querySelectorAll('.euc-select-options li');
-        optionItems.forEach(item => {
-            item.addEventListener('click', function() {
-            // 선택된 텍스트와 값 업데이트
-            selected.textContent = this.textContent;
-            hiddenInput.value = this.getAttribute('data-value');
-            
-            // 선택된 항목 스타일 변경
-            optionItems.forEach(el => el.classList.remove('selected'));
-            this.classList.add('selected');
-            
-            // 드롭다운 닫기
-            selectContainer.classList.remove('active');
-            });
-        });
-        
-        // 외부 클릭 시 드롭다운 닫기
-        document.addEventListener('click', function() {
-            selectContainer.classList.remove('active');
-        });
-        });
-    </script>
     <div class="euc-modal-wrap">
         <div class="euc-setting-container">
             <div class="euc-detail-header">
                 <p class="euc-detail-title">설정</p>
-                <button class="euc-feedback-close"><img src="../images/close.svg"></button>
+                <button class="euc-feedback-close" id="theme-toggle"><img src="../images/close.svg"></button>
             </div>
             <div class="euc-detail-content">
                 <div class="euc-detail-menu">
@@ -68,7 +96,7 @@
                     </ul>
                 </div>
                 <div class="euc-setting-section euc-detail-section">
-                    <div ><!--설정-프로필-->
+                    <div  style="display: none;"><!--설정-프로필-->
                         <div class="euc-login-form-group">
                             <label for="signup-name">사용자 이름</label>
                             <input type="text" value="변경 전 이름">
@@ -77,23 +105,11 @@
                         <div class="euc-login-form-group">
                             <label for="department">소속부서</label>
                             <div class="euc-select-container">
-                              <div class="euc-select-selected" id="department-display">소속부서를 선택하세요</div>
-                              <input type="hidden" id="department-value" name="department" value="">
-                              <ul class="euc-select-options">
-                                <li data-value="회계팀">회계팀</li>
-                                <li data-value="재무팀">재무팀</li>
-                                <li data-value="예산관리팀">예산관리팀</li>
-                                <li data-value="자금운용팀">자금운용팀</li>
-                                <li data-value="세무팀">세무팀</li>
-                                <li data-value="결산팀">결산팀</li>
-                                <li data-value="회계감사팀">회계감사팀</li>
-                                <li data-value="예산기획팀">예산기획팀</li>
-                                <li data-value="기타">기타</li>
-                              </ul>
+                              <input id="department-value" name="department" value="소속부서를 입력하세요">
                             </div>
                         </div>
                     </div>
-                    <div style="display: none;"><!--설정-외형-->
+                    <div ><!--설정-외형-->
                         <div class="euc-login-form-group">
                             <label for="signup-name">테마</label>
                             <div class="euc-setting-mode-btn">

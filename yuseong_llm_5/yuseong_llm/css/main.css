@@ -15,13 +15,13 @@
     height: 100vh;
     grid-template-areas: "lnb content";
     grid-template-columns: 320px 1fr;
-    background-color: var(--color_bg_screen);
 }
 .euc-main-bg {
-    position: absolute;
     width: 100%;
-    height: 100vh; 
-    overflow: hidden;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 .euc-main-bg img {
     width: 100%;
@@ -39,7 +39,7 @@
 }
 .euc-sub .euc-sidebar {
     border-right: 1px solid var(--euc-border-500);
-    background-color: var(--euc-white);
+    background-color: var(--euc-main-bg);
 }
 .euc-sidebar-wrapper {
     width: 100%;
@@ -47,7 +47,6 @@
 }
 .euc-sidebar-container {
     display: flex;
-    height: 100%;
     flex-direction: column;
     min-height: 0;
 }
@@ -73,14 +72,14 @@
     display: flex;
     position: relative;
     flex-direction: column;
-    background-color: var(--euc-white);
+    background-color: var(--euc-main-bg);
 }
 .euc-header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    padding-left: 2rem;
+    padding: 3rem 4.35rem 3rem 2rem;
     height: 9.2rem;
     display: flex;
     justify-content: space-between;
@@ -91,17 +90,18 @@
     justify-content: flex-end;
     align-items: center;
     position: sticky;
-    background-color: var(--euc-white);
+    background-color: var(--euc-main-bg);
     top: 0;
     left: 0;
     width: 100%;
+    padding: 3rem 4.35rem 3rem 0;
     height: 9.2rem;
     z-index: 100;
 }
-.euc-header-dropdown {
+/* .euc-header-dropdown {
     padding: 3rem 4.35rem 3rem 0;
     position: relative;
-}
+} */
 .euc-content {
     display: flex;
     width: 100%;
@@ -111,10 +111,12 @@
 .euc-sub-content {
     position: relative;
     height: 200vh;
+    margin-bottom: 12rem;
+    overflow: scroll;
     overflow-x: auto;
     overflow-y: auto;
     scrollbar-gutter: stable;
-    margin-bottom: 12rem;
+    background-color: var(--euc-white);
 }
 .euc-sub .euc-search-inner {
     justify-content: center;
@@ -148,7 +150,7 @@
     left: 0;
     width: 100%;
     height: calc(100vh - 18rem);
-    padding: 0 1rem;
+    padding: 0 1rem 0 2rem;
     margin-bottom: 2.4rem;
 }
 .euc-history {
@@ -171,7 +173,7 @@
     z-index: 100;
 }
 .euc-sub-search {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, #FFF 68%);
+    background: var(--euc-fade-gradient-100);
     grid-column: span 9 / span 9;
     max-width: 72rem;
 }
@@ -181,12 +183,11 @@
     background: var(--euc-text-gradient);
     line-height: 63px;
     text-align: center;
+    font-size: 5rem;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-.euc-search-tit h1 {
-    font-size: 5rem;
-}
+
 .euc-search-tit::after {
     position: absolute;
     top: -2rem;
@@ -217,30 +218,33 @@
     color: var(--euc-text-gray-400);
     font-weight: var(--euc-font-light);
     text-align: center;
+    font-size: 1.5rem;
 }
 .euc-search-info {
     display: grid;
     width: 100%;
-    height: 100%;
+    margin-top: 30vh;
+    height: 200px;
     gap: 6.1rem;
-    grid-template-columns: repeat(12, minmax(0, 1fr));
-    max-width: 101rem;
+    grid-template-columns: repeat(12,minmax(0,1fr));
+    max-width: 101rem
 }
-.euc-search-info-title  {
-    display: flex;
-    width: 100%;
-    background: var(--euc-text-gradient);
-    font-weight: var(--euc-font-semibold);
-    font-size: 3.3rem;
-    text-align: center;
+
+.euc-search-info-title {
     grid-column: span 9 / span 9;
     max-width: 72rem;
+    width: 100%;
+    font-size: 3.3rem;
+    background: var(--euc-text-gradient);
+    text-align: center;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    font-weight: var(--euc-font-semibold);
+    display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 10rem;
-} 
+    margin-bottom: 10rem
+}
 
 /* 탭 */
 
@@ -301,7 +305,7 @@
 }
 .euc-related-question ul li a {
     display: block;
-    padding: 2rem 0 2rem 1.5rem;
+    padding: 2rem 0 2rem 0;
 }
 .euc-related-question ul li a:hover {
     text-decoration: underline var(--euc-text-gray-600);
@@ -312,14 +316,31 @@
 .euc-related-question p {
     position: relative;
     margin-top: 0;
+    margin-bottom: 10px;
 }
 .grey-dot {
     position: absolute;
     top: 50%;
-    left: -1.5rem;
+    left: 0;
     width: 0.5rem;
     height: 0.5rem;
     transform: translate(0,-50%);
     background-color: var(--euc-border-600);
     border-radius: var(--euc-rounded-pill);
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: fadeIn 2s ease-in-out;
 }

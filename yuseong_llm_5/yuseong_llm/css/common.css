@@ -64,7 +64,7 @@ html {
     font-family: 'Pretendard', sans-serif;/*1rem=10px*/
 }
 body {
-    color: #222;
+    color: var(--euc-text-dark);
     font-weight: 500;
     font-size: 1.6rem;
     line-height: 1.75rem;
@@ -81,74 +81,115 @@ body {
     overflow: hidden; /*sticky 사용할 때는 쓰면 안됨*/
 }
 
-
+/* ============================================
+   기본 변수 - 테마와 무관한 레이아웃, 크기 등
+   ============================================ */
 :root {
+    /* 테마와 무관한 공통 값 */
     --euc-border-width: 1px;
     --euc-border-style: solid;
-    --euc-rounded: 0.6rem;
+    
+    /* 둥근 모서리 */
     --euc-rounded-sm: 0.4rem;
+    --euc-rounded: 0.6rem;
     --euc-rounded-lg: 0.7rem;
     --euc-rounded-xl: 1.2rem;
     --euc-rounded-xxl: 1.75rem;
     --euc-rounded-2xl: 1.8rem;
     --euc-rounded-pill: 4rem;
+    
+    /* 텍스트 크기 */
     --euc-text-xs: 1.4rem;
     --euc-text-sm: 1.5rem;
     --euc-text-base: 1.6rem;
     --euc-text-xl: 2.2rem;
-    --euc-font-light : 300;
-    --euc-font-normal : 400;
-    --euc-font-medium : 500;
-    --euc-font-semibold : 600;
-    --euc-font-bold : 700;
-    --euc-p-1 : 0.2rem;
-    --euc-p-2 : 0.4rem;
-    --euc-p-3 : 0.6rem;
-    --euc-p-4 : 0.8rem;
-    --euc-p-5 : 1rem;
-    --euc-p-6 : 1.2rem;
-    --euc-p-7 : 1.4rem;
-    --euc-p-8 : 1.6rem;
-    --euc-p-9 : 1.8rem;
-    --euc-p-10 : 2rem;
-    --euc-p-11 : 2.2rem;
-    --euc-p-12 : 2.4rem;
-    --euc-p-13 : 2.6rem;
+    
+    /* 폰트 두께 */
+    --euc-font-light: 300;
+    --euc-font-normal: 400;
+    --euc-font-medium: 500;
+    --euc-font-semibold: 600;
+    --euc-font-bold: 700;
+    
+    /* 패딩 값 */
+    --euc-p-1: 0.2rem;
+    --euc-p-2: 0.4rem;
+    --euc-p-3: 0.6rem;
+    --euc-p-4: 0.8rem;
+    --euc-p-5: 1rem;
+    --euc-p-6: 1.2rem;
+    --euc-p-7: 1.4rem;
+    --euc-p-8: 1.6rem;
+    --euc-p-9: 1.8rem;
+    --euc-p-10: 2rem;
+    --euc-p-11: 2.2rem;
+    --euc-p-12: 2.4rem;
+    --euc-p-13: 2.6rem;
     --euc-p-14: 2.8rem;
-    --euc-p-15 : 3rem;
-    --euc-p-16 : 3.2rem;
-    --euc-p-17 : 3.4rem;
-    --euc-p-18 : 3.6rem;
-    --euc-p-19 : 3.8rem;
-    --euc-p-20 : 4rem;
-    --euc-m-1 : 0.2rem;
-    --euc-m-2 : 0.4rem;
-    --euc-m-3 : 0.6rem;
-    --euc-m-4 : 0.8rem;
-    --euc-m-5 : 1rem;
-    --euc-m-6 : 1.2rem;
-    --euc-m-7 : 1.4rem;
-    --euc-m-8 : 1.6rem;
-    --euc-m-9 : 1.8rem;
-    --euc-m-10 : 2rem;
-    --euc-m-11 : 2.2rem;
-    --euc-m-12 : 2.4rem;
-    --euc-m-13 : 2.6rem;
+    --euc-p-15: 3rem;
+    --euc-p-16: 3.2rem;
+    --euc-p-17: 3.4rem;
+    --euc-p-18: 3.6rem;
+    --euc-p-19: 3.8rem;
+    --euc-p-20: 4rem;
+    
+    /* 마진 값 */
+    --euc-m-1: 0.2rem;
+    --euc-m-2: 0.4rem;
+    --euc-m-3: 0.6rem;
+    --euc-m-4: 0.8rem;
+    --euc-m-5: 1rem;
+    --euc-m-6: 1.2rem;
+    --euc-m-7: 1.4rem;
+    --euc-m-8: 1.6rem;
+    --euc-m-9: 1.8rem;
+    --euc-m-10: 2rem;
+    --euc-m-11: 2.2rem;
+    --euc-m-12: 2.4rem;
+    --euc-m-13: 2.6rem;
     --euc-m-14: 2.8rem;
-    --euc-m-15 : 3rem;
-    --euc-m-16 : 3.2rem;
-    --euc-m-17 : 3.4rem;
-    --euc-m-18 : 3.6rem;
-    --euc-m-19 : 3.8rem;
-    --euc-m-20 : 4rem;
+    --euc-m-15: 3rem;
+    --euc-m-16: 3.2rem;
+    --euc-m-17: 3.4rem;
+    --euc-m-18: 3.6rem;
+    --euc-m-19: 3.8rem;
+    --euc-m-20: 4rem;
+    
+    /* 공통 상태 색상 - 테마별로 재정의할 수 있음 */
+    --euc-primary: #0072E5;
+    --euc-info: #1FA7FF;
+    --euc-warning: #f4bd0e;
+    --euc-danger: #F93A37;
+    --euc-danger-100: #D62724;
+    --euc-hover-danger: #F04A48;
+    
+    /* RGB 값 */
+    --euc-white-rgb: 255, 255, 255;
+    --euc-black-rgb: 0, 0, 0;
 }
 
+/* ===========================================
+   라이트 모드 테마
+   =========================================== */
 [data-euc-theme=light] {
-     --euc-primary: #0072E5;
+    /* 주요 색상 */
+    --euc-primary: #0072E5;
+    --euc-primary-100: #0072E5;
+    
+    /* 배경 색상 */
+    --euc-bg-basic: #ffffff;
     --euc-main-bg: #ffffff;
     --euc-white: #fff;
-    --euc-tab-bg: #ffffff;
+    
+    /* UI 요소 배경 */
     --euc-button-bg: #ffffff;
+    --euc-dropdown-bg: #ffffff;
+    --euc-topdown-bg: #ffffff;
+    --euc-sm-button-bg: #ffffff;
+    --euc-tooltip-bg: #414141;
+    --euc-modal-bg: #ffffff;
+    
+    /* 텍스트 색상 계열 */
     --euc-text-dark: #222222;
     --euc-text-gray-100: #F0F1F4;
     --euc-text-gray-150: #cacaca;
@@ -160,9 +201,13 @@ body {
     --euc-text-gray-700: #555555;
     --euc-text-gray-800: #333333;
     --euc-text-gray-900: #222222;
+    
+    /* 파란색 텍스트 계열 */
     --euc-text-blue-100: #474952;
     --euc-text-blue-200: #666E85;
     --euc-text-blue-300: #3F4147;
+    
+    /* 회색 배경 계열 */
     --euc-bg-gray-100: #F7F7F7;
     --euc-bg-gray-200: #F0F1F4;
     --euc-bg-gray-300: #F0F1F4;
@@ -170,113 +215,167 @@ body {
     --euc-bg-gray-500: #E4e4e4;
     --euc-bg-gray-600: #a0a0a0;
     --euc-bg-gray-700: #414141;
+    
+    /* 파란색 배경 계열 */
     --euc-bg-blue-100: #F9FBFF;
     --euc-bg-blue-200: #A9AFB8;
     --euc-bg-blue-300: #878D93;
     --euc-bg-blue-400: #c7d1dc;
     --euc-bg-blue-500: #E5F1FC;
     --euc-bg-blue-600: #D4DDE6;
+    
+    /* 아이콘 색상 */
     --euc-icon-100: #5F6CBA;
-    --euc-info: #1FA7FF;
-    --euc-warning: #f4bd0e;
-    --euc-danger: #F93A37;
-    --euc-danger-100: #D62724;
-    --euc-hover-danger: #F04A48;
+    
+    /* 호버 상태 */
     --euc-hover-border: #1FA7FF;
+    --euc-hover-bg: #ffffff;
     --euc-hover-bg-100: #F0F1F4;
     --euc-hover-bg-200: #F7F7F7;
     --euc-hover-bg-300: #F9F9F9;
     --euc-hover-bg-400: #767676;
     --euc-hover-bg-500: #4095EB;
-    --euc-hover-bg-600: #e2e2e2; 
-    --euc-white-rgb: 255,255,255;
-    --euc-black-rgb: 0,0,0;
+    --euc-hover-bg-600: #e2e2e2;
+    
+    /* 그라데이션 */
+    --euc-main-gradient: linear-gradient(rgb(247, 247, 245), rgb(247, 247, 245)), var(--euc-border-gradient);
     --euc-bg-gradient: linear-gradient(180deg, #009DFD 0%, #0391EC 100%);
     --euc-border-gradient: linear-gradient(90deg, #6BD0FF 0.5%, #A8E3FF 21.5%, #8FBAFF 43%, #CCBDFF 68.5%, #99B8FF 100%);
     --euc-text-gradient: linear-gradient(90deg, #101419 0%, #3E94EB 57%, #4A3EEB 100%);
+    --euc-fade-gradient: linear-gradient(to bottom, transparent, white);
+    --euc-fade-gradient-100: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, #FFF 68%);
+    
+    /* 테두리 색상 */
     --euc-border-100: #3B3B3B;
     --euc-border-200: #DEDCDB;
     --euc-border-300: #dfdfdf;
     --euc-border-400: #c4e1ff;
     --euc-border-500: #e4e4e4;
     --euc-border-600: #B3CBDB;
-    --euc-border-blue-100:#EBF1F9;
-    --euc-border-blue-200:#A9B4C3;
-    --euc-border-blue-300:#D0D6DF;
-    --euc-border-blue-400:#bfc3c9;
+    
+    /* 파란색 테두리 계열 */
+    --euc-border-blue-100: #EBF1F9;
+    --euc-border-blue-200: #A9B4C3;
+    --euc-border-blue-300: #D0D6DF;
+    --euc-border-blue-400: #bfc3c9;
+    
+    /* 그림자 효과 */
+    --euc-shadow-default: 0 2px 5px rgba(0, 0, 0, 0.2);
     --euc-shadow: 0px 4px 9px 0px rgba(0, 0, 0, 0.07);
     --euc-shadow-sm: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
     --euc-shadow-md: 1px 2px 2px 0px rgba(0, 0, 0, 0.02);
     --euc-shadow-lg: 5px 6px 10px 0px rgba(226, 226, 226, 0.53);
+    
+    /* 아이콘 이미지 */
+    --light-icon-hover: url(../images/light_h.svg);
+    --dark-icon-hover: url(../images/dark_h.svg);
+    --system-icon-hover: url(../images/system_h.svg);
 }
 
+/* ===========================================
+   다크 모드 테마
+   =========================================== */
 [data-euc-theme=dark] {
+    /* 주요 색상 */
     --euc-primary: #0072E5;
-   --euc-main-bg: #1B1C1D;
-   --euc-white: #fff;
-   --euc-tab-bg: #5A5A5A;
-   --euc-button-bg: #5A5A5A;
-   --euc-text-dark: #F8F9F6;
-   --euc-text-gray-100: #F0F1F4;
-   --euc-text-gray-150: #cacaca;
-   --euc-text-gray-200: #B0B0B0;
-   --euc-text-gray-300: #7E7E7E;
-   --euc-text-gray-400: #2A2B2E;
-   --euc-text-gray-500: #767676;
-   --euc-text-gray-600: #666666; 
-   --euc-text-gray-700: #555555;
-   --euc-text-gray-800: #333333;
-   --euc-text-gray-900: #222222;
-   --euc-text-blue-100: #474952;
-   --euc-text-blue-200: #666E85;
-   --euc-text-blue-300: #3F4147;
-   --euc-bg-gray-100: #F7F7F7;
-   --euc-bg-gray-200: #F0F1F4;
-   --euc-bg-gray-300: #F0F1F4;
-   --euc-bg-gray-400: #EEEEEE;
-   --euc-bg-gray-500: #E4e4e4;
-   --euc-bg-gray-600: #a0a0a0;
-   --euc-bg-gray-700: #414141;
-   --euc-bg-blue-100: #F9FBFF;
-   --euc-bg-blue-200: #A9AFB8;
-   --euc-bg-blue-300: #878D93;
-   --euc-bg-blue-400: #c7d1dc;
-   --euc-bg-blue-500: #E5F1FC;
-   --euc-bg-blue-600: #D4DDE6;
-   --euc-icon-100: #5F6CBA;
-   --euc-info: #1FA7FF;
-   --euc-warning: #f4bd0e;
-   --euc-danger: #F93A37;
-   --euc-danger-100: #D62724;
-   --euc-hover-danger: #F04A48;
-   --euc-hover-border: #1FA7FF;
-   --euc-hover-bg-100: #F0F1F4;
-   --euc-hover-bg-200: #F7F7F7;
-   --euc-hover-bg-300: #F9F9F9;
-   --euc-hover-bg-400: #767676;
-   --euc-hover-bg-500: #4095EB;
-   --euc-hover-bg-600: #3B3D41; 
-   --euc-white-rgb: 255,255,255;
-   --euc-black-rgb: 0,0,0;
-   --euc-bg-gradient: linear-gradient(180deg, #009DFD 0%, #0391EC 100%);
-   --euc-border-gradient: linear-gradient(90deg, #6BD0FF 0.5%, #A8E3FF 21.5%, #8FBAFF 43%, #CCBDFF 68.5%, #99B8FF 100%);
-   --euc-text-gradient: linear-gradient(90deg, #101419 0%, #3E94EB 57%, #4A3EEB 100%);
-   --euc-border-100: #3B3B3B;
-   --euc-border-200: #404146;
-   --euc-border-300: #dfdfdf;
-   --euc-border-400: #c4e1ff;
-   --euc-border-500: #e4e4e4;
-   --euc-border-600: #B3CBDB;
-   --euc-border-blue-100:#EBF1F9;
-   --euc-border-blue-200:#A9B4C3;
-   --euc-border-blue-300:#D0D6DF;
-   --euc-border-blue-400:#bfc3c9;
-   --euc-shadow: 0px 4px 9px 0px rgba(0, 0, 0, 0.07);
-   --euc-shadow-sm: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-   --euc-shadow-md: 1px 2px 2px 0px rgba(0, 0, 0, 0.02);
-   --euc-shadow-lg: 5px 6px 10px 0px rgba(226, 226, 226, 0.53);
+    --euc-primary-100: #AFD7FF;
+    
+    /* 배경 색상 */
+    --euc-bg-basic: #1B1C1D;
+    --euc-main-bg: #1B1C1D;
+    --euc-white: #fff;
+    
+    /* UI 요소 배경 */
+    --euc-button-bg: #5a5a5a;
+    --euc-sm-button-bg: #262627;
+    --euc-dropdown-bg: #111111;
+    --euc-topdown-bg: #39393B;
+    --euc-tooltip-bg: #F8F9F6;
+    --euc-modal-bg: #262627;
+    
+    /* 텍스트 색상 계열 */
+    --euc-text-dark: #F8F9F6;
+    --euc-text-gray-100: #39393B;
+    --euc-text-gray-150: #666666;
+    --euc-text-gray-200: #666666;
+    --euc-text-gray-300: #7a7a7a;
+    --euc-text-gray-400: #888888;
+    --euc-text-gray-500: #e4e4e4;
+    --euc-text-gray-600: #AAAAAA; 
+    --euc-text-gray-700: #A0A0A0;
+    --euc-text-gray-800: #F8F9F6;
+    --euc-text-gray-900: #9C9C9C;
+    
+    /* 파란색 텍스트 계열 */
+    --euc-text-blue-100: #FFFFFF;
+    --euc-text-blue-200: #666E85;
+    --euc-text-blue-300: #F8F9F6;
+    
+    /* 회색 배경 계열 */
+    --euc-bg-gray-100: #F7F7F7;
+    --euc-bg-gray-200: #838383;
+    --euc-bg-gray-300: #F0F1F4;
+    --euc-bg-gray-400: #2A2B2E;
+    --euc-bg-gray-500: #39393B;
+    --euc-bg-gray-600: #a0a0a0;
+    --euc-bg-gray-700: #767676;
+    
+    /* 파란색 배경 계열 */
+    --euc-bg-blue-100: #262627;
+    --euc-bg-blue-200: #5b6167;
+    --euc-bg-blue-300: #878D93;
+    --euc-bg-blue-400: #c7d1dc;
+    --euc-bg-blue-500: #414243;
+    --euc-bg-blue-600: #D4DDE6;
+    
+    /* 아이콘 색상 */
+    --euc-icon-100: #5F6CBA;
+    
+    /* 호버 상태 */
+    --euc-hover-border: #1FA7FF;
+    --euc-hover-bg: #1B1C1D;
+    --euc-hover-bg-100: #39393B;
+    --euc-hover-bg-200: #3F4143;
+    --euc-hover-bg-300: #282828;
+    --euc-hover-bg-400: #767676;
+    --euc-hover-bg-500: #4095EB;
+    --euc-hover-bg-600: #3B3D41;
+    
+    /* 그라데이션 */
+    --euc-main-gradient: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0)), var(--euc-border-gradient);
+    --euc-bg-gradient: linear-gradient(180deg, #009DFD 0%, #0391EC 100%);
+    --euc-border-gradient: linear-gradient(90deg, #6BD0FF 0.5%, #A8E3FF 21.5%, #8FBAFF 43%, #CCBDFF 68.5%, #99B8FF 100%);
+    --euc-text-gradient: linear-gradient(90deg, #9BBCE0 0%, #3E94EB 57%, #4A3EEB 100%);
+    --euc-fade-gradient: linear-gradient(to bottom, transparent, #1B1C1D);
+    --euc-fade-gradient-100: linear-gradient(180deg, #1B1C1D00 0%, #1B1C1D 68%);
+    
+    /* 테두리 색상 */
+    --euc-border-100: #828282;
+    --euc-border-200: #2f2f2f;
+    --euc-border-300: #404146;
+    --euc-border-400: #c4e1ff;
+    --euc-border-500: #333333;
+    --euc-border-600: #B3CBDB;
+    
+    /* 파란색 테두리 계열 */
+    --euc-border-blue-50: transparent;
+    --euc-border-blue-100: #303133;
+    --euc-border-blue-200: #A9B4C3;
+    --euc-border-blue-300: #4F4F4F;
+    --euc-border-blue-400: #bfc3c9;
+    
+    /* 그림자 효과 - 다크모드에 최적화 */
+    --euc-shadow-default: 0 2px 5px rgba(0, 0, 0, 0.35);
+    --euc-shadow: 0px 4px 9px 0px rgba(0, 0, 0, 0.3);
+    --euc-shadow-sm: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    --euc-shadow-md: 1px 2px 2px 0px rgba(0, 0, 0, 0.15);
+    --euc-shadow-lg: 5px 6px 10px 0px rgba(0, 0, 0, 0.45);
+    
+    /* 아이콘 이미지 */
+    --light-icon-hover: url(../images/light_h_dark.svg);
+    --dark-icon-hover: url(../images/dark_h_dark.svg);
+    --system-icon-hover: url(../images/system_h_dark.svg);
 }
-
 .h1,h1 {
     font-size: 5rem
 }
@@ -324,3 +423,14 @@ p:not(:first-child){
     margin-top: 1.6rem;
     margin-bottom: 1rem;
 }
+
+.theme-dark {
+    /* 다크 모드일 때 변경될 스타일의 기본값 */
+    display: none; /* 기본적으로 숨김 */
+    /* opacity: 0; /* display: none 대신 opacity를 사용할 수도 있습니다. */
+  }
+  
+  body[data-euc-theme='dark'] .theme-dark {
+    display: inline-block; /* 또는 block 등, 요소의 성격에 따라 */
+  }
+

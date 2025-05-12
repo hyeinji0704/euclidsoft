@@ -4,14 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.svg">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="../css/main.css">
     <title>유성구청VOC-로그인</title>
 </head>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const body = document.body;
+      const themeToggle = document.getElementById('theme-toggle'); // 테마 전환 요소
+    
+      // 모든 '.theme-dark' 클래스를 가진 요소
+      const darkElements = document.querySelectorAll('.theme-dark');
+    
+      // 로컬 스토리지에서 테마 설정 불러와 초기 테마 적용
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        body.setAttribute('data-euc-theme', savedTheme);
+        updateVisibility(savedTheme);
+      } else {
+        body.setAttribute('data-euc-theme', 'light');
+        updateVisibility('light');
+      }
+    
+      // 테마에 따라 요소의 visibility 제어 함수
+      function updateVisibility(theme) {
+        // '.theme-dark' 클래스를 가진 요소 표시/숨김
+        darkElements.forEach(element => {
+          element.style.display = theme === 'dark' ? 'inline-block' : 'none';
+        });
+    
+        // '.theme-dark' 클래스가 없는 기본 이미지 요소 (.euc-ico.dot) 숨김/표시
+        const lightDotElements = document.querySelectorAll(':not(.theme-dark).euc-ico.dot');
+        lightDotElements.forEach(element => {
+          element.style.display = theme === 'dark' ? 'none' : 'inline-block';
+        });
+    
+       // 모든 .euc-action-icon svg 요소 처리
+       const actionIconSvgs = document.querySelectorAll('.euc-action-icon svg');
+        actionIconSvgs.forEach(element => {
+          // 'like_active' 또는 'dislike_active' 클래스를 가진 SVG는 항상 보이게 함
+          if (element.classList.contains('like_active') || element.classList.contains('dislike_active')) {
+            element.style.display = 'inline-block';
+            return;
+          }
+    
+    
+          if (theme === 'dark') {
+            // 다크 모드일 때, '.dark-theme' 클래스가 없는 아이콘 숨김
+            element.style.display = element.classList.contains('dark-theme') ? 'inline-block' : 'none';
+          } else {
+            // 라이트 모드일 때, '.dark-theme' 클래스를 가진 아이콘 숨김
+            element.style.display = element.classList.contains('dark-theme') ? 'none' : 'inline-block';
+          }
+        });
+      }
+    
+      // 테마 변경 이벤트 리스너
+      if (themeToggle) {
+        themeToggle.addEventListener('click', function() {
+          const currentTheme = body.getAttribute('data-euc-theme');
+          const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    
+          body.setAttribute('data-euc-theme', newTheme);
+          updateVisibility(newTheme);
+          localStorage.setItem('theme', newTheme); // 테마 설정 저장
+        });
+      }
+    });
+      </script>
 <body>
     <!-- 로그인 페이지 -->
     <div class="euc-login-container" >
         <div class="euc-login-logo">
-            <img src="./images/sparkle.svg">
+            <img src="../images/sparkle.svg">
             <p><span>유성구청 예산·회계</span>에<br>
                 오신 것을 환영합니다</P>
         </div>
@@ -37,7 +101,7 @@
                 -->
             </div>
             
-            <button type="submit" class="euc-login-btn ">로그인</button>
+            <button type="submit" class="euc-login-btn " id="theme-toggle">로그인</button>
             <!--
             * 버튼 비활성화 상태 *
             <button type="submit" class="euc-login-btn inactive">로그인</button>

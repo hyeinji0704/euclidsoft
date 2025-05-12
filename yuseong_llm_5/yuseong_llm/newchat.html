@@ -8,25 +8,69 @@
     <title>새로운 채팅 화면</title>
 </head>
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const tabButtons = document.querySelectorAll(".euc-tab-btn");
-      const tabContents = document.querySelectorAll(".euc-tab-content");
-    
-      tabButtons.forEach((button) => {
-        button.addEventListener("click", function () {
-          const targetTab = this.getAttribute("data-tab");
-    
-          // 모든 버튼에서 active 클래스 제거
-          tabButtons.forEach((btn) => btn.classList.remove("active"));
-          this.classList.add("active");
-    
-          // 모든 탭 내용 숨기기
-          tabContents.forEach((content) => content.classList.remove("active"));
-          document.getElementById(targetTab).classList.add("active");
-        });
-      });
+document.addEventListener('DOMContentLoaded', function() {
+  const body = document.body;
+  const themeToggle = document.getElementById('theme-toggle'); // 테마 전환 요소
+
+  // 모든 '.theme-dark' 클래스를 가진 요소
+  const darkElements = document.querySelectorAll('.theme-dark');
+
+  // 로컬 스토리지에서 테마 설정 불러와 초기 테마 적용
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme) {
+    body.setAttribute('data-euc-theme', savedTheme);
+    updateVisibility(savedTheme);
+  } else {
+    body.setAttribute('data-euc-theme', 'light');
+    updateVisibility('light');
+  }
+
+  // 테마에 따라 요소의 visibility 제어 함수
+  function updateVisibility(theme) {
+    // '.theme-dark' 클래스를 가진 요소 표시/숨김
+    darkElements.forEach(element => {
+      element.style.display = theme === 'dark' ? 'inline-block' : 'none';
     });
-</script>
+
+    // '.theme-dark' 클래스가 없는 기본 이미지 요소 (.euc-ico.dot) 숨김/표시
+    const lightDotElements = document.querySelectorAll(':not(.theme-dark).euc-ico.dot');
+    lightDotElements.forEach(element => {
+      element.style.display = theme === 'dark' ? 'none' : 'inline-block';
+    });
+
+   // 모든 .euc-action-icon svg 요소 처리
+   const actionIconSvgs = document.querySelectorAll('.euc-action-icon svg');
+    actionIconSvgs.forEach(element => {
+      // 'like_active' 또는 'dislike_active' 클래스를 가진 SVG는 항상 보이게 함
+      if (element.classList.contains('like_active') || element.classList.contains('dislike_active')) {
+        element.style.display = 'inline-block';
+        return;
+      }
+
+
+      if (theme === 'dark') {
+        // 다크 모드일 때, '.dark-theme' 클래스가 없는 아이콘 숨김
+        element.style.display = element.classList.contains('dark-theme') ? 'inline-block' : 'none';
+      } else {
+        // 라이트 모드일 때, '.dark-theme' 클래스를 가진 아이콘 숨김
+        element.style.display = element.classList.contains('dark-theme') ? 'none' : 'inline-block';
+      }
+    });
+  }
+
+  // 테마 변경 이벤트 리스너
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function() {
+      const currentTheme = body.getAttribute('data-euc-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+      body.setAttribute('data-euc-theme', newTheme);
+      updateVisibility(newTheme);
+      localStorage.setItem('theme', newTheme); // 테마 설정 저장
+    });
+  }
+});
+  </script>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         const dropdowns = document.querySelectorAll(".euc-dropdown");
@@ -110,7 +154,7 @@
                     <div class="euc-nav-wrapper">
                         <nav>
                             <div class="euc-sidebar-header">
-                                <a href="#" class="euc-logo">
+                                <a href="#" class="euc-logo" id="theme-toggle">
                                     <div class="euc-logo-img"><img src="images/logo.svg" alt="유성구청로고"></div>
                                     <span class="euc-name">유성구청 예산·회계</span>
                                 </a>
