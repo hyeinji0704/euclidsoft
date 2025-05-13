@@ -125,12 +125,7 @@
     display: inline-block;
 }
 .dot {
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="13" height="3" viewBox="0 0 13 3" fill="none"><circle cx="1.5" cy="1.5" r="1.5" fill="%23707070"/><circle cx="6.5" cy="1.5" r="1.5" fill="%23707070"/><circle cx="11.5" cy="1.5" r="1.5" fill="%23707070"/></svg>');
-}
-
-.dot.theme-dark {
-    display: none;
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="13" height="3" viewBox="0 0 13 3" fill="none"><circle cx="1.5" cy="1.5" r="1.5" fill="%23E0E0E0"/><circle cx="6.5" cy="1.5" r="1.5" fill="%23E0E0E0"/><circle cx="11.5" cy="1.5" r="1.5" fill="%23E0E0E0"/></svg>');
+    background: var(--dropdown-icon);
 }
 
 .euc-history-item .euc-dropdown-menu {
@@ -150,17 +145,17 @@
     height: 8px;
 }
 ::-webkit-scrollbar-track {
-    background-color: #fcfcfc; 
+    background-color: var(--euc-text-gray-100); 
 }
 ::-webkit-scrollbar-thumb {
     border-radius: 30px;
-    background-color: #cecece;
+    background-color: var(--euc-text-gray-150);
 }
 ::-webkit-scrollbar-thumb:hover {
-    background-color: #cacaca;
+    background-color: var(--euc-text-gray-150);
 }
 ::-webkit-scrollbar-thumb:active {
-    background-color: #cacaca; 
+    background-color: var(--euc-text-gray-150); 
 }
 ::-webkit-scrollbar-button:start:decrement {
     display: block;
@@ -436,7 +431,6 @@
     padding: 1rem 2rem;
     color: var(--euc-text-gray-800);
     border-radius: 10rem;
-    background-color: var(--color-secondary);
 }
 .euc-tab-list {
     display: flex;
@@ -567,7 +561,7 @@
 .euc-answer-container ul {
     margin: 1.4rem 0 1.6rem 0;
 }
-euc-answer-container span {
+.euc-answer-container span {
     color: var(--euc-text-gray-800);
     font-weight: var(--euc-font-bold);
     font-size: 2rem;
@@ -838,7 +832,7 @@ euc-answer-container span {
     right: 3rem;
     padding: 1.5rem 3rem;
     background: var(--euc-bg-gray-700);
-    color: var(--euc-white);
+    color: var(--euc-main-bg);
     font-size: 1.5rem;
     text-align: center;
     animation: fadeInOut 3s ease forwards;

@@ -226,6 +226,8 @@ body {
     
     /* 아이콘 색상 */
     --euc-icon-100: #5F6CBA;
+    --euc-icon-200: #555555;
+    --euc-icon-300: #707070;
     
     /* 호버 상태 */
     --euc-hover-border: #1FA7FF;
@@ -265,11 +267,15 @@ body {
     --euc-shadow-sm: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
     --euc-shadow-md: 1px 2px 2px 0px rgba(0, 0, 0, 0.02);
     --euc-shadow-lg: 5px 6px 10px 0px rgba(226, 226, 226, 0.53);
-    
+
+    /* 배경 이미지 */
+    --euc-main-img: url(../images/main_bg.png);
+
     /* 아이콘 이미지 */
     --light-icon-hover: url(../images/light_h.svg);
     --dark-icon-hover: url(../images/dark_h.svg);
     --system-icon-hover: url(../images/system_h.svg);
+    --dropdown-icon: url(../assets/dropdown_icon.svg);
 }
 
 /* ===========================================
@@ -330,6 +336,8 @@ body {
     
     /* 아이콘 색상 */
     --euc-icon-100: #5F6CBA;
+    --euc-icon-200: #999999;
+    --euc-icon-300: #e0e0e0;
     
     /* 호버 상태 */
     --euc-hover-border: #1FA7FF;
@@ -371,10 +379,14 @@ body {
     --euc-shadow-md: 1px 2px 2px 0px rgba(0, 0, 0, 0.15);
     --euc-shadow-lg: 5px 6px 10px 0px rgba(0, 0, 0, 0.45);
     
+    /* 배경 이미지 */
+    --euc-main-img: url(../images/main_bg_dark.png);
+
     /* 아이콘 이미지 */
     --light-icon-hover: url(../images/light_h_dark.svg);
     --dark-icon-hover: url(../images/dark_h_dark.svg);
     --system-icon-hover: url(../images/system_h_dark.svg);
+    --dropdown-icon: url(../assets/dropdown_icon_dark.svg);
 }
 .h1,h1 {
     font-size: 5rem

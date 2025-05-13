@@ -8,36 +8,65 @@
     <title>유성구청VOC</title>
 </head>
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
   const body = document.body;
-  const mainBgImage = document.getElementById('main-bg-image');
+  const themeToggle = document.getElementById('theme-toggle'); // 테마 전환 요소
 
-  function updateBackgroundImage(theme) {
-    if (theme === 'dark') {
-      mainBgImage.src = mainBgImage.dataset.darkImage;
-    } else {
-      mainBgImage.src = 'images/main_bg.png'; // 라이트 모드 이미지 경로
-    }
-  }
+  // 모든 '.theme-dark' 클래스를 가진 요소
+  const darkElements = document.querySelectorAll('.theme-dark');
 
-  // (선택 사항) 로컬 스토리지에서 테마 설정 불러와 초기 이미지 설정
+  // 로컬 스토리지에서 테마 설정 불러와 초기 테마 적용
   const savedTheme = localStorage.getItem('theme');
   if (savedTheme) {
-    updateBackgroundImage(savedTheme);
+    body.setAttribute('data-euc-theme', savedTheme);
+    updateVisibility(savedTheme);
   } else {
-    // 초기 테마가 설정되지 않았다면 기본적으로 라이트 모드 이미지 표시
-    updateBackgroundImage('light');
+    body.setAttribute('data-euc-theme', 'light');
+    updateVisibility('light');
   }
 
-  // 테마 변경 이벤트 리스너 (기존 테마 전환 코드에 추가)
-  const themeToggle = document.getElementById('theme-toggle'); // 테마 전환 버튼 요소 (이전 질문에서 사용한 ID라고 가정)
+  // 테마에 따라 요소의 visibility 제어 함수
+  function updateVisibility(theme) {
+    // '.theme-dark' 클래스를 가진 요소 표시/숨김
+    darkElements.forEach(element => {
+      element.style.display = theme === 'dark' ? 'inline-block' : 'none';
+    });
+
+    // '.theme-dark' 클래스가 없는 기본 이미지 요소 (.euc-ico.dot) 숨김/표시
+    const lightDotElements = document.querySelectorAll(':not(.theme-dark).euc-ico.dot');
+    lightDotElements.forEach(element => {
+      element.style.display = theme === 'dark' ? 'none' : 'inline-block';
+    });
+
+   // 모든 .euc-action-icon svg 요소 처리
+   const actionIconSvgs = document.querySelectorAll('.euc-action-icon svg');
+    actionIconSvgs.forEach(element => {
+      // 'like_active' 또는 'dislike_active' 클래스를 가진 SVG는 항상 보이게 함
+      if (element.classList.contains('like_active') || element.classList.contains('dislike_active')) {
+        element.style.display = 'inline-block';
+        return;
+      }
+
+
+      if (theme === 'dark') {
+        // 다크 모드일 때, '.dark-theme' 클래스가 없는 아이콘 숨김
+        element.style.display = element.classList.contains('dark-theme') ? 'inline-block' : 'none';
+      } else {
+        // 라이트 모드일 때, '.dark-theme' 클래스를 가진 아이콘 숨김
+        element.style.display = element.classList.contains('dark-theme') ? 'none' : 'inline-block';
+      }
+    });
+  }
+
+  // 테마 변경 이벤트 리스너
   if (themeToggle) {
     themeToggle.addEventListener('click', function() {
       const currentTheme = body.getAttribute('data-euc-theme');
       const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
       body.setAttribute('data-euc-theme', newTheme);
-      updateBackgroundImage(newTheme);
-      localStorage.setItem('theme', newTheme); // (선택 사항) 테마 설정 저장
+      updateVisibility(newTheme);
+      localStorage.setItem('theme', newTheme); // 테마 설정 저장
     });
   }
 });
@@ -125,9 +154,6 @@
 </script>
 <body>
     <div class="euc-main ">
-        <div class="euc-main-bg">
-            <img src="images/main_bg.png" data-dark-image="images/main_bg_dark.png" id="main-bg-image">
-        </div>
         <div class="euc-wrap euc-main-bg">
             <div class="euc-header">
                 <div class="euc-sidebar-header">
