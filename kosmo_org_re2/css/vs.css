@@ -82,6 +82,17 @@ ul, ol, li {
   letter-spacing: 0;
   line-height: 24px;
 }
+
+.vs_mission, .vs_vision {
+  display: flex;
+}
+
+
+
+
+
+
+
 .organ {
   position: relative;
   letter-spacing: -0.03em;
@@ -93,7 +104,7 @@ ul, ol, li {
   font-size: 15px;
   font-family: NotoSansKR-400;
   padding: 0.25rem 0 0.25rem 0;
-  color: #777777;
+  color: #777777; 
   display: flex;
   align-items: center;
   gap: 10px;
