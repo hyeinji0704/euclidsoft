@@ -169,7 +169,7 @@ ul, ol, li {
   display: flex;
   justify-content: center;
   margin-top: -40px;
-  padding: 63px 0 18px 77px;
+  padding: 0 0 18px 77px;
 }
 .vs_bottom {
   display: flex;
@@ -204,7 +204,7 @@ ul, ol, li {
   padding: 40px 0;
 }
 .vs_title .vs_section_title.vs_section_02 {
-  padding: 20px 0;
+  padding: 12px 0;
 }
 .vs_strategy_list {
  width: 33.33%;
@@ -241,15 +241,21 @@ ul, ol, li {
 
 .vs_item {
   margin-top: -4px;
-  padding: 24px 26px;
-  min-height: 190px;
+  padding: 18px 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   position: relative;
   border-top: 1px solid rgba(187, 193, 207, 0.40);
   border-bottom: 1px solid rgba(187, 193, 207, 0.40);
   border-left: 1px solid rgba(187, 193, 207, 0.40);
 }
+.vs_item.vs_item02 {
+  border-left: 0;
+}
 .vs_item.vs_item03 {
   border-right: 1px solid rgba(187, 193, 207, 0.40);
+  border-left: 0;
 }
 
 .vs_item  li {
@@ -280,11 +286,8 @@ ul, ol, li {
   .vs_list {
     font-size: 17px;
   }
-  .vs_item li {
-    font-size: 15px;
-  }
 }
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 1110px) {
   .vs_bottom {
       flex-direction: column;
   }
@@ -300,13 +303,13 @@ ul, ol, li {
     font-size: 22px;
   }
   .vs_arrow_img {
-    padding: 63px 0 18px 0;
+    padding: 0 0 18px 0;
   }
   .vs_content_text {
     font-size: 16px;
   }
 }
-@media screen and (max-width: 820px) {
+@media screen and (max-width: 950px) {
   .vs_mission, .vs_vision {
       display: flex;
       height: auto;
@@ -337,9 +340,15 @@ ul, ol, li {
 .vs_item {
   border-right: 1px solid rgba(187, 193, 207, 0.40);
   min-height: auto;
+  padding: 18px 26px;
 }
 .vs_arrow_img {
-    padding: 50px 0 18px 0;
+    padding: 0 0 18px 0;
 }
-
+.vs_item.vs_item02 {
+  border-left: 1px solid rgba(187, 193, 207, 0.40);
+}
+.vs_item.vs_item03 {
+  border-left: 1px solid rgba(187, 193, 207, 0.40);
+}
 }

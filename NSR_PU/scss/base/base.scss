@@ -1,0 +1,45 @@
+// scss/base/_base.scss
+
+// 링크 스타일
+a {
+  
+}
+
+// 이미지 기본 스타일
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// 목록 기본 스타일
+ul, ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+// 버튼 기본 스타일 (브라우저 기본값 초기화)
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+// 공통 유틸리티 클래스
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.hidden {
+  display: none;
+}

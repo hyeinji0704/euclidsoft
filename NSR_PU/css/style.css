@@ -1,0 +1,18 @@
+/* Error: expected "{".
+ *    ,
+ * 52 |     .pop_title,.pop_
+ *    |                     ^
+ *    '
+ *   scss\layout\header.scss 52:21  @use
+ *   scss\style.scss 27:1           root stylesheet */
+
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: 'Error: expected "{".\a    \2577 \a 52 \2502      .pop_title,.pop_\d\a    \2502                      ^\a    \2575 \a   scss\\layout\\header.scss 52:21  @use\a   scss\\style.scss 27:1           root stylesheet';
+}
