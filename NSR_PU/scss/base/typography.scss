@@ -66,8 +66,8 @@ h1, h2, h3, h4, h5, h6 {
   font-family: $font-family-primary;
   line-height: $line-height-heading;
   color: $text-color-heading;       // _colors.scss 에서 임포트
-  margin-top: $spacing-lg;           // _variables.scss 에서 임포트
-  margin-bottom: $spacing-md;        // _variables.scss 에서 임포트
+  // margin-top: $spacing-lg;           // _variables.scss 에서 임포트
+  // margin-bottom: $spacing-md;        // _variables.scss 에서 임포트
 }
 
 h1 {

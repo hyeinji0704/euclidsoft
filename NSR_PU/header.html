@@ -7,7 +7,7 @@
     <title>헤더</title>
 </head>
 <body>
-    <header class="header">
+    <header class="header active">
     <div class="gnb_area">
         <div class="container">
             <h1 class="logo">
@@ -26,8 +26,8 @@
             <nav class="nav" id="gnb">
                 <h2 class="pop_title">전체메뉴</h2>
                 <ul id="head_menu" class="topmenu fullmenu">
-                    <li class="depth1">
-                        <a href=""><span>정책정보</span></a>
+                    <li class="depth1 ">
+                        <a href="" class=""><span>정책정보</span></a>
                         <div class="submenu">
                             <ul class="depth2 sub01">
                                 <li ><a href="">국가,국제기구 정보</a></li>
@@ -36,7 +36,7 @@
                             </ul>
                         </div> 
                     </li>
-                    <li class="depth1">
+                    <li class="depth1 ">
                         <a href=""><span>정책발간현황</span></a>
                         <div class="submenu">
                             <ul class="depth2 sub01">
@@ -60,7 +60,7 @@
                             </ul>
                         </div> 
                     </li>
-                    <li class="depth1">
+                    <li class="depth1"> 
                         <a href=""><span>분석</span></a>
                         <div class="submenu">
                             <ul class="depth2 sub01">
@@ -90,15 +90,27 @@
             </nav>
             <div class="gnb_util">
                 <div class="group_btn">
-                    <span class="member-link">
-                        <a href="" class="btn_login">로그인</a>
-                    </span>
+                    <!-- 로그인 전 -->
+                    <div class="logged-out login-area">
+                        <span class="member-link">
+                        <a href="#" class="btn_login">로그인</a>
+                        </span>
+                    </div>
+                     <!-- 로그인 후 -->
+                    <div class="logged-in login-area">
+                        <div class="user-info">
+                            <span class="user-thumb"><img src="/img/icon/ic-user.svg" alt="프로필 이미지"  /></span>
+                            <span class="user-name"><strong>홍길동</strong>님</span>
+                        </div>
+                        <span class="member-link">
+                        <a href="#" class="btn_logout">로그아웃</a>
+                        </span>
+                    </div>
                 </div>
-                <div class="sch_layer">
-                  <button id="btn_sch" class="btn-sch">
-                    <span class="hidden">검색</span>
-                  </button>  
-                </div>
+                <button id="btn_sch" class="btn-sch">
+                    <img src="/img/icon/ic-search.svg" alt="검색 아이콘" />
+                    <span>검색</span>
+                </button>
             </div>
         </div>
     </div>
