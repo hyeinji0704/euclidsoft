@@ -1,0 +1,72 @@
+@use '../abstracts/colors';
+@use '../base/base.scss';   
+@use '../abstracts/variables';
+@use '../base/typography.scss';
+
+.footer {
+    margin-top: 15rem;
+    padding: 5rem 3rem;
+    background-color: colors.$black;
+    position: relative;
+    
+   .container {
+        .footer_wrapper {
+        @include base.flex(space-between, center);
+        }
+        .footer_details {
+            font-size: typography.$font-size-small;
+            color: colors.$neutral-grey-soft;
+        }
+        .footer_organization {
+            display: flex;
+            gap: 2rem;
+            .footer_title {
+                font-weight: 500;
+            }
+        }
+        .footer_copyright {
+            margin-top: 0.5rem;
+            color: colors.$text-color-subtle;                
+        }
+   }
+}
+
+body {
+    position: relative;
+}
+.quick_aside {
+    position: absolute;
+    text-align: center;
+    right: 1.6rem;
+    bottom: calc( variables.$footer-height + 3rem );
+    z-index: 100;
+    -webkit-transition: .2s;
+    transition: .2s;
+    width: 16.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    .aside_btn {
+        border-radius: 50px;
+        padding: 1rem 0;
+        cursor: pointer;
+        &.chat_ai {
+            background-color: colors.$brand-blue-primary;
+            color: colors.$white;
+            @include base.flex(center, center);
+            gap: 0.5rem;
+            &:hover {
+                background-color: colors.$brand-blue-action;
+            }
+        }
+        &.feedback {
+            background-color: colors.$white;
+            border: 1.5px solid colors.$brand-blue-primary;
+            margin-top: 0.8rem;
+            color: colors.$brand-blue-primary;
+            &:hover {
+                background-color: colors.$brand-blue-action;
+                color: colors.$white;
+            }
+        }
+    }
+}
