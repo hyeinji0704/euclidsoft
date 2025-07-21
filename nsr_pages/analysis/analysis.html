@@ -15,9 +15,31 @@
 </head>
 
 <body>
-    <header class="header">
+    <header class="header active">
         <div class="gnb_area">
-            <div class="container">
+            <div class="container gnb_area__inner">
+                <div class="tnb_area">
+                    <div class="tnb_util">
+                        <div class="group_btn">
+                            <!-- 로그인 전 -->
+                            <div class="logged_out login_area">
+                                <span class="member_link">
+                                <a href="#" class="btn_login">로그인</a>
+                                </span>
+                            </div>
+                            <!-- 로그인 후 -->
+                            <div class="logged_in login_area">
+                                <div class="user_info">
+                                    <span class="user_thumb"><img src="../../img/icon/ic-user.svg" alt="프로필 이미지"  /></span>
+                                    <span class="user_name"><strong>홍길동</strong>님</span>
+                                </div>
+                                <span class="member_link">
+                                <a href="#" class="btn_logout">로그아웃</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="gnb_left">
                     <h1 class="logo">
                         <a href="#">
@@ -116,6 +138,12 @@
                             </li>
                             <li class="depth1">
                                 <a href="#">
+                                    <span class="newtab">Chat AI</span>
+                                </a>
+                                <div class="submenu"></div>
+                            </li>
+                            <li class="depth1">
+                                <a href="#">
                                     <span>마이페이지</span>
                                 </a>
                                 <div class="submenu">
@@ -129,29 +157,15 @@
                         </ul>
                     </nav>
                 </div>
-                <div class="gnb_util">
-                    <div class="group_btn">
-                        <!-- 로그인 전 -->
-                        <div class="logged_out login_area">
-                            <span class="member_link">
-                            <a href="#" class="btn_login">로그인</a>
-                            </span>
-                        </div>
-                        <!-- 로그인 후 -->
-                        <div class="logged_in login_area">
-                            <div class="user_info">
-                                <span class="user_thumb"><img src="../../img/icon/ic-user.svg" alt="프로필 이미지"  /></span>
-                                <span class="user_name"><strong>홍길동</strong>님</span>
-                            </div>
-                            <span class="member_link">
-                            <a href="#" class="btn_logout">로그아웃</a>
-                            </span>
-                        </div>
+                <div class="gnb_search">
+                    <div class="gnb_search_inner">
+                        <input class="max_auto" type="text" name="headerQuery" id="headerQuery" placeholder="검색할 키워드를 입력하세요.">
+                        <button id="btn_sch" class="btn_sch">
+                            <img src="../../img/icon/ic-search.svg" alt="검색 아이콘" />
+                            <span>검색</span>
+                        </button>
                     </div>
-                    <button id="btn_sch" class="btn_sch">
-                        <img src="../../img/icon/ic-search.svg" alt="검색 아이콘" />
-                        <span>검색</span>
-                    </button>
+                    
                 </div>
             </div>
         </div>
