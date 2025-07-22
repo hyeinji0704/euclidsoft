@@ -128,13 +128,13 @@ $(document).ready(function(){
             $(this).addClass('on')
         }
    })
-   $('.header').on('mouseleave', function(){
+   $('.header .gnb_area').on('mouseleave', function(){
         if(device_status == 'pc'){
             $('.header').removeClass('menu_over')
             $('.header .gnb ul.depth01 > li').removeClass('on')
         }
    })
-   $('.header .tnb .lang').on('focusin', function(){
+   $('.header .gnb_search .btn_sch').on('focusin', function(){
         if(device_status == 'pc'){
             $('.header').removeClass('menu_over')
             $('.header .gnb ul.depth01 > li').removeClass('on')

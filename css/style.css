@@ -301,39 +301,84 @@ html {
   display: flex;
   text-align: center;
 }
-.header .gnb_area .gnb ul.depth01 li {
-  width: 15rem;
+.header .gnb_area .gnb ul.depth01 > li {
+  width: 17rem;
 }
-.header .gnb_area .gnb ul.depth01 li a {
-  display: block;
-}
-.header .gnb_area .gnb ul.depth01 li a span {
-  line-height: 150px;
-  font-size: 22px;
-  font-weight: 700;
-}
-.header .gnb_area .gnb ul.depth01 li a span.newtab {
-  padding-right: 2.3rem;
+.header .gnb_area .gnb ul.depth01 > li.on > a span, .header .gnb_area .gnb ul.depth01 > li[data-menu=on] > a span {
   position: relative;
 }
-.header .gnb_area .gnb ul.depth01 li a span.newtab::after {
+.header .gnb_area .gnb ul.depth01 > li.on > a span::after, .header .gnb_area .gnb ul.depth01 > li[data-menu=on] > a span::after {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  bottom: 0;
+  width: 100%;
+  height: 7px;
+  background-color: #2970FF;
+  content: "";
+}
+.header .gnb_area .gnb ul.depth01 > li a {
+  display: block;
+}
+.header .gnb_area .gnb ul.depth01 > li a span {
+  display: inline-block;
+  line-height: 150px;
+  font-size: 2.1rem;
+  font-weight: 600;
+  padding: 0 2rem;
+}
+.header .gnb_area .gnb ul.depth01 > li a span.newtab {
+  padding-right: 4.3rem;
+  position: relative;
+}
+.header .gnb_area .gnb ul.depth01 > li a span.newtab::before {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  right: 0;
+  right: 2rem;
   width: 1.5rem;
   height: 1.5rem;
-  background: url(../../img/icon/ic-newtab.svg) no-repeat center;
+  background: url(../img/icon/ic-newtab.svg) no-repeat center;
   content: "";
 }
 .header .gnb_area .gnb ul.depth02 {
   display: none;
-  height: 500px;
+  height: 430px;
+  overflow: hidden;
+  padding: 2.8rem 0 6rem 0;
 }
-.header .gnb_area .gnb ul.depth02 li a {
+.header .gnb_area .gnb ul.depth02 > li {
+  padding: 0 2rem;
+  color: #464646;
+}
+.header .gnb_area .gnb ul.depth02 > li:hover {
+  color: #2970FF;
+}
+.header .gnb_area .gnb ul.depth02 > li:not(:first-child) {
+  margin-top: 1.2rem;
+}
+.header .gnb_area .gnb ul.depth02 > li a {
+  word-break: keep-all;
   display: block;
-  line-height: 45px;
-  font-size: 18px;
+  font-size: 1.7rem;
+  font-weight: 500;
+}
+.header .gnb_area .gnb ul.depth03 {
+  text-align: center;
+  padding-top: 1.4rem;
+}
+.header .gnb_area .gnb ul.depth03 > li {
+  color: #7E7F86;
+}
+.header .gnb_area .gnb ul.depth03 > li:hover {
+  color: #2970FF;
+}
+.header .gnb_area .gnb ul.depth03 > li:not(:first-child) {
+  margin-top: 1rem;
+}
+.header .gnb_area .gnb ul.depth03 > li a {
+  font-size: 1.5rem;
+  font-weight: 400;
 }
 .header .logo {
   margin: 5rem 0;
@@ -385,8 +430,23 @@ html {
   font-size: 0;
   line-height: 0;
 }
+.header .gnb_bg {
+  display: none;
+  position: fixed;
+  top: 150px;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.5;
+  content: "";
+  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+}
 .header.menu_over {
-  transition: 0.6s;
   z-index: 9999 !important;
   background-color: #212937;
 }
@@ -394,36 +454,84 @@ html {
   position: absolute;
   left: 0;
   top: 150px;
-  z-index: 1; /*맨 아래*/
+  z-index: 4; /*맨 아래*/
   width: 100%;
-  height: 551px;
+  height: 430px;
   background-color: #fff;
   content: "";
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  animation: expandHeight 0.1s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+}
+@keyframes expandHeight {
+  from {
+    height: 0;
+  }
+  to {
+    height: 430px;
+  }
 }
 .header.menu_over::after {
   position: absolute;
   left: 0;
   top: 150px;
-  z-index: -1; /*맨 아래*/
+  z-index: 10; /*맨 아래*/
   width: 100%;
   height: 1px;
-  background-color: rgba(61, 61, 61, 0.6);
+  background-color: #eee;
   content: "";
 }
 .header.menu_over .gnb {
   position: relative;
 }
+.header.menu_over .gnb ul.depth01 > li a span.sub04 {
+  line-height: inherit;
+  font-size: inherit;
+  color: inherit;
+  font-weight: inherit;
+}
+.header.menu_over .gnb ul.depth01 > li a span.sub04::before {
+  background: url(../img/icon/ic-newtab_b.svg) no-repeat center;
+}
 .header.menu_over .gnb ul.depth02 {
   display: block;
-  padding-top: 12px;
+}
+.header.menu_over .gnb_bg {
+  display: block;
+  z-index: 2;
 }
 .header.fixed {
   color: #212121;
   background-color: #fff;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.02);
 }
 .header.fixed .logo a {
-  background: url(../../img/logo.svg) no-repeat center center/contain;
+  background: url(../img/logo.svg) 0 0/auto 4.9rem no-repeat;
+}
+.header.fixed .gnb_area .tnb_area .tnb_util .login_area {
+  color: #212937;
+}
+.header.fixed .gnb_area .tnb_area .tnb_util .logged_in .user_info::after {
+  background-color: #ddd;
+}
+.header.fixed .gnb ul.depth01 > li.on, .header.fixed .gnb ul.depth01 > li[data-menu=on] {
+  color: #2970FF;
+}
+.header.fixed .gnb ul.depth01 > li a span.sub04 {
+  line-height: inherit;
+  font-size: inherit;
+  color: inherit;
+  font-weight: inherit;
+}
+.header.fixed .gnb ul.depth01 > li a span.sub04::before {
+  background: url(../img/icon/ic-newtab_b.svg) no-repeat center;
+}
+.header.fixed .gnb_search .gnb_search_inner input:placeholder-shown {
+  outline-color: #ddd;
+}
+.header.fixed .gnb_search .gnb_search_inner input:not(:placeholder-shown):not(:focus) {
+  outline-color: #ddd;
+}
+.header.fixed .gnb_search .gnb_search_inner input:focus {
+  outline: 1px solid #ddd;
 }
 
 .footer {
@@ -467,7 +575,7 @@ html {
 }
 .lnb_wrap .lnb_header h2 {
   padding: 4.4rem 0 15.3rem 0;
-  background: #162E5D;
+  background: #212937;
   color: #FFFFFF;
   font-size: 24px;
   border-radius: 1rem;
@@ -487,20 +595,22 @@ html {
 .lnb_wrap .lnb_header .lnb_depth2 > ul > li {
   display: block;
   border-bottom: 1px solid #DEE3E6;
-  min-height: 6.2rem;
+  min-height: 5rem;
+  padding: 0 1rem;
 }
 .lnb_wrap .lnb_header .lnb_depth2 > ul > li.on > a {
   color: #2970FF;
+  font-weight: 700;
 }
 .lnb_wrap .lnb_header .lnb_depth2 > ul > li:last-child {
   border-bottom: none;
 }
 .lnb_wrap .lnb_header .lnb_depth2 > ul > li .link_2th {
   color: #4E5969;
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 1.7rem;
+  font-weight: 500;
   line-height: 2.2rem;
-  padding: 2rem 0;
+  padding: 1.8rem 0;
   position: relative;
   word-break: keep-all;
   display: block;
@@ -509,6 +619,7 @@ html {
 }
 .lnb_wrap .lnb_header .lnb_depth2 > ul > li .link_2th:hover {
   color: #2970FF;
+  font-weight: 700;
 }
 .lnb_wrap .lnb_header .lnb_depth2 > ul > li .link_2th.off::before {
   display: none;

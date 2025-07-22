@@ -19,7 +19,7 @@
         
         h2 {
             padding: 4.4rem 0 15.3rem 0;
-            background: colors.$brand-blue-contrast;
+            background: colors.$brand-blue-bg-dark;
             color: colors.$white;
             font-size: typography.$font-size-24;
             border-radius: 1rem;
@@ -40,11 +40,13 @@
                 > li {
                     display: block;
                     border-bottom: 1px solid colors.$background-color-light;
-                    min-height: 6.2rem;
+                    min-height: 5rem;
+                    padding: 0 1rem;
                     
                     &.on {
                         > a {
                             color: colors.$brand-blue-primary;
+                            font-weight: 700;
                         }
                     }
                     
@@ -54,10 +56,10 @@
                     
                     .link_2th {
                         color: colors.$text-color-subtle-dark;
-                        font-size: typography.$font-size-16;
-                        font-weight: 600;
+                        font-size: 1.7rem;
+                        font-weight: 500;
                         line-height: 2.2rem; 
-                        padding: 2rem 0;
+                        padding: 1.8rem 0;
                         position: relative;
                         word-break: keep-all;
                         display: block;
@@ -67,6 +69,7 @@
                         // 호버 효과 추가
                         &:hover {
                             color: colors.$brand-blue-primary;
+                            font-weight: 700;
                         }
                         
                         &.off::before {

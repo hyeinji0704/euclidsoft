@@ -519,17 +519,6 @@
             align-items: center;
             gap: 1.6rem;
             color: #A2ABC2;
-            a {
-              // width: 22px;
-              // height: 22px;
-              
-              // &.btn_login {
-              //   background: url(../img/icon/ic-login.svg) no-repeat center left;
-              // }
-              // &.btn_logout {
-              //   background: url(../img/icon/ic-logout.svg) no-repeat center left;
-              // }
-            }
         }
         .logged_out {
           display: none; 
@@ -590,34 +579,50 @@
         &.depth01 {
           display: flex;
           text-align: center;
-          li {
-            width: 15rem;
+          >li {
+            width: 17rem;
             &.on, &[data-menu="on"] {
-              a {
+              >a {
                 span {
+                  position: relative;
+                  &::after  {
+                    position: absolute;
+                    left: 50%;
+                    transform: translate(-50%);
+                    bottom: 0;
+                    width: 100%;
+                    height: 7px;
+                    background-color: $brand-blue-primary;
+                    content: "";
+                  }
                 }
               }
             }
             a {
               display: block;
               span {
+                display: inline-block;
                 line-height: $header-height;
-                font-size: 22px;
-                font-weight: 700;
+                font-size: 2.1rem;
+                font-weight: 600;
+                padding: 0 2rem;
+                
                 &.newtab {
-                  padding-right: 2.3rem;
+                  padding-right: 4.3rem;
                   position: relative;
-                  &::after {
+                  &::before {
                     position: absolute;
                     top: 50%;
                     transform: translateY(-50%);
-                    right: 0;
+                    right: 2rem;
                     width: 1.5rem;
                     height: 1.5rem;
-                    background: url(../../img/icon/ic-newtab.svg) no-repeat center;
+                    background: url(../img/icon/ic-newtab.svg) no-repeat center;
                     content: "";
                   }
                 }
+
+                
               }
             }
           }
@@ -625,12 +630,41 @@
 
         &.depth02 {
           display: none;
-          height: 500px;
-          li {
+          height: 430px;
+          overflow: hidden;
+          padding: 2.8rem 0 6rem 0;
+          >li {
+            padding: 0 2rem;
+            color: $text-color-tertiary;
+            &:hover {
+              color: $brand-blue-primary;
+            }
+          &:not(:first-child) {
+              margin-top: 1.2rem;
+            }
             a {
+              word-break: keep-all;
               display: block;
-              line-height: 45px;
-              font-size: 18px;
+              font-size: 1.7rem;
+              font-weight: 500;
+            }
+          }
+        }
+
+        &.depth03 {
+          text-align: center;
+          padding-top: 1.4rem;
+          >li {
+            color: $text-color-subtle;
+            &:hover {
+              color: $brand-blue-primary;
+            }
+            &:not(:first-child) {
+              margin-top: 1rem;
+            }
+            a {
+              font-size: 1.5rem;
+              font-weight: 400;
             }
           }
         }
@@ -693,9 +727,25 @@
       }
   }
 
+  .gnb_bg {
+    display: none;
+    position: fixed;
+    top: $header-height;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.5;
+    content:'';
+    transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+  }
+
   /*********** 메뉴에 오버했을 때  -- Start ***********/
   &.menu_over {
-    transition: 0.6s;
     z-index: 9999 !important;
     background-color: $brand-blue-bg-dark;
     
@@ -703,43 +753,146 @@
       position: absolute;
       left: 0;
       top: $header-height;
-      z-index: 1;/*맨 아래*/
+      z-index: 4;/*맨 아래*/
       width: 100%;
-      height: 551px;
+      height: 430px;
       background-color: #fff;
       content: "";
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      animation: expandHeight 0.1s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
     }
+    @keyframes expandHeight {
+      from {
+        height: 0;
+      }
+      to {
+        height: 430px;
+      }
+    }
+    
     &::after {
       position: absolute;
         left: 0;
         top: $header-height;
-        z-index: -1;/*맨 아래*/
+        z-index: 10;/*맨 아래*/
         width: 100%;
         height: 1px;
-        background-color: rgba(61, 61, 61, 0.6);
+        background-color: #eee;
         content: "";
     }
 
     .gnb {
       position: relative;
       ul {
+
+        &.depth01 {
+          >li {
+            a {
+              span {
+                &.sub04 {
+                  line-height: inherit;
+                  font-size: inherit;
+                  color: inherit;
+                  font-weight: inherit;
+                  &::before {
+                    background: url(../img/icon/ic-newtab_b.svg) no-repeat center;
+                  }
+                }
+              }
+            } 
+          }
+        }
+
         &.depth02 {
           display: block;
-          padding-top: 12px;
         }
+
+
+        
       }
     }
+
+    .gnb_bg {
+      display: block;
+      z-index: 2;
+    }
+   
   }
+
+
 
   /*********** 메뉴에 상단에 고정했을 때  -- start ***********/
   &.fixed {
     color: $text-color-primary;
     background-color: #fff;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.02);
+    
 
     .logo a {
-      background: url(../../img/logo.svg) no-repeat center center / contain;
+      background: url(../img/logo.svg) 0 0/auto 4.9rem no-repeat;
     }
+
+    .gnb_area {
+      .tnb_area {
+        .tnb_util {
+          .login_area {
+              color: $brand-blue-bg-dark;
+          }
+          .logged_in {
+            .user_info {
+              &::after {
+                background-color: #ddd;
+              }
+            }
+          } 
+        }
+      }
+    }
+    .gnb {
+      ul {
+        &.depth01 {
+          >li {
+            &.on, &[data-menu="on"] {
+              color: $brand-blue-primary;
+            }
+            a {
+              span {
+                &.sub04 {
+                  line-height: inherit;
+                  font-size: inherit;
+                  color: inherit;
+                  font-weight: inherit;
+                  &::before {
+                    background: url(../img/icon/ic-newtab_b.svg) no-repeat center;
+                  }
+                }
+              }
+            } 
+          }
+        }
+      }
+      
+    }
+    .gnb_search {
+      .gnb_search_inner {
+        input{
+          &:placeholder-shown {
+              outline-color: #ddd;
+          }
+
+          &:not(:placeholder-shown):not(:focus) {
+            outline-color: #ddd;
+          }
+
+          &:focus {
+            outline: 1px solid #ddd;
+          }
+        }
+        
+      } 
+    }
+    
+
+    
   }
 
 }
