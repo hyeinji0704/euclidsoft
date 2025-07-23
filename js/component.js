@@ -12,54 +12,82 @@
  */
 
 document.addEventListener('DOMContentLoaded', function () {
-  // ✅ 아코디언 메뉴 (link_2th + lm_3th)
-  const toggleLinks = document.querySelectorAll('.link_2th:not(.off)');
-  toggleLinks.forEach(function (link) {
-    link.classList.add('collapsed');
-    const submenu = link.nextElementSibling;
-    if (submenu?.classList.contains('lm_3th')) {
-      submenu.classList.remove('show');
-    }
+const toggleLinks = document.querySelectorAll('.link_2th:not(.off)');
 
-    link.addEventListener('click', function (e) {
-      e.preventDefault();
-      const isCollapsed = this.classList.contains('collapsed');
+    toggleLinks.forEach(function (link) {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
 
-      // 모든 닫기 (아코디언)
-      toggleLinks.forEach(function (other) {
-        if (other !== link) {
-          other.classList.add('collapsed');
-          const otherSub = other.nextElementSibling;
-          if (otherSub?.classList.contains('lm_3th')) {
-            otherSub.classList.remove('show');
-          }
-        }
-      });
+            const submenu = this.nextElementSibling;
+            const parentLi = this.closest('li');
+            const isCollapsed = this.classList.contains('collapsed');
 
-      // 토글
-      if (submenu && submenu.classList.contains('lm_3th')) {
-        if (isCollapsed) {
-          this.classList.remove('collapsed');
-          submenu.classList.add('show');
-        } else {
-          this.classList.add('collapsed');
-          submenu.classList.remove('show');
-        }
-      }
+            // 1. 모든 메뉴 초기화
+            toggleLinks.forEach(function (otherLink) {
+                const otherLi = otherLink.closest('li');
+                const otherSubmenu = otherLink.nextElementSibling;
+
+                otherLink.classList.add('collapsed');
+                otherLi.classList.remove('on');
+
+                if (otherSubmenu && otherSubmenu.classList.contains('lm_3th')) {
+                    otherSubmenu.classList.remove('show');
+                }
+            });
+
+            // 2. 현재 메뉴에 무조건 .on 추가
+            parentLi.classList.add('on');
+
+            // 3. 3depth가 있고 닫혀 있었다면 열기
+            if (submenu && submenu.classList.contains('lm_3th') && isCollapsed) {
+                this.classList.remove('collapsed');
+                submenu.classList.add('show');
+            }
+        });
     });
-  });
 
-  // ✅ 서브메뉴 클릭 시 active
-  const submenuLinks = document.querySelectorAll('.lm_3th a');
-  submenuLinks.forEach(function (link) {
-    link.addEventListener('click', function (e) {
-      e.preventDefault();
-      submenuLinks.forEach(el => el.classList.remove('active'));
-      this.classList.add('active');
-      console.log('선택된 메뉴:', this.textContent.trim());
+    // 서브메뉴 항목 클릭 시 active 클래스 설정
+    const submenuLinks = document.querySelectorAll('.lm_3th a');
+
+    submenuLinks.forEach(function (link) {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            // 모든 서브메뉴에서 active 제거
+            submenuLinks.forEach(function (item) {
+                item.classList.remove('active');
+            });
+
+            // 현재 클릭 항목에 active 추가
+            this.classList.add('active');
+
+            console.log('선택된 메뉴:', this.textContent.trim());
+        });
     });
-  });
 
+    // 초기 상태 - 전부 닫힘, collapsed 추가
+    const allSubmenus = document.querySelectorAll('.lm_3th');
+    const allToggleLinks = document.querySelectorAll('.link_2th:not(.off)');
+
+    allSubmenus.forEach(function (submenu) {
+        submenu.classList.remove('show');
+    });
+
+    allToggleLinks.forEach(function (link) {
+        link.classList.add('collapsed');
+        link.closest('li').classList.remove('on');
+    });
+
+    // 옵션: 첫 번째 메뉴 열고 싶을 경우
+    // if (toggleLinks.length > 0 && toggleLinks[0].nextElementSibling) {
+    //     toggleLinks[0].classList.remove('collapsed');
+    //     toggleLinks[0].nextElementSibling.classList.add('show');
+    //     toggleLinks[0].closest('li').classList.add('on');
+    // }
+
+
+
+  
   // ✅ 드롭다운 버튼
   const menuButtons = document.querySelectorAll('.menu_btn');
   menuButtons.forEach((btn) => {
@@ -82,6 +110,10 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll(".dropdown_menu").forEach(menu => menu.classList.remove("show"));
     document.querySelectorAll(".menu_btn").forEach(b => b.classList.remove("active"));
   });
+
+
+
+
 
   // ✅ 모든 .select_search에 대해 각각 처리
 document.querySelectorAll('.select_search').forEach(function (selectBox) {

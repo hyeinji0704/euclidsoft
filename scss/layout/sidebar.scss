@@ -18,59 +18,47 @@
         display: block;
         
         h2 {
-            padding: 4.4rem 0 15.3rem 0;
-            background: colors.$brand-blue-bg-dark;
-            color: colors.$white;
-            font-size: typography.$font-size-24;
-            border-radius: 1rem;
-            text-align: center;
+            padding-bottom: 3.2rem ;
+            font-size: 3.2rem;
+            font-weight: 600;
+            color: colors.$text-color-primary;
         }
         
         .lnb_depth2 {
             background: colors.$white;
             position: relative;
-            top: -11rem;
             width: 100%;
             border-radius: 1rem;
-            box-shadow: 8px 8px 12px 0px rgba(0, 0, 0, 0.03), 0px 0px 20px 0px rgba(158, 158, 158, 0.08);
+
+            &::before {
+                position: absolute;
+                top: -4px;
+                left: 0;
+                width: 100%;
+                height: 4px;
+                background: url(../img/lnb_bar.svg) no-repeat center;
+                content: "";
+            }
             
             > ul {
-                padding: 1.2rem 2rem;
-                
+                color: colors.$text-color-secondary;
                 > li {
                     display: block;
                     border-bottom: 1px solid colors.$background-color-light;
                     min-height: 5rem;
-                    padding: 0 1rem;
-                    
-                    &.on {
-                        > a {
-                            color: colors.$brand-blue-primary;
-                            font-weight: 700;
-                        }
-                    }
-                    
-                    &:last-child {
-                        border-bottom: none;
-                    }
                     
                     .link_2th {
                         color: colors.$text-color-subtle-dark;
-                        font-size: 1.7rem;
+                        font-size: 1.6rem;
                         font-weight: 500;
                         line-height: 2.2rem; 
-                        padding: 1.8rem 0;
+                        padding: 2.4rem 1.8rem;
                         position: relative;
                         word-break: keep-all;
                         display: block;
                         cursor: pointer; // 추가: 클릭 가능한 커서
                         transition: all 0.3s ease; // 추가: 부드러운 전환 효과
                         
-                        // 호버 효과 추가
-                        &:hover {
-                            color: colors.$brand-blue-primary;
-                            font-weight: 700;
-                        }
                         
                         &.off::before {
                             display: none; // 수정: off 클래스는 화살표 숨김
@@ -85,18 +73,60 @@
                             right: 0;
                             top: 50%; // 수정: 수직 중앙 정렬
                             transform: translateY(-50%); // 추가: 정확한 중앙 정렬
-                            background: url(../img/icon/ic-toggle_arrow.svg) no-repeat center center / contain;
+                            background: url(../img/icon/ic-toggle_open.svg) no-repeat center center / contain;
                             transition: transform 0.3s ease; // 추가: 회전 애니메이션
                         }
                         
                         // 추가: 닫힌 상태 (화살표 회전)
                         &.collapsed::before {
-                            transform: translateY(-50%) rotate(-90deg);
+                            background: url(../img/icon/ic-toggle_close.svg) no-repeat center center / contain;
+                        }
+
+                        >span {
+                            position: relative;
+                            padding-left: 0rem; // 초기값
+                            transition: padding-left 0.3s ease, color 0.3s;
+                            &::before {
+                                position: absolute;
+                                top: 50%;
+                                transform: translateY(-50%);
+                                left: 0;
+                                width: 0;
+                                height: 2px;
+                                opacity: 0;
+                                background: #E85268;
+                                content: "";
+                                transition: width 0.3s ease, opacity 0.3s ease;
+                            }
+                            
+                        }
+                    }
+
+                    &.on, &:hover {
+                        .link_2th {
+                            color: colors.$brand-blue-bg-dark;
+                            font-weight: 700;
+                            
+                            >span {
+                                padding-left: 1.6rem;
+                                &::before {
+                                    width: 8px;
+                                    opacity: 1;
+                                }
+                            }
                         }
                     }
                     
+                    &:hover {
+                        .link_2th {
+                            &.collapsed::before {
+                                background: url(../img/icon/ic-toggle_close_h.svg) no-repeat center center / contain;
+                            }
+                        }
+                        
+                    }
+
                     .lm_3th {
-                        border-top: 3px solid colors.$text-color-subtle-dark;
                         // 추가: 토글 애니메이션을 위한 속성들
                         max-height: 0;
                         overflow: hidden;
@@ -108,18 +138,18 @@
                         &.show {
                             max-height: 500px; // 충분한 높이 설정
                             opacity: 1;
-                            padding-top: 1rem; // 열렸을 때 패딩 복원
                         }
                         
                         > li {
                             line-height: 1.3;
                             display: block;
-                            padding: 1rem 0.6rem;
+                            padding: 1.6rem 1.8rem;
+                            background-color: #f7f7f7;
                             
                             a {
                                 word-break: keep-all;
                                 font-size: 1.5rem;
-                                color: colors.$text-color-subtle-dark;
+                                color: colors.$text-color-placeholder;
                                 font-weight: 500;
                                 line-height: 3.2rem;
                                 display: block;
@@ -130,31 +160,30 @@
                                 
                                 // 호버 효과 개선
                                 &:hover {
-                                    color: colors.$brand-blue-primary;
-                                    font-weight: 600;
+                                    color: colors.$brand-blue-bg-dark;
+                                    text-decoration: underline;
                                     
                                     &::before {
-                                        background-color: colors.$brand-blue-primary;
+                                        background-color: colors.$brand-blue-bg-dark;
                                     }
                                 }
                                 
                                 // 활성 상태 추가
                                 &.active {
-                                    color: colors.$brand-blue-primary;
+                                    color: colors.$brand-blue-bg-dark;
                                     font-weight: 600;
                                     
                                     &::before {
-                                        background-color: colors.$brand-blue-primary;
+                                        background-color: colors.$brand-blue-bg-dark;
                                     }
                                 }
                                 
                                 &::before {
-                                    width: 0.5rem;
-                                    height: 0.5rem;
+                                    width: 6px;
+                                    height: 1.5px;
                                     position: absolute;
                                     content: "";
-                                    border-radius: 100%;
-                                    background-color: colors.$neutral-grey-lighter;
+                                    background-color: #B4BBC8;
                                     left: 0;
                                     top: 50%;
                                     transform: translateY(-50%);

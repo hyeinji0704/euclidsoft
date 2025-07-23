@@ -16,14 +16,18 @@
     &.sd_border {
         border-bottom: 1px solid colors.$border-color-lightest;
     }
-    
+    #searchForm {
+        display: flex;
+        justify-content: center;
+    }
     .tsb_box {
         @include base.flex(center, center);
         position: relative;
+        width: 960px;
         height: 7rem;
         border: 3px solid colors.$brand-blue-primary;
         box-shadow: 8px 8px 12px 0px rgba(0, 0, 0, 0.03);
-        border-radius: 5rem;
+        border-radius: 16px;
         background-color: colors.$white;
         overflow: hidden;
         &::before {
@@ -69,10 +73,10 @@
         }
         .tsb_btn {
             position: relative;
-            min-width: 16.5rem;
-            height: 9rem;
-            padding: 0 4rem;
+            padding: 1rem ;
             margin-left: 1.2rem;
+            margin-right: 0.8rem;
+            border-radius: 12px;
             background-color: colors.$brand-blue-primary;
             font-size: 2rem;
             font-weight: 500;
@@ -81,8 +85,8 @@
             gap: 1rem;
             .ic_search {
                 display: inline-block;
-                width: 30px;
-                height: 30px;
+                width: 28px;
+                height: 28px;
                 background: url(../img/icon/ic-total-search.svg) no-repeat center center;
             }
             span {
@@ -347,6 +351,7 @@
     .search_detail_title {
         display: flex;
         flex-direction: column;
+        margin-bottom: 4rem;
         .search_item_title {
             font-size: 3rem;
             font-weight: 700;
@@ -357,7 +362,6 @@
     }
 }
 .search_detail_wrapper {
-        padding-top: 4rem;
         display: flex;
         flex-direction: column;
         gap: 7rem;
