@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../js/plugin/jquery/jquery-3.5.1.min.js"></script>
+    <!-- date-range -->
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <!--swiper-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!--Echart-->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+    <!-- JS -->
+    <script src="../js/header.js"></script>
+    <script src="../js/component.js"></script>
+    <script src="../js/swiper.js"></script>
+    <script src="../js/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- poppins -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Main_NSR_사이버안보정책데이터베이스</title>
+</head>
+<body>
+    <header class="header ">
+        <div class="container gnb_area">
+            <div class="tnb_area">
+                <div class="tnb_util">
+                    <div class="group_btn">
+                        <!-- 로그인 전 -->
+                        <div class="logged_out login_area">
+                            <span class="member_link">
+                            <a href="#" class="btn_login">로그인</a>
+                            </span>
+                        </div>
+                        <!-- 로그인 후 -->
+                        <div class="logged_in login_area">
+                            <div class="user_info member_link">
+                                <span class="user_thumb"><img src="../img/icon/ic-user.svg" alt="프로필 이미지"/></span>
+                                <span class="user_name"><strong>홍길동</strong>님</span>
+                            </div>
+                            <span class="member_link" style="display: none;">
+                                <a href="#" class="btn_adminpage" >관리자 페이지</a>
+                            </span>
+                            <span>
+                                <a href="#" class="btn_logout">로그아웃</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h1 class="logo">
+                <a href="#">
+                    <span class="hidden">NSR사이버안보정책데이터베이스</span>
+                </a>
+            </h1>
+            <nav class="gnb" id="gnb">
+                <div class="gnb_wrap" >
+                    <ul class="depth01">
+                        <li>
+                            <a href="#">
+                                <span>정책정보</span>
+                            </a>
+                            <ul class="depth02 sub01">
+                                <li>
+                                    <a href="#">국가,국제기구 정보</a>
+                                </li>
+                                <li>
+                                    <a href="#">조직 정보</a>
+                                </li>
+                                <li>
+                                    <a href="#">정책 정보</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span>정책발간현황</span>
+                            </a>
+                            <ul class="depth02 sub02">
+                                <li class="">
+                                    <a href="#">전체 조회</a>
+                                </li>
+                                <li class="">
+                                    <a href="#">분류별 조회</a>
+                                    <ul class="depth03">
+                                        <li>
+                                            <a href="#">전략 문건</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">법 문건</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">지침 문건</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="">
+                                    <a href="#">수집처별 조회</a>
+                                    <ul class="depth03">
+                                        <li>
+                                            <a href="#">ACSC</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">CIPedia</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">ENISA</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">NSCS(UK)</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">NIST</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">UNIDIR</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">User</a>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span>분석</span>
+                            </a>
+                            <ul class="depth02 ">
+                                <li>
+                                    <a href="#">국가정책 비교</a>
+                                </li>
+                                <li>
+                                    <a href="#">타임라인 분석</a>
+                                </li>
+                                <li>
+                                    <a href="#">네트워크 분석</a>
+                                </li>
+                                <li>
+                                    <a href="#">워드 클라우드 분석</a>
+                                </li>
+                                <li>
+                                    <a href="#">네트워크맵 분석</a>
+                                </li>
+                                <li>
+                                    <a href="#">토픽 분석</a>
+                                </li>
+                                <li>
+                                    <a href="#">보고서</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="newtab">Chat AI</span>
+                            </a>
+                            <ul class="depth02 ">
+                                <li>
+                                    <a href="#"><span class="newtab sub04">Chat AI</span></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span>마이페이지</span>
+                            </a>
+                            <ul class="depth02">
+                                <li>
+                                    <a href="#">정보수정</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="gnb_search">
+                <div class="gnb_search_inner">
+                    <input class="max_auto" type="text" name="headerQuery" id="headerQuery" placeholder="검색할 키워드를 입력하세요.">
+                    <button id="btn_sch" class="btn_sch">
+                        <img src="../img/icon/ic-search.svg" alt="검색 아이콘" />
+                        <span>검색</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="gnb_bg"></div>
+    </header>
+    <main class="main">
+        <div class="container">
+            <section class="main_dashboard">
+                
+                <div class="policy_box policy_info">
+                    <div class="policy_title_row ic-info">
+                        <h3 class="policy_title">보유 정책정보</h3>
+                        <span class="policy_count">35</span>
+                    </div>
+                    <div class="policy_block policy_item">
+                         <h4 class="policy_block_title">최신 정책정보<span class="eng">Latest Policy Information</span></h4>
+                         <table class="main_policy_table">
+                             <colgroup>
+                                <col style="width: 10%;" />     <!-- no -->
+                                <col style="width: 44%;" />    <!-- 정책내용 -->
+                                <col style="width: 17%;" />    <!-- 분석파일 -->
+                                <col style="width: 11%;" />    <!-- 정책구분 -->
+                                <col style="width: 18%;" />    <!-- 재정일 -->
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                <th>no</th>
+                                <th>정책내용</th>
+                                <th>분석파일</th>
+                                <th>정책구분</th>
+                                <th>재정일</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="tr_blank"></tr>
+                                <tr>
+                                <td>1</td>
+                                <td>유럽 우주 전략</td>
+                                <td class="icon_check"></td>
+                                <td><span class="badge badge_strategy">전략</span></td>
+                                <td>2025-06-05</td>
+                                </tr>
+                                <tr>
+                                <td>2</td>
+                                <td>국가보안시스템 기술 표준</td>
+                                <td class="icon_check"></td>
+                                <td><span class="badge badge_policy">정책</span></td>
+                                <td>2025-05-19</td>
+                                </tr>
+                                <tr>
+                                <td>3</td>
+                                <td>공공분야 사이버보안</td>
+                                <td>-</td>
+                                <td><span class="badge badge_security">보안</span></td>
+                                <td>2025-05-20</td>
+                                </tr>
+                                <tr>
+                                <td>4</td>
+                                <td>국가보안시스템 기술 표준</td>
+                                <td>-</td>
+                                <td><span class="badge badge_etc">기타</span></td>
+                                <td>2025-05-07</td>
+                                </tr>
+                                <tr>
+                                <td>5</td>
+                                <td>사이버 위협 정보 공유 체계</td>
+                                <td class="icon_check"></td>
+                                <td><span class="badge badge_policy">정책</span></td>
+                                <td>2025-04-17</td>
+                                </tr>
+                                <tr>
+                                <td>6</td>
+                                <td>공공분야 사이버보안</td>
+                                <td>-</td>
+                                <td><span class="badge badge_security">보안</span></td>
+                                <td>2025-04-13</td>
+                                </tr>
+                                <tr>
+                                <td>7</td>
+                                <td>AI 기반 보안 기술 활용</td>
+                                <td class="icon_check"></td>
+                                <td><span class="badge badge_etc">기타</span></td>
+                                <td>2025-04-07</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="policy_cols">
+                        <div class="policy_col policy_item col_primary">
+                            <h4 class="policy_block_title">국가정보<span class="eng">Country Data</span></h4>
+                        </div>
+                        <div class="policy_col policy_item col_secondary">
+                            <h4 class="policy_block_title">NSR BRIEF</h4>
+                             <div class="swiper main_brief_slider">
+                                <div class="swiper-wrapper">
+                                    <!-- 슬라이드 1 -->
+                                    <div class="swiper-slide">
+                                        <div class="brief_card">
+                                            <div class="brief_image">
+                                                <img src="../img/brief-example.png" alt="보고서 썸네일" />
+                                                <button class="btn_download">Download</button>
+                                            </div>
+                                            <div class="brief_card_title">해외 공공연구기관 연구사업</div>
+                                            <div class="brief_card_desc">독일 헬름홀츠 연구회 자료입니다.</div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 슬라이드 2 -->
+                                    <div class="swiper-slide">
+                                        <div class="brief_card">
+                                            <div class="brief_image">
+                                                <img src="../img/brief-example_02.png" alt="보고서 썸네일" />
+                                                <button class="btn_download">Download</button>
+                                            </div>
+                                            <div class="brief_card_title">미국 사이버보안 전략</div>
+                                            <div class="brief_card_desc">국가 사이버전략센터 발간 자료입니다.</div>
+                                        </div>
+                                    </div>
+                                    <!-- ...추가 -->
+                                </div>
+
+                                <!-- 화살표 -->
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-button-next"></div>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="policy_box  policy_status">
+                    <div class="policy_title_row ic-status">
+                        <h3 class="policy_title">정책 발간현황</h3>
+                    </div>
+                    <div class="policy_block policy_item">
+                        <h4 class="policy_block_title">분류별<span class="eng">By Category</span></h4>
+                        <ul class="category_card_list">
+                            <li class="category_card strategy">
+                                <span>전략</span>
+                                <strong>121</strong>
+                            </li>
+                            <li class="category_card law">
+                                <span>법</span>
+                                <strong>213</strong>
+                            </li>
+                            <li class="category_card guide">
+                                <span>지침</span>
+                                <strong>147</strong>
+                            </li>
+                        </ul>
+                        <h4 class="policy_block_title">수집처<span class="eng">Data Source</span></h4>
+                        <div class="main_source_table">
+                            <div class="source_row">
+                                <div class="source_item">
+                                <span class="source_name">UNIDIR</span>
+                                <span class="source_count">625</span>
+                                </div>
+                                <div class="source_item">
+                                <span class="source_name">CIPedia</span>
+                                <span class="source_count">368</span>
+                                </div>
+                            </div>
+                            <div class="source_row">
+                                <div class="source_item">
+                                <span class="source_name">ENISA</span>
+                                <span class="source_count">692</span>
+                                </div>
+                                <div class="source_item">
+                                <span class="source_name">NIST</span>
+                                <span class="source_count">147</span>
+                                </div>
+                            </div>
+                            <div class="source_row">
+                                <div class="source_item">
+                                <span class="source_name">NCSC</span>
+                                <span class="source_count">326</span>
+                                </div>
+                                <div class="source_item">
+                                <span class="source_name">ACSC</span>
+                                <span class="source_count">187</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="policy_block policy_item">
+                        <h4 class="policy_block_title">분류별 현황<span class="eng">Status by Category</span></h4>
+                        <div class="main_status_chart">
+                            <ul class="chart_tab">
+                                <li class="active" data-type="month">월별 현황</li>
+                                <li data-type="week">주별 현황</li>
+                                <li data-type="day">일별 현황</li>
+                            </ul>
+
+                            <div id="chart" style="width: 450px; height: 230px;"></div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </section>
+        </div>
+    </main>
+     <footer class="footer">
+        <div class="container">
+            <div class="footer_wrapper">
+                <div class="footer_details">
+                    <div class="footer_location">[30147] 대전광역시 유성구 유성대로 1559 (전민동)</div>
+                    <div class="footer_copyright">ⓒ NSR CYBERSECURITY POLICY DATABASE. All Rights Reserved.</div>
+                </div>
+                <button class="feedback_btn">사이버안보 역량평가</button>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

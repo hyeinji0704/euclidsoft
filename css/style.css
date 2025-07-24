@@ -518,9 +518,11 @@ html {
 }
 
 .footer {
-  margin-top: 10rem;
   padding: 3rem 4.3rem;
   background-color: #F7F7F8;
+}
+.footer.sub_footer {
+  margin-top: 10rem;
 }
 .footer .container .footer_wrapper {
   display: flex;
@@ -710,12 +712,12 @@ html {
   border: 1px solid;
 }
 .tag.strategy {
-  color: #557FDB;
-  border-color: #557FDB;
+  color: #5075F7;
+  border-color: #5075F7;
 }
 .tag.policy {
-  color: #49AB6D;
-  border-color: #49AB6D;
+  color: #1CA5FC;
+  border-color: #1CA5FC;
 }
 .tag.law {
   color: #DD6789;
@@ -2210,7 +2212,7 @@ input.max_auto {
 
 .main {
   padding: 0 3rem;
-  padding-top: calc(150px + 3.2rem);
+  padding-top: calc(150px + 3.5rem);
   min-height: calc(100vh - 150px - 158px);
 }
 .main.total_search_wrap {
@@ -3007,6 +3009,334 @@ input.max_auto {
 }
 .login_button:hover {
   background-color: #0a2555;
+}
+
+.main {
+  background-color: #f7f7f7;
+}
+.main .main_dashboard {
+  display: flex;
+  gap: 3rem;
+}
+.main .main_dashboard .policy_box {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.main .main_dashboard .policy_box.policy_info {
+  flex-basis: 60%;
+}
+.main .main_dashboard .policy_box.policy_status {
+  flex-basis: 40%;
+}
+.main .main_dashboard .policy_box .policy_title_row {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.main .main_dashboard .policy_box .policy_title_row .policy_title {
+  font-size: 2.6rem;
+  font-weight: 700;
+  letter-spacing: -0.052rem;
+  padding-left: 3.1rem;
+  position: relative;
+}
+.main .main_dashboard .policy_box .policy_title_row .policy_title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2.1rem;
+  height: 2.1rem;
+}
+.main .main_dashboard .policy_box .policy_title_row.ic-info .policy_title::before {
+  background: url(../../img/icon/ic-main_title_info.svg) no-repeat center;
+}
+.main .main_dashboard .policy_box .policy_title_row.ic-status .policy_title::before {
+  background: url(../../img/icon/ic-main_title_status.svg) no-repeat center;
+}
+.main .main_dashboard .policy_box .policy_title_row .policy_count {
+  color: #2970FF;
+  font-size: 2.2rem;
+  font-weight: 600;
+}
+.main .main_dashboard .policy_box .policy_item {
+  background-color: #FFFFFF;
+  padding: 4rem 5rem 0 5rem;
+  border-radius: 2rem;
+  min-height: 41rem;
+  width: 100%;
+}
+.main .main_dashboard .policy_box .policy_item .policy_block_title {
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+.main .main_dashboard .policy_box .policy_item .policy_block_title .eng {
+  color: #BABABA;
+  font-family: Poppins;
+  font-size: 1.6rem;
+  font-weight: 400;
+  padding-left: 1rem;
+}
+.main .main_dashboard .policy_box .policy_cols {
+  display: flex;
+  gap: 3rem;
+}
+.main .main_dashboard .policy_box .policy_cols .policy_col {
+  border-radius: 2rem;
+}
+.main .main_dashboard .policy_box .policy_cols .policy_col.col_primary {
+  width: 49rem;
+  flex-shrink: 0;
+}
+.main .main_dashboard .policy_box .policy_cols .policy_col.col_secondary {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+}
+.main .main_dashboard .policy_box .main_policy_table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  color: #666666;
+  margin: 2.2rem 0 4rem 0;
+}
+.main .main_dashboard .policy_box .main_policy_table thead {
+  background-color: #f5f7fa;
+  box-shadow: 0 6px 0 #fff;
+}
+.main .main_dashboard .policy_box .main_policy_table thead th {
+  padding: 1.2rem;
+  color: #6D6F78;
+  font-size: 1.6rem;
+  font-weight: 500;
+  text-align: center;
+}
+.main .main_dashboard .policy_box .main_policy_table thead tr:first-child th:first-child {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  padding: 1.2rem 2.2rem;
+}
+.main .main_dashboard .policy_box .main_policy_table thead tr:first-child th:last-child {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  padding: 1.2rem 2.2rem;
+}
+.main .main_dashboard .policy_box .main_policy_table tbody tr {
+  border-bottom: 1px solid #EDEDED;
+}
+.main .main_dashboard .policy_box .main_policy_table tbody tr.tr_blank {
+  height: 1.1rem;
+  border-bottom: 0;
+}
+.main .main_dashboard .policy_box .main_policy_table tbody tr td {
+  padding: 0.9rem 1.1rem;
+  vertical-align: middle;
+}
+.main .main_dashboard .policy_box .main_policy_table tbody tr td:first-child {
+  text-align: center;
+  padding: 0.9rem 2.2rem;
+}
+.main .main_dashboard .policy_box .main_policy_table tbody tr td:nth-child(2) {
+  color: #212121;
+  font-weight: 500;
+  white-space: nowrap;
+  padding: 0.9rem 1.1rem;
+}
+.main .main_dashboard .policy_box .main_policy_table tbody tr td:nth-child(3), .main .main_dashboard .policy_box .main_policy_table tbody tr td:nth-child(4) {
+  text-align: center;
+}
+.main .main_dashboard .policy_box .main_policy_table tbody tr td:nth-child(5) {
+  text-align: center;
+  white-space: nowrap;
+  padding: 0.9rem 2.2rem;
+}
+.main .main_dashboard .policy_box .main_policy_table tbody tr .icon_check {
+  width: 1.5rem;
+  height: 1rem;
+  background: url(../../img/icon/ic-check.svg) no-repeat center;
+}
+.main .main_dashboard .policy_box .main_policy_table tbody tr .badge {
+  display: inline-block;
+  padding: 0.4rem 1.2rem;
+  border-radius: 0.4rem;
+  font-size: 1.4rem;
+  font-weight: 0;
+  color: #fff;
+}
+.main .main_dashboard .policy_box .main_policy_table tbody tr .badge.badge_strategy {
+  background-color: #5075F7;
+}
+.main .main_dashboard .policy_box .main_policy_table tbody tr .badge.badge_policy {
+  background-color: #1CA5FC;
+}
+.main .main_dashboard .policy_box .main_policy_table tbody tr .badge.badge_law {
+  background-color: #DD6789;
+}
+.main .main_dashboard .policy_box .main_policy_table tbody tr .badge.badge_guide {
+  background-color: #8468C5;
+}
+.main .main_dashboard .policy_box .main_policy_table tbody tr .badge.badge_security {
+  background-color: #5FD379;
+}
+.main .main_dashboard .policy_box .main_policy_table tbody tr .badge.badge_etc {
+  background-color: #EC9A5B;
+}
+.main .main_dashboard .policy_box .category_card_list {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 3.2rem 0 4.6rem 0;
+}
+.main .main_dashboard .policy_box .category_card_list li {
+  padding: 2.5rem 0;
+  width: 33.33%;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.main .main_dashboard .policy_box .category_card_list li.strategy {
+  border-color: #59A977;
+  color: #59A977;
+}
+.main .main_dashboard .policy_box .category_card_list li.law {
+  border-color: #4678E6;
+  color: #4678E6;
+}
+.main .main_dashboard .policy_box .category_card_list li.guide {
+  border-color: #EC9A5B;
+  color: #EC9A5B;
+}
+.main .main_dashboard .policy_box .category_card_list li span {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+.main .main_dashboard .policy_box .category_card_list li strong {
+  font-family: Poppins;
+  font-size: 2.4rem;
+  font-weight: 500;
+  color: #212121;
+}
+.main .main_dashboard .policy_box .main_source_table {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 0 2.4rem 0;
+}
+.main .main_dashboard .policy_box .main_source_table .source_row {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #EDEDED;
+}
+.main .main_dashboard .policy_box .main_source_table .source_row:last-child {
+  border-bottom: 0;
+}
+.main .main_dashboard .policy_box .main_source_table .source_item {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.6rem;
+  padding: 1.2rem 2rem;
+}
+.main .main_dashboard .policy_box .main_source_table .source_item .source_name {
+  color: #727379;
+  width: 7%;
+}
+.main .main_dashboard .policy_box .main_source_table .source_item .source_count {
+  font-family: Poppins;
+  width: calc(100% - 8rem);
+  font-size: 2.4rem;
+  font-weight: 500;
+  text-align: center;
+}
+.main .main_dashboard .policy_box .main_brief_slider {
+  width: 100%;
+  max-width: 240px;
+  margin: 0 auto;
+  position: relative;
+  padding-top: 2.6rem;
+}
+.main .main_dashboard .policy_box .main_brief_slider .brief_card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+.main .main_dashboard .policy_box .main_brief_slider .brief_card .brief_image {
+  width: 157px;
+  height: 203.11px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid #D1D1D1;
+  filter: drop-shadow(4px 4px 0 rgba(0, 0, 0, 0.05));
+}
+.main .main_dashboard .policy_box .main_brief_slider .brief_card .brief_image img {
+  width: 100%;
+}
+.main .main_dashboard .policy_box .main_brief_slider .brief_card .brief_image .btn_download {
+  position: absolute;
+  bottom: 1.8rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(33, 41, 55, 0.78);
+  color: #fff;
+  font-size: 1.6rem;
+  padding: 0.6rem 2.4rem;
+  border-radius: 3rem;
+  border: none;
+  cursor: pointer;
+}
+.main .main_dashboard .policy_box .main_brief_slider .brief_card .brief_card_title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  padding: 2.4rem 0 0.8rem 0;
+}
+.main .main_dashboard .policy_box .main_brief_slider .brief_card .brief_card_desc {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #666;
+  font-size: 1.6rem;
+  font-weight: 400;
+  text-align: left;
+}
+.main .main_dashboard .policy_box .swiper-slide {
+  display: flex;
+  justify-content: center;
+}
+.main .main_dashboard .policy_box .swiper-button-next {
+  right: 0;
+}
+.main .main_dashboard .policy_box .swiper-button-prev {
+  left: 0;
+}
+.main .main_dashboard .policy_box .swiper-button-next,
+.main .main_dashboard .policy_box .swiper-button-prev {
+  top: 42%;
+  color: #AFAFAF;
+}
+.main .main_dashboard .policy_box .swiper-button-next::after,
+.main .main_dashboard .policy_box .swiper-button-prev::after {
+  font-size: 22px;
+  font-weight: 900;
+}
+.main .main_dashboard .policy_box .main_status_chart .chart_tab {
+  display: flex;
+  gap: 2rem;
+}
+.main .main_dashboard .policy_box .main_status_chart .chart_tab li {
+  padding: 2rem 0;
+  cursor: pointer;
+}
+.main .main_dashboard .policy_box .main_status_chart .chart_tab li.active {
+  color: #2970FF;
+  font-weight: 700;
 }
 
 /*# sourceMappingURL=style.css.map */

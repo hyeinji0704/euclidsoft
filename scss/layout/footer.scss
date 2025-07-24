@@ -4,10 +4,13 @@
 @use '../base/typography.scss';
 
 .footer {
-    margin-top: 10rem;
     padding: 3rem 4.3rem;
     background-color: colors.$background-color-soft;
     
+    &.sub_footer {
+        margin-top: 10rem;
+    }
+
    .container {
         .footer_wrapper {
         @include base.flex(space-between, center);

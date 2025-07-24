@@ -96,3 +96,17 @@ $footer-height: 158px; // 푸터 높이
 
 $border-divider: 1px solid $background-color-lighter; 
 
+// -----------------------------
+// 9. 테이블 패딩 공통 변수 (필요시 추가)
+// -----------------------------
+$table-padding-y: 0.9rem;
+$table-padding-sm-x: 1.1rem;
+$table-padding-md-x: 1.6rem;
+$table-padding-lg-x: 2.2rem;
+
+
+@mixin ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
