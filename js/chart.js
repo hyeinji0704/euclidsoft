@@ -195,7 +195,7 @@ function initDonutChart() {
         fontSize: 13
       }
     },
-    color: ['#56A373', '#FFD666', '#4E8AF4', '#A077F7', '#65D4C2', '#F48F41'],
+    color: ['#3C986C', '#F7D14F', '#4678E6', '#8467F7', '#6DD1C0', '#FD9E56'],
     series: [
       {
         name: '국가별 분포',
