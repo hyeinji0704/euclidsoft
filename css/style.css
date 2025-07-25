@@ -214,12 +214,6 @@ html {
   padding-top: 5rem;
 }
 
-/* =======================================================================================
-   header  style 1
-======================================================================================= */
-/* =======================================================================================
-   header  style 2
-======================================================================================= */
 .header {
   position: fixed;
   left: 0;
@@ -268,16 +262,10 @@ html {
   align-items: center;
   gap: 1.6rem;
   color: #A2ABC2;
+  font-weight: 400;
 }
 .header .gnb_area .tnb_area .tnb_util .logged_out {
   display: none;
-}
-.header .gnb_area .tnb_area .tnb_util .logged_out .btn_login {
-  font-size: 16px;
-  font-weight: 500;
-}
-.header .gnb_area .tnb_area .tnb_util .logged_in {
-  font-weight: 500;
 }
 .header .gnb_area .tnb_area .tnb_util .logged_in .user_info {
   display: flex;
@@ -327,13 +315,13 @@ html {
   line-height: 150px;
   font-size: 2.1rem;
   font-weight: 600;
-  padding: 0 2rem;
+  padding: 0.4rem 2rem 0 2rem;
 }
 .header .gnb_area .gnb ul.depth01 > li a span::after {
   content: "";
   position: absolute;
   left: 50%;
-  bottom: 0;
+  bottom: 0.4rem;
   width: 100%;
   height: 7px;
   background-color: #2970FF;
@@ -348,7 +336,7 @@ html {
 .header .gnb_area .gnb ul.depth01 > li a span.newtab::before {
   content: "";
   position: absolute;
-  top: 50%;
+  top: 51%;
   right: 2rem;
   width: 1.5rem;
   height: 1.5rem;
@@ -3011,7 +2999,7 @@ input.max_auto {
   background-color: #0a2555;
 }
 
-.main {
+.main.main_bg {
   background-color: #f7f7f7;
 }
 .main .main_dashboard {
@@ -3051,10 +3039,10 @@ input.max_auto {
   height: 2.1rem;
 }
 .main .main_dashboard .policy_box .policy_title_row.ic-info .policy_title::before {
-  background: url(../../img/icon/ic-main_title_info.svg) no-repeat center;
+  background: url(../img/icon/ic-main_title_info.svg) no-repeat center;
 }
 .main .main_dashboard .policy_box .policy_title_row.ic-status .policy_title::before {
-  background: url(../../img/icon/ic-main_title_status.svg) no-repeat center;
+  background: url(../img/icon/ic-main_title_status.svg) no-repeat center;
 }
 .main .main_dashboard .policy_box .policy_title_row .policy_count {
   color: #2970FF;
@@ -3076,7 +3064,7 @@ input.max_auto {
   color: #BABABA;
   font-family: Poppins;
   font-size: 1.6rem;
-  font-weight: 400;
+  font-weight: 300;
   padding-left: 1rem;
 }
 .main .main_dashboard .policy_box .policy_cols {
@@ -3124,6 +3112,7 @@ input.max_auto {
   padding: 1.2rem 2.2rem;
 }
 .main .main_dashboard .policy_box .main_policy_table tbody tr {
+  cursor: pointer;
   border-bottom: 1px solid #EDEDED;
 }
 .main .main_dashboard .policy_box .main_policy_table tbody tr.tr_blank {
@@ -3155,7 +3144,7 @@ input.max_auto {
 .main .main_dashboard .policy_box .main_policy_table tbody tr .icon_check {
   width: 1.5rem;
   height: 1rem;
-  background: url(../../img/icon/ic-check.svg) no-repeat center;
+  background: url(../img/icon/ic-check.svg) no-repeat center;
 }
 .main .main_dashboard .policy_box .main_policy_table tbody tr .badge {
   display: inline-block;
@@ -3182,6 +3171,9 @@ input.max_auto {
 }
 .main .main_dashboard .policy_box .main_policy_table tbody tr .badge.badge_etc {
   background-color: #EC9A5B;
+}
+.main .main_dashboard .policy_box .main_policy_table tbody tr:hover td:nth-child(2) {
+  text-decoration: underline;
 }
 .main .main_dashboard .policy_box .category_card_list {
   display: flex;
@@ -3279,7 +3271,7 @@ input.max_auto {
 .main .main_dashboard .policy_box .main_brief_slider .brief_card .brief_image img {
   width: 100%;
 }
-.main .main_dashboard .policy_box .main_brief_slider .brief_card .brief_image .btn_download {
+.main .main_dashboard .policy_box .main_brief_slider .brief_card .brief_image .brief_btn_download {
   position: absolute;
   bottom: 1.8rem;
   left: 50%;
@@ -3291,6 +3283,10 @@ input.max_auto {
   border-radius: 3rem;
   border: none;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+.main .main_dashboard .policy_box .main_brief_slider .brief_card .brief_image .brief_btn_download:hover {
+  background: rgba(33, 41, 55, 0.5);
 }
 .main .main_dashboard .policy_box .main_brief_slider .brief_card .brief_card_title {
   font-size: 1.8rem;

@@ -6,8 +6,9 @@
 
 
 .main {
-  background-color: #f7f7f7;
-
+    &.main_bg {
+        background-color: #f7f7f7;
+    }
   .main_dashboard {
     display: flex;
     gap: 3rem;
@@ -48,11 +49,11 @@
                 }
 
                 &.ic-info .policy_title::before {
-                    background: url(../../img/icon/ic-main_title_info.svg) no-repeat center;
+                    background: url(../img/icon/ic-main_title_info.svg) no-repeat center;
                 }
 
                 &.ic-status .policy_title::before {
-                    background: url(../../img/icon/ic-main_title_status.svg) no-repeat center;
+                    background: url(../img/icon/ic-main_title_status.svg) no-repeat center;
                 }
 
                 .policy_count {
@@ -75,7 +76,7 @@
                         color: #BABABA;
                         font-family: Poppins;
                         font-size: 1.6rem;
-                        font-weight: 400;
+                        font-weight: 300;
                         padding-left: 1rem;
                     }
                 }
@@ -140,6 +141,7 @@
 
                     tbody {
                         tr {
+                            cursor: pointer;
                             &.tr_blank {
                                 height: 1.1rem;
                                 border-bottom: 0;
@@ -174,7 +176,7 @@
                             .icon_check {
                                 width: 1.5rem;
                                 height: 1rem;
-                                background: url(../../img/icon/ic-check.svg) no-repeat center;
+                                background: url(../img/icon/ic-check.svg) no-repeat center;
                             }
 
                             .badge {
@@ -209,6 +211,15 @@
                                 background-color: $tag-etc;
                                 }
                                 
+                            }
+
+
+                            &:hover {
+                                td {
+                                    &:nth-child(2) {
+                                        text-decoration: underline;
+                                    }
+                                }
                             }
                         }
                     }
@@ -323,7 +334,7 @@
                             width: 100%;
                         }
 
-                    .btn_download {
+                    .brief_btn_download {
                         position: absolute;
                         bottom: 1.8rem;
                         left: 50%;
@@ -335,6 +346,10 @@
                         border-radius: 3rem;
                         border: none;
                         cursor: pointer;
+                        transition: all 0.3s ease;
+                        &:hover {
+                            background: rgba(33, 41, 55, 0.5);
+                        }
                     }
                     }
 
