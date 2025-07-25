@@ -3338,5 +3338,45 @@ input.max_auto {
   color: #2970FF;
   font-weight: 700;
 }
+.main .main_dashboard .policy_box .main_donut_chart {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 390px;
+  height: 214px;
+  gap: 2rem;
+  margin-top: 6rem;
+}
+.main .main_dashboard .policy_box .main_donut_chart .donut_chart {
+  width: 212px;
+  height: 212px;
+}
+.main .main_dashboard .policy_box .main_donut_chart .donut_legend {
+  font-size: 16px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.main .main_dashboard .policy_box .main_donut_chart .donut_legend li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  margin-bottom: 12px;
+  color: #747785;
+}
+.main .main_dashboard .policy_box .main_donut_chart .donut_legend li .dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: -10px;
+}
+.main .main_dashboard .policy_box .main_donut_chart .donut_legend li strong {
+  font-family: "poppins";
+  font-weight: 500;
+  margin-left: auto;
+  color: #191C21;
+}
 
 /*# sourceMappingURL=style.css.map */

@@ -390,6 +390,53 @@
                     }
                 }
             }
+
+            .main_donut_chart {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 390px;
+                height: 214px;
+                gap: 2rem;
+                margin-top: 6rem;
+
+                .donut_chart {
+                    width: 212px;
+                    height: 212px;
+                }
+
+                .donut_legend {
+                    font-size: 16px;
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+
+                    li {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        gap: 28px;
+                        margin-bottom: 12px;
+                        color: #747785;
+
+                        .dot {
+                        display: inline-block;
+                        width: 12px;
+                        height: 12px;
+                        border-radius: 50%;
+                        margin-right: -10px;
+                        }
+
+                        strong {
+                        font-family: 'poppins';
+                        font-weight: 500;
+                        margin-left: auto;
+                        color: #191C21;
+                        }
+                    }
+                }
+            }
+
         }
     }
 
