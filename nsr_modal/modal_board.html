@@ -104,16 +104,15 @@
 </html>
 
 <script>
-        // 열기
-    document.querySelector('.js_open_delete_popup')?.addEventListener('click', () => {
-    document.querySelector('.popup_delete_request').style.display = 'flex';
+  $(function () {
+    // 삭제 팝업 열기
+    $('.js_open_delete_popup').on('click', function () {
+      $('.popup_delete_request').css('display', 'flex');
     });
 
-    // 닫기
-    document.querySelectorAll('.js_close_delete_popup').forEach(btn => {
-    btn.addEventListener('click', () => {
-        document.querySelector('.popup_delete_request').style.display = 'none';
+    // 삭제 팝업 닫기
+    $('.js_close_delete_popup').on('click', function () {
+      $('.popup_delete_request').hide();
     });
-    });
-
+  });
 </script>

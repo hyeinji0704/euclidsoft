@@ -125,12 +125,6 @@
             }
         }
 
-        // 🔽 790px 이하 반응형 처리
-        @media (max-width: 900px) {
-            flex-wrap: wrap;
-            flex-direction: column;
-            gap: 1.6rem;
-        }
     }
 }
 

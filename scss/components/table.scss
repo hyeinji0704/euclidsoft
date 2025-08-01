@@ -109,6 +109,7 @@
 }
 
 .table_container {
+    border-top: 2px solid colors.$black;
     &.policy_list {
         margin-top: 5rem;
     }
@@ -117,7 +118,6 @@
 .data_table {
     width: 100%;
     border-collapse: collapse;
-    border-top: 2px solid colors.$black;
     th {
         background-color: colors.$background-color-lightest;
         padding: 11px 20px;

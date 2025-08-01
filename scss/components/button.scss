@@ -185,20 +185,28 @@
 // 6. 기타 버튼들
 // ================================
 
-// 🔄 btn--download로 통합
-.btn--download {
-  display: flex;
-  padding: 0.4rem 0.6rem 0.4rem 1.2rem;
+@mixin btn-basic-style($padding) {
+  display: inline-flex;
+  padding: $padding;
   align-items: center;
   gap: 0.4rem;
   border-radius: 0.4rem;
   border: 1px solid colors.$neutral-grey-soft;
   background: colors.$white;
+  color: colors.$text-color-secondary;
+  font-weight: 400;
 
   span {
-    font-size: 1.5rem;
-    font-weight: 500;
+    font-size: 1.4rem;
     line-height: 2.4rem;
+  }
+}
+
+// 🔄 btn--download
+.btn--download {
+  @include btn-basic-style(0.4rem 0.6rem 0.4rem 1.2rem);
+
+  span {
     padding-right: 2.6rem;
     position: relative;
 
@@ -215,10 +223,14 @@
   }
 }
 
-// 🔄 btn--download로 통합
-.btn--pdf {
+// 🔄 btn--view
+.btn--view {
+  @include btn-basic-style(0.4rem 1.2rem);
+}
+
+@mixin btn-icon-style($icon-url) {
   display: flex;
-  padding: 0.4rem 1.2rem ;
+  padding: 0.4rem 1.2rem;
   font-size: 1.6rem;
   align-items: center;
   gap: 0.4rem;
@@ -240,11 +252,22 @@
       top: 50%;
       transform: translateY(-50%);
       right: 0.3rem;
-      background: url(../img/icon/ic-pdf.svg) no-repeat center center;
+      background: url(#{$icon-url}) no-repeat center center;
       content: "";
     }
   }
 }
+
+.btn--pdf {
+  @include btn-icon-style("../img/icon/ic-pdf.svg");
+}
+
+.btn--txt {
+  @include btn-icon-style("../img/icon/ic-txt.svg");
+}
+
+
+
 
 // 버튼 래퍼
 .btn_wrap {
@@ -262,6 +285,7 @@
   &.no_mt {
     margin-top: 0;
   }
+
 }
 
 // 휴지통 아이콘 버튼

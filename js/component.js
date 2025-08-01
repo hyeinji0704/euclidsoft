@@ -115,25 +115,25 @@ const toggleLinks = document.querySelectorAll('.link_2th:not(.off)');
 
 
 
-  // ✅ 모든 .select_search에 대해 각각 처리
-document.querySelectorAll('.select_search').forEach(function (selectBox) {
-  const label = selectBox.querySelector('.select_search__label');
-  const options = selectBox.querySelectorAll('.select_search__item');
+//   // ✅ 모든 .select_search에 대해 각각 처리
+// document.querySelectorAll('.select_search').forEach(function (selectBox) {
+//   const label = selectBox.querySelector('.select_search__label');
+//   const options = selectBox.querySelectorAll('.select_search__item');
 
-  // 옵션 클릭 시: 텍스트 반영하고 닫기
-  options.forEach(function (option) {
-    option.addEventListener('click', function () {
-      label.innerHTML = option.textContent;
-      selectBox.classList.remove('active');
-    });
-  });
+//   // 옵션 클릭 시: 텍스트 반영하고 닫기
+//   options.forEach(function (option) {
+//     option.addEventListener('click', function () {
+//       label.innerHTML = option.textContent;
+//       selectBox.classList.remove('active');
+//     });
+//   });
 
-  // 라벨 클릭 시: 셀렉트 박스 열기/닫기
-  label.addEventListener('click', function () {
-    if (selectBox.classList.contains('view_mode')) return;
-    selectBox.classList.toggle('active');
-  });
-});
+//   // 라벨 클릭 시: 셀렉트 박스 열기/닫기
+//   label.addEventListener('click', function () {
+//     if (selectBox.classList.contains('view_mode')) return;
+//     selectBox.classList.toggle('active');
+//   });
+// });
 
 // ✅ Date Picker
 $( "#reign_start, #reign_end").datepicker();
