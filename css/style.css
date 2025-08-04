@@ -2058,9 +2058,43 @@ input.max_auto {
 }
 .tab_wrap .inner_tab_wrap .inner_tab_content {
   display: none;
+  position: relative;
 }
 .tab_wrap .inner_tab_wrap .inner_tab_content.active {
   display: block;
+}
+.tab_wrap .inner_tab_wrap .inner_tab_content .nsr_progress_loader {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  background: transparent;
+  height: 9px;
+}
+.tab_wrap .inner_tab_wrap .inner_tab_content .nsr_progress_loader .progress {
+  content: "";
+  width: 1px;
+  height: 9px;
+  background: linear-gradient(120deg, #CCDDFB 0%, #CCDDFB 50%);
+  transition: 0.5s;
+  animation: loading1274 2s ease infinite;
+}
+@keyframes loading1274 {
+  0% {
+    width: 0%;
+  }
+  10% {
+    width: 10%;
+  }
+  50% {
+    width: 40%;
+  }
+  60% {
+    width: 60%;
+  }
+  100% {
+    width: 100%;
+  }
 }
 .tab_wrap .analysis_box .analysis_search {
   padding: 3.3rem 4rem;
@@ -2108,7 +2142,7 @@ input.max_auto {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 16.8rem;
+  min-height: 16.8rem;
   gap: 2.4rem;
 }
 .inner_tab_container .analysis_state .state_empty {
@@ -2126,66 +2160,11 @@ input.max_auto {
   color: #666666;
 }
 .inner_tab_container .analysis_state .text .loader_title {
-  font-size: 2.6rem;
+  font-size: 2.4rem;
   display: block;
-  margin-bottom: 0.4rem;
+  margin-bottom: 1rem;
   font-weight: 700;
-}
-.inner_tab_container .analysis_state .state_loading {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.inner_tab_container .analysis_state .state_loading .dot {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  margin-right: 2px;
-  border-radius: 50%;
-  -webkit-animation: dot-pulse2 1.5s ease-in-out infinite;
-  animation: dot-pulse2 1.5s ease-in-out infinite;
-}
-.inner_tab_container .analysis_state .state_loading .dot.dot-1 {
-  background-color: #9BBFFF;
-  -webkit-animation-delay: 0s;
-  animation-delay: 0s;
-}
-.inner_tab_container .analysis_state .state_loading .dot.dot-2 {
-  background-color: #4586F9;
-  -webkit-animation-delay: 0.3s;
-  animation-delay: 0.3s;
-}
-.inner_tab_container .analysis_state .state_loading .dot.dot-3 {
-  background-color: #0056ED;
-  -webkit-animation-delay: 0.6s;
-  animation-delay: 0.6s;
-}
-.inner_tab_container .analysis_state .state_loading .dot.dot-4 {
-  background-color: #4586F9;
-  -webkit-animation-delay: 0.9s;
-  animation-delay: 0.9s;
-}
-.inner_tab_container .analysis_state .state_loading .dot.dot-5 {
-  background-color: #9BBFFF;
-  -webkit-animation-delay: 1.2s;
-  animation-delay: 1.2s;
-}
-@keyframes dot-pulse2 {
-  0% {
-    -webkit-transform: scale(0.5);
-    transform: scale(0.5);
-    opacity: 0.5;
-  }
-  50% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    opacity: 1;
-  }
-  100% {
-    -webkit-transform: scale(0.2);
-    transform: scale(0.2);
-    opacity: 0.5;
-  }
+  margin-top: -0.5rem;
 }
 
 .total_search_bar {
@@ -2855,7 +2834,7 @@ input.max_auto {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 5000;
+  z-index: 50000000;
   display: none;
   min-width: 400px;
   max-width: calc(100vw - 40px);
@@ -2863,8 +2842,6 @@ input.max_auto {
   box-shadow: 10px 10px 80px rgba(0, 0, 0, 0.3);
   border-radius: 18px;
   overflow: hidden;
-}
-.over_layer.inquiry {
   width: 1200px;
 }
 .over_layer .layer_header {
@@ -2890,24 +2867,21 @@ input.max_auto {
   background-size: 1.8rem;
 }
 .over_layer .layer_container {
-  padding: 2rem 3.5rem;
+  padding: 4rem 3.5rem 3rem 3.5rem;
   display: flex;
   flex-direction: column;
   gap: 3.8rem;
   max-height: 700px;
-  overflow: auto;
+  overflow-y: auto;
 }
 .over_layer .layer_container > div {
   display: flex;
   justify-content: center;
 }
 .over_layer .btn_wrap {
-  padding: 2rem 3.5rem 2rem 3.5rem;
+  padding: 2rem 3.5rem 1.5rem 3.5rem;
   align-items: normal;
-  transition: box-shadow 0.3s ease;
-}
-.over_layer .btn_wrap.has_shadow {
-  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.04);
+  background-color: #f7f7f7;
 }
 
 .policy_doc_editor {
@@ -2917,10 +2891,10 @@ input.max_auto {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
 .policy_doc_editor .doc_header.last {
-  margin-top: 1.5rem;
+  margin-top: 2rem;
 }
 .policy_doc_editor .doc_header .doc_title {
   padding-left: 2.7rem;
@@ -2992,7 +2966,7 @@ input.max_auto {
   height: 100%;
   left: 0;
   top: 0;
-  z-index: 2500;
+  z-index: 25000000;
   background-color: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(3px);
   display: none;

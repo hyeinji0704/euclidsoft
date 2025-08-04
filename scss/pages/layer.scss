@@ -8,7 +8,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 5000;
+    z-index: 50000000;
     display: none;
     min-width: 400px;
     max-width: calc(100vw - 40px);
@@ -16,9 +16,7 @@
     box-shadow: 10px 10px 80px rgb(0 0 0 / 30%);
     border-radius: 18px;
     overflow: hidden;
-    &.inquiry {
-        width: 1200px;
-    }
+    width: 1200px;
 
 
     .layer_header {
@@ -41,7 +39,7 @@
         
     }
     .layer_container {
-        padding: 2rem 3.5rem;
+        padding: 4rem 3.5rem 3rem 3.5rem;
         display: flex;
         flex-direction: column;
         gap: 3.8rem;
@@ -50,16 +48,13 @@
             justify-content: center;
         }
         max-height: 700px;
-        overflow: auto;
+        overflow-y: auto;
     } 
     .btn_wrap {
-        padding: 2rem 3.5rem 2rem 3.5rem;
+        padding: 2rem 3.5rem 1.5rem 3.5rem;
         align-items: normal;
-        transition: box-shadow 0.3s ease;
-
-        &.has_shadow {
-            box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.04);
-        }
+        // box-shadow:  0 -4px 20px rgba(0, 0, 0, .05);
+        background-color: #f7f7f7;
     }
 }
 
@@ -72,9 +67,9 @@
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
-        margin-bottom: 2rem;
+        margin-bottom: 2.5rem;
         &.last {
-            margin-top: 1.5rem;
+            margin-top: 2rem;
         }
         .doc_title {
             padding-left: 2.7rem;
@@ -151,7 +146,7 @@
         height: 100%;
         left: 0;
         top: 0;
-        z-index: 2500;
+        z-index: 25000000;
         background-color: rgba(255, 255, 255, .4);
         backdrop-filter: blur(3px);
         display: none;

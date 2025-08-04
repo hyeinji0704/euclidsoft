@@ -231,3 +231,25 @@ $( "#reign_start, #reign_end").datepicker();
     });
   });
 });
+
+// layer popup 스크립트
+$(function () {
+  // 모달 열기
+  $('.js_open_layer').on('click', function () {
+    const targetSelector = $(this).data('target');
+    if (targetSelector) {
+      $('.nsr_layer').css('display', 'block'); // 공통 오버레이 보여주기
+      $(targetSelector).css('display', 'block'); // 해당 모달만 열기
+    }
+  });
+
+  // 모달 닫기 (아이콘, 하단 닫기 버튼, 오버레이 클릭 시)
+  $(document).on('click', '.layer_btn_delete, .btn--secondary.lg, .nsr_layer', function (e) {
+    // 오버레이 클릭했는데 내부 요소 클릭이면 무시
+    if ($(this).hasClass('nsr_layer') && !$(e.target).hasClass('nsr_layer')) return;
+
+    $('.nsr_layer').css('display', 'none'); // 오버레이 숨기기
+    $('.over_layer').css('display', 'none'); // 모든 모달 숨기기
+  });
+
+});
