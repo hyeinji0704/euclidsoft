@@ -78,7 +78,7 @@
         display: block;
       }
       .nsr_progress_loader {
-            top: 0;
+            top: 2px;
             left: 0;
             position: absolute;
             width: 100%;
@@ -89,7 +89,7 @@
               content: "";
               width: 1px;
               height: 9px;
-              background: linear-gradient(120deg, #CCDDFB 0%, #CCDDFB 50% );
+              background: linear-gradient(120deg, #E2EEFF 0%, #D3E5FF 50% , #BFD8FD 100%);
               transition: 0.5s;
               animation: loading1274 2s ease infinite;
             }

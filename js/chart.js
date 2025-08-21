@@ -162,6 +162,7 @@ function updateChart(type) {
   });
 }
 
+
 // ==============================
 // 도넛 차트 추가
 // ==============================
@@ -169,10 +170,8 @@ function updateChart(type) {
 function initDonutChart() {
   const el = document.getElementById('donutChart');
   if (!el) return;
-  const donutChart = echarts.init(el, null, {
-    width: 212,
-    height: 212
-  });
+
+  const donutChart = echarts.init(el, null, { width: 212, height: 212 });
 
   const data = [
     { value: 30, name: '미국' },
@@ -183,117 +182,123 @@ function initDonutChart() {
     { value: 10, name: '기타' }
   ];
 
-  const option = {
-    tooltip: {
-      trigger: 'item',
-      formatter: '{b}: {d}%',
-      backgroundColor: '#1A2B57',
-      borderRadius: 8,
-      padding: [10, 10],
-      textStyle: {
-        color: '#fff',
-        fontSize: 13
-      }
+  // 내부 디스크(흰색 원) 반지름을 차트 크기에 맞춰 계산 (기존 56% 기준)
+  const baseR = Math.min(donutChart.getWidth(), donutChart.getHeight()) / 2;
+  const innerDiscRatio = 0.56;
+  const innerDiscR = Math.round(baseR * innerDiscRatio);
+
+// … series 정의는 그대로 (pie 1개)
+
+const option = {
+  tooltip: {
+    trigger: 'item',
+    // ✅ 툴팁 내용: 타이틀 + 퍼센트만
+    formatter: (p) => `${p.name} ${p.percent}%`,
+    borderRadius: 8,
+    padding: [10, 10],
+    textStyle: {
+      color: '#fff',
+      fontSize: 13
     },
-    color: ['#3C986C', '#F7D14F', '#4678E6', '#8467F7', '#6DD1C0', '#FD9E56'],
-    series: [
-      {
-        name: '국가별 분포',
-        type: 'pie',
-        radius: ['65%', '90%'], // ← 외곽은 거의 꽉 차고, 안쪽은 여백 확보
-        center: ['50%', '50%'],
-        tooltip: { show: false }, // ✅ 툴팁 비활성화
-        emphasis: {
-           label: {
-            show: true,
-            fontSize: 13,
-            fontWeight: 600,
-            color: '#fff',
-            formatter: (params) => {
-              return params.percent >= 10 ? `${params.percent}%` : '';
-            }
-          },
-          labelLayout: function (params) {
-            return {
-              x: params.rect.x + params.rect.width / 2,
-              y: params.rect.y + params.rect.height / 2,
-              align: 'center',
-              verticalAlign: 'middle'
-            };
-          }
-        },
-        padAngle: 3,
-        itemStyle: {
-          opacity: 1,
-          borderRadius: 5,
-          borderColor: '#fff',
-          borderWidth: 1
-        },
-        label: { 
-          show: false,
-          position: 'inside',
-          formatter: () => '',
-        },
-        labelLine: {
-          show: false    
-        },
-        data
+    // ✅ glassmorphism 효과
+  backgroundColor: 'rgba(0, 0, 0, 0.6)', // 투명한 흰색
+  extraCssText: `
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* 사파리 대응 */
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  `,
+    // ✅ 툴팁 보더 제거 + 컨테이너 밖으로 안나가게 + 살짝 오프셋
+    borderWidth: 0,
+    confine: true,
+    position: (pt) => [pt[0] + 12, pt[1] + 12]
+  },
+  color: ['#3C986C', '#F7D14F', '#4678E6', '#8467F7', '#6DD1C0', '#FD9E56'],
+  series: [
+    {
+      name: '국가별 분포',
+      type: 'pie',
+      radius: ['74%', '94%'], // ← 외곽은 거의 꽉 차고, 안쪽은 여백 확보
+      center: ['50%', '50%'],
+      // ✅ 호버 시 위로 커지게
+    emphasis: {
+      scale: true,       // 켜기
+      scaleSize: 3,     // 커지는 크기 (기본 10px, 필요시 조절)
+      label: { show: false }
+    },
+      padAngle: 2,
+      itemStyle: {
+        opacity: 1,
+        borderRadius: 3,
+        borderColor: '#fff',
+        borderWidth: 1
       },
-      {
-        type: 'pie',
-        radius: ['0%', '56%'],
-        center: ['50%', '50%'],
-        itemStyle: {
-          borderRadius: 0,
-          borderColor: '#fff',
-          borderWidth: 0,
-          opacity: 0.85         // ✅ 기본 상태에서 살짝 어둡게
-        },
-        emphasis: {
-          scale: false,         // ✅ 바깥으로 튀는 애니메이션 제거
+      label: {
+        show: false,
+        position: 'inside',
+        formatter: () => ''
+      },
+      labelLine: { show: false },
+      data
+    },
+    {
+      type: 'pie',
+      radius: ['0%', '56%'],
+      center: ['50%', '50%'],
+      // ✅ 내부 원은 이벤트 가로채지 않도록
+      silent: true,
+      itemStyle: {
+        borderRadius: 0,
+        borderColor: '#fff',
+        borderWidth: 0,
+        opacity: 0.85 // 기본 상태에서 살짝 어둡게
+      },
+      emphasis: {
+        scale: false,
+        itemStyle: { opacity: 1 }
+      },
+      hoverAnimation: false, // 내부는 움직이지 않게
+      data: [
+        {
+          value: 100,
+          name: 'Total',
           itemStyle: {
-            opacity: 1          // ✅ hover 시 진해지게
-          }
-        },
-        data: [
-          {
-            value: 100,
-            name: 'Total',
-            itemStyle: {
-              color: '#FFF', // 내부 원 흰색
-              shadowColor: '#ECECEC',
-              shadowBlur: 24,
-              shadowOffsetX: 0,
-              shadowOffsetY: 0
-            },
-            label: {
-              show: true,
-              position: 'center',
-              formatter: '{a|100}\n{b|Total}',
-              rich: {
-                a: {
-                  fontSize: 26,
-                  fontWeight: 700,
-                  color: '#131424',
-                  lineHeight: 30
-                },
-                b: {
-                  fontSize: 18,
-                  fontFamily: 'poppins',
-                  fontWeight: 400,
-                  color: '#B5BABD'
-                }
+            color: '#FFF', // 내부 원 흰색
+            shadowColor: '#dddddd',
+            shadowBlur: 28,
+            shadowOffsetX: 0,
+            shadowOffsetY: 0
+          },
+          label: {
+            show: true,
+            position: 'center',
+            formatter: '{a|100}\n{b|Total}',
+            rich: {
+              a: {
+                fontSize: 26,
+                fontWeight: 700,
+                color: '#131424',
+                lineHeight: 30
+              },
+              b: {
+                fontSize: 18,
+                fontFamily: 'poppins',
+                fontWeight: 400,
+                color: '#B5BABD'
               }
             }
           }
-        ],
-        tooltip: { show: false },
-        hoverAnimation: false
-      }
-    ]
-  };
+        }
+      ],
+      tooltip: { show: false },
+      hoverAnimation: false
+    }
+  ]
+};
 
-  donutChart.setOption(option);
+donutChart.setOption(option);
+
+
 }
 
 // ==============================
