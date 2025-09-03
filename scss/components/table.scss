@@ -387,3 +387,10 @@
 
 
 
+table.dataTable.no-footer {
+    border-bottom: 1px solid transparent;
+}
+table.dataTable thead th, table.dataTable thead td {
+    padding: 0;
+    border-bottom: 1px solid transparent;
+}

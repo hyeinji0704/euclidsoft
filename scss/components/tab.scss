@@ -89,7 +89,7 @@
               content: "";
               width: 1px;
               height: 9px;
-              background: linear-gradient(120deg, #E2EEFF 0%, #D3E5FF 50% , #BFD8FD 100%);
+              background: linear-gradient(120deg, #a8c9fa 0%, #95bcf7 50% , #a8c9fa 100%);
               transition: 0.5s;
               animation: loading1274 2s ease infinite;
             }
@@ -165,7 +165,6 @@
 
 .inner_tab_container {
     padding: 4.5rem 2.5rem;
-    text-align: center;
     border-top: 2px solid $black;
     border-left: 1px solid $background-color-lighter;
     border-right: 1px solid $background-color-lighter;
@@ -181,6 +180,8 @@
         flex-direction: column;
         min-height: 16.8rem;
         gap: 2.4rem;
+        text-align: center;
+        
         .state_empty {
             width: 9rem;
             height: 9rem;

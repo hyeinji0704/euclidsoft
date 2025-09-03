@@ -75,7 +75,13 @@ function updateChart(type) {
   chart.setOption({
     tooltip: {
       trigger: 'axis',
-      backgroundColor: '#0C1D4F',
+      backgroundColor: 'rgba(0, 0, 0, 0.7)', // 투명한 흰색
+      extraCssText: `
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px); /* 사파리 대응 */
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      `,
       borderWidth: 0,
       padding: [5, 10],
       textStyle: {
@@ -83,7 +89,6 @@ function updateChart(type) {
         fontSize: 13,
         fontFamily: 'Pretendard'
       },
-      extraCssText: 'box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); border-radius: 8px;',
       formatter: function (params) {
         const order = ['전략', '법', '지침'];
         const sorted = params.slice().sort((a, b) => {

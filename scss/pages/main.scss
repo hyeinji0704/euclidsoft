@@ -16,13 +16,14 @@
             display: flex;
             flex-direction: column;
             gap: 3rem;
+            min-width: 0;  
 
              &.policy_info {
-                flex-basis: 60%;
+                flex: 0 0 calc(60% - 1.5rem);
             }
 
             &.policy_status {
-                flex-basis: 40%;
+                flex: 0 0 calc(40% - 1.5rem);
             }
 
             .policy_title_row {
@@ -100,6 +101,7 @@
                     flex: 1; // 남은 공간을 전부 차지
                     min-width: 0; // 컨텐츠 overflow 방지
                     text-align: center;
+                    padding: 4rem 3rem 0 3rem;
                     }
                 }
             }
@@ -117,7 +119,6 @@
                         background-color: #f5f7fa;
                         box-shadow: 0 6px 0 #fff; // 아래 여백처럼 보이게
                         th {
-                            
                             padding: 1.2rem;
                             color: #6D6F78;
                             font-size: 1.6rem;
@@ -141,7 +142,6 @@
 
                     tbody {
                         tr {
-                            cursor: pointer;
                             &.tr_blank {
                                 height: 1.1rem;
                                 border-bottom: 0;
@@ -160,6 +160,10 @@
                                 font-weight: 500;
                                 white-space: nowrap;
                                 padding: $table-padding-y $table-padding-sm-x;
+                                cursor: pointer;
+                                 &:hover {
+                                    text-decoration: underline;
+                                 }
                                 }
 
                                 &:nth-child(3), &:nth-child(4) {
@@ -220,15 +224,6 @@
                                 background-color: $tag-etc;
                                 }
                                 
-                            }
-
-
-                            &:hover {
-                                td {
-                                    &:nth-child(2) {
-                                        text-decoration: underline;
-                                    }
-                                }
                             }
                         }
                     }
@@ -330,8 +325,7 @@
                     align-items: center;
                     flex-direction: column;
                     text-align: center;
-                    
-
+                    min-width: 0;          
                     .brief_image {
                         width: 157px;
                         height: 203.11px;
@@ -368,10 +362,17 @@
                         font-size: 1.8rem;
                         font-weight: 600;
                         padding: 2.4rem 0 0.8rem 0;
+                        display: block;            
+                        max-width: 100%;           
+                        @include ellipsis;
+                        min-width: 0; 
                     }
 
                     .brief_card_desc {
+                        display: block;          
+                        max-width: 100%;           
                         @include ellipsis;
+                        min-width: 0; 
                         color: #666;
                         font-size: 1.6rem;
                         font-weight: 400;
@@ -386,10 +387,10 @@
             }
 
             .swiper-button-next {
-                right: 0;
+                right: -5px;
             }
             .swiper-button-prev {
-                left: 0;
+                left: -5px;
             }
 
             .swiper-button-next,

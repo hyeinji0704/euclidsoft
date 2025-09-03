@@ -163,7 +163,7 @@
     @include base.flex(space-between, flex-start);
     padding-top: 4.6rem;
     position: relative;
-    padding-right: 28rem;
+    padding-right: 26rem;
     .search_layout_main {
         display: flex;
         flex-direction: column;
@@ -242,207 +242,214 @@
             }
         }
     }
-    // .search_layout_side {
-    //     max-width: 25.3rem;
-    //     position: absolute;
-    //     top: 8rem;
-    //     right: 0;
-    //     .compare_box {
-    //         padding: 2.4rem 2rem;
-    //         border: 1px solid colors.$background-color-lighter;
-    //         border-radius: 2rem;
-    //         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-    //         .compare_header {
-    //             @include base.flex(space-between, center);
-    //             padding-bottom: 1.6rem;
-    //             border-bottom: 1px solid colors.$background-color-lighter;
-    //             .compare_title {
-    //                 font-size: 2.2rem;
-    //             }
-    //             .compare_count {
-    //                 display: block;
-    //                 padding: 0 0.8rem;
-    //                 border-radius: 5rem;
-    //                 background-color: colors.$background-color-lighter;
-    //                 color: colors.$neutral-grey-medium;
-    //                 font-size: 1.5rem;
-    //                 line-height: 2.4rem;
-    //             }
-    //         }
-    //         .compare_body {
-    //             .compare_label_wrap {
-    //                 padding: 2rem 0;
-    //                 @include base.flex(space-between, center);
-    //                 .label {
-    //                     font-size: 1.8rem;
-    //                     font-weight: 500;
-    //                     line-height: 2.2rem;
-    //                 }
-    //                 .add_btn {
-    //                     border-radius: 5rem;
-    //                     border:  1px solid colors.$brand-blue-primary;
-    //                     width: 31px;
-    //                     height: 31px;
-    //                     font-size: 0;
-    //                     line-height: 0;
-    //                     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='19' height='19' fill='none' viewBox='0 0 19 19'%3e%3cpath fill='%232970FF' fill-rule='evenodd' d='M10.39 8.61h5.344a.89.89 0 1 1 0 1.78h-5.343v5.344a.89.89 0 1 1-1.782 0v-5.343H3.266a.89.89 0 1 1 0-1.782h5.343V3.266a.89.89 0 1 1 1.782 0v5.343Z' clip-rule='evenodd'/%3e%3c/svg%3e") ;
-    //                     background-repeat: no-repeat;
-    //                     background-position: center center;
-    //                     &:hover {
-    //                         background-color: colors.$brand-blue-primary;
-    //                         transition: 0.2s all;
-    //                         background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='19' height='19' fill='none' viewBox='0 0 19 19'%3e%3cpath fill='%23ffffff' fill-rule='evenodd' d='M10.39 8.61h5.344a.89.89 0 1 1 0 1.78h-5.343v5.344a.89.89 0 1 1-1.782 0v-5.343H3.266a.89.89 0 1 1 0-1.782h5.343V3.266a.89.89 0 1 1 1.782 0v5.343Z' clip-rule='evenodd'/%3e%3c/svg%3e") ;
-    //                     }
-    //                 }
-    //             }
-    //             ul {
-    //                 display: flex;
-    //                 flex-direction: column;
-    //                 gap: 1.6rem;
-    //                 padding-bottom: 2rem;
-    //                 border-bottom: 1px solid colors.$background-color-lighter;
-    //                 li {
-    //                     @include base.flex(space-between, flex-start);
-    //                     gap: 1rem;
-    //                     .compare_item_title { 
-    //                         flex: 1;
-    //                          min-width:0; overflow:visible;
-    //                         cursor: pointer;
-    //                         position: relative;
-    //                         .tag {
-    //                             margin-right: 0.5rem;
-    //                         }
-    //                         .name {
-    //                             font-size: 1.6rem;
-    //                             display: -webkit-box;           /* flexbox 기반 박스 */
-    //                             -webkit-line-clamp: 2;          /* 최대 줄 수 = 2줄 */
-    //                             -webkit-box-orient: vertical;   /* 세로 방향 */
-    //                             overflow: hidden;
-    //                             text-overflow: ellipsis;
-    //                             white-space: normal;            /* 줄바꿈 허용 */
-    //                             line-height: 1.4;               /* 줄간격 (필요 시 조절) */
-    //                             max-height: calc(1.6rem * 1.4 * 2); /* font-size × line-height × 2줄 */
-    //                         }
-                            
-                            
-    //                     }
-    //                     .remove_btn {
-    //                         flex-shrink: 0;
-    //                         width: 2.6rem;
-    //                         height: 2.6rem; 
-    //                         font-size: 0;
-    //                         line-height: 0;
-    //                         background: url(../img/icon/ic-delete.svg) no-repeat center center;
-    //                     }
-    //                 }
-    //             }
-    //         }
-    //         .compare_footer {
-    //             padding-top: 2.2rem;
-    //             .submit_btn {
-    //                 padding: 1.2rem 0;
-    //                 width: 100%;
-    //                 background-color: colors.$text-color-primary;
-    //                 color: colors.$white;
-    //                 border-radius: 0.4rem;
-    //                 font-size: 1.6rem;
-    //             }
-    //             .note {
-    //                 margin-top: 0.5rem;
-    //                 color: colors.$text-color-tertiary;
-    //                 font-size: 1.3rem;
-    //                 line-height: 2.2rem; 
-    //                 letter-spacing: -0.013rem;
-    //             }
-    //         }
-    //     }
-    // }
-
     .search_layout_side {
-        width: 28rem;
+        max-width: 25.3rem;
         position: absolute;
-        top: 4rem;
+        top: 8rem;
         right: 0;
-        .compare_title {
-            font-size: 2.4rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-        }
-        .compare_body {
-            padding: 2.6rem 2.4rem 2.2rem 2.4rem ;
+        .compare_box {
+            padding: 2.4rem 2rem;
+            border: 1px solid colors.$background-color-lighter;
             border-radius: 2rem;
-            border: 1px solid #E1E4E9;
-            .compare_label_wrap  {
-                display: flex;
-                gap: 0.6rem;
-                align-items: center;
-                font-size: 1.8rem;
-                font-weight: 600;
-                margin-bottom: 1.4rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+            .compare_header {
+                @include base.flex(space-between, center);
+                padding-bottom: 1.6rem;
+                border-bottom: 1px solid colors.$background-color-lighter;
+                .compare_title {
+                    font-size: 2.2rem;
+                }
                 .compare_count {
-                    font-family: 'popins';
-                    color: colors.$brand-blue-primary;
+                    display: block;
+                    padding: 0 0.8rem;
+                    border-radius: 5rem;
+                    background-color: colors.$background-color-lighter;
+                    color: colors.$neutral-grey-medium;
+                    font-size: 1.5rem;
+                    line-height: 2.4rem;
                 }
             }
-            .compare_list {
-                display: flex;
-                flex-direction: column;
-                gap: 1rem;
-                margin-bottom: 4rem;
-                .compare_item {
-                    padding: 1.5rem 0.6rem 1.2rem 1.4rem;
-                    @include base.flex(space-between, flex-start);
-                    gap: 1rem;
-                    background: #F7F7F7;
-                    border-radius: 0.8rem;
-                    .compare_item_title{
-                        flex: 1;
-                        min-width:0; overflow:visible;
-                        cursor: pointer;
-                        position: relative;
-                        .tag {
-                            margin-right: 0.5rem;
-                        }
-                        .name {
-                            color: #464646;
-                            font-size: 1.6rem;
-                            display: -webkit-box;           /* flexbox 기반 박스 */
-                            -webkit-line-clamp: 2;          /* 최대 줄 수 = 2줄 */
-                            -webkit-box-orient: vertical;   /* 세로 방향 */
-                            overflow: hidden;
-                            text-overflow: ellipsis;
-                            white-space: normal;            /* 줄바꿈 허용 */
-                            line-height: 1.4;               /* 줄간격 (필요 시 조절) */
-                            max-height: calc(1.6rem * 1.4 * 2); /* font-size × line-height × 2줄 */
-                        }
+            .compare_body {
+                .compare_label_wrap {
+                    padding: 2rem 0;
+                    @include base.flex(space-between, center);
+                    .label {
+                        font-size: 1.8rem;
+                        font-weight: 500;
+                        line-height: 2.2rem;
                     }
-                    .remove_btn {
-                        flex-shrink: 0;
-                        width: 2.6rem;
-                        height: 2.6rem; 
+                    .add_btn {
+                        border-radius: 5rem;
+                        border:  1px solid colors.$brand-blue-primary;
+                        width: 31px;
+                        height: 31px;
                         font-size: 0;
                         line-height: 0;
-                        background: url(../img/icon/ic-delete.svg) no-repeat center center;
-                        background-size: 2.2rem 2.2rem;
+                        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='19' height='19' fill='none' viewBox='0 0 19 19'%3e%3cpath fill='%232970FF' fill-rule='evenodd' d='M10.39 8.61h5.344a.89.89 0 1 1 0 1.78h-5.343v5.344a.89.89 0 1 1-1.782 0v-5.343H3.266a.89.89 0 1 1 0-1.782h5.343V3.266a.89.89 0 1 1 1.782 0v5.343Z' clip-rule='evenodd'/%3e%3c/svg%3e") ;
+                        background-repeat: no-repeat;
+                        background-position: center center;
+                        &:hover {
+                            background-color: colors.$brand-blue-primary;
+                            transition: 0.2s all;
+                            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='19' height='19' fill='none' viewBox='0 0 19 19'%3e%3cpath fill='%23ffffff' fill-rule='evenodd' d='M10.39 8.61h5.344a.89.89 0 1 1 0 1.78h-5.343v5.344a.89.89 0 1 1-1.782 0v-5.343H3.266a.89.89 0 1 1 0-1.782h5.343V3.266a.89.89 0 1 1 1.782 0v5.343Z' clip-rule='evenodd'/%3e%3c/svg%3e") ;
+                        }
                     }
                 }
-                .note {
-                    font-size: 1.4rem;
-                    color: #767676;
-                    letter-spacing: -0.02em;
-                    margin-top: -0.5rem;
+                ul {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1.2rem;
+                    padding-bottom: 2rem;
+                    border-bottom: 1px solid colors.$background-color-lighter;
+                    li {
+                        @include base.flex(space-between, flex-start);
+                        gap: 1rem;
+                        .compare_item_title { 
+                            flex: 1;
+                             min-width:0; overflow:visible;
+                            cursor: pointer;
+                            position: relative;
+                            .tag {
+                                margin-right: 0.5rem;
+                            }
+                            .name {
+                                color: #565656;
+                                font-size: 1.6rem;
+                                display: -webkit-box;           /* flexbox 기반 박스 */
+                                -webkit-line-clamp: 2;          /* 최대 줄 수 = 2줄 */
+                                -webkit-box-orient: vertical;   /* 세로 방향 */
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                white-space: normal;            /* 줄바꿈 허용 */
+                                line-height: 1.4;               /* 줄간격 (필요 시 조절) */
+                                max-height: calc(1.6rem * 1.4 * 2); /* font-size × line-height × 2줄 */
+                            }
+                            
+                            
+                        }
+                        .remove_btn {
+                            flex-shrink: 0;
+                            width: 2.6rem;
+                            height: 2.6rem; 
+                            font-size: 0;
+                            line-height: 0;
+                            background: url(../img/icon/ic-delete.svg) no-repeat center center;
+                        }
+                    }
                 }
             }
-            .submit_btn {
-                padding: 1.2rem 0;
-                width: 100%;
-                background-color: colors.$text-color-primary;
-                color: colors.$white;
-                border-radius: 0.4rem;
-                font-size: 1.6rem;
+            .compare_footer {
+                padding-top: 2.2rem;
+                .submit_btn {
+                    padding: 1.2rem 0;
+                    width: 100%;
+                    background-color: colors.$text-color-primary;
+                    color: colors.$white;
+                    border-radius: 0.4rem;
+                    font-size: 1.6rem;
+                }
+                .note {
+                    margin-top: 0.5rem;
+                    color: colors.$text-color-tertiary;
+                    font-size: 1.3rem;
+                    line-height: 2.2rem; 
+                    letter-spacing: -0.013rem;
+                }
             }
         }
     }
+
+    // .search_layout_side {
+    //     width: 28rem;
+    //     position: absolute;
+    //     top: 4rem;
+    //     right: 0;
+    //     .compare_title {
+    //         font-size: 2.4rem;
+    //         font-weight: 700;
+    //         margin-bottom: 2rem;
+    //     }
+    //     .compare_body {
+    //         padding: 2.6rem 2.4rem 2.2rem 2.4rem ;
+    //         border-radius: 2rem;
+    //         border: 1px solid #E1E4E9;
+    //         .compare_label_wrap  {
+    //             display: flex;
+    //             gap: 0.6rem;
+    //             align-items: center;
+    //             font-size: 1.6rem;
+    //             font-weight: 600;
+    //             margin-bottom: 1.4rem;
+    //             .compare_count {
+    //                 font-family: 'popins';
+    //                 color: colors.$brand-blue-primary;
+    //             }
+    //         }
+            
+    //         .compare_list {
+    //             display: flex;
+    //             flex-direction: column;
+    //             gap: 1rem;
+    //             min-height: 260px;
+    //             .compare_item {
+    //                 padding: 1.5rem 0.6rem 1.2rem 1.4rem;
+    //                 @include base.flex(space-between, flex-start);
+    //                 gap: 1rem;
+    //                 background: #F7F7F7;
+    //                 border-radius: 0.8rem;
+    //                 .compare_item_title{
+    //                     flex: 1;
+    //                     min-width:0; overflow:visible;
+    //                     cursor: pointer;
+    //                     position: relative;
+    //                     color: #464646;
+    //                     font-size: 1.6rem;
+    //                     display: -webkit-box;           /* flexbox 기반 박스 */
+    //                     -webkit-line-clamp: 2;          /* 최대 줄 수 = 2줄 */
+    //                     -webkit-box-orient: vertical;   /* 세로 방향 */
+    //                     overflow: hidden;
+    //                     text-overflow: ellipsis;
+    //                     white-space: normal;            /* 줄바꿈 허용 */
+    //                     line-height: 1.4;               /* 줄간격 (필요 시 조절) */
+    //                     max-height: calc(1.6rem * 1.4 * 2); /* font-size × line-height × 2줄 */
+    //                     &.add_btn {
+    //                         color: colors.$brand-blue-primary;
+    //                         display: flex;
+    //                         justify-content: center;
+    //                         align-items: center;
+    //                         gap: 6px;
+    //                         min-height: 40px;
+    //                     }
+    //                 }
+    //                 .remove_btn {
+    //                     flex-shrink: 0;
+    //                     width: 2.6rem;
+    //                     height: 2.6rem; 
+    //                     font-size: 0;
+    //                     line-height: 0;
+    //                     background: url(../img/icon/ic-delete.svg) no-repeat center center;
+    //                     background-size: 2.2rem 2.2rem;
+    //                 }
+                    
+    //             }
+    //         }
+    //         .note {
+    //                 font-size: 1.4rem;
+    //                 color: #767676;
+    //                 letter-spacing: -0.02em;
+    //                 margin-top: 2rem;
+    //                 margin-bottom: 1rem;
+    //             }
+    //         .submit_btn {
+    //             padding: 1.2rem 0;
+    //             width: 100%;
+    //             background-color: colors.$text-color-primary;
+    //             color: colors.$white;
+    //             border-radius: 0.4rem;
+    //             font-size: 1.6rem;
+    //         }
+    //     }
+    // }
 
 
     

@@ -12,7 +12,7 @@
     display: flex;
     gap: 2.4rem;
     flex-direction: column-reverse;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
     .page_title {
         font-size: 2.6rem;
         font-weight: 700;
@@ -153,4 +153,29 @@
 
 .report_form_container {
     gap: 2.4rem;
+}
+
+
+
+//단어 추출 관리 
+
+.wordExtractCtResultTable {
+    .title {
+        font-size: 2rem;
+        font-weight: 600;
+        color: #212121;
+    }
+}
+.wordCt {
+    .word {
+        display: inline-block;
+        padding: 0.4rem 1.6rem;
+        border-radius: 5rem;
+        background-color: rgba(0, 0, 0, 0.08);
+        font-size: 1.5rem;
+        line-height: 1.5;
+        margin-top: 1rem;
+        margin-left: 2rem;
+        margin-bottom: 0.8rem;
+    }
 }
