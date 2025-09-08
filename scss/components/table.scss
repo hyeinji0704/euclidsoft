@@ -118,6 +118,9 @@
 .data_table {
     width: 100%;
     border-collapse: collapse;
+    .align_left {
+        text-align: left;
+    }
     th {
         background-color: colors.$background-color-lightest;
         padding: 11px 20px;
@@ -131,6 +134,7 @@
         // &:nth-child(4) { width: 10%; };
         // &:nth-child(5) { width: 15%; };
         // &:nth-child(6) { width: 10%; };
+
     }
     tr {
         &:hover {
@@ -148,6 +152,7 @@
         color: colors.$text-color-secondary;
         padding: 8px 20px;
         text-align: center;
+        
         border-bottom: 1px solid colors.$background-color-lighter;
         &:not(.action) {
             @include ellipsis;
@@ -387,10 +392,3 @@
 
 
 
-table.dataTable.no-footer {
-    border-bottom: 1px solid transparent;
-}
-table.dataTable thead th, table.dataTable thead td {
-    padding: 0;
-    border-bottom: 1px solid transparent;
-}

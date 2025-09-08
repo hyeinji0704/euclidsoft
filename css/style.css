@@ -962,7 +962,7 @@ html {
   background: #212121;
   color: #FFFFFF;
   font-size: 1.6rem;
-  height: 4rem;
+  height: 3.8rem;
   padding: 1.2rem 1.6rem;
   word-break: keep-all;
   border: none;
@@ -1030,6 +1030,7 @@ html {
   display: flex;
   gap: 0.8rem;
   width: 100%;
+  align-items: center;
 }
 
 input {
@@ -1090,6 +1091,7 @@ input.no-style:not(:placeholder-shown):not(:focus) {
   display: flex;
   gap: 0.8rem;
   width: 100%;
+  align-items: center;
 }
 .input_table td {
   padding: 1.5rem 1.4rem;
@@ -1246,6 +1248,7 @@ input.no-style:not(:placeholder-shown):not(:focus) {
 
 .select_search {
   overflow: visible;
+  width: 20rem;
 }
 .select_search__select {
   appearance: none;
@@ -1253,8 +1256,8 @@ input.no-style:not(:placeholder-shown):not(:focus) {
   -moz-appearance: none;
   display: inline-block;
   color: #212121 !important;
-  width: 14rem;
-  max-width: 14rem;
+  width: 100%;
+  min-width: 14rem;
   height: 3.8rem;
   line-height: 2rem;
   padding: 0 3rem 0 1.5rem;
@@ -1729,6 +1732,9 @@ input.no-style:not(:placeholder-shown):not(:focus) {
   width: 100%;
   border-collapse: collapse;
 }
+.data_table .align_left {
+  text-align: left;
+}
 .data_table th {
   background-color: #F4F5F7;
   padding: 11px 20px;
@@ -1966,15 +1972,6 @@ input.no-style:not(:placeholder-shown):not(:focus) {
 .pagination .page_dots {
   padding: 8px 4px;
   color: #666;
-}
-
-table.dataTable.no-footer {
-  border-bottom: 1px solid transparent;
-}
-
-table.dataTable thead th, table.dataTable thead td {
-  padding: 0;
-  border-bottom: 1px solid transparent;
 }
 
 .tab_wrap .tab_list {
@@ -2329,7 +2326,7 @@ table.dataTable thead th, table.dataTable thead td {
   flex-wrap: nowrap;
   padding-top: 4.6rem;
   position: relative;
-  padding-right: 26rem;
+  padding-right: 36rem;
 }
 .search_layout .search_layout_main {
   display: flex;
@@ -2373,24 +2370,25 @@ table.dataTable thead th, table.dataTable thead td {
   background: url(../img/icon/ic-more-arrow.svg) no-repeat center center;
 }
 .search_layout .search_layout_main .search_layout_content .search_item {
-  padding: 3rem;
+  padding: 2rem 2rem 3.6rem 2rem;
   border-top: 1px solid #E3E8EE;
 }
 .search_layout .search_layout_main .search_layout_content .search_item:hover {
   background-color: #F9F9F9;
 }
 .search_layout .search_layout_main .search_layout_content .search_item .search_item_title_wrap {
-  padding: 1.5rem 0 1.6rem 0;
+  padding: 1.6rem 0 2rem 0;
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
 }
 .search_layout .search_layout_main .search_layout_content .search_item .search_item_title_wrap .search_item_title {
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   font-weight: 600;
 }
 .search_layout .search_layout_main .search_layout_content .search_item .search_item_title_wrap .search_item_subtitle {
-  color: #767676;
+  font-weight: 500;
+  color: #949494;
 }
 .search_layout .search_layout_main .search_layout_content .search_item .search_item_meta {
   display: flex;
@@ -2402,16 +2400,16 @@ table.dataTable thead th, table.dataTable thead td {
 }
 .search_layout .search_layout_main .search_layout_content .search_item .search_item_meta .search_item_meta_item dt {
   font-weight: 500;
-  color: #464646;
+  color: #767676;
 }
 .search_layout .search_layout_main .search_layout_content .search_item .search_item_meta .search_item_meta_item dd {
-  color: #666666;
+  color: #212121;
 }
 .search_layout .search_layout_main .search_layout_content .search_result_list {
   border-bottom: 1px solid #1D2129;
 }
 .search_layout .search_layout_side {
-  max-width: 25.3rem;
+  max-width: 34rem;
   position: absolute;
   top: 8rem;
   right: 0;
@@ -2420,14 +2418,12 @@ table.dataTable thead th, table.dataTable thead td {
   padding: 2.4rem 2rem;
   border: 1px solid #E3E8EE;
   border-radius: 2rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 0.25rem 1.625rem 0 rgba(0, 0, 0, 0.015);
 }
 .search_layout .search_layout_side .compare_box .compare_header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  flex-direction: row;
-  flex-wrap: nowrap;
+  gap: 0.8rem;
   padding-bottom: 1.6rem;
   border-bottom: 1px solid #E3E8EE;
 }
@@ -2436,27 +2432,22 @@ table.dataTable thead th, table.dataTable thead td {
 }
 .search_layout .search_layout_side .compare_box .compare_header .compare_count {
   display: block;
-  padding: 0 0.8rem;
-  border-radius: 5rem;
-  background-color: #E3E8EE;
-  color: #757575;
-  font-size: 1.5rem;
+  color: #2970FF;
+  font-size: 1.6rem;
+  font-weight: 700;
   line-height: 2.4rem;
 }
-.search_layout .search_layout_side .compare_box .compare_body .compare_label_wrap {
-  padding: 2rem 0;
+.search_layout .search_layout_side .compare_box .compare_header .compare_label_wrap {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
-  flex-wrap: nowrap;
+  width: 58%;
+  justify-content: flex-end;
 }
-.search_layout .search_layout_side .compare_box .compare_body .compare_label_wrap .label {
+.search_layout .search_layout_side .compare_box .compare_header .compare_label_wrap .label {
   font-size: 1.8rem;
   font-weight: 500;
   line-height: 2.2rem;
 }
-.search_layout .search_layout_side .compare_box .compare_body .compare_label_wrap .add_btn {
+.search_layout .search_layout_side .compare_box .compare_header .compare_label_wrap .add_btn {
   border-radius: 5rem;
   border: 1px solid #2970FF;
   width: 31px;
@@ -2467,7 +2458,7 @@ table.dataTable thead th, table.dataTable thead td {
   background-repeat: no-repeat;
   background-position: center center;
 }
-.search_layout .search_layout_side .compare_box .compare_body .compare_label_wrap .add_btn:hover {
+.search_layout .search_layout_side .compare_box .compare_header .compare_label_wrap .add_btn:hover {
   background-color: #2970FF;
   transition: 0.2s all;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='19' height='19' fill='none' viewBox='0 0 19 19'%3e%3cpath fill='%23ffffff' fill-rule='evenodd' d='M10.39 8.61h5.344a.89.89 0 1 1 0 1.78h-5.343v5.344a.89.89 0 1 1-1.782 0v-5.343H3.266a.89.89 0 1 1 0-1.782h5.343V3.266a.89.89 0 1 1 1.782 0v5.343Z' clip-rule='evenodd'/%3e%3c/svg%3e");
@@ -2476,7 +2467,8 @@ table.dataTable thead th, table.dataTable thead td {
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
-  padding-bottom: 2rem;
+  padding: 2rem 0;
+  height: 30rem;
   border-bottom: 1px solid #E3E8EE;
 }
 .search_layout .search_layout_side .compare_box .compare_body ul li {
@@ -2633,7 +2625,7 @@ table.dataTable thead th, table.dataTable thead td {
 }
 .content_search_section .search_input {
   padding: 1rem 1.6rem;
-  height: 4rem;
+  height: 3.8rem;
   background-color: #FFFFFF;
   border-radius: 0.4rem;
   width: calc(100% - 6.8rem);
@@ -2646,9 +2638,9 @@ table.dataTable thead th, table.dataTable thead td {
 .detail_search {
   display: flex;
   flex-direction: column;
-  gap: 1.8rem;
+  gap: 1.6rem;
   background-color: #F2F3F5;
-  padding: 2.6rem 4rem;
+  padding: 2.6rem 12rem 2.6rem 4rem;
   margin-top: 2.7rem;
   margin-bottom: 3rem;
 }
@@ -2658,7 +2650,7 @@ table.dataTable thead th, table.dataTable thead td {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 0.8rem;
+  gap: 4rem;
 }
 .detail_search .detail_search_section.section_border {
   padding: 2rem 0 0 0;
@@ -2668,7 +2660,7 @@ table.dataTable thead th, table.dataTable thead td {
 }
 .detail_search .detail_search_section .search_input {
   padding: 1rem 1.6rem;
-  height: 4rem;
+  height: 3.8rem;
   background-color: #FFFFFF;
   border-radius: 0.4rem;
   width: calc(100% - 6.8rem);
@@ -2680,13 +2672,14 @@ table.dataTable thead th, table.dataTable thead td {
 .detail_search .detail_search_section .content_search_label {
   display: flex;
   align-items: center;
+}
+.detail_search .detail_search_section .content_search_label.search_section {
   width: 100%;
 }
 .detail_search .detail_search_section .content_search_label span.label {
   white-space: nowrap;
   font-weight: 700;
   margin-right: 2rem;
-  min-width: 5rem;
 }
 
 .content_actions {
@@ -3115,21 +3108,21 @@ table.dataTable thead th, table.dataTable thead td {
   margin-bottom: 38px;
 }
 .login_header__title {
-  font-size: 3rem;
+  font-size: 4rem;
   font-weight: 700;
   margin-bottom: 0;
 }
 .login_header__desc {
-  color: #464646;
+  color: #333;
   font-weight: 500;
-  margin-top: 1rem;
+  margin-top: 1.6rem;
 }
 
 .login_form {
   display: flex;
   flex-direction: column;
   padding: 6rem 14rem;
-  gap: 1.4rem;
+  gap: 1rem;
   border: 1px solid #e1e1e1;
 }
 .login_form label {

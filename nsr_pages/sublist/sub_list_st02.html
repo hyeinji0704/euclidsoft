@@ -279,11 +279,84 @@
                                 <span class="date_tilde">~</span>
                                 <input type="text" id="reign_end" class="form_input date_picker" placeholder="YYYY-MM-DD" readonly />
                             </div>
+                        </div>  
+                        <div class="content_search_label search_section">
+                            <div class="input_group">
+                                <input type="text" class="search_input" placeholder="검색어를 입력하세요." id="searchInput">
+                                <button class="btn btn--search">검색</button>
+                            </div>
+                        </div>       
+                    </div>
+                 </div>
+                 <!-- 검색 영역 -->
+                 <div class="detail_search">
+                    <div class="detail_search_section">  
+                        <div class="content_search_label">
+                            <span class="label">국정제도</span>
+                            <div class="select_search">
+                                <select id="select-system" class="select_search__select">
+                                    <option value="">전체</option>
+                                    <option value="national">국정제도</option>
+                                    <option value="policy">정책 제도</option>
+                                    <option value="law">법 제도</option>
+                                    <option value="guideline">지침 제도</option>
+                                    <option value="etc">기타</option>
+                                </select>
+                            </div>
+                        </div> 
+                        <div class="content_search_label">
+                            <span class="label">정책수준</span>
+                            <div class="select_search">
+                                <select id="select-system" class="select_search__select">
+                                    <option value="">전체</option>
+                                    <option value="national">국정제도</option>
+                                    <option value="policy">정책 제도</option>
+                                    <option value="law">법 제도</option>
+                                    <option value="guideline">지침 제도</option>
+                                    <option value="etc">기타</option>
+                                </select>
+                            </div>
+                        </div> 
+                        <div class="content_search_label">
+                            <span class="label">정책구분</span>
+                            <div class="select_search">
+                                <select id="select-system" class="select_search__select">
+                                    <option value="">전체</option>
+                                    <option value="national">국정제도</option>
+                                    <option value="policy">정책 제도</option>
+                                    <option value="law">법 제도</option>
+                                    <option value="guideline">지침 제도</option>
+                                    <option value="etc">기타</option>
+                                </select>
+                            </div>
+                        </div>   
+                    </div>
+                    <div class="detail_search_section">
+                        <div class="content_search_label">
+                            <span class="label">조직 주요활동</span>
+                            <div class="select_search">
+                                <select id="select-system" class="select_search__select">
+                                    <option value="">전체</option>
+                                    <option value="national">국정제도</option>
+                                    <option value="policy">정책 제도</option>
+                                    <option value="law">법 제도</option>
+                                    <option value="guideline">지침 제도</option>
+                                    <option value="etc">기타</option>
+                                </select>
+                            </div>
+                        </div>   
+                         <div class="content_search_label search_section">
+                            <div class="input_group">
+                                <input type="text" class="search_input" placeholder="검색어를 입력하세요." id="searchInput">
+                                <button class="btn btn--search">검색</button>
+                            </div>
                         </div>      
                     </div>
-                    <div class="detail_search_section section_border">     
-                        <div class="content_search_label">
-                            <span class="label">검색</span>
+                 </div>
+                 <!-- 검색 영역 -->
+                 <div class="detail_search">
+                    <div class="detail_search_section">
+                         <div class="content_search_label search_section">
                             <div class="input_group">
                                 <input type="text" class="search_input" placeholder="검색어를 입력하세요." id="searchInput">
                                 <button class="btn btn--search">검색</button>
@@ -311,7 +384,7 @@
                             <tr>
                                 <th>NO.</th>
                                 <th>구분</th>
-                                <th>제목</th>
+                                <th >제목</th>
                                 <th>수집일시</th>
                                 <th>수집처</th>
                             </tr>
@@ -320,70 +393,70 @@
                             <tr>
                                 <td>10</td>
                                 <td>법</td>
-                                <td><a href="#" class="click_title" onclick="openCountryModal()">FISMA 2023</a></td>
+                                <td class="align_left"><a href="#" class="click_title" onclick="openCountryModal()">FISMA 2023</a></td>
                                 <td>2024.06.24</td>
                                 <td>UNIDIR</td>
                             </tr>
                             <tr>
                                 <td>9</td>
                                 <td>전략</td>
-                                <td><a href="#" class="click_title">Cybersecurity Strategy 2024-2030</a></td>
+                                <td class="align_left"><a href="#" class="click_title">Cybersecurity Strategy 2024-2030</a></td>
                                 <td>2024.06.24</td>
                                 <td>UNIDIR</td>
                             </tr>
                             <tr>
                                 <td>8</td>
                                 <td>지침</td>
-                                <td><a href="#" class="click_title">Supply Chain Management</a></td>
+                                <td class="align_left"><a href="#" class="click_title">Supply Chain Management</a></td>
                                 <td>2024.06.24</td>
                                 <td>NIST</td>
                             </tr>
                             <tr>
                                 <td>7</td>
                                 <td>법</td>
-                                <td><a href="#" class="click_title">AI Risk Assessment</a></td>
+                                <td class="align_left"><a href="#" class="click_title">AI Risk Assessment</a></td>
                                 <td>2024.06.24</td>
                                 <td>NIST</td>
                             </tr>
                             <tr>
                                 <td>6</td>
                                 <td>법</td>
-                                <td><a href="#" class="click_title">FISMA 2023</a></td>
+                                <td class="align_left"><a href="#" class="click_title">FISMA 2023</a></td>
                                 <td>2024.06.24</td>
                                 <td>UNIDIR</td>
                             </tr>
                             <tr>
                                 <td>5</td>
                                 <td>법</td>
-                                <td><a href="#" class="click_title">FISMA 2023</a></td>
+                                <td class="align_left"><a href="#" class="click_title">FISMA 2023</a></td>
                                 <td>2024.06.24</td>
                                 <td>UNIDIR</td>
                             </tr>
                             <tr>
                                 <td>4</td>
                                 <td>지침</td>
-                                <td><a href="#" class="click_title">Supply Chain Management</a></td>
+                                <td class="align_left"><a href="#" class="click_title">Supply Chain Management</a></td>
                                 <td>2024.06.24</td>
                                 <td>NIST</td>
                             </tr>
                             <tr>
                                 <td>3</td>
                                 <td>법</td>
-                                <td><a href="#" class="click_title">FISMA 2023</a></td>
+                                <td class="align_left"><a href="#" class="click_title">FISMA 2023</a></td>
                                 <td>2024.06.24</td>
                                 <td>UNIDIR</td>
                             </tr>
                             <tr>
                                 <td>2</td>
                                 <td>법</td>
-                                <td><a href="#" class="click_title">FISMA 2023</a></td>
+                                <td class="align_left"><a href="#" class="click_title">FISMA 2023</a></td>
                                 <td>2024.06.24</td>
                                 <td>UNIDIR</td>
                             </tr>
                             <tr>
                                 <td>1</td>
                                 <td>지침</td>
-                                <td><a href="#" class="click_title">Supply Chain Management</a></td>
+                                <td class="align_left"><a href="#" class="click_title">Supply Chain Management</a></td>
                                 <td>2024.06.24</td>
                                 <td>NIST</td>
                             </tr>
