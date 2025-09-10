@@ -1052,7 +1052,7 @@ input:placeholder-shown {
   outline-color: #B3B4BE;
 }
 input:not(:placeholder-shown):not(:focus) {
-  outline-color: #212121;
+  outline-color: #717171;
 }
 input:focus {
   outline: 1.5px solid #2970FF;
@@ -1116,7 +1116,7 @@ input.no-style:not(:placeholder-shown):not(:focus) {
   outline-color: #B3B4BE;
 }
 .input_table td input:not(:placeholder-shown):not(:focus) {
-  outline-color: #212121;
+  outline-color: #717171;
 }
 .input_table td input:focus {
   outline: 1.5px solid #2970FF;
@@ -1663,6 +1663,9 @@ input.no-style:not(:placeholder-shown):not(:focus) {
   max-width: 147px;
   font-weight: 700;
 }
+.meta_table th.border_right {
+  border-right: 1px solid #DDDDDD;
+}
 .meta_table td {
   background-color: #fff;
   width: 38%;
@@ -1992,22 +1995,10 @@ input.no-style:not(:placeholder-shown):not(:focus) {
 .tab_wrap .tab_list .tab_item.active {
   color: #FFFFFF;
   background: #212937;
-  position: relative;
   font-weight: 500;
-}
-.tab_wrap .tab_list .tab_item.active::after {
-  content: "";
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  background-color: #FFFFFF;
-  z-index: 10;
 }
 .tab_wrap .tab_content {
   display: none;
-  padding: 2rem 0 0 0;
 }
 .tab_wrap .tab_content.active {
   display: block;
@@ -2018,7 +2009,7 @@ input.no-style:not(:placeholder-shown):not(:focus) {
 .tab_wrap .inner_tab_wrap .inner_tab_list {
   display: flex;
   padding-top: 2rem;
-  margin-bottom: 1rem;
+  border-bottom: 1px solid #212937;
 }
 .tab_wrap .inner_tab_wrap .inner_tab_list .inner_tab_item {
   padding: 1rem 4rem;
@@ -2026,6 +2017,7 @@ input.no-style:not(:placeholder-shown):not(:focus) {
   border-width: 1px 0 1px 1px;
   border-style: solid;
   border-color: #DDDDDD;
+  background-color: #F0F0F0;
   transition: color 0.2s;
   color: #666;
 }
@@ -2033,29 +2025,40 @@ input.no-style:not(:placeholder-shown):not(:focus) {
   border-right: 1px solid #DDDDDD;
 }
 .tab_wrap .inner_tab_wrap .inner_tab_list .inner_tab_item.active {
-  font-weight: 500;
-  color: #1677FF;
-  border: 1px solid #1677FF;
+  font-weight: 700;
+  color: #212937;
+  border-width: 3px 1px 0 1px;
+  border-style: solid;
+  border-color: #212937;
+  background-color: #FFFFFF;
+  position: relative;
+}
+.tab_wrap .inner_tab_wrap .inner_tab_list .inner_tab_item.active::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background-color: #FFFFFF;
+  z-index: 10;
 }
 .tab_wrap .inner_tab_wrap .sub_tab_list {
   display: flex;
   padding-top: 2rem;
   margin-bottom: 2rem;
-  border-bottom: 1px solid #DDDDDD;
-  gap: 2.4rem;
+  gap: 3rem;
 }
 .tab_wrap .inner_tab_wrap .sub_tab_list .sub_tab_item {
   cursor: pointer;
   transition: color 0.2s;
-  font-weight: 500;
 }
 .tab_wrap .inner_tab_wrap .sub_tab_list .sub_tab_item span {
-  padding: 1rem 1rem;
   display: inline-block;
 }
 .tab_wrap .inner_tab_wrap .sub_tab_list .sub_tab_item.active span {
-  color: #1677FF;
-  border-bottom: 2px solid #1677FF;
+  font-weight: 700;
+  color: #2970FF;
 }
 .tab_wrap .inner_tab_wrap .inner_tab_content {
   display: none;
@@ -2106,7 +2109,7 @@ input.no-style:not(:placeholder-shown):not(:focus) {
 }
 .tab_wrap .analysis_box .analysis_search .section_border {
   padding: 2rem 0;
-  border-width: 1px 0 1px 0;
+  border-width: 1px 0 0 0;
   border-style: dashed;
   border-color: rgba(0, 0, 0, 0.12);
 }
@@ -2132,7 +2135,6 @@ input.no-style:not(:placeholder-shown):not(:focus) {
 
 .inner_tab_container {
   padding: 2.5rem 2.5rem 4.5rem 2.5rem;
-  border-top: 2px solid #000000;
   border-left: 1px solid #E3E8EE;
   border-right: 1px solid #E3E8EE;
   border-bottom: 1px solid #E3E8EE;
@@ -2444,7 +2446,8 @@ input.no-style:not(:placeholder-shown):not(:focus) {
 }
 .search_layout .search_layout_side .compare_box {
   padding: 2.4rem 2.4rem;
-  border: 1px solid #dadada;
+  border: 1px solid #EBEBEB;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08);
   border-radius: 1.6rem;
 }
 .search_layout .search_layout_side .compare_box .compare_header {
@@ -2470,11 +2473,15 @@ input.no-style:not(:placeholder-shown):not(:focus) {
   flex-direction: row;
   flex-wrap: nowrap;
   padding: 1.4rem 4rem 1.6rem 1.6rem;
-  background-color: rgba(2, 32, 71, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.24);
   border-radius: 0.8rem;
   gap: 1rem;
   position: relative;
   height: 33.33%;
+}
+.search_layout .search_layout_side .compare_box .compare_body ul li.active {
+  background-color: rgba(2, 32, 71, 0.05);
+  border: 0;
 }
 .search_layout .search_layout_side .compare_box .compare_body ul li:hover .remove_btn {
   display: inline-block;

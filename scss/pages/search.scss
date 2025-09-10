@@ -254,9 +254,11 @@
         min-width: 34rem;         
         box-sizing: border-box;
         align-self: flex-start;   
+        
         .compare_box {
             padding: 2.4rem 2.4rem;
-            border: 1px solid #dadada;
+            border: 1px solid #EBEBEB;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .08);
             border-radius: 1.6rem;
             .compare_header {
                 position: relative;
@@ -279,11 +281,16 @@
                     li {
                         @include base.flex(space-between, flex-start);
                         padding: 1.4rem 4rem 1.6rem 1.6rem;
-                        background-color: rgba(2,32,71,0.05);
+                        border: 1px solid rgba(0, 0, 0, 0.24);
+                        
                         border-radius: 0.8rem;
                         gap: 1rem;
                         position: relative;
                         height: 33.33%;
+                        &.active {
+                            background-color: rgba(2,32,71,0.05);
+                            border: 0;
+                        }
                         &:hover {
                             .remove_btn {
                                 display: inline-block; // hover 시 나타남

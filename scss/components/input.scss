@@ -27,7 +27,7 @@
   }
 
   &:not(:placeholder-shown):not(:focus) {
-    outline-color: colors.$text-color-primary;
+    outline-color: #717171;
   }
 
   &:focus {
