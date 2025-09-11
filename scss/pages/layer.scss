@@ -9,7 +9,6 @@
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 50000000;
-    display: none;
     min-width: 400px;
     max-width: calc(100vw - 40px);
     background-color: $white;
@@ -147,7 +146,7 @@
         left: 0;
         top: 0;
         z-index: 25000000;
-        background-color: rgba(255, 255, 255, .4);
+        background-color: rgba(0, 0, 0, .45);
         backdrop-filter: blur(3px);
         display: none;
         overflow-x: hidden;

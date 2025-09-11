@@ -1,0 +1,572 @@
+@use '../abstracts/colors' as *;
+@use '../base/base.scss' as *;
+@use '../base/typography.scss' as *;
+@use '../abstracts/variables' as *;
+
+@mixin flex-column-center($gap: null) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @if $gap != null {
+    gap: $gap;
+  }
+}
+
+
+.chatai-app {
+    height: 100vh;
+}
+
+// Chat AI main container
+.chat-main-container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding-top: 21rem;
+    @include flex-column-center;
+    
+
+    .chat-title {
+        @include flex-column-center;
+        
+        p {
+            color: #767676;
+            font-size: 1.4rem;
+            line-height: 2rem;
+            letter-spacing: -0.026rem;
+            padding: 0.4rem 1.4rem 0.6rem 1.4rem;
+            background-color: rgba(3, 52, 149, 0.05);
+            border-radius: 1rem;
+            display: inline-block;
+            span {
+                color: $brand-blue-primary;
+                font-family: Poppins;
+                font-weight: 500;
+            }
+            em {
+                font-size: 2rem;
+                color: #d9d9d9;
+                padding: 0 0.6rem;
+            }
+        }
+        h1 {
+            margin: 2.5rem 0 4.2rem 0;
+            display: flex;
+            img {
+                padding-right: 1.1rem;
+            }
+            font-size: 3.6rem;
+            font-weight: 500;
+            strong {
+                font-weight: 700;
+                padding-left: 0.6rem;
+            }
+        }
+    }
+}   
+
+
+// Chat input 
+.chat-input {
+    width: 100%;
+    padding: 0.5rem 0.5rem 0.8rem 0.5rem;
+    border-radius: 2rem;
+    background-color: #F2F5FA;
+    .chat-input__body {
+        padding: 1.4rem 1.5rem 1.6rem 1.5rem;
+        display: flex;
+        flex-direction: row-reverse;
+        flex-wrap: wrap;
+        border-radius: 1.6rem;
+        background-color: #fff;
+    }
+    textarea {
+        width: 100%;
+        min-height: 4.8rem;
+        max-height: 20rem;
+        font-size: 1.6rem;
+        resize: none;
+        overflow-y: auto;
+        &:placeholder {
+            color: #868686;
+        }
+    }
+    .chat-input__submit-wrapper {
+        display: flex;
+        width: 100%;
+        justify-content: flex-end;
+        .chat-input__submit {
+        width: 36px;
+        height: 36px;
+        border: none;
+        border-radius: 0.8rem;
+        cursor: pointer;
+        transition: background-color .2s;
+        background-color: $brand-blue-primary;
+
+        &:hover:not(:disabled) {
+            background-color: #7FA9FF;
+        }
+
+        &:disabled {
+            background-color: #7A7F87;
+            cursor: default;
+        }
+
+        &.is-loading {
+            background: #e4e4e4;
+            cursor: wait;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &::after {
+            content: "";
+            width: 16px; height: 16px;
+            border: 2px solid $brand-blue-primary;
+            border-top-color: transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            }
+        }
+    }
+    }
+    
+
+    @keyframes spin {
+    to { transform: rotate(360deg); }
+    }
+
+    // Chat input main
+    &--main {
+        .chat-input__body {
+            border: 2px solid #EEF3FB;
+        }
+        .chat-input__footer {
+            padding: 0.6rem .6rem 0 1.6rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            p {
+                letter-spacing: -0.32px;
+            }
+            .file-select {
+                display: flex;
+                gap: .5rem;
+                align-items: center;
+                color: #3E4656;
+                font-weight: 500;
+                font-size: 1.6rem;
+                letter-spacing: -0.032rem;
+                padding: .8rem 1.6rem;
+                border-radius: 5rem;
+                &:hover {
+                    background-color: #E1E5EB;
+                    transition: 0.5s;
+                }
+                .file_upload {
+                    width: 22px;
+                    height: 22px;
+                    background-color: #fff;
+                    border-radius: .4rem;
+                    box-shadow: 0 2px 4px 0 #DBE0E8;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    img {
+                        width: 1.6955rem;
+                        height: 1.6955rem;
+                        flex-shrink: 0;
+                        aspect-ratio: 1/1;
+                    }
+                }
+                &__label {
+                    margin-right: 1.6rem;
+                    line-height: 1.6rem;
+                    position: relative;
+                    strong {
+                        font-weight: 600;
+                        color: $brand-blue-primary;
+                        margin-left: .4rem;
+                    }
+                    &::after {
+                        position: absolute;
+                        top: 50%;
+                        right: -2rem;
+                        transform: translateY(-50%);
+                        content: "";
+                        width: 1.5rem;
+                        height: 1.5rem;
+                        background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='15' height='15' viewBox='0 0 15 15' fill='none'><path d='M4.83752 2.03385L10.1018 7.29818L4.83752 12.5625' stroke='%23767676' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/></svg>") no-repeat center / contain;
+                    }  
+                }
+            }
+        }
+    }
+} 
+
+
+
+// Chat AI popup 
+
+.chatai_layer {
+    position: fixed;
+    top: 18rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 50000000;
+    min-width: 698px;
+    background-color: $white;
+    border-radius: 18px;
+    box-shadow: 0 8px 20px 0 rgba(134, 122, 122, 0.08);
+    overflow: hidden;
+
+
+    .layer_header {
+        @include flex(space-between, center);
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: $white;
+        }
+        button {
+            width: 4rem;
+            height: 4rem;
+            padding: 2rem;
+            background: url(../img/icon/ic-modal-delete_w.svg) no-repeat center center;
+            background-size: 1.6rem;
+        }
+        padding: 1rem 1.5rem 1rem 3.5rem;
+        background-color: $brand-blue-bg-dark;
+        
+    }
+    .layer_container {
+        padding: 2rem 3.5rem ;
+        display: flex;
+        flex-direction: column;
+        gap: 3.8rem;
+        max-height: 700px;
+        overflow-y: auto;
+    } 
+    .chatai_popup__btn_wrap {
+        padding: 1rem 3.5rem 2.8rem 3.5rem;
+        display: flex;
+        justify-content: space-between;
+        gap: 0.8rem;
+        .chatai_popup_btn {
+            width: 100%;
+            text-align: center;
+            padding: 1rem 0;
+            background-color: #2970FF;
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.6rem;
+            height: 4.6rem;
+            border-radius: .4rem;
+            cursor: pointer;
+            span {
+                font-size: 14px;
+                font-weight: 400;
+                padding-left: 0.5rem;
+            }
+            &.reset {
+                width: 30%;
+                max-width: 129px;
+                color: #787878;
+                background-color: #fff;
+                border: 1px solid #979797;
+            }
+        }
+    }
+
+    
+   
+}
+
+
+
+ .layer_chatai_popup{
+     // Chat AI popup - tab style
+    .tab_wrap {
+        .tab_list {
+            display: flex;
+            margin-bottom: 2.4rem;
+            .tab_item {
+                padding: 1.9rem 2.4rem;
+                width: 33.33%;
+                cursor: pointer;
+                font-size: 1.8rem;
+                border-width: 0 0 1px 0;
+                border-style: solid;
+                border-color: #E6E6E6;
+                background: $white;
+                text-align: center;
+                color: #6B7280;
+                font-weight: 500;
+
+                &.active {
+                    color: #212937;
+                    border-bottom: 2.5px solid #2970FF;
+                    background: $white;
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+     // Chat AI popup - table style
+     .table-scroll {
+                max-height: 188px; /* 3줄 정도 높이 */
+                overflow-y: auto;
+        
+        .data_table {
+            
+            th {
+                background-color: #F4F5F7;
+                font-weight: 600;
+                color: #6C6E77;
+                border-top: 1px solid #E3E8EE;
+                border-bottom: 1px solid #E3E8EE;
+                position: sticky;
+                top: 0;
+                z-index: 1;
+            }
+            tr {
+                &:hover {
+                    background-color: transparent; // 배경 원래 색으로
+                    cursor: default;              // 포인터 대신 기본 커서
+                }
+            }
+            td {
+                &:not(:first-child) {
+                    padding: 12px 10px;
+                }
+                border-bottom: 1px solid #E3E8EE;
+                &.delete_btn {
+                    color: #FF4D4F;
+                    cursor: pointer;
+                    &:hover {
+                        text-decoration: underline ;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// chatai  file upload modal
+.file-upload-box {
+    margin-bottom: 2.4rem;
+    padding: 3.25rem 0 3.4rem 0;
+    border-radius: 5px;
+    background-color: transparent;
+    height: 150px;
+    width: 628px;
+    background-image: linear-gradient(to right, #BDC3D0 60%, transparent 50%), linear-gradient(to right, #BDC3D0 60%, transparent 60%), linear-gradient(to bottom, #BDC3D0 60%, transparent 60%), linear-gradient(to bottom, #BDC3D0 60%, transparent 60%);
+    background-position: left top, left bottom, left top, right top;
+    background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+    background-size: 10px 1px, 10px 1px, 1px 10px, 1px 10px;
+    @include flex-column-center(0.95rem);
+    .file-upload-icon {
+        width: 54px;
+        height: 53px;
+        aspect-ratio: 54/53;
+    }
+    .file-upload-text{
+        font-weight: 500;
+        label {
+            cursor: pointer;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+    }
+    
+
+    // -- 실제 input (숨김) --
+    .sr-only { 
+        position: absolute; 
+        width: 1px; 
+        height: 1px; 
+        padding: 0; 
+        margin: -1px; 
+        overflow: hidden; 
+        clip: rect(0,0,0,0); 
+        white-space: nowrap; 
+        border: 0; 
+    }
+}
+
+
+
+// Chat AI question & answer page
+.chatai-app--answer {
+    display: flex;
+    flex-direction: column; /* 세로 방향 flex */
+}
+.chatai-header {
+  width: 100%;
+  flex: 0 0 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem; 
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  transition: box-shadow 0.2s ;
+  &.is-scrolled {
+    box-shadow: 0 1px  rgba(0,0,0,0.08);
+  }
+  .logo {
+    margin: 0;
+    a {
+      display: block;
+      width: 288px;
+      height: 38px;
+      padding-right: 6rem;
+      background: url(../img/logo.svg) 0 0/auto 38px no-repeat;
+      position: relative;
+      &::after{
+        content: "Chat AI";
+        top: 50%;
+        right: .8rem;
+        transform: translateY(-50%);
+        margin-top: 0.4rem;
+        position: absolute;
+        color: #2970FF;
+        font-family: Poppins;
+        font-size: 11px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 140%; /* 15.4px */
+        background-color: rgba(3, 52, 149, 0.05);
+        border-radius: .4rem;
+        padding: .4rem .6rem;
+      }
+    }
+  }
+  .newchat-btn{ 
+    background: url(../../img/chatai/newchat_icon.svg) no-repeat center center;
+  background-size: 2rem; // 아이콘 크기 조절하고 싶으면 추가
+    color: #fff;
+    line-height: 0;
+    font-size: 0;
+    width: 4rem;
+    height: 4rem;
+    border-radius: .4rem;
+    cursor: pointer;
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.06);
+        transition: 0.2s;
+    }
+  }
+}
+
+/* 본문: 전체 폭 */
+.chat-main {
+  flex: 1 1 auto;
+  width: 100%;
+  overflow-y: auto;
+  padding: 12px 0;
+}
+
+.chat-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0 16px;
+  margin: 0 auto;
+  max-width: 768px;
+}
+
+/* 입력창만 중앙 768px 고정 */
+.chat-input {
+  width: 100%;
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;  /* 중앙 정렬 */
+  &--question {
+    border-top: 1px solid transparent;
+    border-radius: 0;
+    padding: 0;
+    background-color: transparent;
+    .chat-input__body {
+        padding: 0;
+        flex-direction: column;
+        width: 100%;
+        max-width: 768px;  /* 여기만 폭 고정 */
+        margin: 15px auto;
+        border-radius: 1.2rem;
+        border: 1px solid #0000002e;
+        background: #FFF;
+        box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.055);
+        overflow: hidden;
+        .chat-input__field-wrapper {
+            padding: 1.2rem 1.6rem;
+        }
+    }
+    .chat-input__footer {
+        padding: 1.2rem 1.6rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid #F5F5F5;
+        background-color: #FAFAFA;
+        
+        p {
+            letter-spacing: -0.32px;
+        }
+        .file-select {
+            display: flex;
+            gap: .5rem;
+            align-items: center;
+            color: #3E4656;
+            font-weight: 500;
+            font-size: 1.6rem;
+            letter-spacing: -0.032rem;
+            padding: .8rem 1.6rem;
+            border-radius: 5rem;
+            background-color: #fff;
+            border: 1px solid #EEE;
+            box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.05);
+            &:hover {
+                background-color: #E1E5EB;
+                transition: 0.5s;
+            }
+            .file_upload {
+                width: 22px;
+                height: 22px;
+                background-color: #fff;
+                border-radius: .4rem;
+                box-shadow: 0 2px 4px 0 #DBE0E8;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img {
+                    width: 1.6955rem;
+                    height: 1.6955rem;
+                    flex-shrink: 0;
+                    aspect-ratio: 1/1;
+                }
+            }
+            &__label {
+                margin-right: 0;
+                line-height: 1.6rem;
+                position: relative;
+                strong {
+                    font-weight: 600;
+                    color: $brand-blue-primary;
+                    margin-left: .4rem;
+                }
+                &::after {
+                    position: relative;
+                }  
+            }
+        }
+    }
+  }
+
+}

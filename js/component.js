@@ -249,7 +249,7 @@ $(function () {
     if ($(this).hasClass('nsr_layer') && !$(e.target).hasClass('nsr_layer')) return;
 
     $('.nsr_layer').css('display', 'none'); // 오버레이 숨기기
-    $('.over_layer').css('display', 'none'); // 모든 모달 숨기기
+    $('.over_layer, .chatai_layer').css('display', 'none'); // 모든 모달 숨기기
   });
 
 });
