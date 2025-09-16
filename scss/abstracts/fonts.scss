@@ -79,8 +79,29 @@
 }
 
 
+// Poppins 폰트 파일의 로컬 경로를 지정합니다.
+// 이 경로는 실제 프로젝트 구조에 맞게 수정해야 합니다.
+
+@font-face {
+  font-family: 'Poppins';
+  font-weight: 300;
+  src: local('Poppins Light'),
+       url('../fonts/Poppins-Light.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-weight: 500;
+  src: local('Poppins Medium'),
+       url('../fonts/Poppins-Medium.woff2') format('woff2');
+  font-display: swap;
+}
+
+
+
 // 기본 폰트 패밀리 변수
-$font-family-primary: 'Pretendard', 'SUITE', sans-serif;
+$font-family-primary: 'Pretendard', 'Poppins', 'SUITE', sans-serif;
 
 // 폰트 두께 변수 (편의를 위해)
 $font-weight-thin: 100;

@@ -53,6 +53,18 @@
   src: local("Pretendard Black"), url("../fonts/Pretendard-Black.woff") format("woff");
   font-display: swap;
 }
+@font-face {
+  font-family: "Poppins";
+  font-weight: 300;
+  src: local("Poppins Light"), url("../fonts/Poppins-Light.woff2") format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins";
+  font-weight: 500;
+  src: local("Poppins Medium"), url("../fonts/Poppins-Medium.woff2") format("woff2");
+  font-display: swap;
+}
 /* Minimal Reset */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -80,7 +92,7 @@ img {
 
 /* 기타 필요한 리셋 스타일 추가 */
 body {
-  font-family: "Pretendard", "SUITE", sans-serif;
+  font-family: "Pretendard", "Poppins", "SUITE", sans-serif;
   font-weight: 400;
   font-size: 15px;
   line-height: 1.5;
@@ -88,7 +100,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Pretendard", "SUITE", sans-serif;
+  font-family: "Pretendard", "Poppins", "SUITE", sans-serif;
   line-height: 1.2;
 }
 
@@ -849,6 +861,21 @@ html {
   position: relative;
 }
 .btn--download span::after {
+  position: absolute;
+  width: 1.8rem;
+  height: 1.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0.3rem;
+  background: url(../img/icon/ic-download.svg) no-repeat center center;
+  content: "";
+}
+
+#file_nm a {
+  position: relative;
+  padding-right: 2.6rem;
+}
+#file_nm a::after {
   position: absolute;
   width: 1.8rem;
   height: 1.8rem;
